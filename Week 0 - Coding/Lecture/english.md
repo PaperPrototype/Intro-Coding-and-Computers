@@ -1,9 +1,9 @@
 # Intro
 Computers have a language that they understand, positive `+` and negative `-` electric signals. We usually use the symbol `1` to represent positive and `0` to represent negative. Computer nerds like to say that these two symbols are enough to make a language and a number system. That language and number system is called "binary". 
 
-How does "binary" live in the computer? Millions and millions of switches, representing on, a positive electric charge, or off, a negative electric charge. Each electric charge is called a "bit", standing for "binary digit".
+How does "binary" live in the computer? Millions and millions of switches, representing on (a positive electric charge) or off (a negative electric charge). Each electric charge is called a "bit", standing for "binary digit".
 
-When we are "coding" it just means we are writing instructions for a computers "processor" (a processor takes tons of off and on signals and "processes" them). In coding we put a bunch of instructions into a file in the form of bits (binary digits) or binary. We call these files a "program". A simple program could tell the computer to display the word "hello" on the screen.
+When we are "coding" it just means we are writing instructions for a computers "processor" (a processor takes tons of `off` and `on` signals and "processes" them). In coding we put a bunch of instructions into a file in the form of bits (binary digits) or binary. We call these files a "program". A simple program could tell the computer to display the word "hello" on the screen.
 
 If we wanted to write a program we could use binary, the 0's and 1's language... That would be really hard. Thankfully though some smart people made a *program* that took some *word* based instructions from a file and turned them into binary instructions in another file for us!
 
@@ -16,9 +16,9 @@ When a computers processor is made it comes with a few builtin instructions. In 
 You can think of these "word" based programming languages as if you were looking from a very high mountain at a pasture of rocks. From your perspective those rocks are in the shape of some words! But if you looked at them up close you would see that they are rocks. Because of this word based programming languages are often called "high level" languages because they don't make us look really closely at the bits (AKA 0's and 1's), while a language like binary is called a "low level" programming language.
 
 # Scratch, your first language
-Lets use a program*ing* language (that will be compiled into 0's and 1's by a compiler) to get the computer to say the word "Hello!" (Well ok, *this* programming language doens't get converted to 0's and 1's because it is running in the browser).
+Lets use a program*ing* language (that will be compiled into 0's and 1's by a compiler) to get the computer to say the word "Hello!" (Well ok, *this* programming language doesn't get converted to 0's and 1's because it is running in the browser).
 
-We will use a programming language called scratch, that automatically makes sure we write our programs with correct syntax, because getting used to a programming languages syntax can take a long time (remember syntax makes it so that the compiler can fiqure out how to convert our instructions into 0's and 1's). Scratch runs in your Browser so you don't have to download anything! Just go to (scratch.mit.edu)[https://scratch.mit.edu/] and and click on the "Create" or "Start Creating" button highlighted in the picture.
+We will use a programming language called scratch, that automatically makes sure we write our programs with correct syntax, because getting used to a programming languages syntax can take a long time (remember syntax makes it so that the compiler can figure out how to convert our instructions into 0's and 1's). Scratch runs in your Browser so you don't have to download anything! Just go to (scratch.mit.edu)[https://scratch.mit.edu/] and and click on the "Create" or "Start Creating" button highlighted in the picture.
 
 !(create first scratch project)[/Assets/create_first_scratch_project.png]
 
@@ -47,32 +47,20 @@ So we need to tell the computer when the cat should say hello? How about *in a r
 Now if we click the green flag the cat will say hello!
 
 # Conclusion
-What have we learned. Computers understand everything in binary (0's and 1's) but writing instructions for a computer in binary is hard. So some people made Compilers that take word based instructions and turn them into binary. We often call our word based instructions (that the compiler turns into binary) a programming language. Programming languages have to follow strict syntax rules so that the compiler can turn the words into the few binary instructions that our computer processors understand.
+What have we learned? Computers understand everything in binary (0's and 1's) but writing instructions for a computer in binary is hard. So some people made Compilers that take word based instructions and turn them into binary. We often call our word based instructions (that the compiler turns into binary) a programming language. Programming languages have to follow strict syntax rules so that the compiler can turn the words into the few binary instructions that our computer processors understand.
 
 # Binary
-So how can we make instructions out of just 0's and 1's in this arcane (meaning mysterious or secret) language? Lets start by understanding how we can count using only 0 and 1.
+How do we represent letters and numbers using this mysterious language called binary? Lets start by learning how we can represent numbers using only two symbols, `0` and `1`.
 
-In the "decimal" or normal number system we have ten symbols to work with `0, 1, 2, 3, 4, 5, 6, 7, 8, 9`. This is why people will say the decimal number system has a "base" of ten.
+In the "decimal" (tens) number system we have ten symbols to work with, `0, 1, 2, 3, 4, 5, 6, 7, 8, 9`. This is why people will say the decimal number system has a "base" of ten.
 
-In binary we only have two symbols `0, 1` and that is why it is called a base of 2. We can make 0 represent 0 and 1 represent 1.
+We will make a number system like the tens system except using binary.
 
-Now why count from 0? If we don't include zero we will never be able to use 0 since there is no way to represent it. So we have to include 0 in the representation of numbers. Also its really easy to represent zero.
+In binary we only have two symbols `0, 1` and that is why number represented in binary are said to have a base of 2.
 
-Lets count to 4 from 0 using decimal numbers.
+In binary we can have `0` represent the value 0, and `1` represent the value 1.
 
-0
-1
-2
-3
-4
-
-Ok now lets try with binary.
-
-0
-1
-... uh
-
-Now we've run out of symbols! But what do we do when we run out of symbols in the decimal number system?
+But that doesn't get us very far! To solve this, we can look at how the decimal (tens) system counts farther than 9.
 
 ```
 0
@@ -88,11 +76,11 @@ Now we've run out of symbols! But what do we do when we run out of symbols in th
 10 <- we move 1 over and put a zero!
 ```
 
-Ok, so if we want to go beyond the number of symbols we have, we have to move the 1 over.
+If we copy the decimal (tens) system we can go beyond the number of symbols we have by moving the `1` over and continuing to count.
 
 ```
 (binary) 0, 1, 10 and...
-(normal) 0, 1, 2...
+(decimal) 0, 1, 2...
 ```
 
 Interesting we carry the 1 over once the number system reaches its "base" number, so once we try to reach the number 2 in binary we have to move the 1 over, because 2 is binary's base number. In the decimal system we move the 1 over only if we reach ten.
