@@ -20,7 +20,7 @@ Lets use a program*ing* language (that will be compiled into 0's and 1's by a co
 
 We will use a programming language called scratch, that automatically makes sure we write our programs with correct syntax, because getting used to a programming languages syntax can take a long time (remember syntax makes it so that the compiler can figure out how to convert our instructions into 0's and 1's). Scratch runs in your Browser so you don't have to download anything! Just go to (scratch.mit.edu)[https://scratch.mit.edu/] and and click on the "Create" or "Start Creating" button highlighted in the picture.
 
-!(create first scratch project)[/Assets/create_first_scratch_project.png]
+![create first scratch project](/Assets/create_first_scratch_project.png)
 
 (You will need to make an account on the scratch website if you want to save this project we will make)
 
