@@ -26,23 +26,23 @@ We will use a programming language called scratch, that automatically makes sure
 
 A tutorial should pop up, feel free to follow the tutorial and then keep reading this. Or just close it and keep reading.
 
-!(close tutorial popup)[/Assets/close_tutorial_popup.png]
+![close tutorial popup](/Assets/close_tutorial_popup.png)
 
 Now click on the cat to select it and lets add some code to it (remember "code" is another way of saying "instructions").
 
-!(click on cat then add code)[/Assets/click_on_cat_add_code.png]
+![click on cat then add code](/Assets/click_on_cat_add_code.png)
 
 Scratch doesn't make us type words, instead it gives us puzzle pieces with words on them. Because they are puzzle pieces they only fit together if the syntax is correct. If we were using another programming language we would have to type those words manually and make sure they are following the rules of syntax. So yeah, scrath makes it much easier so you don't have to worry about "syntax". But scrathc still lets us see how syntax would work if we were typing it manually.
 
 Go to the "looks" tab and drag the code block that says "say Hello!" onto the code area. You can change the word "Hello!" to whatever you want.
 
-!(add say code block)[/Assets/scratch_add_code.png]
+![add say code block](/Assets/scratch_add_code.png)
 
 Now click the green flag to see the cat say "hello!"! Wait why didn't the cat say hello!?... The problem is that we didn't tell the computer "when" to say hello. Yes, computers only do EXACTLY what we tell them.
 
 So we need to tell the computer when the cat should say hello? How about *in a robotic voice* "When. green. flag. clicked. say. hello.". Sounds good, and scratch gives us a code block called "When green flag clicked" in the "Events" tab. Drag the "When green flag clicked" block into the code area and attatch the "Say Hello!" block under it.
 
-!(scratch first working code)[/Assets/scratch_first_working_code.png]
+![scratch first working code](/Assets/scratch_first_working_code.png)
 
 Now if we click the green flag the cat will say hello!
 
@@ -79,65 +79,79 @@ But that doesn't get us very far! To solve this, we can look at how the decimal 
 If we copy the decimal (tens) system we can go beyond the number of symbols we have by moving the `1` over and continuing to count.
 
 ```
-(binary) 0, 1, 10 and...
+(binary) 0, 1, 10...
 (decimal) 0, 1, 2...
 ```
 
-Interesting we carry the 1 over once the number system reaches its "base" number, so once we try to reach the number 2 in binary we have to move the 1 over, because 2 is binary's base number. In the decimal system we move the 1 over only if we reach ten.
-
-Now how about counting past three? How do we carry that over? Well we need another digit. If we maxed out the tens system `99 + 1 = 100` we have to grow, move the 1 over, and add another 0.
+But how do we count to three? Well what do we do in the decimal (tens) system when we reach ten? We move the one over!...
 
 ```
-binary  (4) + (2) + (1)
-         1  +  0  +  0    = 100 = 4 (four)
-
-decimal (100) + (10) + (1)
-         1    +  0   +  0       = 100 (one hundred)
+1
+2
+3
+...
+8
+9
+10
+100?
 ```
 
-In the decimal system, every time we carry a 1 over we increase the number by a multiple of ten (10, 100, 1000, 10000). But in binary, we increase the number by a multiple of two.
+Uhhh, no! We increase the zero, AKA the ones place.
 
 ```
-binary  (16) + (8) + (4) + (2) + (1)
-         0      1     0     0     0    = 01000 = 8 (eight)
-
-decimal (10000) + (1000) + (100) + (10) +(1)
-         0         1        0       0     0    = 1000 (one thousand)
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
 ```
 
-# hexadecimal
-Lets add another number system to the mix. It has a base of sixteen.
-
-the symbols it uses are `0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F`.
-
-So we can count up to sixteen without needing to add another digit.
 
 ```
-(read) tens    hexadecimal  binary
---->   0   =   0    =        0    
-       1   =   1    =        1    
-       2   =   2    =        10    (2)
-       3   =   3    =        11    (2 + 1)
-       4   =   4    =        100   (4)
-       5   =   5    =        101   (4 + 1)
-       6   =   6    =        110   (4 + 2)
-       7   =   7    =        111   (4 + 2 + 1)
---->   8   =   8    =        1000  (8)
---->   9   =   9    =        1001  (8 + 1)
-       10  =   A    =        1010  (8 + 2)
-       11  =   B    =        1011  (8 + 2 + 1)
-       12  =   C    =        1100  (8 + 4)
-       13  =   D    =        1101  (8 + 4 + 1)
-       14  =   E    =        1110  (8 + 4 + 2)
-       15  =   F    =        1111  (8 + 4 + 2 + 1)
---->   16  =   10   =        10000 (16)
-       17  =   11   =        10001 (16 + 1)
+DECIMAL SYSTEM (0, 1, 2, 3, 4, 5, 6, 7, 8, 9) (10 is not a symbol but two, 1 and 0)
+
+base ---> (100) + (10) + (1) <- multiply by the base
+(decimal)  0    +  0   +  4  =  0 + 0 + 4  = 4
+(decimal)  0    +  0   +  5  =  0 + 0 + 5  = 5
+(decimal)  0    +  0   +  6  =  0 + 0 + 6  = 6
+(decimal)  0    +  0   +  7  =  0 + 0 + 7  = 7
+(decimal)  0    +  0   +  8  =  0 + 0 + 8  = 8
+(decimal)  0    +  0   +  9  =  0 + 0 + 9  = 9
+(decimal)  0    +  1   +  0  =  0 + 10 + 0  = 10
+(decimal)  0    +  1   +  1  =  0 + 10 + 1  = 11
+(decimal)  0    +  1   +  2  =  0 + 10 + 2  = 12
 ```
-(It took me 30 miutes to figure out the binary equivalents)
 
-People find hexadecimal more easy than binary because it can represent larger numbers with less digits. Also you will notice that hexadecimal lines up pretty well with binary since 16 is a multiple of 2 (binary has a base of 2).
+```
+BINARY (0, 1) SYSTEM
 
-# Numbers represent letters
+base ---> (4) + (2) + (1) <- multiply by the base
+(binary)   0  +  0  +  1  =  0 + 0 + 1
+(binary)   0  +  1  +  0  =  0 + 2 + 0
+(binary)   0  +  1  +  1  =  0 + 2 + 1
+(binary)   1  +  0  +  0  =  4 + 0 + 0
+(binary)   1  +  0  +  1  =  4 + 0 + 1
+(binary)   1  +  1  +  0  =  4 + 2 + 0
+(binary)   1  +  1  +  1  =  4 + 2 + 1
+```
+
+To count further you want to add another base number. Because binary has a "base" of 2 every base number will be a multiple of 2, although we start the base with 1, otherwise we wouldn't be able to have odd numbers (AKA 3, 5, 7...). Here are some of the base numbers for binary `1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048...`.
+
+# Numbers can represent letters
 Now that we can use binary (0's and 1's) to represent numbers we can use those numbers to represent letters. For example the letter "H" could be represented by "16", or in hexadecimal "F". 
 
 If we want to tell the computer to say "Hello!", or actually just the letter "H", all we have to do is tell the computer *when* the number 16 should represent "H".
@@ -428,3 +442,43 @@ We use 1 byte for each color and this gives us numbers ranging from 0 to 255. If
 
 !(yellow color)[]
 
+
+# hexadecimal
+Lets add another number system to the mix. It has a base of sixteen.
+
+the symbols it uses are `0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F`.
+
+So we can count up to sixteen without needing to add another digit.
+
+```
+base ------>  (128) + (64) + (32) + (16) <--- multiply by the base
+(hexadecimal)  1    +  0   +  0   +  0    (01000) = 8 (eight)
+
+base ---> (10000) + (1000) + (100) + (10) + (1) <--- multiply by the base
+(decimal)  0      +  2     +  0    +  0   +  0    = 2000 (two thousand)
+```
+
+```
+       tens    hexadecimal   binary
+--->   0   =   0    =        0    
+       1   =   1    =        1    
+       2   =   2    =        10    (2)
+       3   =   3    =        11    (2 + 1)
+       4   =   4    =        100   (4)
+       5   =   5    =        101   (4 + 1)
+       6   =   6    =        110   (4 + 2)
+       7   =   7    =        111   (4 + 2 + 1)
+--->   8   =   8    =        1000  (8)
+--->   9   =   9    =        1001  (8 + 1)
+       10  =   A    =        1010  (8 + 2)
+       11  =   B    =        1011  (8 + 2 + 1)
+       12  =   C    =        1100  (8 + 4)
+       13  =   D    =        1101  (8 + 4 + 1)
+       14  =   E    =        1110  (8 + 4 + 2)
+       15  =   F    =        1111  (8 + 4 + 2 + 1)
+--->   16  =   10   =        10000 (16)
+       17  =   11   =        10001 (16 + 1)
+```
+(It took me 30 miutes to figure out the binary equivalents)
+
+People find hexadecimal more easy than binary because it can represent larger numbers with less digits. Also you will notice that hexadecimal lines up pretty well with binary since 16 is a multiple of 2 (binary has a base of 2).
