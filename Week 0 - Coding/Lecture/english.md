@@ -151,47 +151,107 @@ base ---> (4) + (2) + (1) <- multiply by the base
 
 To count further you want to add another base number. Because binary has a "base" of 2 every base number will be a multiple of 2, although we start the base with 1, otherwise we wouldn't be able to have odd numbers (AKA 3, 5, 7...). Here are some of the base numbers for binary `1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048...`.
 
-# Numbers can represent letters
-Now that we can use binary (0's and 1's) to represent numbers we can use those numbers to represent letters. For example the letter "H" could be represented by "16", or in hexadecimal "F". 
+Another name you could call the binary system is "duo-decimal".
 
-If we want to tell the computer to say "Hello!", or actually just the letter "H", all we have to do is tell the computer *when* the number 16 should represent "H".
+# hexadecimal
+Lets add another number system to the mix.
 
-Now we just need to make a large list of numbers that represent letters. As you might have guessed there is already a "standard" that us nerds have made. Its called ASCII which stands for American Standard Code for Information Interchange. Below is the ASCII "encoding" of latin based characters letters and symbols
+the symbols it uses are `0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F`. We use the decimal symbols for 0 to 9 and then the alphabetical symbols for 10 (A) to 15 (F). Hexadecimals base is 16 (sixteen).
+
+So we can count up to 15 without needing to add another digit.
 
 ```
-       number   letter/symbol
-ascii code	0	NULL	(Null character)			
-ascii code	1	SOH	(Start of Header)			
-ascii code	2	STX	(Start of Text)			
-ascii code	3	ETX	(End of Text)			
-ascii code	4	EOT	(End of Transmission)			
-ascii code	5	ENQ	(Enquiry)			
-ascii code	6	ACK	(Acknowledgement)			
-ascii code	7	BEL	(Bell)			
-ascii code	8	BS	(Backspace)			
-ascii code	9	HT	(Horizontal Tab)			
-ascii code	10	LF	(Line feed)			
-ascii code	11	VT	(Vertical Tab)			
-ascii code	12	FF	(Form feed)			
-ascii code	13	CR	(Carriage return)			
-ascii code	14	SO	(Shift Out)			
-ascii code	15	SI	(Shift In)			
-ascii code	16	DLE	(Data link escape)			
-ascii code	17	DC1	(Device control 1)			
-ascii code	18	DC2	(Device control 2)			
-ascii code	19	DC3	(Device control 3)			
-ascii code	20	DC4	(Device control 4)			
-ascii code	21	NAK	(Negative acknowledgement)			
-ascii code	22	SYN	(Synchronous idle)			
-ascii code	23	ETB	(End of transmission block)			
-ascii code	24	CAN	(Cancel)			
-ascii code	25	EM	(End of medium)			
-ascii code	26	SUB	(Substitute)			
-ascii code	27	ESC	(Escape)			
-ascii code	28	FS	(File separator)			
-ascii code	29	GS	(Group separator)			
-ascii code	30	RS	(Record separator)			
-ascii code	31	US	(Unit separator)			
+HEXADECIMAL SYSTEM
+
+base ------>  (128) + (64) + (32) + (16) + (1) <--- multiply by the base
+(hexadecimal)  0    +  0   +  0   +  0   +  1  =  0 + 0 + 0 + 1  =  1
+(hexadecimal)  0    +  0   +  0   +  0   +  2  =  0 + 0 + 0 + 2  =  2
+...
+(hexadecimal)  0    +  0   +  0   +  0   +  9  =  0 + 0 + 0 + 2  =  2
+(hexadecimal)  0    +  0   +  0   +  0   +  A  =  0 + 0 + 0 + 2  =  2
+(hexadecimal)  0    +  0   +  0   +  0   +  B  =  0 + 0 + 0 + 2  =  2
+(hexadecimal)  0    +  0   +  0   +  0   +  C  =  0 + 0 + 0 + 2  =  2
+(hexadecimal)  0    +  0   +  0   +  0   +  D  =  0 + 0 + 0 + 2  =  2
+(hexadecimal)  0    +  0   +  0   +  0   +  E  =  0 + 0 + 0 + 2  =  2
+(hexadecimal)  0    +  0   +  0   +  0   +  F  =  0 + 0 + 0 + 15  =  15 <--- up to 15 without extra digits
+(hexadecimal)  0    +  0   +  0   +  1   +  0  =  0 + 0 + 16 + 1  =  16
+(hexadecimal)  0    +  0   +  0   +  1   +  1  =  0 + 0 + 16 + 2  =  17
+(hexadecimal)  0    +  0   +  0   +  1   +  2  =  0 + 0 + 16 + 3  =  18
+```
+
+We can make a chart showing each number systems values side-by-side.
+
+```
+    decimal  hexadecimal   binary
+    0   =    0    =        0     (0)
+    1   =    1    =        1     (1)
+    2   =    2    =        10    (2 + 0)
+    3   =    3    =        11    (2 + 1)
+    4   =    4    =        100   (4 + 0 + 0)
+    5   =    5    =        101   (4 + 0 + 1)
+    6   =    6    =        110   (4 + 2 + 0)
+    7   =    7    =        111   (4 + 2 + 1)
+    8   =    8    =        1000  (8 + 0 + 0 + 0)
+    9   =    9    =        1001  (8 + 0 + 0 + 1)
+    10  =    A    =        1010  (8 + 0 + 2 + 0)
+    11  =    B    =        1011  (8 + 0 + 2 + 1)
+    12  =    C    =        1100  (8 + 4 + 0 + 0)
+    13  =    D    =        1101  (8 + 4 + 0 + 1)
+    14  =    E    =        1110  (8 + 4 + 2 + 0)
+    15  =    F    =        1111  (8 + 4 + 2 + 1)
+    16  =    10   =        10000 (16 + 0 + 0 + 0 + 0)
+    17  =    11   =        10001 (16 + 0 + 0 + 0 + 1)
+```
+(It took me 30 miutes to figure out the binary equivalents)
+
+People find hexadecimal more easy than binary because it can represent larger numbers with less digit, so often you will see hexadecimal in place of binary. Also you will notice that hexadecimal lines up pretty well with binary since 16 is a multiple of 2 (which is binary's base).
+
+If you are really geeking out right now try to make a number system with a base of 8, or 5, or 6! 
+
+There is a number system called trinary that has a base of 3. Quantum computer use trinary because the switches in a quantum computer can be on, off, or half way. You could use the symbols 1 (on) -1 (off) and 0 (half way) for trinary... or really any symbols.
+
+# Numbers can represent letters
+Now that we can use binary (`0`'s and `1`'s) to represent numbers, we can use those numbers to represent letters! For example the letter "H" could be represented by the number "15", or in hexadecimal "F".
+
+If we want to tell the computer to say "Hello!", or actually just the letter "H", all we have to do is tell the computer *when* the number 15 should represent "H". In binary then "H" would be `1111` -> (8 + 4 + 2 + 1).
+
+Now we just need to make a long list of what numbers should map to what letters. As you might have guessed there is already a "standard" that us nerds have made. Its called ASCII which stands for American Standard Code for Information Interchange. Below is the ASCII "encoding" of latin based characters letters and symbols
+
+```
+ASCII ENCODING
+            num  letter/symbol
+ascii code	0	 NULL	(Null character)			
+ascii code	1    SOH	(Start of Header)			
+ascii code	2	 STX	(Start of Text)			
+ascii code	3	 ETX	(End of Text)			
+ascii code	4	 EOT	(End of Transmission)			
+ascii code	5	 ENQ	(Enquiry)			
+ascii code	6	 ACK	(Acknowledgement)			
+ascii code	7	 BEL	(Bell)			
+ascii code	8	 BS	    (Backspace)			
+ascii code	9	 HT	    (Horizontal Tab)			
+ascii code	10	 LF	    (Line feed)			
+ascii code	11	 VT	    (Vertical Tab)			
+ascii code	12	 FF	    (Form feed)			
+ascii code	13	 CR	    (Carriage return)			
+ascii code	14	 SO	    (Shift Out)			
+ascii code	15	 SI	    (Shift In)			
+ascii code	16	 DLE	(Data link escape)			
+ascii code	17	 DC1	(Device control 1)			
+ascii code	18	 DC2	(Device control 2)			
+ascii code	19	 DC3	(Device control 3)			
+ascii code	20	 DC4	(Device control 4)			
+ascii code	21	 NAK	(Negative acknowledgement)			
+ascii code	22	 SYN	(Synchronous idle)			
+ascii code	23	 ETB	(End of transmission block)			
+ascii code	24	 CAN	(Cancel)			
+ascii code	25	 EM	    (End of medium)			
+ascii code	26	 SUB	(Substitute)			
+ascii code	27	 ESC	(Escape)			
+ascii code	28	 FS	    (File separator)			
+ascii code	29	 GS	    (Group separator)			
+ascii code	30	 RS	    (Record separator)			
+ascii code	31	 US	    (Unit separator)			
 						
 ascii code	32	 	(space)			
 ascii code	33	!	(exclamation mark)			
@@ -421,64 +481,32 @@ ascii code	255	nbsp	(non-breaking space or no-break space)
 ```
 (taken from https://theasciicode.com.ar/ascii-codes.txt)
 
-Its pretty long. But even still it doesn't cover all the possibility's! This is because we only use 8 bits (eight 0's and 1's) to for our ASCII encoding. Using only 8 bits for our binary number only lets us count from 0 to 255. Remember everything in computers is really just binary.
+Its pretty long. But even still it doesn't cover all the possibility's! This is because we only use 8 bits (eight 0's and 1's). Using only 8 bits for our binary number only lets us count from 0 to 255, giving us 256 possible symbols! 
 
-Why 8 bits? and not 7? or 3? Modern computers store everything in sets of 8 bits, that we call a "byte". A byte is 8 bits.
+Why 8 bits? and not 7 or 3 bits? Modern computers store everything in sets of 8 bits so that every memory location will hold 8 bits instead of just 1. Doing this increases the speed we can access memeory by 8x.
 
-What about emoji's? ASCII doesn't support emoji's. According to Wikipedia the ASCII encoding was invented in 1963! 
+There is a short name for "8 bits" called a "byte". Whenever someone says "byte" they are just refering to a block of memory that is 8 bits long. This is very common as litterally every computer these days stores memory in bytes (AKA a set of 8 bits).
 
-A new modern encoding called Unicode is based off of the ASCII encoding with the encoding for the numbers 0 to 255 being the same as ASCII except that Unicode adds another byte (8 bits). 
+What about emoji's? The ASCII encoding doesn't include emoji's! This is probably because (according to Wikipedia) the ASCII encoding was invented in 1963! [1]
 
-Unicode has several encodings, one is called UTF-8 which uses 1 byte (8 bits). UTF stand for Unicode Transform Format. Another popular Unicode encoding that adds more characters that aren't in ASCII is UTF-16, it uses (You guesssed it!) 16 bits (or 2 bytes). There is also a UTF-32 but that is not used often.
+A new modern mapping system called Unicode is based off of ASCII with the mapping for the numbers 0 to 255 being the same as ASCII's.
 
-The goal for Unicode was to make an encoding that could cover every written or electronic language. This is achieved by leaving the ASCII encoding in UTF-8 but adding more characters in UTF-16, and then even more rare encoding's in UTF-32.
+Unicode offers several formats each one storing twice as many symbols and letters as the previous one. Each Unicode variant is called a Unicode Transform Format, or more commonly UTF. The first format is called UTF-8, the "8" stands for the number of bits it uses so UTF-8 takes up 1 byte (remember 1 byte is 8 bits) of space for each symbol.
 
-The crying face emoji is the number 128,512, which is technically a pattern of bits 000000011111011000000010.
+How is Unicode different from ASCII? Well, with Unicode, if you add another byte you get UTF-16 which adds support for many more letters and symbols. And then UTF-32 adds even more support for symbols.
+
+The original goal of Unicode was to cover every possible letter and symbol, this includes emoji's. UTF-8 lets us use a small amount of space if we only need the most common (latin / english) letters and symbols. And then for the less common symbols UTF-16. Then UTF-32 for even rarer symbols. There is even a UTF-64, but nobody uses it since we haven't even finished mapping UTF-32.
+
+The crying face emoji is represented by the number 128,512, which is technically a pattern of bits 000000011111011000000010.
 
 # Color
-Emoji's are colored pictures, and that may make you wonder, how are colors represented in a computer? Well we jsut have to find a way to map 0's and 1's to colors. RGB is the most popular format, standing for Red Green Blue. It turns out that by only using Red Green and Blue lights we can make every color of the rainbow, and this is exactly what the pixels on your screen are doing. They are mixing different amounts of Red Green and Blue light to make different colors!
+Emoji's are colored pictures, and that may make you wonder, how are colors represented in a computer? Well we just have to find a way to map 0's and 1's to colors, or actually we can use numbers and map them to colors.
 
-We use 1 byte for each color and this gives us numbers ranging from 0 to 255. If we store three bytes each being 8 bits we end up with a total of 24 bits. We can represent the color yellow with 72, 73, 33.
+RGB is the most popular format, standing for Red Green Blue. The reason for this is that by only using Red Green and Blue lights we can make every color of the rainbow! This is what the pixels on your screen are doing right now. They are mixing different amounts of Red Green and Blue light to make colors!
 
-!(yellow color)[]
+We can use 1 byte for each color giving us numbers ranging from 0 to 255. As with Unicode, RGB also has RGB-16 and RGB-32.
 
+By mixing the right amount of Red Green and Blue we can represent the color yellow with 72, 73, and 33.
 
-# hexadecimal
-Lets add another number system to the mix. It has a base of sixteen.
+TODO ![yellow color](/Assets/yellow_color.png)
 
-the symbols it uses are `0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F`.
-
-So we can count up to sixteen without needing to add another digit.
-
-```
-base ------>  (128) + (64) + (32) + (16) <--- multiply by the base
-(hexadecimal)  1    +  0   +  0   +  0    (01000) = 8 (eight)
-
-base ---> (10000) + (1000) + (100) + (10) + (1) <--- multiply by the base
-(decimal)  0      +  2     +  0    +  0   +  0    = 2000 (two thousand)
-```
-
-```
-       tens    hexadecimal   binary
---->   0   =   0    =        0    
-       1   =   1    =        1    
-       2   =   2    =        10    (2)
-       3   =   3    =        11    (2 + 1)
-       4   =   4    =        100   (4)
-       5   =   5    =        101   (4 + 1)
-       6   =   6    =        110   (4 + 2)
-       7   =   7    =        111   (4 + 2 + 1)
---->   8   =   8    =        1000  (8)
---->   9   =   9    =        1001  (8 + 1)
-       10  =   A    =        1010  (8 + 2)
-       11  =   B    =        1011  (8 + 2 + 1)
-       12  =   C    =        1100  (8 + 4)
-       13  =   D    =        1101  (8 + 4 + 1)
-       14  =   E    =        1110  (8 + 4 + 2)
-       15  =   F    =        1111  (8 + 4 + 2 + 1)
---->   16  =   10   =        10000 (16)
-       17  =   11   =        10001 (16 + 1)
-```
-(It took me 30 miutes to figure out the binary equivalents)
-
-People find hexadecimal more easy than binary because it can represent larger numbers with less digits. Also you will notice that hexadecimal lines up pretty well with binary since 16 is a multiple of 2 (binary has a base of 2).
