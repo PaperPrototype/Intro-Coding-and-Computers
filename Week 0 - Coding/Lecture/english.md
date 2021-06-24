@@ -510,3 +510,6 @@ By mixing the right amount of Red Green and Blue we can represent the color yell
 
 TODO ![yellow color](/Assets/yellow_color.png)
 
+Pictures are typically made up of thousands of pixels, this results in a lot of memory being used. For 512 x 512 pixels we end up with 512 x 512 x 3 bytes. For such large memmory sizes we have other names such as kilobyte, megabyte, and gigabyte. 
+
+A kilobyte is 1024 bytes, a megabyte is 1024 kilobytes, and a gigabyte is 1024 megabytes. A typical computer usally has a couple hundred gigabytes aroung 128 to 512 gigabytes. Some computers even have 1024 gigabytes, which is 1 terrabyte.
