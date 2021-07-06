@@ -3,7 +3,7 @@ An intro to coding and how computer's work
 
 For beginners and intermediate programmers seeking a deeper understanding of how computers work, AKA Computer Science
 
-# Layout
+# Layout IDEAS
 
 Course layout idea 2
 Week 0
