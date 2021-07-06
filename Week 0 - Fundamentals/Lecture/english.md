@@ -13,12 +13,12 @@ But we don't want to code using 0s and 1s!
 
 Thankfully some smart people made a *program* (using binary!) that took text (aka letter) based instructions from a file and turned them into binary instructions for us!
 
-But how can you represent letters using binary? We actually use binary as a number system, and use numbers to represent each letter.
+But how can you represent letters using binary?
 
 # Binary
 Lets start by learning how to represent numbers using only two symbols, `0` and `1`.
 
-In the "decimal" (tens) number system we have ten symbols to work with, `0, 1, 2, 3, 4, 5, 6, 7, 8, 9`. This is why people will say the decimal number system has a "base" of ten.
+In the "decimal" ("dec" meaning ten) number system we have ten symbols to work with, `0, 1, 2, 3, 4, 5, 6, 7, 8, 9`. This is why people will say the decimal number system has a "base" of ten.
 
 We will make a number system like the tens system except using using only two symbols, `0` and `1`.
 
@@ -501,33 +501,55 @@ Pictures are typically made up of thousands of pixels, this results in a lot of 
 
 A kilobyte is 1024 bytes, a megabyte is 1024 kilobytes, and a gigabyte is 1024 megabytes. A typical computer usally has a couple hundred gigabytes aroung 128 to 512 gigabytes. Some computers even have 1024 gigabytes, which is 1 terrabyte.
 
+# Audio?
+For audio... Well we also use numbers. We can have a number representing the frequency (aka deep rumble vs squeaky squeak), and then another number representing the loudness, and then another representing bass. Then we can just store a bunch of these numbers one after the other to make a sound or store music. You get the idea
+
 Hopefully now computers make more sense! If you still don't understand something you can Join our Discord (here's an invite link https://discord.gg/QhqTE4t2tR) to ask questions from me and other students!
 
-Now onto some coding!
-
 # Algorithms
+TODO:
+    first expain algorithm
+    then go back to video to explain black box as input -> [box] -> output
+
 In your phone you probably have a bunch of contacts to people you call or text. How does your phone find that contact, using only instructions?
 
 Say we have 1000 contacts and we want to find someone with the name of Johnny. How can we make some instructions about how to find Johnny for the computer? Lets make some simple example code for that.
 
 ```
-1  open first page
-2  if johnny is on page
-3    return (give back) johnny's info
-4  else if johnny not on page
-5    open next page
-6    go to line 2
+1|  open first page
+2|  if johnny is on page
+3|    return (give back) johnny's info
+4|  else if johnny not on page
+5|    open next page
+6|    go to line 2
 ```
 
 First we tell the computer to open the first contact, if johnny is on it then, show his information. But, if johnny is not on the page, keep going and move to the next page.
 
-Once we move to the next page, we go back to line 2 and start over, checking if Johnny is on the page. This code will run over and over, "looping" as we call it, until it finds johnny.
+Once we move to the next page, we go back to line 2 (You will notie each line of code has a number in front) and start over, checking if Johnny is on the page, then if not going back to line 2, and so on. 
+
+This code will run over and over, "looping" as we call it, until it finds johnny.
 
 Now there is something we have forgotten to add to the code. What if we don't find johnny? Well, the code would try to just keep searching... but we've run out of pages! So your computer will crash or you will get an endless loading screen. We call this a "bug", and you'll hear the word "bug" used to refer to these kinds of programmer errors, that cause our programs to crash.
 
-So we have to add one last condition
+So we have to add one last "condition".
 
-This seems pretty dumb though. And it would take a while for your computer to find johnny. If we have say 1000 contacts, it would take 1000 page turns to find johnny. So a 1 to 1 relationship. 
+```
+1|  open first page
+2|  if johnny is on page
+3|    return (give back) johnny's info
+4|  else if johnny not on page
+5|    open next page
+6|    go to line 2
+7|  else
+8|    exit
+```
+
+Now the code should theoretically work.
+
+Although this seems pretty dumb though. And it would take a while for your computer to find johnny (Well ok, only if you have like 1 Million contacts).
+
+If we had say 1000 contacts, it would take 1000 page turns, or steps, to find johnny. A 1 to 1 relationship
 
 
 # Instructions for video games?
