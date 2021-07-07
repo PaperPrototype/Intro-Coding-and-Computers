@@ -584,7 +584,7 @@ In big O notation we write and `O`represents the worst case scenario, with some 
 
 We can graph linear search as, quite literally, a line
 
-![]
+![graph linear search](/Assets/graph_linear_search.png)
 
 This because as the number of contacts increases so does the number of steps, or iterations, it will take to find Johnny. A 1 to 1 relationship makes the line on the graph very straight, and as the problem to solve gets bigger, so does the amount of work.
 
@@ -592,22 +592,39 @@ What about "binary search"? Binary search in the worst case scenario is `O(log N
 
 If we graph the binary search algorithm it looks like this
 
-![]
+![graph binary search](/Assets/graph_binary_search.png)
 
 As the size of the problem grows, the amount of work it takes us to solve it will barely grow!
 
-So how could we turn this into pseudo-code? (pseudo-cde just means fake english readable example code, that only illustrates a concept and how the code "might" look).
+So how could we turn this into pseudo-code? (pseudo-cde just means fake english readable example code, that only illustrates a concept and how the code "might" look). Read through the following code line by line.
 
-We call these different ways of solving problems "algorithms". An algorithm takes an input, the contacts list and gives us an output, Johhny's contact, or and error message saying the contact was not found.
+```
+ 1|  go to center
+ 2|  look at contact
+ 3|  if person is correct
+ 4|    return (give back) info
+ 5|  else if person earlier in contacts
+ 6|    open to middle of top half
+ 7|    go back to line 1
+ 8|  else if person is later in contacts
+ 9|    open to middle of bottom half
+10|    go back to line 1
+```
+
+We call these different ways of solving problems "algorithms". An algorithm takes an input, the contacts list and gives us an output, Johhny's contact (or and error message saying the contact was not found).
+
+And all we are doing is making algorithms, that is all of code, game developers focus on making the code super fast, web developers focus on making it look nice. You get the point.
+
+For reference here is the two algorithms plotted next to each other.
+
+![graph both search](/Assets/graph_both_search.png)
 
 # Your first code
-Lets jump into actually learning coding so that we can make these algorithms
+Lets jump into actually learning coding so that we can make these algorithms, and some games.
 
-TODO: ... although we may not code them this lecture
+Hey there, I'm am still writing this lecture!
 
-
-
-THIS IS NOT PART OF THE LECTURE BU NOTES FOR ME:
+THIS IS NOT PART OF THE LECTURE BUT NOTES FOR ME:
 
 How do we take those instructions and make something like a video game?
 
