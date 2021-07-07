@@ -576,32 +576,44 @@ Its also because some later algorithms will use a `1` to represent choosing the 
 
 There exists a method for graphing the number of iterations the above algorithms have to take to solve a problem. 
 
-The first algorithm, the one we called "linear search", in its worst case scenario, takes 1000 iterations (loops) to find Johhny for 1000 contacts (If say Johnny was the last contact). So, we can say if there are N number of contacts then it will take N number of iterations, in the worst case scenario, to find Johnny using linear search. For example, N in this case is 1000 (since there are 1000 contacts), and it will take us 1000 steps to find Johnny (Yeah ok, its actually 999 steps to find Johnny in the worst case scenario).
+The first algorithm, the one we called "linear search", in its worst case scenario, takes 1000 iterations (loops) to find Johhny for 1000 contacts (If say Johnny was the last contact). So, we can say if there are N number of contacts then it will take N number of iterations, in the worst case scenario, to find Johnny using linear search. For example, N in this case is 1000 (since there are 1000 contacts), and it will take us 1000 steps to find Johnny (Yeah ok, its actually 999 steps to find Johnny in the worst case scenario. As "worst case scenarios" go a small difference of 1 is really not that relevant).
 
-It takes pretty long to say "for the worst case scenario" so computer scientists (like you) made something called "Big O notation". In big O notation we write the worst case scenario as `O()` the O represents the worst case scenario, you put the number of steps it would take inside the perenthesis, so, `O(N)`. We put `N` in the perenthses because for linear search it will take us the same number of iterations to find Johnny as there are contacts (N stands for the number of contacts, or really the number of things we have to sort through or search).
+It takes pretty long to say "for the worst case scenario" so computer scientists (like you) made something called "Big O notation". 
 
-What about "binary search"? Binary search in the worst case scenario is `O(log N)`. `log` just means for every iteration we divide the number `N` in half. So obviously way less steps for binary search, but just how much faster is binary search?
+In big O notation we write and `O`represents the worst case scenario, with some parenthesis after it `O()` holding a number representing the number of steps or iterations we have to go through to solve the problem. In our case, `O(1000)`. If we say a symbol like `N` stands for the number of contacts, then we could change the big O notation to `O(N)` since, for every contact, we add a step to the search algorithm.
 
 We can graph linear search as, quite literally, a line
 
 ![]
 
-This because as the number of contacts increases so does the number of steps, or iterations, it will take to find Johnny (in the worst case scenario). A 1 to 1 relationship makes the line on the graph very straight.
+This because as the number of contacts increases so does the number of steps, or iterations, it will take to find Johnny. A 1 to 1 relationship makes the line on the graph very straight, and as the problem to solve gets bigger, so does the amount of work.
 
-If we graph the binary search algorithm it 
+What about "binary search"? Binary search in the worst case scenario is `O(log N)`. `log` just means for every iteration we go through, divide the number `N` in half. So obviously by reducing the number in half, each loop, we end up with way less steps for binary search. But just how much faster is binary search?
+
+If we graph the binary search algorithm it looks like this
+
+![]
+
+As the size of the problem grows, the amount of work it takes us to solve it will barely grow!
+
+So how could we turn this into pseudo-code? (pseudo-cde just means fake english readable example code, that only illustrates a concept and how the code "might" look).
+
+We call these different ways of solving problems "algorithms". An algorithm takes an input, the contacts list and gives us an output, Johhny's contact, or and error message saying the contact was not found.
+
+# Your first code
+Lets jump into actually learning coding so that we can make these algorithms
+
+TODO: ... although we may not code them this lecture
 
 
-We call these different ways of solving problems "algorithms". An algorithm takes an input (the contacts list) and gives us an output (Johhny's contact, or no contact).
 
+THIS IS NOT PART OF THE LECTURE BU NOTES FOR ME:
 
-TODO big O notation
-
-
-
-# Instructions for video games?
 How do we take those instructions and make something like a video game?
 
 Lets think about how we can make instructions for simple gravity in a game. Gravity moves you down as time passes (if time stopped we would stop falling).
+
+TODO: what is a position? x? y? huh? whats position.x?
 
 So all we have to do is move the players position down all the time. We can write this as english instructions
 
