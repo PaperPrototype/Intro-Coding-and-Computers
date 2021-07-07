@@ -32,3 +32,6 @@ UTF-8, UTF-16, UTF-32
 
 "Debugging"
     Working to remove
+
+Algorithm
+    A way of solving something through a specific set of steps
