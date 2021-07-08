@@ -568,6 +568,12 @@ Now we know that the top half of the contacts (that remain) are not going to hav
 
 And we've split our work in half again! We could keep doing this until we founnd Johnny. This algorithm is called "binary search" (rather than linear search). The name comes from the fact we always split our work in two (aka half), hence "bi" which stands for two.
 
+The code for binary search would look something like this>
+
+```
+
+```
+
 Its also because some later algorithms will use a `1` to represent choosing the right, and `0` to represent shoosing the left when searching.
 
 There exists a method for graphing the number of iterations the above algorithms have to take to solve a problem. 
