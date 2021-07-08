@@ -874,3 +874,5 @@ This still prints "Hello world" 3 times, but it also prints the item.
 When we print a variable we are accessing what it represents. We call the thing a variable represents its "value". So really variables just give us references to values.
 
 And that is it for week 0! Have fun! Make sure to check out the Tutoials for this lecture for some fun projects you can make using your new found knowledge!
+
+In the Tutorials you will find tutorials on how to implement the search algorithms we talked about. Good luck! If you need any help you can join our Discord to ask questions and get help from me https://discord.gg/QhqTE4t2tR
