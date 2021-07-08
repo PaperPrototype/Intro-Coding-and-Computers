@@ -871,23 +871,6 @@ for item in [0, 1, 3]:
 
 This still prints "Hello world" 3 times, but it also prints the item.
 
-Well, a "loop" iterates on lists.
+When we print a variable we are accessing what it represents. We call the thing a variable represents its "value". So really variables just give us references to values.
 
-Hey there, I'm am still writing this lecture! For now feel free to join our Discord https://discord.gg/QhqTE4t2tR to meet other students.
-
-THIS IS NOT PART OF THE LECTURE BUT NOTES FOR ME:
-
-How do we take those instructions and make something like a video game?
-
-Lets think about how we can make instructions for simple gravity in a game. Gravity moves you down as time passes (if time stopped we would stop falling).
-
-TODO: what is a position? x? y? huh? whats position.x?
-
-So all we have to do is move the players position down all the time. We can write this as english instructions
-
-```
-forever
-    position.y - 1
-```
-
-This code says, decrease the players y position forever.
+And that is it for week 0! Have fun! Make sure to check out the Tutoials for this lecture for some fun projects you can make using your new found knowledge!
