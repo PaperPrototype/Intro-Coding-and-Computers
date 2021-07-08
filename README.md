@@ -25,32 +25,6 @@ Week 0
 - Graphing algorithm work O(n)?
 - Work vs memory speed? (Memory is the slowest factor in speed -> TODO come back to later once memory is explained aka arrays)
 
-Week 1
-- 
-
-Week 2
-- Memory
-- Arrays
-- Memory is slow vs Number of steps, aka pointers are slow, arrays are fast
-- 
-
-
-Course layout idea 1
-Week 0
-- coding is instructions for a computer
-- algrotihms, phone book, divide and conquer
-- pseudo instructions (aka code) for searching
-- algrorithms, solutions to problems -> searching -> very precise specific no ambiguity
-    - linear search
-    - Divide and conquer
-    - efficiency -> game developers -> performance -> N -> 0(N)
-
-- coding in scratch, writing instructions
-    - simulating gravity with instructions
-    - simulating physics with instructions
-    - variables
-    - functions
-    - loops
 
 Week 1
 - compilers "compile" convert text into binary instructions
@@ -76,9 +50,12 @@ Week 1
     - change directory (move through folders)
 - getting input?
 
-Week 2
-- 
 
+Week 2
+- Memory
+- Arrays
+- Memory is slow vs Number of steps, aka pointers are slow, arrays are fast
+- 
 
 
 Topics covered
@@ -98,3 +75,8 @@ Topics that need covered
 - memory
 - pointers
 - arrays
+- git
+- hash tables
+- dictionaries
+- compression
+- installing a C compiler on mac / linux / windows

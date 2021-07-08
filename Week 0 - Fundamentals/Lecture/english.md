@@ -5,18 +5,18 @@ Each electric charge is called a "bit". But the idea of using 0s and 1s to repre
 
 We usually use the symbol `1` to represent positive charges and `0` to represent negative charges.
 
-We **won't** go into the details of how a computers "processor" can take tons of `+` and `-` signals and process them. Instead we will focus on how we can represent numbers, letters, and everything you see on a computer, using only 0s and 1s (aka electric signals).
+We **won't** go into the details of how a computers "processor" can take tons of `+` and `-` signals and "process" them. Instead we will focus on how we can represent numbers, letters, and everything you see on a computer, using only 0s and 1s (aka electric signals).
 
-When we are "coding" it just means we are writing thousands of instructions for a computers "processor" using binary. We put those instructions in a file. Those files of instructions are called a "program" or "app". 
+When we are "coding" it just means we are writing thousands of instructions for a computers processor using binary. We put those instructions in a file. Those files of instructions are called a "program" or "app". 
 
 But we don't want to code using 0s and 1s!
 
 Thankfully some smart people made a *program* (using binary!) that took text (aka letter) based instructions from a file and turned them into binary instructions for us!
 
-But how can you represent letters using binary?
+...But, how can you represent letters using only binary?
 
 # Binary
-Lets start by learning how to represent numbers using only two symbols, `0` and `1`.
+Lets start by learning how to represent numbers using only two symbols, `0` and `1`, then we'll show you how letters are represented.
 
 In the "decimal" ("dec" meaning ten) number system we have ten symbols to work with, `0, 1, 2, 3, 4, 5, 6, 7, 8, 9`. This is why people will say the decimal number system has a "base" of ten.
 
@@ -203,6 +203,8 @@ Now that we can use binary (`0`'s and `1`'s) to represent numbers, we can use th
 If we want to tell the computer to say "Hello!", or actually just the letter "H", all we have to do is tell the computer *when* the number 15 should represent "H".
 
 Now all thats left is to make a long list of what numbers should map to what letters. As you might have guessed there is already a "standard" that us nerds have made. Its called ASCII which stands for American Standard Code for Information Interchange. Below is the ASCII "encoding" of latin based characters letters and symbols
+
+(Don't worry about reading this whole thing)
 
 ```
 ASCII ENCODING
@@ -503,17 +505,11 @@ Pictures are typically made up of thousands of pixels, this results in a lot of 
 A kilobyte is 1024 bytes, a megabyte is 1024 kilobytes, and a gigabyte is 1024 megabytes. A typical computer usally has a couple hundred gigabytes aroung 128 to 512 gigabytes. Some computers even have 1024 gigabytes, which is 1 terrabyte.
 
 # Audio?
-For audio... Well we also use numbers. We can have a number representing the frequency (aka deep rumble vs squeaky squeak), and then another number representing the loudness, and then another representing bass. Then we can just store a bunch of these numbers one after the other to make a sound or store music. You get the idea
+For audio... Well we also use numbers. We can have a number representing the frequency (aka deep rumble vs squeaky squeak), and then another number representing the loudness, and then another representing bass. Then we can just store a bunch of sets of these numbers one after the other in memory to make a sound or store music. You get the idea.
 
 Hopefully now computers make more sense! If you still don't understand something you can Join our Discord (here's an invite link https://discord.gg/QhqTE4t2tR) to ask questions from me and other students!
 
 # Algorithms
-TODO:
-    first expain both algorithm
-    then edxplain O(n) notation
-    then go back to video to explain black box as input -> [box] -> output
-    then 
-
 In your phone you probably have a bunch of contacts to people you call or text. How does your phone find that contact, using only instructions?
 
 Say we have 1000 contacts and we want to find someone with the name of Johnny. How can we make some instructions about how to find Johnny for the computer? Lets make some simple example code for that.
@@ -620,9 +616,57 @@ For reference here is the two algorithms plotted next to each other.
 ![graph both search](/Assets/graph_both_search.png)
 
 # Your first code
-Lets jump into actually learning coding so that we can make these algorithms, and some games.
+Lets jump into actually learning coding so that we can make these algorithms, and some games. We will be using a language called Python mainly because it is super easy to use.
 
-Hey there, I'm am still writing this lecture!
+Lets make a simple program that prints (aka displays) the phrase "Hello World" on the screen.
+ 
+We will use an online "text editor" for editing the text based code (Go to Notes, in the "Week - 0" folder for definitions). We will use an online text editor to 
+
+Open [this link](https://replit.com/) to go to the online text editor we will use, this way
+
+And click the "Start Coding" button.
+
+![start coding](/Assets/start_coding.png)
+
+It will ask you to make an account (We're sorry about this! If you have any issues contact us in our Discord, or through the repository Issues).
+
+Once you've made an account click the "New repl" button to create a new repl program.
+
+![new repl](/Assets/new_repl.png)
+
+If you don't see it click the three lines in top left corner.
+
+Select the Python programming language, and call the project "HelloWorld". Then click the "Create repl" button (currently hidden by the dropdown menu for picking a language).
+
+![create repl](/Assets/create_repl.png)
+
+Now we can write some code. We could figure out the 0s and 1s of getting the computers processor to say "Hello world" on the screen somehow, but in the coding language we are using (Python) we get this functionality for free. We can simply type in the following.
+
+```py
+print("Hello world")
+```
+
+And then lick the green arrow to run the code.
+
+The word "print" is the name of a group of code that figures out how to print words onto the screen. We call these groups of code "functions", because a function implements "functionality" and takes an input. Functions take in input through the parenthesis `()`. Then in the parenthesis we take in two words "Hello world".
+
+Why do we have the quotation marks `"`? Well, say we took them away. How is the computer going to know the difference between code, and words we want to print?
+
+Well, you might say "it can use the parenthesis!", but what if we put a number?
+
+```py
+print(12)
+```
+
+How will we now if something is a number or sentences/words with numbers in them? 
+
+Well, in coding, we have a "specific way" of writing or "format"ing how to write code, so that the computer can tell numbers apart from other code or words with numbers. That format is to put the `"` around words or phrases.
+
+We call this "format"ing stuff "syntax". Syntax is a specific way of coding so that the computer can understand it.
+
+
+
+Hey there, I'm am still writing this lecture! For now feel free to join our Discord https://discord.gg/QhqTE4t2tR
 
 THIS IS NOT PART OF THE LECTURE BUT NOTES FOR ME:
 

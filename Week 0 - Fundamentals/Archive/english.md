@@ -9,7 +9,7 @@ In coding we put a bunch of instructions into a file in the form of bits, binary
 
 If we wanted to write a program we could use binary, the 0's and 1's language... But that would be really hard! Thankfully though some smart people made a *program* that took some *word* based instructions from a file and turned them into binary instructions in another file for us!
 
-The programs that turn our word based instructions into binary instructions are called "Compilers" because they "compile" our word based instructions into binary instrction files that the computer can understand.
+The programs that turn our word based instructions into binary instructions are called "Compilers" because they "compile" our word based instructions into binary instruction files that the computer can understand.
 
 
 TODO Save for once we introduce C
