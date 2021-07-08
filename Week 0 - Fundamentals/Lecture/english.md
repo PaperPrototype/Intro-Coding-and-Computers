@@ -622,9 +622,9 @@ Lets make a simple program that prints (aka displays) the phrase "Hello World" o
  
 We will use an online "text editor" for editing the text based code (Go to Notes, in the "Week - 0" folder for definitions). We will use an online text editor to 
 
-Open [this link](https://replit.com/) to go to the online text editor we will use, this way
+Open [this link](https://replit.com/) to go to the online text editor we will use, this way you don't have to download anything.
 
-And click the "Start Coding" button.
+Then click the "Start Coding" button.
 
 ![start coding](/Assets/start_coding.png)
 
@@ -640,33 +640,240 @@ Select the Python programming language, and call the project "HelloWorld". Then 
 
 ![create repl](/Assets/create_repl.png)
 
-Now we can write some code. We could figure out the 0s and 1s of getting the computers processor to say "Hello world" on the screen somehow, but in the coding language we are using (Python) we get this functionality for free. We can simply type in the following.
+Now we can write some code. 
+
+![replit ide](/Assets/replit_ide.png)
+
+We could figure out the 0s and 1s of getting the computers processor to say "Hello world" on the screen somehow, but in the coding language we are using (Python) we get this functionality for free. We can simply type in the following.
 
 ```py
 print("Hello world")
 ```
 
-And then lick the green arrow to run the code.
+And then click the green arrow to run the code.
 
 The word "print" is the name of a group of code that figures out how to print words onto the screen. We call these groups of code "functions", because a function implements "functionality" and takes an input. Functions take in input through the parenthesis `()`. Then in the parenthesis we take in two words "Hello world".
 
-Why do we have the quotation marks `"`? Well, say we took them away. How is the computer going to know the difference between code, and words we want to print?
-
-Well, you might say "it can use the parenthesis!", but what if we put a number?
+Why do we have the quotation marks `"`? Well, say we took them away. How is the computer going to know the difference between numbers, and words we want to print? What if we put a sentence with numbers in it?
 
 ```py
-print(12)
+print(Hello I am 12)
 ```
 
-How will we now if something is a number or sentences/words with numbers in them? 
+How will we now if something is a number or a sentences/word with numbers in it? 
 
 Well, in coding, we have a "specific way" of writing or "format"ing how to write code, so that the computer can tell numbers apart from other code or words with numbers. That format is to put the `"` around words or phrases.
 
-We call this "format"ing stuff "syntax". Syntax is a specific way of coding so that the computer can understand it.
+We call this format the "syntax" of a programming language. Syntax is a specific way of coding so that the computer can understand it.
 
+If you ran the `print("Hello world")` code (by clicking the green arrow) you will have seen the black console with the phrase "Hello world" on it in white letters.
 
+That console is how the print function is able to display the phrase "Hello world".
 
-Hey there, I'm am still writing this lecture! For now feel free to join our Discord https://discord.gg/QhqTE4t2tR
+# Variables
+Now lets make it so that the code can get input from us and then print it out again.
+
+How can we do that? Well there is a function that gets input from the console, and when we call the function (aka the code in the function gets run) it prints a message and then waits for us to type something into the terminal. Lets do this now.
+
+```py
+input("Type in your name: ")
+```
+
+the `input` function will print the words in it to the console, then wait for the user to type in some words. When you hit enter, the code will keep running... but how will we access the words you typed in?
+
+Well, we can make something like a function that refer's to the words the `input` function gives us. Change the code to the following.
+
+```py
+myName = input("Type in your name: ")
+
+print(myName)
+```
+
+So what is `myName`? It gets the words that `input` got from the console. Or really, it gets the "output" that the `input` function gave us.
+
+We call these referers "variables". For a clearer example make a variable that holds a number. And then print the variable.
+
+```py
+variable = 12
+
+print(variable)
+```
+
+If you hit play you should see `12` get printed.
+
+We can also add together a variable and some words.
+
+```py
+variable = 12
+
+print("hello " + variable)
+```
+
+and you will get "hello 12".
+
+Notice that we put a space at the end of "hello ". If we didn't the word hello and the number 12 will be mashed together like this "hello12".
+
+# Functions
+What about functions? How can we make one ourselves? Type in the following.
+
+```py
+def say_hello_to_name():
+    myName = input("Type in your name: ")
+
+    print("Hello, " + myName)
+```
+
+(We add the word "Hello, " to the myName variable. If you run this nothing will happen because a function simply groups code, if we want the code in the function to run we have to call it, we'll get to that)
+
+When we make a function we use the the special `def` "keyword". A keyword is a special word designated for some purpose, so you can't go using `def` as a variable's name as Python (the coding language we are using) will think you are trying to make a function.
+
+After `def` we write the name we use to refer to the function `say_hello_to_name`. Then we put the `()` for any input (also called parameters) that the functin takes in. Currently the function takes no input so they are empty (note: you have to put the parenthesis even if it takes in no parameters (aka input)).
+
+You will also notice that the `:` after the parenthesis. This tells Python (the coding language we are using) that any code after the `:` is inside of the function. But all the code inside of the function also has to have a tab (2 or 4 spaces) in front of it. This is mostly for the programmer to be able to tell what code is in a function, and what code is not. We usually refer to adding a tab in front of code as "indenting" our code.
+
+If we go ahead and write our code without adding indenting it in front...
+
+```py
+def say_hello_to_name():
+myName = input("Type in your name: ")
+
+print("Hello, " + myName)
+```
+
+You can see it would be hard to tell what code is in the function, and what code is outside of it.
+
+Now correct the function by indenting it, use a tab fo indenting (this will automatically pick between 2 or 4 spaces).
+
+If you play you won't see anything happen. This is because a function simply groups code. To *run the function* or refer to the function and have it run the code inside you have to type its name followed by parenthesis.
+
+```py
+def say_hello_to_name():
+  myName = input("Type in your name: ")
+
+  print("Hello, " + myName)
+
+# here we "call" the function (notice it is not "indented")
+say_hello_to_name()
+```
+
+I know it is confusing, but that is how we refer to a function to then run the code inside of it.
+
+We don't have to put anything in the parenthesis since the function didn't need any input.
+
+If you run this the function gets called and runs our code. You get asked for input, then it prints `Hello, <insert name here>`.
+
+How do we give a function parameters (aka input)? Remember variables? We just make a variable for a function.
+
+```py
+def hello_to(name):
+  print("Hello, " + name)
+```
+
+And then we can "call" the function and give it input
+
+```py
+def hello_to(name):
+  print("Hello, " + name)
+
+hello_to("Bob")
+```
+
+Now what if we want to make a function that takes many paremeters (aka inputs)? To add more parameters we simply separate them using a comma `,`
+
+```py
+def hello_to(name, age):
+  print("Hello, " + name + " you are " + age)
+```
+
+# Lists?
+What if we want to make a list of things? In python this is super easy.
+
+Here is a list of numbers
+
+```py
+[1, 23, 5]
+```
+
+Here is a list of letters and words
+```py
+["A", "Becky", "C", "D"]
+```
+
+In python we enclose a list in square brackets `[]` otherwise how would we know when you were trying to make a list?
+
+We can also use a variable to refer to a list.
+
+```py
+myList = ["A", "B", "C", "D"]
+```
+
+Now we can use the variable "myList" to refer to the list.
+
+Now how do we access each item of the list?
+
+```py
+myList[0]
+```
+
+By using square brackets `[]` after the variable we can access each item of the variables list, based on the items position in the list. So `myList[0]` gets item 0, which is the first item "A".
+
+"What do you mean item `0`? Shouldn't it be `[1]` to get the first item?"
+
+Yes your right, but an interesting thing about computers is that they always start counting from 0. 
+
+This also applies getting things from a lists of items, so if we want to access the first item in a list we have to use `0` to access the first item.
+
+Remember when we talked about how computer represent numbers? They use 0s and 1s. So how would we represent zero? we just use the symobl `0`. If we didn't count zero as a number we would end up representing zero as `1` in binary.
+
+And honestly, we need the number 0.
+
+# Loops
+What if we want to print "hello" 3 times? We can just write `print("hello")` 3 times.
+
+```py
+print("hello")
+print("hello")
+print("hello")
+```
+
+But what if we want it to change the words to "Hello world"? We can just change them all.
+
+```py
+print("Hello world")
+print("Hello world")
+print("Hello world")
+```
+
+But that is kinda annoying, even with copy paste. Instead we can using a "loop" to run the same code a certain number of times.
+
+```py
+for item in [0, 1, 2]:
+    print("Hello world")
+```
+
+This code prints "Hello world" 3 times.
+
+What is the `for variable in [0, 1, 2]`? The word `for` is a keyword as well as the keyword `in`. They are saying, quite literally, "for every item in the list".
+
+We store each item that we access from the list in a variable called "item".
+
+Then you'll notice the `:`, this does the same thing as a function, we have to indent our code after the `:` to show that it is inside of the loop.
+
+The code inside of the loop will run once for every item, every loop it stores a reference to the number in the variable "item".
+
+We aren't using the variable item, but we could if we changed the code to the following.
+
+```py
+for item in [0, 1, 3]:
+  print("Hello world")
+  print(item)
+```
+
+This still prints "Hello world" 3 times, but it also prints the item.
+
+Well, a "loop" iterates on lists.
+
+Hey there, I'm am still writing this lecture! For now feel free to join our Discord https://discord.gg/QhqTE4t2tR to meet other students.
 
 THIS IS NOT PART OF THE LECTURE BUT NOTES FOR ME:
 
