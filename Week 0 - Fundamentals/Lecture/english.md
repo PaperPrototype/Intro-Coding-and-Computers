@@ -873,6 +873,16 @@ This still prints "Hello world" 3 times, but it also prints the item.
 
 When we print a variable we are accessing what it represents. We call the thing a variable represents its "value". So really variables just give us references to values.
 
-And that is it for week 0! Have fun! Make sure to check out the Tutoials for this lecture for some fun projects you can make using your new found knowledge!
+Now, there is one last thing. We as a programmer can leave human written comments in the code for other to read, this is important to do as it helps others understand what the code is doing. In Python you put a hash `#` before human comments. 
+
+```py
+# This is a comment
+# Comments don't affect code
+print("This is code")
+```
+
+By putting the hash in front the Python programming language can tell comments apart from the code.
 
 In the Tutorials you will find tutorials on how to implement the search algorithms we talked about. Good luck! If you need any help you can join our Discord to ask questions and get help from me https://discord.gg/QhqTE4t2tR
+
+And that is it for week 0! Have fun!
