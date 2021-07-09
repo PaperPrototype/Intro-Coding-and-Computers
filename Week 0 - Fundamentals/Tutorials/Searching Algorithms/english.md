@@ -1,6 +1,23 @@
 NOTE: This tutorial is not done being written.
 
-Linear search in Python
+To implement linear search in python first we need a list of items to search.
+
+```py
+# list of items we will search
+myList = ["A", "B", "C", "D"]
+```
+
+We will also make a variable that represent the value we want (remember a variable holds "values", aka lists, or numbers, or words).
+
+```py
+# list of items we will search
+myList = ["A", "B", "C", "D"]
+
+# the current item we want
+itemWanted = "B"
+```
+
+Then we can use a "for" loop to go over every item in the list and check if the current item matches the item we want.
 
 ```py
 # list of items we will search
@@ -9,18 +26,17 @@ myList = ["A", "B", "C", "D"]
 # the current item we want
 itemWanted = "B"
 
+# go through every item in myList
 for item in myList:
   if item == itemWanted:
     print("Found item: " + item)
 
-    break # exit from the loop
+    break # exit from the loop if found itemWanted
 ```
 
 But what if the item we are looking for is not in the list?
 
-We have to have some way of checking if the search didn't find the item. For that we create a True or False variable (we call True or False variables a "bool", because the guy who made them was named "George Boole").
-
-Then after we are done searching we check if nothing was found
+We have to have some way of checking if the search didn't find the item. For that we create a True or False variable (A bool). We set it to False initially, this way we can set it to True if we did find something, and after finishing the search we can check if the variable is still False. It is still False, we print "Item not found".
 
 ```py
 # list of items we will search
@@ -32,6 +48,7 @@ itemWeWant = "F"
 # use this later so we can print message if nothing was found
 found = False
 
+# go through every item in myList
 for item in myList:
   if item == itemWeWant:
     print("Found item: " + item)
@@ -44,9 +61,7 @@ if found is False:
   print("Item not found")
 ```
 
-TODO
-- can't uppercase
-
+Its also important to know that `A` will not be equal to `a`
 
 Binary search in Python
 

@@ -13,7 +13,7 @@ But we don't want to code using 0s and 1s!
 
 Thankfully some smart people made a *program* (using binary!) that took text (aka letter) based instructions from a file and turned them into binary instructions for us!
 
-...But, how can you represent letters using only binary?
+...But, how can you represent text (letters and symbols) using only binary? Lets answer that question first, then we'll get to coding.
 
 # Binary
 Lets start by learning how to represent numbers using only two symbols, `0` and `1`, then we'll show you how letters are represented.
@@ -507,48 +507,60 @@ A kilobyte is 1024 bytes, a megabyte is 1024 kilobytes, and a gigabyte is 1024 m
 # Audio?
 For audio... Well we also use numbers. We can have a number representing the frequency (aka deep rumble vs squeaky squeak), and then another number representing the loudness, and then another representing bass. Then we can just store a bunch of sets of these numbers one after the other in memory to make a sound or store music. You get the idea.
 
-Hopefully now computers make more sense! If you still don't understand something you can Join our Discord (here's an invite link https://discord.gg/QhqTE4t2tR) to ask questions from me and other students!
-
 # Algorithms
-In your phone you probably have a bunch of contacts to people you call or text. How does your phone find that contact, using only instructions?
+Now lets start getting ourselves familiar with the idea of "coding", or really, writing instructions for the computer in what we call "algorithms".
 
-Say we have 1000 contacts and we want to find someone with the name of Johnny. How can we make some instructions about how to find Johnny for the computer? Lets make some simple example code for that.
+Lets take an example. In your phone you probably have a bunch of contacts of people you call or text. How does your phone find that contact using only instructions?
+
+Say we have 1000 contacts and we want to find someone with the name of Johnny. How can we make some instructions about how to find the contact "Johnny"? We'll make some "code" (not real code). We call the idea of fake code "pseudo-code" (You will hear the term a lot).
+
+```
+1|  open first contact
+2|  if johnny is on contact
+3|    return (give back) johnny's info
+4|    exit finished
+5|  else if johnny not on contact
+6|    move to next contact
+7|    go back to line 2
+```
+
+If the above is resembling instructions for a computer, what (theoretically), is the computer doing when it follows the instructions?
+
+Well, first we tell the computer to "open the first contact", then "if johnny is on contact" we should "return (give back) johnny's info".
+
+But, most likely that won't happen. So, then we say "else if johnny not on contact" the computer should "move to next contact" and "go back to line 2" of the code.
+
+Returning to line 2, makes us ask again "if johnny is on contact", but now we are on the second contact (thanks to the previous code). If Johnny is on the contact "return (give back) johnny's info". 
+
+This code will jsut keep running in circles "looping" as we call it, until it finds Johnny. 
+
+This "algorithm" (a way of solving something through a specific set of steps) is what we call a "linear" search algorithm because we go over every single contact "linearly" one by one.
+
+There is one a problem though, what if we don't find Johnny? Well, the code would try to just keep searching! Because we never told it to stop! (Or it will crash your computer, or you will get an endless loading screen...) We call these coding mistakes a "bug". You'll hear the word "bug" used to refer to these kinds of coding errors (Check the notes of this Week to learn about the origins of the term "bug", its actually pretty interesting).
+
+So, we need a way for the computer to know when it should stop searching. To do this, we can add 2 more lines of code at the bottom.
 
 ```
 1|  open first page
 2|  if johnny is on page
 3|    return (give back) johnny's info
-4|  else if johnny not on page
-5|    open next page
-6|    go back to line 2
+4|    exit finished
+5|  else if johnny not on page
+6|    move to next page
+7|    go back to line 2
+8|  else if Johnny not in contacts
+9|    exit
 ```
 
-First we tell the computer to open the first contact, if johnny is on it then, show his information. But, if johnny is not on the page, keep going and move to the next page.
+This last piece of code, although it may be small, is very important because without it, we would probabaly get an endless loading bar as the computer kept "searching" for Johnny, even if it didn't find him! Because we never told it to stop after it went through all the contacts!
 
-Once we move to the next page, we go back to line 2 (You will notie each line of code has a number in front) and start over, checking if Johnny is on the page, then if not going back to line 2, and so on. 
+This "algorithm" for searching seems pretty dumb though. If we had say 1000 contacts, in a worst case scenario, it would take 1000 page turns, or "loops", to find johnny. What if there was a shortcut to make the code run faster? Rather than taking 1000 loops for every 1000 contacts? What if, in a worst case scenario, we could take only 10 loops for 1000 contacts, to find Johnny?
 
-This code will run over and over, "looping" as we call it, until it finds johnny. This "algorithm" (way of solving something througha specific set of steps) is what we call a "linear" search algorithm because we go over every single contact "linearly".
+It turns out we can exploit (take advantage of) the fact that your contacts are sorted alphabetically (most phones also have some code that sorts your contacts). 
 
-There is one more problem, what if we don't find johnny? Well, the code would try to just keep searching, or crash your computer or you will get an endless loading screen. We call this a "bug". You'll hear the word "bug" used to refer to these kinds of programmer errors.
+Rather than starting at the beginning of the contacts list, we can start right smack in the center. This makes us the closest to every possible contact (literally in the average position of them all).
 
-To fix this we add 2 more lines of code
-
-```
-1|  open first page
-2|  if johnny is on page
-3|    return (give back) johnny's info
-4|  else if johnny not on page
-5|    open next page
-6|    go back to line 2
-7|  else
-8|    exit
-```
-
-This algorithm for searching seems pretty dumb though. If we had say 1000 contacts, in a worst case scenario it would take 1000 page turns, or "loops", to find johnny if he was the last contact on the list. What if there was a super shortcut to make the code run faster?
-
-We can exploit the fact that your in your phone contacts are sorted alphabetically. Rather than starting at the beginning of the contacts list we can start right smack in the center. This makes us the closest to every possible contact (if you think about it, this is literally the exact average position of all the contacts).
-
-Lets say we land at Samuel's contact. Well, since all the contacts are in alphabetical order, we know that Johnny will be somewhere before Samuels contact (Since J comes before S in the alphabet).
+Lets say the contact we find in the center is Samuel's contact. Well, since all the contacts are in alphabetical order, we know that Johnny will be somewhere before Samuels contact (Since J comes before S in the alphabet).
 
 ![binary search 0](/Assets/binary_search_0.png)
 
@@ -650,29 +662,31 @@ Now we can write some code.
 
 ![replit ide](/Assets/replit_ide.png)
 
-We could figure out the 0s and 1s of getting the computers processor to say "Hello world" on the screen somehow, but in the coding language we are using (Python) we get this functionality for free. We can simply type in the following.
+In the above picture you will notice that we have a place for writing our code in the center, then to the left we have some files. Those files are text files, much like a google doc or microsoft word document. We end the files in .py
+
+We could figure out the 0s and 1s of getting the computers processor to say "Hello world" on the screen somehow, but, in the coding language we are using (Python) we get this functionality for free. We can simply type in the following.
 
 ```py
 print("Hello world")
 ```
 
-And then click the green arrow to run the code.
+And then click the green arrow to run the code. You will see the phrase "Hello world" printed in the "console" (the black box on the right).
 
-The word "print" is the name of a group of code that figures out how to print words onto the screen. We call these groups of code "functions", because a function implements "functionality" and takes an input. Functions take in input through the parenthesis `()`. Then in the parenthesis we take in two words "Hello world".
+The word "print" is the name of a group of code that figures out how to print words onto the screen for us. We call these groups of code "functions", because a function implements "functionality". Functions take an input and then do something with it. The `print` functions take in input through the parenthesis `()`. Then in the parenthesis it takes in two words "Hello world".
 
-Why do we have the quotation marks `"`? Well, say we took them away. How is the computer going to know the difference between numbers, and words we want to print? What if we put a sentence with numbers in it?
+Why do we have the quotation marks `"`? Well, say we took them away. How is the computer going to know the difference between numbers, and words we want to print? What if we put a sentence with code that adds two numbers together?
 
 ```py
-print(Hello I am 12)
+print(Hello I am 12 + 13)
 ```
 
-How will we now if something is a number or a sentences/word with numbers in it? 
+How will we now if something is a sentence vs some numbers being added?
 
-Well, in coding, we have a "specific way" of writing or "format"ing how to write code, so that the computer can tell numbers apart from other code or words with numbers. That format is to put the `"` around words or phrases.
+Well, in coding, we have a "specific way" of writing or "format"ing how to write words, so that the computer can know when we are trying to write a sentence, vs trying to write some code (aka adding numbers together). That format is to put the `"` around words or phrases.
 
 We call this format the "syntax" of a programming language. Syntax is a specific way of coding so that the computer can understand it.
 
-If you ran the `print("Hello world")` code (by clicking the green arrow) you will have seen the black console with the phrase "Hello world" on it in white letters.
+If you ran the `print("Hello world")` code (by clicking the green arrow) you will have seen the black "console" (the black box on the right) with the phrase "Hello world" somewhere on it.
 
 That console is how the print function is able to display the phrase "Hello world".
 
@@ -879,7 +893,8 @@ This still prints "Hello world" 3 times, but it also prints the item.
 
 When we print a variable we are accessing what it represents. We call the thing a variable represents its "value". So really variables just give us references to values.
 
-Now, there is one last thing. We as a programmer can leave human written comments in the code for other to read, this is important to do as it helps others understand what the code is doing. In Python you put a hash `#` before human comments. 
+# Comments
+As a programmer can leave human written comments in the code for other programmers to read, this is important to do as it helps others understand what the code is doing. In Python you put a hash `#` before human comments. 
 
 ```py
 # This is a comment
@@ -889,6 +904,30 @@ print("This is code")
 
 By putting the hash in front the Python programming language can tell comments apart from the code.
 
-In the Tutorials you will find tutorials on how to implement the search algorithms we talked about. Good luck! If you need any help you can join our Discord to ask questions and get help from me https://discord.gg/QhqTE4t2tR
+# If, then?
+What if we want to compare two names and see if they are the same? Or compare two numbers?
 
-And that is it for week 0! Have fun!
+Most programming languages have a keyword called "if". It works like this.
+
+```py
+if 12 == 12:
+    print("They are equal")
+```
+
+We have to use the the double equal sign "==" so that python doesn't confuse it with the single equal sign "=" since the *single* equal sign is for "assigning" variables. 
+
+```py
+myVariable = 12
+myVariable = myVariable + 12
+# equals 24
+```
+
+When we say `if 12 == 12` the "==" will give us a bool. This is because if "statements" have to know if something is True or False. We call if statements "conditions" because they make our code only run if their *condition* is True.
+
+We call a True or False variable a "bool" because the guy who made them was named "George Boole".
+
+Also a bool (True or False variable) in Python requires us to uppercase the first letter, so saying `true` will not work, instead you have to use `True`.
+
+In the Tutorials folder you will find tutorials on how to implement the search algorithms we talked about earlier. If you need any help you can join our Discord to ask questions and get help from me https://discord.gg/QhqTE4t2tR
+
+And that is it for week 0! Have fun! There is also a tutorial on making a simple game, but just remember, the more tutorials you do after each lecture the better you will get at coding!
