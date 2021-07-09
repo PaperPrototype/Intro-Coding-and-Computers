@@ -510,7 +510,7 @@ For audio... Well we also use numbers. We can have a number representing the fre
 # Algorithms
 Now lets start getting ourselves familiar with the idea of "coding", or really, writing instructions for the computer in what we call "algorithms".
 
-Lets take an example. In your phone you probably have a bunch of contacts of people you call or text. How does your phone find that contact using only instructions?
+Lets take an example using example code. In your phone you probably have a bunch of contacts of people you call or text. How does your phone find that contact using only instructions?
 
 Say we have 1000 contacts and we want to find someone with the name of Johnny. How can we make some instructions about how to find the contact "Johnny"? We'll make some "code" (not real code). We call the idea of fake code "pseudo-code" (You will hear the term a lot).
 
@@ -634,13 +634,15 @@ For reference here is the two algorithms plotted next to each other.
 ![graph both search](/Assets/graph_both_search.png)
 
 # Your first code
-Lets jump into actually learning coding so that we can make these algorithms, and some games. We will be using a language called Python mainly because it is super easy to use.
+Lets jump into actually learning coding so that we can make these algorithms, and some games (In the tutorials of this week).
 
-Lets make a simple program that prints (aka displays) the phrase "Hello World" on the screen.
- 
-We will use an online "text editor" for editing the text based code (Go to Notes, in the "Week - 0" folder for definitions). We will use an online text editor to 
+We will used a programmig language called Python. Python is a program (a file of instructions written in binary (0s and 1s)). It reads text files, and as it reads them it figures out how to translate our code to binary instructions the computer can understand. We call this type of programming language an "interpreted" language because it gets "interpreted" by a program (whereas other coding languages actually get converted to binary by a program called a "compiler", but that is for next week).
 
-Open [this link](https://replit.com/) to go to the online text editor we will use, this way you don't have to download anything.
+Although we know that text files are also actually just binary encoded as ASII or Unicode, so really this "interpreter" program, is reading in binary as Unicode, and then figuring out what we mean, and running the instructions we want.
+
+Lets make some simple interpreted code that prints (aka displays) the phrase "Hello World" on the screen.
+
+We will use an online "ide" for editing the code. Open [this link](https://replit.com/) to go to the online text editor we will use, this way you don't have to download anything.
 
 Then click the "Start Coding" button.
 
@@ -652,19 +654,19 @@ Once you've made an account click the "New repl" button to create a new repl pro
 
 ![new repl](/Assets/new_repl.png)
 
-If you don't see it click the three lines in top left corner.
+(If you don't see it click the three lines in top left corner)
 
 Select the Python programming language, and call the project "HelloWorld". Then click the "Create repl" button (currently hidden by the dropdown menu for picking a language).
 
 ![create repl](/Assets/create_repl.png)
 
-Now we can write some code. 
+Now we can write some code in replit's IDE.
 
 ![replit ide](/Assets/replit_ide.png)
 
-In the above picture you will notice that we have a place for writing our code in the center, then to the left we have some files. Those files are text files, much like a google doc or microsoft word document. We end the files in .py
+IDE stands for Integerated Development Environment. It just means we get an editing for editing the code, much like Google Docs, or Microsoft Word. To the left we have a file viewer with a simgle file, `hello.py`. That file is a text file. We end the files name as `.py` so that the computer can know that the file has text "code" that is for the programming language called `py`thon.
 
-We could figure out the 0s and 1s of getting the computers processor to say "Hello world" on the screen somehow, but, in the coding language we are using (Python) we get this functionality for free. We can simply type in the following.
+We could figure out the 0s and 1s of getting the computers processor to say "Hello world" on the screen somehow, but, in python we get this functionality for free. We can simply type in the following text code.
 
 ```py
 print("Hello world")
