@@ -58,7 +58,7 @@ function
 > Code that does something with an input. Sometimes functions can give you an output.
 
 calling a function
-> refering to a function 
+> refering to a function and having its code run.
 
 loop
 > code that goes in a circle, doing the same thing over and over.
