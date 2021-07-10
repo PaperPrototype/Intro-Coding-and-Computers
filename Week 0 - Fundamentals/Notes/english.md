@@ -47,5 +47,18 @@ Output
 text editor
 > Like Google Docs, it helps you write your code and automatically edits code for you, so that the computer can understand it.
 
+IDE
+> Integrated Developer Environment.
+
+variables
+> a code-word we use to refer to some value.
+
 function
+> A group of code that you can refer to using the name you gave it.
 > Code that does something with an input. Sometimes functions can give you an output.
+
+calling a function
+> refering to a function 
+
+loop
+> code that goes in a circle, doing the same thing over and over.

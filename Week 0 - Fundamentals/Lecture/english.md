@@ -638,11 +638,11 @@ Lets jump into actually learning coding so that we can make these algorithms, an
 
 We will used a programmig language called Python. Python is a program (a file of instructions written in binary (0s and 1s)). It reads text files, and as it reads them it figures out how to translate our code to binary instructions the computer can understand. We call this type of programming language an "interpreted" language because it gets "interpreted" by a program (whereas other coding languages actually get converted to binary by a program called a "compiler", but that is for next week).
 
-Although we know that text files are also actually just binary encoded as ASII or Unicode, so really this "interpreter" program, is reading in binary as Unicode, and then figuring out what we mean, and running the instructions we want.
+Although we know that text files are also actually just binary *encoded* in the ASII or Unicode format, so really this "interpreter" program, is reading in binary as Unicode, and then figuring out what we mean, and running the instructions as it figures them out.
 
 Lets make some simple interpreted code that prints (aka displays) the phrase "Hello World" on the screen.
 
-We will use an online "ide" for editing the code. Open [this link](https://replit.com/) to go to the online text editor we will use, this way you don't have to download anything.
+We will use an online coding tool for editing the code. Open [this link](https://replit.com/) to go to the online text editor we will use, this way you don't have to download anything.
 
 Then click the "Start Coding" button.
 
@@ -664,9 +664,11 @@ Now we can write some code in replit's IDE.
 
 ![replit ide](/Assets/replit_ide.png)
 
-IDE stands for Integerated Development Environment. It just means we get an editing for editing the code, much like Google Docs, or Microsoft Word. To the left we have a file viewer with a simgle file, `hello.py`. That file is a text file. We end the files name as `.py` so that the computer can know that the file has text "code" that is for the programming language called `py`thon.
+IDE stands for Integerated Development Environment. It just means we get an editing tool for editing the code, much like Google Docs, or Microsoft Word. 
 
-We could figure out the 0s and 1s of getting the computers processor to say "Hello world" on the screen somehow, but, in python we get this functionality for free. We can simply type in the following text code.
+IDE's usually also have a "file viewer", currently there is only a single file called `hello.py`. That file is a text file. We end the files name as `.py` so that the computer can know that the file has text "code" that is for the Python programming language.
+
+In *python* there is some code written for us that automatically figures out the exact 0s and 1s for print words onto the screen. We can simply type in the following code.
 
 ```py
 print("Hello world")
@@ -695,15 +697,17 @@ That console is how the print function is able to display the phrase "Hello worl
 # Variables
 Now lets make it so that the code can get input from us and then print it out again.
 
-How can we do that? Well there is a function that gets input from the console, and when we call the function (aka the code in the function gets run) it prints a message and then waits for us to type something into the terminal. Lets do this now.
+How can we do that? Well there is a function that gets input from the console, and when we call the function (aka the code in the function gets run) it prints a message and then waits for us to type something.
 
 ```py
 input("Type in your name: ")
 ```
 
-the `input` function will print the words in it to the console, then wait for the user to type in some words. When you hit enter, the code will keep running... but how will we access the words you typed in?
+The `input` function will print the words we in it to the console, then wait for the you to type in some words. When you hit enter, the code will stop running... and nothing happens. 
 
-Well, we can make something like a function that refer's to the words the `input` function gives us. Change the code to the following.
+We need to be able to get access to the words you typed in.
+
+Well, we can make a code-word (like a function) that refer's to the words the `input` function gives us. Change the code to the following.
 
 ```py
 myName = input("Type in your name: ")
@@ -711,9 +715,9 @@ myName = input("Type in your name: ")
 print(myName)
 ```
 
-So what is `myName`? It gets the words that `input` got from the console. Or really, it gets the "output" that the `input` function gave us.
+So what is `myName`? It gets the words that the `input` function got from the console (Or really, it gets the *output* that the `input` function gave us).
 
-We call these referers "variables". For a clearer example make a variable that holds a number. And then print the variable.
+We call these referers "variables". For a clearer example make a *variable* that holds a number. And then print the variable.
 
 ```py
 variable = 12
@@ -721,7 +725,7 @@ variable = 12
 print(variable)
 ```
 
-If you hit play you should see `12` get printed.
+If you hit play you should see `12` get printed. Pretty cool right?
 
 We can also add together a variable and some words.
 
@@ -733,7 +737,7 @@ print("hello " + variable)
 
 and you will get "hello 12".
 
-Notice that we put a space at the end of "hello ". If we didn't the word hello and the number 12 will be mashed together like this "hello12".
+Notice that we put a space at the end of "hello ". If we didn't put a space the word *hello* and the number *12* will be mashed together like this "hello12".
 
 # Functions
 What about functions? How can we make one ourselves? Type in the following.
@@ -745,15 +749,21 @@ def say_hello_to_name():
     print("Hello, " + myName)
 ```
 
-(We add the word "Hello, " to the myName variable. If you run this nothing will happen because a function simply groups code, if we want the code in the function to run we have to call it, we'll get to that)
+If you run this nothing will happen because a function simply groups code, if we want the code in the function to run we have to *call* it... we'll get to that.
 
-When we make a function we use the the special `def` "keyword". A keyword is a special word designated for some purpose, so you can't go using `def` as a variable's name as Python (the coding language we are using) will think you are trying to make a function.
+When we make a function we use the the special `def` "keyword". A keyword is a special word that lets python know that we are about to type in a function, so you can't go using `def` as the name for a *variable* as python (the coding language we are using) will think you are trying to make a *function*.
 
-After `def` we write the name we use to refer to the function `say_hello_to_name`. Then we put the `()` for any input (also called parameters) that the functin takes in. Currently the function takes no input so they are empty (note: you have to put the parenthesis even if it takes in no parameters (aka input)).
+After `def` we write the name we will use to refer to the function `say_hello_to_name`. Then we put the `()` for any input (also called parameters) that the functin takes in. Currently the function takes no input so they are empty (note: you have to put the parenthesis even if it takes in no input).
 
-You will also notice that the `:` after the parenthesis. This tells Python (the coding language we are using) that any code after the `:` is inside of the function. But all the code inside of the function also has to have a tab (2 or 4 spaces) in front of it. This is mostly for the programmer to be able to tell what code is in a function, and what code is not. We usually refer to adding a tab in front of code as "indenting" our code.
+(We usually refer to the "input" of a function as the function's "parameters")
 
-If we go ahead and write our code without adding indenting it in front...
+You will also notice that the `:` after the two parenthesis `():`. This tells Python (the coding language we are using) that any code after the `:` is *inside* of the function. 
+
+...But, all the code inside of the function also has to have a 2 or 4 spaces (click the `tab` key) in front of it. 
+
+This is mostly for the you, the programmer, to be able to tell what code is in a function, and what code is not. We usually refer to adding a tab in front of code as "indenting" the code.
+
+If we go ahead and write our code without adding any *indenting* in front...
 
 ```py
 def say_hello_to_name():
@@ -762,11 +772,9 @@ myName = input("Type in your name: ")
 print("Hello, " + myName)
 ```
 
-You can see it would be hard to tell what code is in the function, and what code is outside of it.
+...You can see it is hard to tell what code is *inside* of the function, and what code is *outside* of it. We call this idea of writing our code in a certain way "syntax". We have to have *syntax* so that we type things in a way that Python can understand what we are trying to tell it to do.
 
-Now correct the function by indenting it, use a tab fo indenting (this will automatically pick between 2 or 4 spaces).
-
-If you play you won't see anything happen. This is because a function simply groups code. To *run the function* or refer to the function and have it run the code inside you have to type its name followed by parenthesis.
+If you click the green arrow to run the code you won't see anything happen! This is because a *function* simply groups code. To *run the function* or refer to the function and have it run the code inside of it, you have to type its name followed by parenthesis ("run" simply means to have the computer load the code and read the intructions and do them).
 
 ```py
 def say_hello_to_name():
@@ -774,11 +782,13 @@ def say_hello_to_name():
 
   print("Hello, " + myName)
 
-# here we "call" the function (notice it is not "indented")
+# We "call" the function. 
 say_hello_to_name()
 ```
 
-I know it is confusing, but that is how we refer to a function to then run the code inside of it.
+We simply type in the name of the function `say_hello_to_name` followed by parenthesis `say_hello_to_name()` and this calls *upon  our glroies function* and *runs* it.
+
+Notice when we are *calling* the function we don't indent it because we don't want to call a function inside of a function! THat would give us an endless loop of function running over and over (and might crash the computer, but go ahead and see what happens).
 
 We don't have to put anything in the parenthesis since the function didn't need any input.
 
