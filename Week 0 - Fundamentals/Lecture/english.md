@@ -1,4 +1,4 @@
-# Intro
+# Introduction
 The language that computers understand are positive `+` and negative `-` electric charges, because they literally only have electric currents to work with (from a battery or being pluged in to an electric outlet). How does a computer *store* all those electric charges? Millions and millions of switches, containing a positive electric charge, or a negative electric charge. 
 
 Each electric charge is called a "bit". A bit can be either positive, or negative. We use the symbol `1` to represent positive charges and `0` to represent negative charges. This is always the case.
