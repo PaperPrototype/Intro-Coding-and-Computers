@@ -1,42 +1,45 @@
 # Intro
-Computers have a language that they understand, positive `+` and negative `-` electric signals. How does a computer store all those electric signals? Millions and millions of switches, containing a positive electric charge, or a negative electric charge. 
+The language that computers understand are positive `+` and negative `-` electric charges, because they literally only have electric currents to work with (from a battery or being pluged in to an electric outlet). How does a computer *store* all those electric charges? Millions and millions of switches, containing a positive electric charge, or a negative electric charge. 
 
-Each electric charge is called a "bit". But the idea of using 0s and 1s to represent everything is refered to as "binary". "bi" meaning 2, because there are only two symbols in a computers alphabet.
+Each electric charge is called a "bit". A bit can be either positive, or negative. We use the symbol `1` to represent positive charges and `0` to represent negative charges. This is always the case.
 
-We usually use the symbol `1` to represent positive charges and `0` to represent negative charges.
+The formal name for the *language* of 0s and 1s "binary".
 
-We **won't** go into the details of how a computers "processor" can take tons of `+` and `-` signals and "process" them. Instead we will focus on how we can represent numbers, letters, and everything you see on a computer, using only 0s and 1s (aka electric signals).
+In case your wondering how a computers "processor" can take tons of `+` and `-` signals and "process" them, we **won't** be covering that because THAT is not the focus of this course. Instead, we will focus on how we can represent numbers, letters, and everything you see on a computer, using only 0s and 1s (aka electric signals) to be able to code, and understand how that code is able to create images and text files (such as your reading right now; when you click on a letter there is litterally a computer code of 0's and 1's in the background for each letter or symbol).
 
 When we are "coding" it just means we are writing thousands of instructions for a computers processor using binary. We put those instructions in a file. Those files of instructions are called a "program" or "app". 
 
 But we don't want to code using 0s and 1s!
 
-Thankfully some smart people made a *program* (using binary!) that took text (aka letter) based instructions from a file and turned them into binary instructions for us!
+Thankfully some smart people made a *program* (using binary!) that took text (aka symbols, letters, numbers...anything) based instructions from a file and turned them into binary instructions for us!
 
-...But, how can you represent text (letters and symbols) using only binary? Lets answer that question first, then we'll get to coding.
+...But, how can you represent text using only binary? Lets answer that question first, then we'll get to coding.
 
-# Binary
-Lets start by learning how to represent numbers using only two symbols, `0` and `1`, then we'll show you how letters are represented.
 
-In the "decimal" ("dec" meaning ten) number system we have ten symbols to work with, `0, 1, 2, 3, 4, 5, 6, 7, 8, 9`. This is why people will say the decimal number system has a "base" of ten.
+# Lesson 0: BINARY
+Lets start by learning how to represent numbers. 
 
-We will make a number system like the tens system except using using only two symbols, `0` and `1`.
+In our standard number system, called the "decimal" system, we have 10 symbols we use to represent numbers. These symbols are `0, 1, 2, 3, 4, 5, 6, 7, 8, 9`.
+ 
+In binary, we only have two symbols, `0` and `1`, to represent every number.
 
-In binary we only have two symbols `0, 1` and that is why number represented in binary are said to have a base of 2.
+In binary, we have `0` represent the value 0, and `1` represent the value 1.
 
-In binary we can have `0` represent the value 0, and `1` represent the value 1.
-
-But that doesn't get us very far! 
+With one column of binary numbers we can count up to 1.
 
 ```
+(1s place)
 0
 1
 2 ?
 ```
 
-To solve this, we can look at how the decimal (tens) system counts farther than its last symbol -> 9.
+But that doesn't get us very far!
+
+The decimal (standard) number system can count up to 9 using only one column.
 
 ```
+(1s place)
 0
 1
 2
@@ -47,164 +50,150 @@ To solve this, we can look at how the decimal (tens) system counts farther than 
 7
 8
 9
-10 <- we move 1 over and put a zero!
 ```
 
-If we copy the decimal (tens) system we can go beyond the number of symbols we have by moving the `1` over and continuing to count.
+So how do we count past 9 in decimal? We add another column!
 
 ```
-(binary) 0, 1, 10...
-(decimal) 0, 1, 2...
+10s | 1s
+0     0
+0     1
+0     2
+0     3
+0     4
+0     5
+0     6
+0     7
+0     8
+0     9
+1     0 <- represents 10
 ```
 
-Weird huh? But, this is exactly what we do with the decimal (tens) number system! How do we count to 3 in binary?
+If we copy the decimal system, we can go beyond the number of symbols we have by moving the `1` over and continuing to count.
 
 ```
-(binary) 0, 1, 10, 11, 100, 101...
-(decimal) 0, 1, 2, 3, 4, 5...
+2s | 1s
+0    0
+0    1
+1    0 <- represents 2
 ```
 
-Why did we increase the zero to a one? Because that is exactly what we do in the tens system.
+You'll notice in binary we have a 1s place and a 2s place, but in decimal we have a 1s place and a 10s place. Since we have 10 symbols to work with we can count up to 9. In binary we only have 2 symbols to work with so we can count up to 1.
+
+In both systems when we add another column when we run out of symbols. The next column continues where the last was not able to count to, so we have a 2s place in binary because that is where we were not able to count to.
 
 ```
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10 
-11 <--
-12
-13
-14
-15
-16
-17
-18
-19
+2s | 1s
+0    0
+0    1
+1    0 <- represents 2
 ```
 
-Except in binary we don't have ten symbols, so this doesn't represent the decimal number 11. Instead it represents the decimal number 3.
-
-In the decimal number system, every time we carry the one we increase the number by a multiple of ten.
-
+Here are the "base" (aka places) numbers for binary `1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048...`.
 
 ```
-DECIMAL SYSTEM (0, 1, 2, 3, 4, 5, 6, 7, 8, 9)
-
-multiple (base) -> (100) + (10) + (1)  <- multiply number below by its base
-(decimal)           0    +  0   +  4  =  0 + 0 + 4  = 4
-(decimal)           0    +  0   +  5  =  0 + 0 + 5  = 5
-...
-(decimal)           0    +  1   +  0  =  0 + 10 + 0  = 10
-(decimal)           0    +  1   +  1  =  0 + 10 + 1  = 11
-(decimal)           0    +  1   +  2  =  0 + 10 + 2  = 12
+8s | 4s | 2s | 1s  =  decimal
+0    0    0    0   =  0
+0    0    0    1   =  1
+0    0    1    0   =  2
+0    0    1    1   =  3
+0    1    0    0   =  4
 ```
 
-This is because the tens system has a base of ten. Can you see it now?
 
-But in binary we have a base of two, so every time we move the 1 over we increase the number by a multiple of two.
+Here are the base (place) numbers for the tens system `1, 10, 100, 1000`. 
 
 ```
-BINARY (0, 1) SYSTEM
-
-multiple -> (4) + (2) + (1)    (decimal equivalent)
-(binary)     0  +  0  +  1  =  0 + 0 + 1
-(binary)     0  +  1  +  0  =  0 + 2 + 0
-(binary)     0  +  1  +  1  =  0 + 2 + 1
-(binary)     1  +  0  +  0  =  4 + 0 + 0
-(binary)     1  +  0  +  1  =  4 + 0 + 1
-(binary)     1  +  1  +  0  =  4 + 2 + 0
-(binary)     1  +  1  +  1  =  4 + 2 + 1
+1000s | 100s | 10s | 1s
+0       0      0     0
+0       0      0     1
+0       0      0     2
+0       0      0     3
+0       0      0     4
+0       0      0     5
+0       0      0     6
+0       0      0     7
+0       0      0     8
+0       0      0     9
+0       0      1     0 <- represents 10
 ```
 
-To count further than the number of digits you have, you have to add another base number. In the examples above we were only using three digits to count `digit + digit + digit`.
-
-Because binary has a "base" of 2 every base number will be a multiple of 2. 
-
-Although, ee start the base with 1, otherwise you wouldn't be able to represent the number 1, or any odd numbers (AKA 3, 5, 7...). 
-
-Here are the base numbers for binary `1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048...`.
-
-Here are the base numbers for the tens system `1, 10, 100, 1000`. You will notice that the decimal (tens) number system works well with the symbols we have, since, wuite literally, the symbols were designed to work with a base of 10.
+You will notice that the decimal (tens base) number system works well with the symbols we have, since, quite literally, the standard symbols were designed to work with a "base" of 10.
 
 Note:
-- There exist other number systems, and we could actually make our own, but one popukar one is hexadecimal (it has a base of 16), and octodecimal (it has a base of 8).
+- There exist other number systems, and we could actually make our own! A popular one is hexadecimal (it has a base of 16), and octodecimal (it has a base of 8).
 
-- Another name you could call the binary system is "duo-decimal", to be more consistent with the naming of other number systems.
-
-# hexadecimal
+# lesson 1: HEXADECIMAL
 Lets add another number system to the mix.
 
-It has sixteen symbols we can use, The symbols are `0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F`. We use the decimal symbols for 0 to 9 and then the alphabetical symbols for A to F, for 10 to 16.
+It has sixteen symbols we can use, The symbols are `0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F`. We use the standard symbols for 0 to 9 and then the alphabetical symbols A to F (for 10 to 15).
 
-So we can count up to 15 without needing to add another digit.
-
-```
-HEXADECIMAL SYSTEM
-
-base ------>  (128) + (64) + (32) + (16) + (1) <--- multiply by the base
-(hexadecimal)  0    +  0   +  0   +  0   +  1  =  0 + 0 + 0 + 1  =  1
-(hexadecimal)  0    +  0   +  0   +  0   +  2  =  0 + 0 + 0 + 2  =  2
-...
-(hexadecimal)  0    +  0   +  0   +  0   +  9  =  0 + 0 + 0 + 2  =  2
-(hexadecimal)  0    +  0   +  0   +  0   +  A  =  0 + 0 + 0 + 2  =  2
-(hexadecimal)  0    +  0   +  0   +  0   +  B  =  0 + 0 + 0 + 2  =  2
-(hexadecimal)  0    +  0   +  0   +  0   +  C  =  0 + 0 + 0 + 2  =  2
-(hexadecimal)  0    +  0   +  0   +  0   +  D  =  0 + 0 + 0 + 2  =  2
-(hexadecimal)  0    +  0   +  0   +  0   +  E  =  0 + 0 + 0 + 2  =  2
-(hexadecimal)  0    +  0   +  0   +  0   +  F  =  0 + 0 + 0 + 15  =  15 <--- up to 15
-...
-(hexadecimal)  0    +  0   +  0   +  1   +  0  =  0 + 0 + 16 + 1  =  16
-(hexadecimal)  0    +  0   +  0   +  1   +  1  =  0 + 0 + 16 + 2  =  17
-(hexadecimal)  0    +  0   +  0   +  1   +  2  =  0 + 0 + 16 + 3  =  18
-```
-
-We can make a chart showing each number systems values and symbol systems side-by-side.
+So we can count up to 15 without needing to add another column.
 
 ```
-    decimal  hexadecimal   binary
-    0   =    0    =        0     (0)
-    1   =    1    =        1     (1)
-    2   =    2    =        10    (2 + 0)
-    3   =    3    =        11    (2 + 1)
-    4   =    4    =        100   (4 + 0 + 0)
-    5   =    5    =        101   (4 + 0 + 1)
-    6   =    6    =        110   (4 + 2 + 0)
-    7   =    7    =        111   (4 + 2 + 1)
-    8   =    8    =        1000  (8 + 0 + 0 + 0)
-    9   =    9    =        1001  (8 + 0 + 0 + 1)
-    10  =    A    =        1010  (8 + 0 + 2 + 0)
-    11  =    B    =        1011  (8 + 0 + 2 + 1)
-    12  =    C    =        1100  (8 + 4 + 0 + 0)
-    13  =    D    =        1101  (8 + 4 + 0 + 1)
-    14  =    E    =        1110  (8 + 4 + 2 + 0)
-    15  =    F    =        1111  (8 + 4 + 2 + 1)
+32s | 16s | 1s
+0      0     0
+0      0     1
+0      0     2
+0      0     3
+0      0     4
+0      0     5
+0      0     6
+0      0     7
+0      0     8
+0      0     9
+0      0     a  <- represents 10
+0      0     b  <- 11
+0      0     c
+0      0     d
+0      0     e
+0      0     f
+0      1     0  <- 16
+```
+
+Every number system has a 1s place, otherwise we wouldn't be able to represent 1.
+
+We can make a chart showing each number system's values and symbol's side-by-side.
+
+```
+     decimal  hexadecimal  binary
+     0  =     0   =        00000                  (0)
+     1  =     1   =        00001                  (1)
+     2  =     2   =        00010              (2 + 0)
+     3  =     3   =        00011              (2 + 1)
+     4  =     4   =        00100          (4 + 0 + 0)
+     5  =     5   =        00101          (4 + 0 + 1)
+     6  =     6   =        00110          (4 + 2 + 0)
+     7  =     7   =        00111          (4 + 2 + 1)
+     8  =     8   =        01000      (8 + 0 + 0 + 0)
+     9  =     9   =        01001      (8 + 0 + 0 + 1)
+    10  =     A   =        01010      (8 + 0 + 2 + 0)
+    11  =     B   =        01011      (8 + 0 + 2 + 1)
+    12  =     C   =        01100      (8 + 4 + 0 + 0)
+    13  =     D   =        01101      (8 + 4 + 0 + 1)
+    14  =     E   =        01110      (8 + 4 + 2 + 0)
+    15  =     F   =        01111      (8 + 4 + 2 + 1)
     16  =    10   =        10000 (16 + 0 + 0 + 0 + 0)
     17  =    11   =        10001 (16 + 0 + 0 + 0 + 1)
 ```
-(It took me 30 miutes to figure out the binary equivalents)
+(I took away the zero's in front of hexadecimal and decimal to make it easier to read)
 
-People find hexadecimal more easy than binary because it can represent larger numbers with less digit, and you don't have to carry 1 over so many times resulting in less digits. 
+People find hexadecimal more easy than binary because it can represent larger numbers with less digit (don't have to carry the 1 over so many times resulting in less digits).
 
-Often you will see hexadecimal in place of binary. Also you will notice that hexadecimal lines up pretty well with binary since 16 is a multiple of 2 (which is binary's base number).
+Often you will see hexadecimal in place of binary. Also you will notice that hexadecimal lines up pretty well with binary since 16 is a multiple of 2 (which is binary's "base" number).
 
 If you are really geeking out right now try to make a number system with a base of 8, or 5, or 3!
 
 There is a number system called trinary that has a base of 3. Quantum computers use it because the switches in a quantum computer can be on, off, or half way, giving 3 possible symbols. You could use the symbols 1 (on) -1 (off) and 0 (half way) for trinary... or really any symbols.
 
-# Numbers can represent letters
-Now that we can use binary (`0`'s and `1`'s) to represent numbers, we can use those numbers to represent letters! For example the letter "H" could be represented by the number "15", or in binary "1111", or in hexadecimal "F".
+# lesson 2: Numbers can represent letters
+Now that we can use binary (`0`'s and `1`'s) to represent numbers, we can use those numbers to represent letters! For example the symbol "H" could be represented by the number "15", or in binary "1111" (or in hexadecimal "F").
 
-If we want to tell the computer to say "Hello!", or actually just the letter "H", all we have to do is tell the computer *when* the number 15 should represent "H".
+If we want to tell the computer to say "Hello!", or actually just the letter "H", all we have to do is tell the computer ***when*** the number 15 should represent the symbol "H".
 
-Now all thats left is to make a long list of what numbers should map to what letters. As you might have guessed there is already a "standard" that us nerds have made. Its called ASCII which stands for American Standard Code for Information Interchange. Below is the ASCII "encoding" of latin based characters letters and symbols
+All thats left is to make a long list of what numbers map to what symbols. As you might have guessed there is already a "standard" that exists that every computer uses. Its called ASCII which stands for American Standard Code for Information Interchange. Below is the ASCII "encoding" of latin based characters letters and symbols.
 
-(Don't worry about reading this whole thing)
+(**Don't** read this whole list... skip over most of it)
 
 ```
 ASCII ENCODING
@@ -471,17 +460,23 @@ ASCII ENCODING
 ```
 (taken from https://theasciicode.com.ar/ascii-codes.txt)
 
-Its pretty long. But even still it doesn't cover all the possibility's! This is because we only use 8 bits (eight 0's and 1's). Using only 8 bits for our binary number only lets us count from 0 to 255, giving us 256 possible symbols! 
+Its pretty long. But even still it doesn't cover all the possibility's! This is because we only use 8 bits (eight columns of 0's and 1's). 
 
-Why 8 bits? and not 7 or 3 bits? Modern computers store everything in sets of 8 bits so that every memory location will hold 8 bits instead of just 1. Doing this increases the speed we can access memeory by 8x.
+Using only 8 columns of bits for a binary number only lets us count from 0 to 255, giving us 256 possible symbols! 
 
-There is a short name for "8 bits" called a "byte". Whenever someone says "byte" they are just refering to a block of memory that is 8 bits long. This is very common as litterally every computer these days stores memory in bytes (AKA a set of 8 bits).
+Why 8 bits? and not 7 or 3 bits? Modern computers store everything in sets of 8 bits.
 
-What about emoji's? The ASCII encoding doesn't include emoji's! This is probably because (according to Wikipedia) the ASCII encoding was invented in 1963! [1]
+This helps speed up your computer as it only has to remember the location of something every 8 bits rather than every bit (literally giving you an 8x speedup).
 
-A new modern mapping system called Unicode is based off of ASCII with the mapping for the numbers 0 to 255 being the same as ASCII's.
+There is a short name for the size "8 bits" called a "byte". Whenever someone says "byte" they are just refering to a block of memory that is 8 bits long. THe word *byte* is very common as literally every computer these days stores memory in bytes (a set of 8 bits).
 
-Unicode offers several formats each one storing twice as many symbols and letters as the previous one. Each Unicode variant is called a Unicode Transform Format, or more commonly UTF. The first format is called UTF-8, the "8" stands for the number of bits it uses so UTF-8 takes up 1 byte (remember 1 byte is 8 bits) of space for each symbol.
+What about emoji's? The ASCII encoding doesn't include emoji's (I don't think)! This is probably because (according to Wikipedia) the ASCII encoding was invented in 1963!
+
+A new modern mapping system called Unicode is based off of ASCII. The mapping of 0 to 255 is the same as ASCII's.
+
+Unicode offers several formats each one storing twice as many symbols and letters as the previous one. Each Unicode variant is called a Unicode Transform Format, or more commonly UTF. 
+
+The first format is called UTF-8. The "8" stands for the number of bits it uses. UTF-8 stores the same things as ASCII and takes up 1 byte of space for each symbol (remember 1 byte is 8 bits).
 
 How is Unicode different from ASCII? Well, with Unicode, if you add another byte you get UTF-16 which adds support for many more letters and symbols. And then UTF-32 adds even more support for symbols.
 
