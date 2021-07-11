@@ -7,7 +7,7 @@ To implement linear search in python first we need a list of items to search.
 myList = ["A", "B", "C", "D"]
 ```
 
-We will also make a variable that represent the value we want (remember a variable holds "values", aka lists, or numbers, or words).
+We will also make a variable that represent the value we are wanting to find (remember a variable holds "values", aka lists, or numbers, or words).
 
 ```py
 # list of items we will search
