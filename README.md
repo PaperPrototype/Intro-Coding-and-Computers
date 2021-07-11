@@ -1,7 +1,9 @@
 # Intro to Coding and Computers
 An intro to coding and how computer's work
 
-For beginners and intermediate programmers seeking a deeper understanding of how computers work, AKA Computer Science
+For beginners and intermediate programmers seeking a deeper understanding of how computers work as well as how to code, AKA Computer Science!
+
+If you have ANY issues or something doesn't make sense we would LOVE IT if you told us here https://github.com/PaperPrototype/Intro-to-Coding/issues/new
 
 # Layout IDEAS
 
