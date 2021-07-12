@@ -498,7 +498,7 @@ We can use 1 byte for each color giving us numbers ranging from 0 to 255. As wit
 
 By mixing the right amount of Red Green and Blue we can represent the color yellow with 249, 255, and 0.
 
-TODO ![yellow color](/Assets/yellow_color.png)
+![yellow color](/Assets/yellow_color.png)
 
 Pictures are typically made up of thousands of pixels, this results in a lot of memory being used. For a picture of 512 x 512 pixels we end up with 512 x 512 x 3 bytes. For such large memory sizes we have other names such as kilobyte, megabyte, and gigabyte. 
 
