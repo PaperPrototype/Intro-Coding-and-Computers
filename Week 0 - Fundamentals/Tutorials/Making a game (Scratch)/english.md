@@ -35,7 +35,7 @@ Go to the "looks" tab and drag the code block called "say Hello!" onto the codin
 
 To "run" the code click the green flag. You should see the cat say "hello!"...
 
-Wait why didn't the cat say hello!?... The problem is that we didn't tell the computer "when" the "say" block should run. 
+Wait why didn't the cat say hello!?... The problem is that we didn't tell the computer *when* the `say` block should run. 
 
 Should it always say hello? Should it say hello when we click the green flag?
 
