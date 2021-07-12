@@ -13,7 +13,7 @@ If you have ANY issues or something doesn't make sense we would LOVE IT if you t
 
 # Navigating
 1. Open the folder called "Week 0 - Fundamentals" (On mobile you have to click "View code").
-2. n that folder you will find a folders called "Lecture" open that.
+2. In that folder you will find a folders called "Lecture" open that.
 3. Then you will see a file named "english.md" click that to read the lecture.
 
 - Notes can be found in a folder called "Notes" under the week folder (eg. "Week 0 - Fundamentals")
