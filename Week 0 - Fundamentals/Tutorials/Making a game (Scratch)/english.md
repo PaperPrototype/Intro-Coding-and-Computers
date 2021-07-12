@@ -11,17 +11,17 @@ Scratch runs in your Browser so you don't have to download anything! Just go to 
 
 (see picture below)
 
-![create first scratch project](/Assets/create_first_scratch_project.png)
+![create first scratch project](./Assets/create_first_scratch_project.png)
 
 You'll notice a tutorial pop up, feel free to follow the tutorial and then keep reading this. Or just close it and keep reading.
 
-![close tutorial popup](/Assets/close_tutorial_popup.png)
+![close tutorial popup](./Assets/close_tutorial_popup.png)
 
 Now click on the cat to select it and lets add some code to the cat. 
 
 (remember "code" is another way of saying "instructions")
 
-![click on cat then add code](/Assets/click_on_cat_add_code.png)
+![click on cat then add code](./Assets/click_on_cat_add_code.png)
 
 Scratch doesn't make us type words, instead it gives us puzzle pieces with words on them. Because they are puzzle pieces they only fit together if the "syntax" or code is correct.
 
@@ -31,7 +31,7 @@ So... yeah, scratch makes it much easier to code since you don't have to worry a
 
 Go to the "looks" tab and drag the code block called "say Hello!" onto the coding area. You can change the word "Hello!" to whatever you want by clicking on it, then typing in the word you want.
 
-![add say code block](/Assets/scratch_add_code.png)
+![add say code block](./Assets/scratch_add_code.png)
 
 To "run" the code click the green flag. You should see the cat say "hello!"...
 
@@ -43,9 +43,46 @@ The last question sounds logical, and, it turns out, scratch gives us a code blo
 
 Go to the "Events" tab. Drag the "When green flag clicked" block into the code area and attatch the "Say Hello!" block under it.
 
-![scratch first working code](/Assets/scratch_first_working_code.png)
+![scratch first working code](./Assets/scratch_first_working_code.png)
 
 You'll notice that the code blocks "fit" together. Now if we click the green flag the cat will say "Hello!"!
 
-# Simulating gravity
+# Follow the mouse-pointer
+We can make the cat follow the mouse. 
+
+Go to the "Motion" tab and simply add the `go to` code block under the `say` block. Then change the `go to` block to go to the "mouse-pointer"... 
+
+![scratch follow mouse](./Assets/scratch_follow_mouse.png)
+
+If you try this it will work, but not quite how we want it to.
+
+Since the code under the "When green flag clicked" only runs *once* (when the green flag is clicked), the cat would go to the mouse the moment you clicked the green flag, but would not continue to move the cat to follow the "mouse-pointer".
+
+To fix this we need our code to "forever" run some code that says `go to (mouse-pointer)`, over and over again, making the cat follow the mouse pointer.
+
+If you go to the "Control" tab you will find a code block that does just that, its called the `forever` block.
+
+![scratch forever block](./Assets/scratch_forever_block.png)
+
+To delete a code block, drag it onto the tab area, this will delete it.
+
+![scratch delete code block](./Assets/scratch_delete_code_block.png)
+
+Now add the `forever` block under the `say` block, then inside of the `forever` block put a `go to (mouse-pointer)` block.
+
+![scratch final follow code](./Assets/scratch_final_follow_code.png)
+
+# Variables for movement
+If we want to simulate gravity we have to do more than follow the mouse pointer, we need to move the cat so that it looks like it is falling.
+
 TODO
+
+to reset the cats position, we can go to its position and change it back to "?????"
+An even esaier way is to reset the cats position when the green flag is clicked TODO
+
+to prevent the cat form falling faster and faster, we can add a max falling speed
+
+in physics the max falling speed happens when air pushing against you as you fall prevents you from going faster. This is partially because the faster you go, the more the air will push, so eventually they balance out. We call this balanced velocity, "terminal velocity".
+
+
+now, it would be cool if the cat stopped falling when it "hit" something. TODO
