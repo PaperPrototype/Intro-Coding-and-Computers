@@ -939,6 +939,19 @@ We call a True or False variable a "bool" because the guy who made them was name
 
 Also a bool (True or False variable) in Python requires us to uppercase the first letter, so saying `true` will not work, instead you have to use `True`.
 
+```py
+if True:
+    print("This is true")
+
+if False:
+    # this code will not ever get run since False is always False
+    print("I will never get printed...")
+```
+
+Yay! Now you know how to code!
+
 In the Tutorials folder you will find tutorials on how to implement the search algorithms we talked about earlier. If you need any help you can join our Discord to ask questions and get help from me https://discord.gg/QhqTE4t2tR
 
-And that is it for week 0! Have fun! There is also a tutorial on making a simple game, but just remember, the more tutorials you do after each lecture the better you will get at coding!
+The tutorials folder also has a tutorial on making a simple game with gravity! Be sure to heck it out!
+
+And that is it for week 0! Have fun! Remember, the more tutorials you do after each lecture the better you will get at coding!
