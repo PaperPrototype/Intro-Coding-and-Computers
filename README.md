@@ -1,5 +1,5 @@
 # Intro to Coding and Computers
-An intro to coding and how computer's work
+An intro to coding and how computers work
 
 For beginners and intermediate programmers seeking a deeper understanding of how computers work as well as how to code, AKA Computer Science!
 
