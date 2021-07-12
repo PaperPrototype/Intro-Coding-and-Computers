@@ -39,7 +39,9 @@ Wait why didn't the cat say hello!?... The problem is that we didn't tell the co
 
 Should it always say hello? Should it say hello when we click the green flag?
 
-THat lst one sounds good, and, it runs out, scratch gives us a code block called "When green flag clicked" in the "Events" tab. Drag the "When green flag clicked" block into the code area and attatch the "Say Hello!" block under it.
+The last question sounds logical, and, it turns out, scratch gives us a code block called "When green flag clicked"!
+
+Go to the "Events" tab. Drag the "When green flag clicked" block into the code area and attatch the "Say Hello!" block under it.
 
 ![scratch first working code](/Assets/scratch_first_working_code.png)
 
