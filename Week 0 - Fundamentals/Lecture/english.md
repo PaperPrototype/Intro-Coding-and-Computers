@@ -631,7 +631,11 @@ For reference here is the two algorithms plotted next to each other.
 # Your first code
 Lets jump into actually learning coding so that we can make these algorithms, and some games (In the tutorials of this week).
 
-We will used a programmig language called Python. Python is a program (a file of instructions written in binary (0s and 1s)). It reads text files, and as it reads them it figures out how to translate our code to binary instructions the computer can understand. We call this type of programming language an "interpreted" language because it gets "interpreted" by a program (whereas other coding languages actually get converted to binary by a program called a "compiler", but that is for next week).
+We will used a programmig language called Python. Python is a program (a file of instructions written in binary (0s and 1s)). 
+
+It reads text files, and as it reads them it figures out how to translate our text code into binary instructions the computer can understand. 
+
+We call this type of *programming language* an "interpreted" language because it gets "interpreted" by a program, whereas other coding languages actually get converted to binary instructions by a program called a "compiler"! (but that is for next week).
 
 Although we know that text files are also actually just binary *encoded* in the ASII or Unicode format, so really this "interpreter" program, is reading in binary as Unicode, and then figuring out what we mean, and running the instructions as it figures them out.
 
