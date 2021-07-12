@@ -1,10 +1,17 @@
 # Intro to Coding and Computers
-An intro to coding and how computer's work
+An intro to coding and how computers work
 
-For beginners and intermediate programmers seeking a deeper understanding of how computers work, AKA Computer Science
+For beginners and intermediate programmers seeking a deeper understanding of how computers work as well as how to code, AKA Computer Science!
 
-# Layout IDEAS
+If you have ANY issues or something doesn't make sense we would LOVE IT if you told us here https://github.com/PaperPrototype/Intro-to-Coding/issues/new
 
+# Layout
+[Week 0 - Fundamentals](https://github.com/PaperPrototype/Intro-to-Coding/tree/main/Week%200%20-%20Fundamentals)
+- [Lecture (click this)](https://github.com/PaperPrototype/Intro-to-Coding/blob/main/Week%200%20-%20Fundamentals/Lecture/english.md)
+- [Notes (glossary)](https://github.com/PaperPrototype/Intro-to-Coding/blob/main/Week%200%20-%20Fundamentals/Notes/english.md)
+
+
+# Layout IDEAS (Random notes for indstructor DON'T read this)
 Course layout idea 2
 Week 0
 - coding is instructions for a computer
@@ -62,7 +69,6 @@ Topics covered
 - none
 
 Topics that need covered
-- scratch
 - functions
 - variables
 - parameters (variables for functions)
