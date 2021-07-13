@@ -1,6 +1,8 @@
 (Originally part of the lecture, but moved to the "Archive" folder of old lectures)
 
-In this tutorial we will make a simple game with a falling cat!
+In this tutorial we will make a simple game with a falling cat! In the end the game will be like this.
+
+![scratch final game](./Assets/scratch_final_game.gif)
 
 # Scratch, a puzzle piece language
 Lets use a program*ing language called Scratch, that automatically makes sure we write our programs with correct syntax, because getting used to a programming languages syntax can be... interesting. 
@@ -151,7 +153,7 @@ At first the cat goes up, but then it transitions to going down, this is because
 
 See if you can figure out how to get this code working! It shouldn't be hard!
 
-# Moving side to side
+# Moving side to side?... Functions
 We just need an `x-velocity`. But this code is starting to get a little messy.
 
 Lets put the jumping code, and the gravity code into their own custom blocks!
@@ -172,15 +174,36 @@ Now do the same for the jumping code.
 
 ![scratch use jump block](./Assets/scratch_use_jump_block.png)
 
-Hmm... lets edit the jump function so that it takes in a number for how high we want the player to jump.
+Hmm... lets edit the jump function (aka custom block) so that it takes in a number for how high we want the player to jump.
 
-Left click the jump block in "My Blocks" and click edit.
+Left click the jump block in "My Blocks" and select edit.
 
-![]
+![scratch edit custom block](./Assets/scratch_edit_custom_block.png)
 
 Then add an input to the block. Call the input "height".
 
+![scratch add block input](./Assets/scratch_add_block_input.gif)
+
 Now in the blocks "define", drag the input into the `set [y velocity] to (10)` block.
 
-![]
+![scratch set block input](./Assets/scratch_set_block_input.gif)
+
+Now we can set the jump height to whatever we want!
+
+# Finally... Moving side to side
+Make a new custom block called "movement".
+
+Then add the following code.
+
+![scratch movement code](./Assets/scratch_movement_code.png)
+
+Also make sure to *call upon* the movement block in the `forever` loop.
+
+![scratch update movement](./Assets/scratch_update_movement.png)
+
+In video games, we usually refer to the `forever` loop as an "Update loop".
+
+Now, show me your skills and make something epic. Good luck soldier.
+
+
 
