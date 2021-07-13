@@ -56,7 +56,7 @@ Go to the "Motion" tab and simply add the `go to` code block under the `say` blo
 
 If you try this it will work, but not quite how we want it to.
 
-Since the code under the "When green flag clicked" only runs *once* (when the green flag is clicked), the cat would go to the mouse the moment you clicked the green flag, but would not continue to move the cat to follow the "mouse-pointer".
+Since the code under the "When green flag clicked" only runs one time, when the green flag is clicked. The cat goes to the mouse the moment you clicked the green flag, but it doesn't continue to move the cat to *follow* the mouse pointer.
 
 To fix this we need our code to "forever" run some code that says `go to (mouse-pointer)`, over and over again, making the cat follow the mouse pointer.
 
