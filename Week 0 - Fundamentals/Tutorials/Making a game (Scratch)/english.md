@@ -73,8 +73,6 @@ Now add the `forever` block under the `say` block, then inside of the `forever` 
 ![scratch final follow code](./Assets/scratch_final_follow_code.png)
 
 # Variables for movement
-In the process of writing this now.
-
 If we want to simulate gravity we have to do more than follow the mouse pointer, we need to move the cat so that it looks like it is falling.
 
 TODO
