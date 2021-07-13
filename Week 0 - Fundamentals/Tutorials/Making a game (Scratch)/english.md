@@ -1,11 +1,11 @@
 (Originally part of the lecture, but moved to the "Archive" folder of old lectures)
 
-In this tutorial we will make a simple game with a jumping cat!
+In this tutorial we will make a simple game with a falling cat!
 
 # Scratch, a puzzle piece language
-Lets use a program*ing language (that will be compiled by scratch into another programming language called javascript) to first get the computer to say the word "Hello!" (javascript runs inside of your web browser), then get a cat picture to jump with physics!
+Lets use a program*ing language called Scratch, that automatically makes sure we write our programs with correct syntax, because getting used to a programming languages syntax can be... interesting. 
 
-We will use a programming language called Scratch, that automatically makes sure we write our programs with correct syntax, because getting used to a programming languages syntax can be... interesting. (remember we need syntax so that the compiler (or interpreter) can figure out how to convert our words into instructions for the computer). 
+(remember we need syntax so that a *compiler* (or interpreter) can figure out how to convert our words into instructions for the computer).
 
 Scratch runs in your Browser so you don't have to download anything! Just go to [scratch.mit.edu](https://scratch.mit.edu/) and and click on the "Create" or "Start Creating" button.
 
