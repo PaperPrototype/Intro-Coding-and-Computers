@@ -138,3 +138,49 @@ Now we can drag the cat up, and it will slowly fall every time! Yay!
 
 ![scratch drag fall](./Assets/scratch_drag_fall.gif)
 
+# Jumping
+The code for jumping is shown below.
+
+![scratch jumping code](./Assets/scratch_jumping_code.png)
+
+We add another if statement, and in it we put a "Sensing" block called `key (space) pressed?`.
+
+If the spcae key is pressed we set the `y-velocity` variable to 10 (upwards), and then change the cats y position using the newly changed `y-velocity`.
+
+At first the cat goes up, but then it transitions to going down, this is because the `forever` loop decreases the `y-velocity` constantly. Pretty cool eh?
+
+See if you can figure out how to get this code working! It shouldn't be hard!
+
+# Moving side to side
+We just need an `x-velocity`. But this code is starting to get a little messy.
+
+Lets put the jumping code, and the gravity code into their own custom blocks!
+
+Go to the "My Blocks" tab (at the bottom) and click "Make a Block". Name it "simulate gravity" and put the code that simulates gravity under it.
+
+![scratch simulate gravity](./Assets/scratch_simulate_gravity.png)
+
+Now we can just put the `simulate gravity` block in place of it! 
+
+("Custom Blocks" in Scratch are the same as functions in Python)
+
+![scratch use gravity block](./Assets/scratch_use_gravity_block.png)
+
+Ah much better!
+
+Now do the same for the jumping code.
+
+![scratch use jump block](./Assets/scratch_use_jump_block.png)
+
+Hmm... lets edit the jump function so that it takes in a number for how high we want the player to jump.
+
+Left click the jump block in "My Blocks" and click edit.
+
+![]
+
+Then add an input to the block. Call the input "height".
+
+Now in the blocks "define", drag the input into the `set [y velocity] to (10)` block.
+
+![]
+
