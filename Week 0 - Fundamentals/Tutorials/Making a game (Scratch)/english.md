@@ -5,7 +5,7 @@ In this tutorial we will make a simple game with a jumping cat! In the end the g
 ![scratch final game](./Assets/scratch_final_game.gif)
 
 # Scratch, a puzzle piece language
-Lets use a program*ing language called Scratch, that automatically makes sure we write our programs with correct syntax, because getting used to a programming languages syntax can be... interesting. 
+Lets use a programing language called Scratch, that automatically makes sure we write our programs with correct syntax, because getting used to a programming languages syntax can be... interesting. 
 
 (remember we need syntax so that a *compiler* (or interpreter) can figure out how to convert our words into instructions for the computer).
 
