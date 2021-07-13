@@ -75,14 +75,60 @@ Now add the `forever` block under the `say` block, then inside of the `forever` 
 # Variables for movement
 If we want to simulate gravity we have to do more than follow the mouse pointer, we need to move the cat so that it looks like it is falling.
 
-TODO
+For this we will create a variable (a code-word that references a value (in this case the *value* is a number)). 
 
-to reset the cats position, we can go to its position and change it back to "?????"
-An even esaier way is to reset the cats position when the green flag is clicked TODO
+That variable will reference a number representing a y-velocity. We will then use that y-velocity number to move the player down. Every `forever` loop, we decrease the y-velocity making the player gradually fall!
 
-to prevent the cat form falling faster and faster, we can add a max falling speed
+Go to the "Variables" tab. and click "Make a Variable"
 
-in physics the max falling speed happens when air pushing against you as you fall prevents you from going faster. This is partially because the faster you go, the more the air will push, so eventually they balance out. We call this balanced velocity, "terminal velocity".
+![scratch make variable](./Assets/scratch_make_variable.png)
 
+name it y-velocity. Now in the forever loop we can decrease the y-velocity number every `forever` loop.
 
-now, it would be cool if the cat stopped falling when it "hit" something. TODO
+![scratch decrease y velocity](./Assets/scratch_decrease_y_velocity.png)
+
+Then go to the "Motion" tab and use the `change y by` block to change the y position of the cat by some number
+
+![scratch change y by 10](./Assets/scratch_change_y_by_10.png)
+
+To change the cats position using our `y-velocity` variable, go to the "Variables" tab and drag the `y-velocity` variable onto the `change y by` where the number is, the block should adjust to fit the `y-velocity` variable. It should look like this.
+
+![scratch change y](scratch_change_y.png)
+
+Now tha cat falls! Although it stays stuck at the bottom of the canvas!
+
+We can manually go to its position and change it back to `x(0) y(0)`.
+
+![scratch gif manaully set position](./Assets/scratch_manually_set_pos.gif)
+
+Or we could just click and drag the cat "sprite" to the center of the cavnas. ("sprite" is just another name for a 2D picture)
+
+![scratch gif drag sprite](./Assets/scratch_gif_drag_sprite.gif)
+
+An even easier way is to reset the cats position when the green flag is clicked through a `set x to (0)` and `set y to (0)` block. These blocks set the cats position to whatever you want.
+
+![scratch reset pos](./Assets/scratch_reset_pos.png)
+
+In this case we reset the cats position to the center whenever we click the green flag.
+
+It would be cool if the cat stopped falling when it touched the edge. To do this we can use an `if` statement.
+
+Go to the "Control" tab and get the `if < > then else` block and put it inside of the `forever` block.
+
+![scratch if touching else](./Assets/if_touching_else.png)
+
+Then from the "Sensing" tab we put the `is touching ()` *conditional* code block. Make sure to change the drop down from `mouse-pointer` to `edge`!
+
+Now when the cat touches the edge, the code does nothing, but if the cat is NOT touching the edge the cat falls!
+
+You might notice that the y-velocity variable is very big! And as a result we fall VERY fast, and it onyl gets worse every time we restart! Because we never reset `y-velocity`!
+
+![scratch y velocity](./Assets/scratch_y_velocity.png)
+
+To fix this, whenever the cat touches the edge, we reset the `y-velocity` variable, *if*, the cat touches the edge.
+
+![scratch reset y velocity](./Assets/scratch_reset_y_velocity.png)
+
+Now we can drag the cat up, and it will slowly fall every time! Yay!
+
+![scratch drag fall](./Assets/scratch_drag_fall.gif)
