@@ -27,9 +27,7 @@ Now click on the cat to select it and lets add some code to the cat.
 
 Scratch doesn't make us type words, instead it gives us puzzle pieces with words on them. Because they are puzzle pieces they only fit together if the "syntax" or code is correct.
 
-(If we were using another programming language we would have to type those words manually and make sure they are following the rules of syntax)
-
-So... yeah, scratch makes it much easier to code since you don't have to worry about "syntax" or miss-typing something. All the possible instructions come as puzzle piece "blocks".
+All the instructions come as puzzle piece "blocks". You can also make your own.
 
 Go to the "looks" tab and drag the code block called "say Hello!" onto the coding area. You can change the word "Hello!" to whatever you want by clicking on it, then typing in the word you want.
 
