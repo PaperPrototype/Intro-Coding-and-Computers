@@ -7,7 +7,7 @@ The formal name for the *language* of 0s and 1s "binary".
 
 In case your wondering how a computers "processor" can take tons of `+` and `-` signals and "process" them, we **won't** be covering that because THAT is not the focus of this course. Instead, we will focus on how we can represent numbers, letters, and everything you see on a computer, using only 0s and 1s (aka electric signals) to be able to code, and understand how that code is able to create images and text files (such as your reading right now; when you click on a letter there is litterally a computer code of 0's and 1's in the background for each letter or symbol).
 
-When we are "coding" it just means we are writing thousands of instructions for a computers processor using binary. We put those instructions in a file. Those files of instructions are called a "program" or "app". 
+When we are "coding" it just means we are writing *thousands* of instructions for a computers processor using binary. We put those instructions in a file. Those files of instructions are called a "program" or "app". 
 
 But we don't want to code using 0s and 1s!
 
