@@ -37,9 +37,7 @@ To "run" the code click the green flag. You should see the cat say "hello!"...
 
 Wait why didn't the cat say hello!?... The problem is that we didn't tell the computer *when* the `say` block should run. 
 
-Should it always say hello? Should it say hello when we click the green flag?
-
-The last question sounds logical, and, it turns out, scratch gives us a code block called "When green flag clicked"!
+To solve this scratch gives us a code block called "When green flag clicked", and it runs the code under it *when the green flag is clicked*.
 
 Go to the "Events" tab. Drag the "When green flag clicked" block into the code area and attatch the "Say Hello!" block under it.
 
@@ -48,7 +46,7 @@ Go to the "Events" tab. Drag the "When green flag clicked" block into the code a
 You'll notice that the code blocks "fit" together. Now if we click the green flag the cat will say "Hello!"!
 
 # Follow the mouse-pointer
-We can make the cat follow the mouse. 
+We can make the cat follow the mouse pointer.
 
 Go to the "Motion" tab and simply add the `go to` code block under the `say` block. Then change the `go to` block to go to the "mouse-pointer"... 
 
