@@ -662,11 +662,13 @@ Although we know that text files are also actually just binary *encoded* in the 
 
 Lets make some simple interpreted code that prints (aka displays) the phrase "Hello World" on the screen.
 
-We will use an online coding tool for editing the code. Open [this link](https://replit.com/) to go to the online text editor we will use, this way you don't have to download anything.
+We will use an online code editing tool. 
 
-Then click the "Start Coding" button.
+Open [this link](https://replit.com/) <-- click that, and you should see a picture liek thsi.
 
 ![start coding](/Assets/start_coding.png)
+
+Then click the "Start Coding" button.
 
 It will ask you to make an account (We're sorry about this! If you have any issues contact us in our Discord, or through the repository Issues).
 
