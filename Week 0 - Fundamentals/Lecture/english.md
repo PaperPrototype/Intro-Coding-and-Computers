@@ -1007,11 +1007,11 @@ Every time we loop, the current item we are at in the list gets stored in the va
 We aren't using the variable called "item", but we could if we changed the code to the following.
 
 ```py
-for item in [0, 1, 3]:
+for item in [2, 2, 3, 5]:
   print(item)
 ```
 
-This goes to an item in the list, stores it in item, then runs any code inside fo the loop. In this case we print "item".
+This goes to an item in the list, stores it in the "item" variable, then runs any code inside the loop. In this case we print "item" variable every loop.
 
 When we print a variable we are *accessing* what it represents. We call the thing a variable represents its "value". So really variables just give us references to values.
 
