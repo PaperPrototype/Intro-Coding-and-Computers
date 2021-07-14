@@ -945,23 +945,35 @@ Now we can use the variable "myList" to refer to the list.
 Now how do we access each item of the list?
 
 ```py
-myList[0]
+myList[1]
 ```
 
-By using square brackets `[]` after the variable we can access each item of the variables list, based on the items position in the list. So `myList[0]` gets item 0, which is the first item "A".
+By using square brackets `[]` after the variable we can access each item of the variables list.
 
-"What do you mean item `0`? Shouldn't it be `[1]` to get the first item?"
+Now lets print item 1. Type in the following and then run it.
 
-Yes your right, but an interesting thing about computers is that they always start counting from 0. 
+```py
+myList = ["A", "B", "C", "D"]
+print(myList[1])
+```
 
-This also applies getting things from a lists of items, so if we want to access the first item in a list we have to use `0` to access the first item.
+"It printed B?!"
 
-Remember when we talked about how computer represent numbers? They use 0s and 1s. So how would we represent zero? we just use the symobl `0`. If we didn't count zero as a number we would end up representing zero as `1` in binary.
+Yes your right, an interesting thing about computers is that they always start counting from 0. So to access the first item o=in a list we have to use 0.
+
+```py
+myList = ["A", "B", "C", "D"]
+print(myList[0])
+```
+
+Now you should see A get printed.
+
+Remember when we talked about how computer represent numbers? They use 0s and 1s. So how would we represent zero? we just use the symobl `0`. If we didn't count zero as a number we would end up representing zero as `1` in binary, and that would be confusing!
 
 And honestly, we need the number 0.
 
 # Loops
-What if we want to print "hello" 3 times? We can just write `print("hello")` 3 times.
+What if we want to print "hello" 3 times? We can just write `print("hello")` 3 times. Delete our old code and type the following. (I am going to stop saying "delete the old code" as I think you have it figured out)
 
 ```py
 print("hello")
@@ -969,7 +981,7 @@ print("hello")
 print("hello")
 ```
 
-But what if we want it to change the words to "Hello world"? We can just change them all.
+But what if we want it to change the words to "Hello world"? We can just change them all manually.
 
 ```py
 print("Hello world")
@@ -980,15 +992,17 @@ print("Hello world")
 But that is kinda annoying, even with copy paste. Instead we can using a "loop" to run the same code a certain number of times.
 
 ```py
-for item in [0, 1, 2]:
+for item in [2, 2, 3, 5]:
     print("Hello world")
 ```
 
-This code prints "Hello world" 3 times.
+This code prints "Hello world" 4 times.
 
-What is the `for variable in [0, 1, 2]`? They are saying, quite literally, "for every item in the list". Every tie we do this loop, the current item we are at in the list gets stored in the variable "item".
+What is the `for variable in [2, 2, 3, 5]`? It is saying, quite literally, "for every item in the list". 
 
-Then you'll notice the `:`, this does the same thing as a function, we have to indent our code after the `:` to show that it is inside of the loop.
+A "for" loop in Python use lists to know the number of times we want to loop.
+
+Every time we loop, the current item we are at in the list gets stored in the variable "item".
 
 We aren't using the variable called "item", but we could if we changed the code to the following.
 
@@ -1000,6 +1014,8 @@ for item in [0, 1, 3]:
 This goes to an item in the list, stores it in item, then runs any code inside fo the loop. In this case we print "item".
 
 When we print a variable we are *accessing* what it represents. We call the thing a variable represents its "value". So really variables just give us references to values.
+
+You'll notice the `:`, this does the same thing as a function, we have to indent our code after the `:` to show that it is inside of the loop.
 
 # Comments
 As a programmer we can leave comments in the code for other programmers to read, this is important to do as it helps others understand what our code is doing. 
