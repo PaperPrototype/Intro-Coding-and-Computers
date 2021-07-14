@@ -52,7 +52,7 @@ The decimal (standard) number system can count up to 9 using only one column.
 9
 ```
 
-So how do we count past 9 in decimal? We add another column!
+So how do we count past 9 in decimal?
 
 ```
 10s | 1s
@@ -69,7 +69,18 @@ So how do we count past 9 in decimal? We add another column!
 1     0 <- represents 10
 ```
 
+We add another column! THe next column starts at ten since the last one left off at nine.
+
 If we copy the decimal system, we can go beyond the number of symbols we have by moving the `1` over and continuing to count.
+
+```
+2s | 1s
+0    0
+0    1
+1    0 <- represents 2
+```
+
+We add another column, and that column starts counting at two, because the last column could only count up to one. We call the second column the the "2s place".
 
 ```
 2s | 1s
@@ -79,28 +90,16 @@ If we copy the decimal system, we can go beyond the number of symbols we have by
 1    1 <- represents 3
 ```
 
-You'll notice in binary we have a 1s place and a 2s place, but in decimal we have a 1s place and a 10s place. Since we have 10 symbols to work with we can count up to 9. In binary we only have 2 symbols to work with so we can count up to 1.
-
-In both systems when we add another column when we run out of symbols. The next column continues where the last was not able to count to, so we have a 2s place in binary because that is where we were not able to count to.
-
-```
-2s | 1s
-0    0
-0    1
-1    0 <- represents 2
-```
-
 Here are the "base" (aka places) numbers for binary `1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048...`.
 
 ```
-8s | 4s | 2s | 1s  =  decimal
+8s | 4s | 2s | 1s
 0    0    0    0   =  0
 0    0    0    1   =  1
 0    0    1    0   =  2
 0    0    1    1   =  3
 0    1    0    0   =  4
 ```
-
 
 Here are the base (place) numbers for the tens system `1, 10, 100, 1000`. 
 
@@ -119,13 +118,11 @@ Here are the base (place) numbers for the tens system `1, 10, 100, 1000`.
 0       0      1     0 <- represents 10
 ```
 
-You will notice that the decimal (tens base) number system works well with the symbols we have, since, quite literally, the standard symbols were designed to work with a "base" of 10.
-
 Note:
 - There exist other number systems, and we could actually make our own! A popular one is hexadecimal (it has a base of 16), and octodecimal (it has a base of 8).
 
 # lesson 1: HEXADECIMAL
-Lets add another number system to the mix.
+Lets add another number system to the mix. We need to know this number system since we will probably be using it.
 
 It has sixteen symbols we can use, The symbols are `0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F`. We use the standard symbols for 0 to 9 and then the alphabetical symbols A to F (for 10 to 15).
 
@@ -148,13 +145,13 @@ So we can count up to 15 without needing to add another column.
 0      0     c
 0      0     d
 0      0     e
-0      0     f
+0      0     f  <- 15
 0      1     0  <- 16
 ```
 
 Every number system has a 1s place, otherwise we wouldn't be able to represent 1.
 
-We can make a chart showing each number system's values and symbol's side-by-side.
+Here is a chart showing each number system's values and symbol's side-by-side.
 
 ```
      decimal  hexadecimal  binary
@@ -177,7 +174,30 @@ We can make a chart showing each number system's values and symbol's side-by-sid
     16  =    10   =        10000 (16 + 0 + 0 + 0 + 0)
     17  =    11   =        10001 (16 + 0 + 0 + 0 + 1)
 ```
-(techinally you could add empty 0s in fron tof the numbers, but that would be confusing)
+
+Techinally you could add empty 0s in front of the numbers, but that would be confusing.
+
+```
+     decimal  hexadecimal  binary
+    00  =    00   =        00000                  (0)
+    01  =    01   =        00001                  (1)
+    02  =    02   =        00010              (2 + 0)
+    03  =    03   =        00011              (2 + 1)
+    04  =    04   =        00100          (4 + 0 + 0)
+    05  =    05   =        00101          (4 + 0 + 1)
+    06  =    06   =        00110          (4 + 2 + 0)
+    07  =    07   =        00111          (4 + 2 + 1)
+    08  =    08   =        01000      (8 + 0 + 0 + 0)
+    09  =    09   =        01001      (8 + 0 + 0 + 1)
+    10  =    0A   =        01010      (8 + 0 + 2 + 0)
+    11  =    0B   =        01011      (8 + 0 + 2 + 1)
+    12  =    0C   =        01100      (8 + 4 + 0 + 0)
+    13  =    0D   =        01101      (8 + 4 + 0 + 1)
+    14  =    0E   =        01110      (8 + 4 + 2 + 0)
+    15  =    0F   =        01111      (8 + 4 + 2 + 1)
+    16  =    10   =        10000 (16 + 0 + 0 + 0 + 0)
+    17  =    11   =        10001 (16 + 0 + 0 + 0 + 1)
+```
 
 People find hexadecimal more easy than binary because it can represent larger numbers with less digit (don't have to carry the 1 over so many times resulting in less digits).
 
@@ -185,10 +205,12 @@ Often you will see hexadecimal in place of binary. Also you will notice that hex
 
 If you are really geeking out right now try to make a number system with a base of 8, or 5, or 3!
 
-There is a number system called trinary that has a base of 3. Quantum computers use it because the switches in a quantum computer can be on, off, or half way, giving 3 possible symbols. You could use the symbols 1 (on) -1 (off) and 0 (half way) for trinary... or really any symbols.
+There is a number system called trinary that has a base of 3. Quantum computers use it because the switches in a quantum computer can be on, off, or half way, giving 3 possible symbols.
 
 # lesson 2: Numbers can represent letters
-Now that we can use binary (`0`'s and `1`'s) to represent numbers, we can use those numbers to represent letters! For example the symbol "H" could be represented by the number "15", or in binary "1111" (or in hexadecimal "F").
+Now that we can use binary (`0`'s and `1`'s) to represent numbers, we can use those numbers to stand for letters! 
+
+For example the symbol "H" could be represented by the number "15" (or in binary "1111", or in hexadecimal "F").
 
 If we want to tell the computer to say "Hello!", or actually just the letter "H", all we have to do is tell the computer ***when*** the number 15 should represent the symbol "H".
 
