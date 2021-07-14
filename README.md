@@ -10,13 +10,15 @@ https://discord.gg/QhqTE4t2tR
 
 To download Discord https://discord.com/download
 
-# Layout
+# Quick links (Layout)
 [Week 0 - Fundamentals](https://github.com/PaperPrototype/Intro-to-Coding/tree/main/Week%200%20-%20Fundamentals)
 - [Lecture (click this)](https://github.com/PaperPrototype/Intro-to-Coding/blob/main/Week%200%20-%20Fundamentals/Lecture/english.md)
 - [Notes (glossary)](https://github.com/PaperPrototype/Intro-to-Coding/blob/main/Week%200%20-%20Fundamentals/Notes/english.md)
+- Homework
+    - [Coding the Search Algorithms](https://github.com/PaperPrototype/Intro-to-Coding/blob/main/Week%200%20-%20Fundamentals/Tutorials/Searching%20Algorithms/english.md)
 
 
-# Navigating
+# Navigation
 1. Open the folder called "Week 0 - Fundamentals" (On mobile you have to click "View code").
 2. In that folder you will find a folders called "Lecture" open that.
 3. Then you will see a file named "english.md" click that to read the lecture.
