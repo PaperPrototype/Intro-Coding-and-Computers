@@ -621,9 +621,9 @@ So how could we turn binary search into pseudo-code? (pseudo-cde just means fake
 
 We call these different ways of solving problems "algorithms". An algorithm takes an input, the contacts list and gives us an output, Johhny's contact (or and error message saying the contact was not found).
 
-And all we are doing is making algorithms, that is all of code, game developers focus on making the code super fast, web developers focus on making it look nice. You get the point.
+When we are coing we are making these "aglorithms".
 
-For reference here is the two algorithms plotted next to each other.
+For reference here is the two algorithms and their efficiency" graphed next to each other.
 
 ![graph both search](/Assets/graph_both_search.png)
 
