@@ -8,6 +8,8 @@ If you have ANY issues or something doesn't make sense we would LOVE IT if you t
 Link to Discord (chat) for getting help
 https://discord.gg/QhqTE4t2tR
 
+To download Discord https://discord.com/download
+
 # Layout
 [Week 0 - Fundamentals](https://github.com/PaperPrototype/Intro-to-Coding/tree/main/Week%200%20-%20Fundamentals)
 - [Lecture (click this)](https://github.com/PaperPrototype/Intro-to-Coding/blob/main/Week%200%20-%20Fundamentals/Lecture/english.md)
