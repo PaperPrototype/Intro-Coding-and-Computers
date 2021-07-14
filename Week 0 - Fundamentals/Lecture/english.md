@@ -76,6 +76,7 @@ If we copy the decimal system, we can go beyond the number of symbols we have by
 0    0
 0    1
 1    0 <- represents 2
+1    1 <- represents 3
 ```
 
 You'll notice in binary we have a 1s place and a 2s place, but in decimal we have a 1s place and a 10s place. Since we have 10 symbols to work with we can count up to 9. In binary we only have 2 symbols to work with so we can count up to 1.
@@ -157,26 +158,26 @@ We can make a chart showing each number system's values and symbol's side-by-sid
 
 ```
      decimal  hexadecimal  binary
-     0  =     0   =        00000                  (0)
-     1  =     1   =        00001                  (1)
-     2  =     2   =        00010              (2 + 0)
-     3  =     3   =        00011              (2 + 1)
-     4  =     4   =        00100          (4 + 0 + 0)
-     5  =     5   =        00101          (4 + 0 + 1)
-     6  =     6   =        00110          (4 + 2 + 0)
-     7  =     7   =        00111          (4 + 2 + 1)
-     8  =     8   =        01000      (8 + 0 + 0 + 0)
-     9  =     9   =        01001      (8 + 0 + 0 + 1)
-    10  =     A   =        01010      (8 + 0 + 2 + 0)
-    11  =     B   =        01011      (8 + 0 + 2 + 1)
-    12  =     C   =        01100      (8 + 4 + 0 + 0)
-    13  =     D   =        01101      (8 + 4 + 0 + 1)
-    14  =     E   =        01110      (8 + 4 + 2 + 0)
-    15  =     F   =        01111      (8 + 4 + 2 + 1)
+     0  =     0   =            0                  (0)
+     1  =     1   =            1                  (1)
+     2  =     2   =           10              (2 + 0)
+     3  =     3   =           11              (2 + 1)
+     4  =     4   =          100          (4 + 0 + 0)
+     5  =     5   =          101          (4 + 0 + 1)
+     6  =     6   =          110          (4 + 2 + 0)
+     7  =     7   =         111          (4 + 2 + 1)
+     8  =     8   =         1000      (8 + 0 + 0 + 0)
+     9  =     9   =         1001      (8 + 0 + 0 + 1)
+    10  =     A   =         1010      (8 + 0 + 2 + 0)
+    11  =     B   =         1011      (8 + 0 + 2 + 1)
+    12  =     C   =         1100      (8 + 4 + 0 + 0)
+    13  =     D   =         1101      (8 + 4 + 0 + 1)
+    14  =     E   =         1110      (8 + 4 + 2 + 0)
+    15  =     F   =         1111      (8 + 4 + 2 + 1)
     16  =    10   =        10000 (16 + 0 + 0 + 0 + 0)
     17  =    11   =        10001 (16 + 0 + 0 + 0 + 1)
 ```
-(I took away the zero's in front of hexadecimal and decimal to make it easier to read)
+(techinally you could add empty 0s in fron tof the numbers, but that would be confusing)
 
 People find hexadecimal more easy than binary because it can represent larger numbers with less digit (don't have to carry the 1 over so many times resulting in less digits).
 
@@ -193,7 +194,7 @@ If we want to tell the computer to say "Hello!", or actually just the letter "H"
 
 All thats left is to make a long list of what numbers map to what symbols. As you might have guessed there is already a "standard" that exists that every computer uses. Its called ASCII which stands for American Standard Code for Information Interchange. Below is the ASCII "encoding" of latin based characters letters and symbols.
 
-(**Don't** read this whole list... skip over most of it)
+**Don't** read this whole list! It is just for reference purposes. Most programmers have so much information they have to remember they just look it up. That is what this list is for, looking up what number, represents what symbol / letter.
 
 ```
 ASCII ENCODING
@@ -575,35 +576,33 @@ Now we know that the top half of the contacts (that remain) are not going to hav
 
 And we've split our work in half again! We could keep doing this until we founnd Johnny. This algorithm is called "binary search" (rather than linear search). The name comes from the fact we always split our work in two (aka half), hence "bi" which stands for two.
 
-The code for binary search would look something like this>
+There exists a method for graphing the number of loops, or steps, it would take to solve the above algorithm.
 
-```
-
-```
-
-Its also because some later algorithms will use a `1` to represent choosing the right, and `0` to represent shoosing the left when searching.
-
-There exists a method for graphing the number of iterations the above algorithms have to take to solve a problem. 
-
-The first algorithm, the one we called "linear search", in its worst case scenario, takes 1000 iterations (loops) to find Johhny for 1000 contacts (If say Johnny was the last contact). So, we can say if there are N number of contacts then it will take N number of iterations, in the worst case scenario, to find Johnny using linear search. For example, N in this case is 1000 (since there are 1000 contacts), and it will take us 1000 steps to find Johnny (Yeah ok, its actually 999 steps to find Johnny in the worst case scenario. As "worst case scenarios" go a small difference of 1 is really not that relevant).
+The first algorithm, the one we called "linear search", in its worst case scenario, takes 1000 iterations (steps or loops) to find Johhny (If say Johnny was the last contact). 
 
 It takes pretty long to say "for the worst case scenario" so computer scientists (like you) made something called "Big O notation". 
 
-In big O notation we write and `O`represents the worst case scenario, with some parenthesis after it `O()` holding a number representing the number of steps or iterations we have to go through to solve the problem. In our case, `O(1000)`. If we say a symbol like `N` stands for the number of contacts, then we could change the big O notation to `O(N)` since, for every contact, we add a step to the search algorithm.
+We just write a big O. when we write "O" it literally just means "in the worst case scenario".
 
-We can graph linear search as, quite literally, a line
+We then put a number representing the number of steps it would take for the worst case scenario. In our case its `O(1000)`. We put the number of steps inside of parenthesis simply becasue it makes it easier to read.
+
+If we say a symbol like `N` stands for the number of contacts, then we could change the big O notation to `O(N)`.
+
+We can graph linear search as, quite literally, a line. Because, if we have to search 1000 contacts we get 1000 steps of searching.
 
 ![graph linear search](/Assets/graph_linear_search.png)
 
-This because as the number of contacts increases so does the number of steps, or iterations, it will take to find Johnny. A 1 to 1 relationship makes the line on the graph very straight, and as the problem to solve gets bigger, so does the amount of work.
+We use the word "iterations" it just means "the number of steps" to solve the searching.
 
-What about "binary search"? Binary search in the worst case scenario is `O(log N)`. `log` just means for every iteration we go through, divide the number `N` in half. So obviously by reducing the number in half, each loop, we end up with way less steps for binary search. But just how much faster is binary search?
+What about graphing "binary search"? Binary search in the worst case scenario is written  as `O(log 1000)`. `log` just means we divide the number in half every step.
 
-If we graph the binary search algorithm it looks like this
+For example, if we change the number of contacts to search to 2000, in binary search, after only we remove half of the contacts that do not have Johnny! And we end up with 1000 steps. So, even if you double the number of contacts to search (in binary search) we have only to do one extra step! 
+
+This makes searching using the Binary Search algorithm VERY fast, even for a lot of work. That is why if you graph Binary Search it looks like this!
 
 ![graph binary search](/Assets/graph_binary_search.png)
 
-As the size of the problem grows, the amount of work it takes us to solve it will barely grow!
+As you increase the amount of work (or the amount of contacts), you only add 1 more iteration (aka step) of searching.
 
 So how could we turn this into pseudo-code? (pseudo-cde just means fake english readable example code, that only illustrates a concept and how the code "might" look). Read through the following code line by line.
 
