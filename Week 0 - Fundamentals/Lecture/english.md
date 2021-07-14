@@ -604,7 +604,7 @@ This makes searching using the Binary Search algorithm VERY fast, even for a lot
 
 As you increase the amount of work (or the amount of contacts), you only add 1 more iteration (aka step) of searching.
 
-So how could we turn this into pseudo-code? (pseudo-cde just means fake english readable example code, that only illustrates a concept and how the code "might" look). Read through the following code line by line.
+So how could we turn binary search into pseudo-code? (pseudo-cde just means fake english readable example code, that only illustrates a concept and how the code "might" look). Read through the following code line by line.
 
 ```
  1|  go to center
