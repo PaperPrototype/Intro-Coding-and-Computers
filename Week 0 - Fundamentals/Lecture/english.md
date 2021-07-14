@@ -664,126 +664,203 @@ Lets make some simple interpreted code that prints (aka displays) the phrase "He
 
 We will use an online code editing tool. 
 
-Open [this link](https://replit.com/) <-- click that, and you should see a picture liek thsi.
+Open [this link](https://replit.com/) <-- click that, and you should see a website lik this
 
 ![start coding](/Assets/start_coding.png)
 
-Then click the "Start Coding" button.
+Click the "Start Coding" button in the website.
 
-It will ask you to make an account (We're sorry about this! If you have any issues contact us in our Discord, or through the repository Issues).
+You will need to amke an account (We're sorry about this! If you have any issues contact us in our Discord, or through the repository Issues).
 
 Once you've made an account click the "New repl" button to create a new repl program.
 
 ![new repl](/Assets/new_repl.png)
 
-(If you don't see it click the three lines in top left corner)
+If you don't see the "New Repl" button, click the three lines in top left corner.
 
-Select the Python programming language, and call the project "HelloWorld". Then click the "Create repl" button (currently hidden by the dropdown menu for picking a language).
+Once yu click the "New repl" button, you should see this.
 
 ![create repl](/Assets/create_repl.png)
+
+Select "Python" as the programming language, and call the project "HelloWorld". 
+
+Then click the "Create repl" button.
 
 Now we can write some code in replit's IDE.
 
 ![replit ide](/Assets/replit_ide.png)
 
-IDE stands for Integerated Development Environment. It just means we get an editing tool for editing the code, much like Google Docs, or Microsoft Word. 
+IDE stands for "Integerated Development Environment". It just means we get an editing tool for editing the code, much like Google Docs, or Microsoft Word.
 
-IDE's usually also have a "file viewer", currently there is only a single file called `hello.py`. That file is a text file. We end the files name as `.py` so that the computer can know that the file has text "code" that is for the Python programming language.
+IDE's usually also have a "files" viewer, currently there is only a single file called `hello.py`.
 
-In *python* there is some code written for us that automatically figures out the exact 0s and 1s for print words onto the screen. We can simply type in the following code.
+That file is a text file. We end the files name as `.py` so that the computer can know that the file has "code" that is for the Python programming language.
+
+You will see there is some code written in the picture, go ahead an paste this snioppet of code, it is the same as the pictures.
 
 ```py
 print("Hello world")
 ```
 
-And then click the green arrow to run the code. You will see the phrase "Hello world" printed in the "console" (the black box on the right).
+This code prints some words onto the screen. 
 
-The word "print" is the name of a group of code that figures out how to print words onto the screen for us. We call these groups of code "functions", because a function implements "functionality". Functions take an input and then do something with it. The `print` functions take in input through the parenthesis `()`. Then in the parenthesis it takes in two words "Hello world".
+Click the green arrow to *run* the code. 
 
-Why do we have the quotation marks `"`? Well, say we took them away. How is the computer going to know the difference between numbers, and words we want to print? What if we put a sentence with code that adds two numbers together?
+![replit ide run arrow](./Assets/replit_ide_green_arrow.png)
+
+You will see the phrase "Hello world" printed in the "console" (the black box on the right).
+
+The word `print` is the name of a group of code that figures out how to print words onto the screen for us. 
+
+We call these groups of code "functions", because a *function* implements "functionality".
+
+Functions take an input and then do something with it. The `print` functions takes in input through the parenthesis `()`. Then in the parenthesis it takes in two words "Hello world".
+
+Why do we have the quotation marks `"`?
+
+Say we took them away. How is the computer going to know the difference between code we are writing and some words we want to print? 
+
+Remove the old code and type in the following code.
 
 ```py
 print(Hello I am 12 + 13)
 ```
 
-How will we now if something is a sentence vs some numbers being added?
+The computer can't figure out how to get this to work! Lets assume you want to litterally print "Hello I am 12 + 13" (without adding the numbers together). For that we can change the code to this.
 
-Well, in coding, we have a "specific way" of writing or "format"ing how to write words, so that the computer can know when we are trying to write a sentence, vs trying to write some code (aka adding numbers together). That format is to put the `"` around words or phrases.
+```py
+print("Hello I am 12 + 13")
+```
 
-We call this format the "syntax" of a programming language. Syntax is a specific way of coding so that the computer can understand it.
+Now the computer can tell what we mean.
 
-If you ran the `print("Hello world")` code (by clicking the green arrow) you will have seen the black "console" (the black box on the right) with the phrase "Hello world" somewhere on it.
+In coding, we call this "specific way" of writing or "format"ing how to write words (so that the computer can know when we are trying to write a sentence, vs trying to write some code) "syntax". Syntax is a specific way of coding so that the computer can understand it.
+
+If you ran the `print("Hello I am 12 + 13")` code (by clicking the green arrow) you will have seen the black "console" (the black box on the right) with the phrase "Hello I am 12 + 13" somewhere on it.
 
 That console is how the print function is able to display the phrase "Hello world".
 
 # Variables
-Now lets make it so that the code can get input from us and then print it out again.
+How can we make code that prints our name?
 
-How can we do that? Well there is a function that gets input from the console, and when we call the function (aka the code in the function gets run) it prints a message and then waits for us to type something.
-
-```py
-input("Type in your name: ")
-```
-
-The `input` function will print the words we in it to the console, then wait for the you to type in some words. When you hit enter, the code will stop running... and nothing happens. 
-
-We need to be able to get access to the words you typed in.
-
-Well, we can make a code-word (like a function) that refer's to the words the `input` function gives us. Change the code to the following.
+Well there is a function that *gets* input from the console. Delete our old code and type in the following.
 
 ```py
-myName = input("Type in your name: ")
-
-print(myName)
+input("Type something: ")
 ```
 
-So what is `myName`? It gets the words that the `input` function got from the console (Or really, it gets the *output* that the `input` function gave us).
+The `input` function will print "Type something: ", then wait for the you to type in some words. 
 
-We call these referers "variables". For a clearer example make a *variable* that holds a number. And then print the variable.
+Type in some words and click enter. When you click enter, nothing happens...
+
+We need to be able to get access to the words you typed!
+
+The `input` function has acces to the words we typed in. We can use a code word that holds onto the wrods from the `input` function.
+
+```py
+myName = input("Type something: ")
+```
+
+So what is `myName`? It hold onto the words that the `input` function got from the console.
+
+We call these holders "variables". 
+
+For a clearer example make a *variable* that holds a number. Delete the old code and type this in.
 
 ```py
 variable = 12
+```
+
+And then print the variable below it.
+
+```py
+variable = 12 # old code
 
 print(variable)
 ```
 
-If you hit play you should see `12` get printed. Pretty cool right?
+If you click play (by clicking the green flag) you will see `12` get printed. Pretty cool right?
 
 We can also add together a variable and some words.
 
 ```py
 variable = 12
 
-print("hello " + variable)
+print("hello ", variable)
 ```
 
 and you will get "hello 12".
 
-Notice that we put a space at the end of "hello ". If we didn't put a space the word *hello* and the number *12* will be mashed together like this "hello12".
+(Notice that we put a space at the end of "hello ". If we didn't put a space the word *hello* and the number *12* will be mashed together like this "hello12").
+
+Now lets get this to print our name. delete all the other code and type in this.
+
+```py
+myName = input("Type something: ")
+
+print(myName)
+```
+
+Tada!
+
+We can even get it to great us! Change the code to this.
+
+```py
+myName = input("Type something: ")
+
+print("Hello ", myName)
+```
 
 # Functions
 What about functions? How can we make one ourselves? Type in the following.
 
 ```py
 def say_hello_to_name():
-    myName = input("Type in your name: ")
+    myName = input("Type something: ")
 
-    print("Hello, " + myName)
+    print("Hello, ", myName)
 ```
 
-If you run this nothing will happen because a function simply groups code, if we want the code in the function to run we have to *call* it... we'll get to that.
+(When we make a function we use the the special `def` "keyword". A keyword is a special word that lets python know that we are about to type in a function)
 
-When we make a function we use the the special `def` "keyword". A keyword is a special word that lets python know that we are about to type in a function, so you can't go using `def` as the name for a *variable* as python (the coding language we are using) will think you are trying to make a *function*.
+This make a "definition" of a function. To *use* the function we have to type in the following underneath it.
 
-After `def` we write the name we will use to refer to the function `say_hello_to_name`. Then we put the `()` for any input (also called parameters) that the functin takes in. Currently the function takes no input so they are empty (note: you have to put the parenthesis even if it takes in no input).
+```py
+say_hello_to_name()
+```
 
-(We usually refer to the "input" of a function as the function's "parameters")
+This is called "calling" a function.
 
-You will also notice that the `:` after the two parenthesis `():`. This tells Python (the coding language we are using) that any code after the `:` is *inside* of the function. 
+Now that we have this funciton we can *call* it aas many times as we want!
 
-...But, all the code inside of the function also has to have a 2 or 4 spaces (click the `tab` key) in front of it. 
+```py
+say_hello_to_name()
+say_hello_to_name()
+say_hello_to_name()
+say_hello_to_name()
+say_hello_to_name()
+```
 
-This is mostly for the you, the programmer, to be able to tell what code is in a function, and what code is not. We usually refer to adding a tab in front of code as "indenting" the code.
+If we go back to the function definition.
+
+```py
+def say_hello_to_name():
+    myName = input("Type something: ")
+
+    print("Hello, ", myName)
+
+say_hello_to_name()
+say_hello_to_name()
+say_hello_to_name()
+say_hello_to_name()
+say_hello_to_name()
+```
+
+You will also notice that the semicolon symbol `:` after the two parenthesis `():`. This tells Python (the coding language we are using) that any code after the `:` is *inside* of the function. 
+
+All the code inside of the function also has to have a 2 or 4 spaces in front of it, aside fom just using the `:` semicolon symbol. (click the `tab` key to add 2 or 4 spaces).
+
+This is mostly for you, the programmer, to be able to tell what code is in a function, and what code is not. We usually refer to adding a tab in front of code as "indenting" the code.
 
 If we go ahead and write our code without adding any *indenting* in front...
 
@@ -791,32 +868,22 @@ If we go ahead and write our code without adding any *indenting* in front...
 def say_hello_to_name():
 myName = input("Type in your name: ")
 
-print("Hello, " + myName)
+print("Hello, ", myName)
+
+say_hello_to_name()
+say_hello_to_name()
+say_hello_to_name()
+say_hello_to_name()
+say_hello_to_name()
 ```
 
 ...You can see it is hard to tell what code is *inside* of the function, and what code is *outside* of it. We call this idea of writing our code in a certain way "syntax". We have to have *syntax* so that we type things in a way that Python can understand what we are trying to tell it to do.
 
-If you click the green arrow to run the code you won't see anything happen! This is because a *function* simply groups code. To *run the function* or refer to the function and have it run the code inside of it, you have to type its name followed by parenthesis ("run" simply means to have the computer load the code and read the intructions and do them).
+Notice when we are *calling* the function we don't indent it because we don't want to call a function inside of a function! That would give us an endless loop of functions running over and over (and might crash the computer, but hey, what's the worst that could happen? Just go ahead and see what happens you curious person).
 
-```py
-def say_hello_to_name():
-  myName = input("Type in your name: ")
+But wait, the `print` function lets us type in what we wanted to print! It lets us give it some input!
 
-  print("Hello, " + myName)
-
-# We "call" the function. 
-say_hello_to_name()
-```
-
-We simply type in the name of the function `say_hello_to_name` followed by parenthesis `say_hello_to_name()` and this calls *upon  our glroies function* and *runs* it.
-
-Notice when we are *calling* the function we don't indent it because we don't want to call a function inside of a function! THat would give us an endless loop of function running over and over (and might crash the computer, but go ahead and see what happens).
-
-We don't have to put anything in the parenthesis since the function didn't need any input.
-
-If you run this the function gets called and runs our code. You get asked for input, then it prints `Hello, <insert name here>`.
-
-How do we give a function parameters (aka input)? Remember variables? We just make a variable for a function.
+How do we give a function parameters (aka input)? Remember variables? We just make a variable for the function. Delete all the old code and type in the following.
 
 ```py
 def hello_to(name):
@@ -829,14 +896,26 @@ And then we can "call" the function and give it input
 def hello_to(name):
   print("Hello, " + name)
 
-hello_to("Bob")
+hello_to(name="Bob")
 ```
 
-Now what if we want to make a function that takes many paremeters (aka inputs)? To add more parameters we simply separate them using a comma `,`
+The variable called "name" is a variable for the function only.
+
+When we type `hello_to(name="Bob")` we are passing in the name "Bob" to the function.
+
+If you take a look at the function the name variable is used in the `print` function.
+
+Now what if we want to make a function that takes many paremeters (aka inputs)? To add more parameters we simply separate them using a comma `,`. Delete the old code and type in the this.
 
 ```py
 def hello_to(name, age):
   print("Hello, " + name + " you are " + age)
+```
+
+And to *call* the function we do the following.
+
+```py
+hello_to(name="Bob", age=12)
 ```
 
 # Lists?
@@ -907,39 +986,36 @@ for item in [0, 1, 2]:
 
 This code prints "Hello world" 3 times.
 
-What is the `for variable in [0, 1, 2]`? The word `for` is a keyword as well as the keyword `in`. They are saying, quite literally, "for every item in the list".
-
-We store each item that we access from the list in a variable called "item".
+What is the `for variable in [0, 1, 2]`? They are saying, quite literally, "for every item in the list". Every tie we do this loop, the current item we are at in the list gets stored in the variable "item".
 
 Then you'll notice the `:`, this does the same thing as a function, we have to indent our code after the `:` to show that it is inside of the loop.
 
-The code inside of the loop will run once for every item, every loop it stores a reference to the number in the variable "item".
-
-We aren't using the variable item, but we could if we changed the code to the following.
+We aren't using the variable called "item", but we could if we changed the code to the following.
 
 ```py
 for item in [0, 1, 3]:
-  print("Hello world")
   print(item)
 ```
 
-This still prints "Hello world" 3 times, but it also prints the item.
+This goes to an item in the list, stores it in item, then runs any code inside fo the loop. In this case we print "item".
 
-When we print a variable we are accessing what it represents. We call the thing a variable represents its "value". So really variables just give us references to values.
+When we print a variable we are *accessing* what it represents. We call the thing a variable represents its "value". So really variables just give us references to values.
 
 # Comments
-As a programmer can leave human written comments in the code for other programmers to read, this is important to do as it helps others understand what the code is doing. In Python you put a hash `#` before human comments. 
+As a programmer we can leave comments in the code for other programmers to read, this is important to do as it helps others understand what our code is doing. 
+
+In Python you put a hash `#` before human comments. Delete the old code and type in this.
 
 ```py
 # This is a comment
 # Comments don't affect code
-print("This is code")
+print("This a `string`, aka words ")
 ```
 
-By putting the hash in front the Python programming language can tell comments apart from the code.
+By putting the hash in front of a comment the Python programming language can tell comments apart from the code.
 
 # If, then?
-What if we want to compare two names and see if they are the same? Or compare two numbers?
+What if we want to compare two numbers and see if they are the same?
 
 Most programming languages have a keyword called "if". It works like this.
 
@@ -948,15 +1024,18 @@ if 12 == 12:
     print("They are equal")
 ```
 
-We have to use the the double equal sign "==" so that python doesn't confuse it with the single equal sign "=" since the *single* equal sign is for "assigning" variables. 
+We have to use the the double equal sign "==" so that python doesn't confuse it with the single equal sign "=" since the *single* equal sign is for "assigning" the variables. 
 
 ```py
+# variable assignment
 myVariable = 12
 myVariable = myVariable + 12
-# equals 24
+# vs, checking equality
+if 12 == 12:
+    print("They are equal")
 ```
 
-When we say `if 12 == 12` the "==" will give us a bool. This is because if "statements" have to know if something is True or False. We call if statements "conditions" because they make our code only run if their *condition* is True.
+When we say `if 12 == 12` the "==" will give us a True or False variable. This is because if "statements" have to know if something is True or False. We call if statements "conditions" because they make our code only run if their *condition* is True.
 
 We call a True or False variable a "bool" because the guy who made them was named "George Boole".
 
@@ -973,8 +1052,10 @@ if False:
 
 Yay! Now you know how to code!
 
-In the Tutorials folder you will find tutorials on how to implement the search algorithms we talked about earlier. If you need any help you can join our Discord to ask questions and get help from me https://discord.gg/QhqTE4t2tR
+In the Tutorials folder you will find tutorials on how to implement the search algorithms we talked about earlier. Here is a quick link [(click this)](https://github.com/PaperPrototype/Intro-to-Coding/blob/main/Week%200%20-%20Fundamentals/Tutorials/Searching%20Algorithms/english.md)
 
-The tutorials folder also has a tutorial on making a simple game with gravity! Be sure to heck it out!
+If you need any help you can join our Discord chat to ask questions and get help from me https://discord.gg/QhqTE4t2tR
+
+The tutorials folder also has a tutorial on making a simple game with gravity! Be sure to check it out!
 
 And that is it for week 0! Have fun! Remember, the more tutorials you do after each lecture the better you will get at coding!
