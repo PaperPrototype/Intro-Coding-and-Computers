@@ -1066,6 +1066,59 @@ if False:
     print("I will never get printed...")
 ```
 
+# Return types
+What if I want to make a function that adds to numbers?
+
+This is easy. Delete your old code and type in the following.
+
+```py
+def add(a, b):
+    a + b
+```
+
+Now lets use the function.
+
+```py
+def add(a, b):
+    a + b
+
+add(5, 5)
+```
+
+5 + 5 = 10. Simple. But how can wee store that in a variable? Remember the `input` function? It gave us something to hold onto and store in a variable.
+
+```py
+variable = input("Type in some words:")
+```
+
+How can we do this with the `add` function!? We use a keywrod insode of the function.
+
+```py
+def add(a, b):
+    return a + b
+```
+
+Now when we assign a variable to the `add` function it will *give back* (aka "return") whtever `a + b` is.
+
+```py
+def add(a, b):
+    return a + b
+
+result = add(5, 5)
+```
+
+And now we can print the `result` variable.
+
+```py
+def add(a, b):
+    return a + b
+
+result = add(5, 5)
+print(result)
+```
+
+If you run this code you will see 10 get printed!
+
 Yay! Now you know how to code!
 
 In the Tutorials folder you will find tutorials on how to implement the search algorithms we talked about earlier. Here is a quick link [(click this)](https://github.com/PaperPrototype/Intro-to-Coding/blob/main/Week%200%20-%20Fundamentals/Tutorials/Searching%20Algorithms/english.md)
