@@ -218,43 +218,11 @@ All thats left is to make a long list of what numbers map to what symbols. As yo
 
 **Don't** read this whole list! It is just for reference purposes. Most programmers have so much information they have to remember they just look it up. That is what this list is for, looking up what number, represents what symbol / letter.
 
+(To see the whole list see the notes of this lecture)
+
 ```
 ASCII ENCODING
-
-    num  letter/symbol
-	0	 NULL	(Null character)			
-	1    SOH	(Start of Header)			
-	2	 STX	(Start of Text)			
-	3	 ETX	(End of Text)			
-	4	 EOT	(End of Transmission)			
-	5	 ENQ	(Enquiry)			
-	6	 ACK	(Acknowledgement)			
-	7	 BEL	(Bell)			
-	8	 BS	    (Backspace)			
-	9	 HT	    (Horizontal Tab)			
-	10	 LF	    (Line feed)			
-	11	 VT	    (Vertical Tab)			
-	12	 FF	    (Form feed)			
-	13	 CR	    (Carriage return)			
-	14	 SO	    (Shift Out)			
-	15	 SI	    (Shift In)			
-	16	 DLE	(Data link escape)			
-	17	 DC1	(Device control 1)			
-	18	 DC2	(Device control 2)			
-	19	 DC3	(Device control 3)			
-	20	 DC4	(Device control 4)			
-	21	 NAK	(Negative acknowledgement)			
-	22	 SYN	(Synchronous idle)			
-	23	 ETB	(End of transmission block)			
-	24	 CAN	(Cancel)			
-	25	 EM	    (End of medium)			
-	26	 SUB	(Substitute)			
-	27	 ESC	(Escape)			
-	28	 FS	    (File separator)			
-	29	 GS	    (Group separator)			
-	30	 RS	    (Record separator)			
-	31	 US	    (Unit separator)			
-						
+	...
 	32	 	(space)			
 	33	!	(exclamation mark)			
 	34	"	(Quotation mark)			
@@ -351,139 +319,11 @@ ASCII ENCODING
 	125	}	(curly brackets or braces)			
 	126	~	(Tilde ; swung dash)			
 	127	DEL	(Delete)			
-						
-	128	Ç	(Majuscule C-cedilla )			
-	129	ü	(letter "u" with umlaut or diaeresis ; "u-umlaut")			
-	130	é	(letter "e" with acute accent or "e-acute")			
-	131	â	(letter "a" with circumflex accent or "a-circumflex")			
-	132	ä	(letter "a" with umlaut or diaeresis ; "a-umlaut")			
-	133	à	(letter "a" with grave accent)			
-	134	å	(letter "a"  with a ring)			
-	135	ç	(Minuscule c-cedilla)			
-	136	ê	(letter "e" with circumflex accent or "e-circumflex")			
-	137	ë	(letter "e" with umlaut or diaeresis ; "e-umlaut")			
-	138	è	(letter "e" with grave accent)			
-	139	ï	(letter "i" with umlaut or diaeresis ; "i-umlaut")			
-	140	î	(letter "i" with circumflex accent or "i-circumflex")			
-	141	ì	(letter "i" with grave accent)			
-	142	Ä	(letter "A" with umlaut or diaeresis ; "A-umlaut")			
-	143	Å	(letter "A"  with a ring)			
-	144	É	(Capital letter "E" with acute accent or "E-acute")			
-	145	æ	(Latin diphthong "ae")			
-	146	Æ	(Latin diphthong "AE")			
-	147	ô	(letter "o" with circumflex accent or "o-circumflex")			
-	148	ö	(letter "o" with umlaut or diaeresis ; "o-umlaut")			
-	149	ò	(letter "o" with grave accent)			
-	150	û	(letter "u" with circumflex accent or "u-circumflex")			
-	151	ù	(letter "u" with grave accent)			
-	152	ÿ	(letter "y" with diaeresis)			
-	153	Ö	(letter "O" with umlaut or diaeresis ; "O-umlaut")			
-	154	Ü	(letter "U" with umlaut or diaeresis ; "U-umlaut")			
-	155	ø	(slashed zero or empty set)			
-	156	£	(Pound sign ; symbol for the pound sterling)			
-	157	Ø	(slashed zero or empty set)			
-	158	×	(multiplication sign)			
-	159	ƒ	(function sign ; f with hook sign ; florin sign )			
-	160	á	(letter "a" with acute accent or "a-acute")			
-	161	í	(letter "i" with acute accent or "i-acute")			
-	162	ó	(letter "o" with acute accent or "o-acute")			
-	163	ú	(letter "u" with acute accent or "u-acute")			
-	164	ñ	(letter "n" with tilde ; enye)			
-	165	Ñ	(letter "N" with tilde ; enye)			
-	166	ª	(feminine ordinal indicator )			
-	167	º	(masculine ordinal indicator)			
-	168	¿	(Inverted question marks)			
-	169	®	(Registered trademark symbol)			
-	170	¬	(Logical negation symbol)			
-	171	½	(One half)			
-	172	¼	(Quarter or  one fourth)			
-	173	¡	(Inverted exclamation marks)			
-	174	«	(Guillemets or  angle quotes)			
-	175	»	(Guillemets or  angle quotes)			
-	176	░				
-	177	▒				
-	178	▓				
-	179	│	(Box drawing character)			
-	180	┤	(Box drawing character)			
-	181	Á	(Capital letter "A" with acute accent or "A-acute")			
-	182	Â	(letter "A" with circumflex accent or "A-circumflex")			
-	183	À	(letter "A" with grave accent)			
-	184	©	(Copyright symbol)			
-	185	╣	(Box drawing character)			
-	186	║	(Box drawing character)			
-	187	╗	(Box drawing character)			
-	188	╝	(Box drawing character)			
-	189	¢	(Cent symbol)			
-	190	¥	(YEN and YUAN sign)			
-	191	┐	(Box drawing character)			
-	192	└	(Box drawing character)			
-	193	┴	(Box drawing character)			
-	194	┬	(Box drawing character)			
-	195	├	(Box drawing character)			
-	196	─	(Box drawing character)			
-	197	┼	(Box drawing character)			
-	198	ã	(letter "a" with tilde or "a-tilde")			
-	199	Ã	(letter "A" with tilde or "A-tilde")			
-	200	╚	(Box drawing character)			
-	201	╔	(Box drawing character)			
-	202	╩	(Box drawing character)			
-	203	╦	(Box drawing character)			
-	204	╠	(Box drawing character)			
-	205	═	(Box drawing character)			
-	206	╬	(Box drawing character)			
-	207	¤	(generic currency sign )			
-	208	ð	(lowercase "eth")			
-	209	Ð	(Capital letter "Eth")			
-	210	Ê	(letter "E" with circumflex accent or "E-circumflex")			
-	211	Ë	(letter "E" with umlaut or diaeresis ; "E-umlaut")			
-	212	È	(letter "E" with grave accent)			
-	213	ı	(lowercase dot less i)			
-	214	Í	(Capital letter "I" with acute accent or "I-acute")			
-	215	Î	(letter "I" with circumflex accent or "I-circumflex")			
-	216	Ï	(letter "I" with umlaut or diaeresis ; "I-umlaut")			
-	217	┘	(Box drawing character)			
-	218	┌	(Box drawing character)			
-	219	█	(Block)			
-	220	▄				
-	221	¦	(vertical broken bar )			
-	222	Ì	(letter "I" with grave accent)			
-	223	▀				
-	224	Ó	(Capital letter "O" with acute accent or "O-acute")			
-	225	ß	(letter "Eszett" ; "scharfes S" or "sharp S")			
-	226	Ô	(letter "O" with circumflex accent or "O-circumflex")			
-	227	Ò	(letter "O" with grave accent)			
-	228	õ	(letter "o" with tilde or "o-tilde")			
-	229	Õ	(letter "O" with tilde or "O-tilde")			
-	230	µ	(Lowercase letter "Mu" ; micro sign or micron)			
-	231	þ	(capital letter "Thorn")			
-	232	Þ	(lowercase letter "thorn")			
-	233	Ú	(Capital letter "U" with acute accent or "U-acute")			
-	234	Û	(letter "U" with circumflex accent or "U-circumflex")			
-	235	Ù	(letter "U" with grave accent)			
-	236	ý	(letter "y" with acute accent)			
-	237	Ý	(Capital letter "Y" with acute accent)			
-	238	¯	(macron symbol)			
-	239	´	(Acute accent)			
-	240	¬	(Hyphen)			
-	241	±	(Plus-minus sign)			
-	242	‗	(underline or underscore)			
-	243	¾	(three quarters)			
-	244	¶	(paragraph sign or pilcrow)			
-	245	§	(Section sign)			
-	246	÷	(The division sign ; Obelus)			
-	247	¸	(cedilla)			
-	248	°	(degree symbol )			
-	249	¨	(Diaeresis)			
-	250	•	(Interpunct or space dot)			
-	251	¹	(superscript one)			
-	252	³	(cube or superscript three)			
-	253	²	(Square or superscript two)			
-	254	■	(black square)			
-	255	nbsp	(non-breaking space or no-break space)
+	...
 ```
-(taken from https://theasciicode.com.ar/ascii-codes.txt)
+(taken from https://theasciicode.com.ar/ascii-codes.txt.  See notes for full table)
 
-Its pretty long. But even still it doesn't cover all the possibility's! This is because we only use 8 bits (eight columns of 0's and 1's). 
+The ASCII table is pretty long. But even still it doesn't cover all the possibility's! This is because we only use 8 bits (eight columns of 0's and 1's). 
 
 Using only 8 columns of bits for a binary number only lets us count from 0 to 255, giving us 256 possible symbols! 
 
@@ -598,27 +438,27 @@ Now we know that the top half of the contacts (that remain) are not going to hav
 
 And we've split our work in half again! We could keep doing this until we founnd Johnny. This algorithm is called "binary search" (rather than linear search). The name comes from the fact we always split our work in two (aka half), hence "bi" which stands for two.
 
-There exists a method for graphing the number of loops, or steps, it would take to solve the above algorithm.
+There exists a method for graphing the efficiency (aka number of loops, or steps, it would take to solve) of the above algorithms.
 
 The first algorithm, the one we called "linear search", in its worst case scenario, takes 1000 iterations (steps or loops) to find Johhny (If say Johnny was the last contact). 
 
-It takes pretty long to say "for the worst case scenario" so computer scientists (like you) made something called "Big O notation". 
+It takes pretty long to say "for the worst case scenario" so computer scientists (like you) just write a big O. when we write "O" it literally just means "in the worst case scenario". We call this "Big O Notation".
 
-We just write a big O. when we write "O" it literally just means "in the worst case scenario".
+Then after the "O" we put a number representing the number of steps it takes *for the worst case scenario*. In our case its `O(1000)`. Big O notation puts the number of steps *inside of parenthesis*.
 
-We then put a number representing the number of steps it would take for the worst case scenario. In our case its `O(1000)`. We put the number of steps inside of parenthesis simply becasue it makes it easier to read.
+If we said `N` stood for the number of contacts we have, then we could change the big O notation to `O(N)`. This way we don't have to write `O(1000)` and then change it to `O(500)` if we changed the number of contacts.
 
-If we say a symbol like `N` stands for the number of contacts, then we could change the big O notation to `O(N)`.
-
-We can graph linear search as, quite literally, a line. Because, if we have to search 1000 contacts we get 1000 steps of searching.
+If we have to search 1000 contacts we get 1000 steps of searching. We can graph this.
 
 ![graph linear search](/Assets/graph_linear_search.png)
 
-We use the word "iterations" it just means "the number of steps" to solve the searching.
+The word "iterations" just means "the number of steps" it takes to find Johnny in the worst case scenario.
 
-What about graphing "binary search"? Binary search in the worst case scenario is written  as `O(log 1000)`. `log` just means we divide the number in half every step.
+What about graphing "binary search"? Binary search in the worst case scenario is written as `O(log N)`. `log` just means we divide the number in half every step.
 
-For example, if we change the number of contacts to search to 2000, in binary search, after only we remove half of the contacts that do not have Johnny! And we end up with 1000 steps. So, even if you double the number of contacts to search (in binary search) we have only to do one extra step! 
+For an example, if we change the number of contacts to search to 2000, after only one step, we remove half of the contacts (in binary search)! And we end up with 1000 steps. This repeats for every step.
+
+So, even if you double the number of contacts to search (in binary search) we have only to do one extra step!
 
 This makes searching using the Binary Search algorithm VERY fast, even for a lot of work. That is why if you graph Binary Search it looks like this!
 
@@ -662,9 +502,7 @@ Although we know that text files are also actually just binary *encoded* in the 
 
 Lets make some simple interpreted code that prints (aka displays) the phrase "Hello World" on the screen.
 
-We will use an online code editing tool. 
-
-Open [this link](https://replit.com/) <-- click that, and you should see a website lik this
+We will use an online "code editing" tool. Go to https://replit.com/ <-- click that, and you should see a website like this
 
 ![start coding](/Assets/start_coding.png)
 
@@ -696,15 +534,21 @@ IDE's usually also have a "files" viewer, currently there is only a single file 
 
 That file is a text file. We end the files name as `.py` so that the computer can know that the file has "code" that is for the Python programming language.
 
-You will see there is some code written in the picture, go ahead an paste this snioppet of code, it is the same as the pictures.
+You will see there is some code written in the picture, go ahead an paste this snippet of code, it is the same as the pictures.
+
+```
+print("Hello world")
+```
+
+This code prints some words onto the screen. In replit's IDE you will see the code gets highlighted and colored. This is not part of the code, but simply a way of making the code easier to read.
+
+From now on we will be highliting the code.
 
 ```py
 print("Hello world")
 ```
 
-This code prints some words onto the screen. 
-
-Click the green arrow to *run* the code. 
+Click the button at the top (with a green arow in it) to *run* the code. 
 
 ![replit ide run arrow](./Assets/replit_ide_green_arrow.png)
 
@@ -714,7 +558,9 @@ The word `print` is the name of a group of code that figures out how to print wo
 
 We call these groups of code "functions", because a *function* implements "functionality".
 
-Functions take an input and then do something with it. The `print` functions takes in input through the parenthesis `()`. Then in the parenthesis it takes in two words "Hello world".
+Functions take an input and then do something with it. 
+
+The `print` functions gets input through the parenthesis `()`. In the parenthesis we put two words "Hello world".
 
 Why do we have the quotation marks `"`?
 
@@ -723,47 +569,62 @@ Say we took them away. How is the computer going to know the difference between 
 Remove the old code and type in the following code.
 
 ```py
-print(Hello I am 12 + 13)
+print(Hello, I am 12 + 13)
 ```
 
-The computer can't figure out how to get this to work! Lets assume you want to litterally print "Hello I am 12 + 13" (without adding the numbers together). For that we can change the code to this.
+The computer can't figure out how to get this to work! (and yoiu will get an error).
+
+Lets assume you want to litterally print "Hello I am 12 + 13" (without adding the numbers together). For that we can change the code to this.
 
 ```py
-print("Hello I am 12 + 13")
+print("Hello, I am 12 + 13")
 ```
 
-Now the computer can tell what we mean.
+Now the computer can tell what we mean. We refer to these words as a "string", meaning a *string* of Unicode characters.
 
 In coding, we call this "specific way" of writing or "format"ing how to write words (so that the computer can know when we are trying to write a sentence, vs trying to write some code) "syntax". Syntax is a specific way of coding so that the computer can understand it.
 
-If you ran the `print("Hello I am 12 + 13")` code (by clicking the green arrow) you will have seen the black "console" (the black box on the right) with the phrase "Hello I am 12 + 13" somewhere on it.
+If you ran the `print("Hello, I am 12 + 13")` code (by clicking the green arrow) you will have seen the black "console" (the black box on the right) with the phrase "Hello, I am 12 + 13" somewhere on it.
 
 That console is how the print function is able to display the phrase "Hello world".
 
 # Variables
 How can we make code that prints our name?
 
-Well there is a function that *gets* input from the console. Delete our old code and type in the following.
+Well, there is a function that *gets* input from the console.
+
+Delete our old code and type in the following.
 
 ```py
 input("Type something: ")
 ```
 
-The `input` function will print "Type something: ", then wait for the you to type in some words. 
+The `input` function will print the string "Type something: ".
 
-Type in some words and click enter. When you click enter, nothing happens...
+Run the code by clicking the button at the top center of the website (with the green arrow).
 
-We need to be able to get access to the words you typed!
+You will see "Type something: " get printed. Now type in some words so that the concosle looks like this.
 
-The `input` function has acces to the words we typed in. We can use a code word that holds onto the wrods from the `input` function.
+
+```
+Type something: Bob is my name
+```
+
+and click enter. 
+
+When you click enter, nothing happens...
+
+We need to be able to get access to the *string* (aka words) you typed! (aka "Bob is my name")
+
+The `input` function has access to the string we typed. We can use a code-word that holds onto the "words" from the `input` function.
 
 ```py
 myName = input("Type something: ")
 ```
 
-So what is `myName`? It hold onto the words that the `input` function got from the console.
+What is `myName`? It "holds onto" the words that the `input` function got from the console.
 
-We call these holders "variables". 
+We call these holders "variables".
 
 For a clearer example make a *variable* that holds a number. Delete the old code and type this in.
 
@@ -786,14 +647,16 @@ We can also add together a variable and some words.
 ```py
 variable = 12
 
-print("hello ", variable)
+print("Hello, ", variable)
 ```
 
 and you will get "hello 12".
 
 (Notice that we put a space at the end of "hello ". If we didn't put a space the word *hello* and the number *12* will be mashed together like this "hello12").
 
-Now lets get this to print our name. delete all the other code and type in this.
+Now lets get the code to ask us for our name and print it.
+
+Delete all the other code and type in this.
 
 ```py
 myName = input("Type something: ")
@@ -803,12 +666,12 @@ print(myName)
 
 Tada!
 
-We can even get it to great us! Change the code to this.
+We can even get it to greet us! Change the code to this.
 
 ```py
 myName = input("Type something: ")
 
-print("Hello ", myName)
+print("Hello, ", myName)
 ```
 
 # Functions
@@ -821,9 +684,9 @@ def say_hello_to_name():
     print("Hello, ", myName)
 ```
 
-(When we make a function we use the the special `def` "keyword". A keyword is a special word that lets python know that we are about to type in a function)
+(When we make a function we use the the special `def` "keyword". This lets Python know that we are about to type in a function)
 
-This make a "definition" of a function. To *use* the function we have to type in the following underneath it.
+This make a "definition" of a group of code called a *function*. To *use* the function we have to type in the following underneath it.
 
 ```py
 say_hello_to_name()
@@ -831,7 +694,7 @@ say_hello_to_name()
 
 This is called "calling" a function.
 
-Now that we have this funciton we can *call* it aas many times as we want!
+Now that we have this funciton we can *call* (aka use) it as many times as we want!
 
 ```py
 say_hello_to_name()
@@ -841,7 +704,9 @@ say_hello_to_name()
 say_hello_to_name()
 ```
 
-If we go back to the function definition.
+If you run this all the code inside of `say_hello_to_name` will get run 5 times, over and over.
+
+Look at the function definition.
 
 ```py
 def say_hello_to_name():
@@ -856,11 +721,11 @@ say_hello_to_name()
 say_hello_to_name()
 ```
 
-You will also notice that the semicolon symbol `:` after the two parenthesis `():`. This tells Python (the coding language we are using) that any code after the `:` is *inside* of the function. 
+You will notice that the colon symbol `:` comes after the two parenthesis `():`. This tells Python (the coding language we are using) that any code after the colon `:` is *inside* of the function. 
 
-All the code inside of the function also has to have a 2 or 4 spaces in front of it, aside fom just using the `:` semicolon symbol. (click the `tab` key to add 2 or 4 spaces).
+All the code inside of the function also has to have a 2 or 4 spaces in front of it, aside from using the `:` colon symbol. (click the `tab` key to add 2 or 4 spaces automatically).
 
-This is mostly for you, the programmer, to be able to tell what code is in a function, and what code is not. We usually refer to adding a tab in front of code as "indenting" the code.
+This is so that Python will be able to tell what code is inside a function, and what code is not. We refer to adding a tab in front of the code as "indenting" the code.
 
 If we go ahead and write our code without adding any *indenting* in front...
 
@@ -883,14 +748,36 @@ Notice when we are *calling* the function we don't indent it because we don't wa
 
 But wait, the `print` function lets us type in what we wanted to print! It lets us give it some input!
 
-How do we give a function parameters (aka input)? Remember variables? We just make a variable for the function. Delete all the old code and type in the following.
+How do we give a function a *parameter* (aka input)? Remember variables? We just make a variable for the function. Delete all the old code and type in the following.
 
 ```py
 def hello_to(name):
   print("Hello, " + name)
 ```
 
-And then we can "call" the function and give it input
+And then we can "call" the function and give it an *argument* (aka input).
+
+```py
+def hello_to(name):
+  print("Hello, " + name)
+
+hello_to("Bob")
+```
+
+(An "argument" is the thing we put in when we call a function)
+
+```py
+def hello_to(name): <- parameter (aka variable)
+  print("Hello, " + name)
+
+hello_to("Bob") <- argument (aka input)
+```
+
+The variable called "name" is a variable for the function.
+
+When we type `hello_to("Bob")` we are passing in "Bob" as an argument to the "name" *parameter* in the function.
+
+Python also lets us give the arguments with an equal sign refering to the parameter (aka variable) for the function.
 
 ```py
 def hello_to(name):
@@ -899,20 +786,20 @@ def hello_to(name):
 hello_to(name="Bob")
 ```
 
-The variable called "name" is a variable for the function only.
-
-When we type `hello_to(name="Bob")` we are passing in the name "Bob" to the function.
-
-If you take a look at the function the name variable is used in the `print` function.
-
-Now what if we want to make a function that takes many paremeters (aka inputs)? To add more parameters we simply separate them using a comma `,`. Delete the old code and type in the this.
+What if we want to make a function that takes many parameters (aka inputs)? To add more parameters we simply separate them using a comma `,`. Delete the old code and type in the this.
 
 ```py
 def hello_to(name, age):
   print("Hello, " + name + " you are " + age)
 ```
 
-And to *call* the function we do the following.
+And to *call* the function (and pass in some *arguments* (aka input)) we do the following. 
+
+```py
+hello_to("Bob", 12)
+```
+
+Or you can do this instead.
 
 ```py
 hello_to(name="Bob", age=12)
@@ -927,7 +814,8 @@ Here is a list of numbers
 [1, 23, 5]
 ```
 
-Here is a list of letters and words
+Here is a list of *strings* (aka Unicode symbols).
+
 ```py
 ["A", "Becky", "C", "D"]
 ```
@@ -959,7 +847,7 @@ print(myList[1])
 
 "It printed B?!"
 
-Yes your right, an interesting thing about computers is that they always start counting from 0. So to access the first item o=in a list we have to use 0.
+Yes your right, an interesting thing about computers is that they always start counting from 0. So to access the first item in a list we have to use 0.
 
 ```py
 myList = ["A", "B", "C", "D"]
@@ -968,7 +856,7 @@ print(myList[0])
 
 Now you should see A get printed.
 
-Remember when we talked about how computer represent numbers? They use 0s and 1s. So how would we represent zero? we just use the symobl `0`. If we didn't count zero as a number we would end up representing zero as `1` in binary, and that would be confusing!
+Remember when we talked about how computer represent numbers? They use 0s and 1s. So how would we represent zero? We just use the symobl `0`. If we didn't count zero as a number we would end up representing zero as `1` in binary, and that would be confusing!
 
 And honestly, we need the number 0.
 
@@ -981,7 +869,7 @@ print("hello")
 print("hello")
 ```
 
-But what if we want it to change the words to "Hello world"? We can just change them all manually.
+But what if we want it to change the string to "Hello world"? We could just change them all manually.
 
 ```py
 print("Hello world")
@@ -992,13 +880,13 @@ print("Hello world")
 But that is kinda annoying, even with copy paste. Instead we can using a "loop" to run the same code a certain number of times.
 
 ```py
-for item in [2, 2, 3, 5]:
+for item in [2, 3, 5]:
     print("Hello world")
 ```
 
-This code prints "Hello world" 4 times.
+This code prints "Hello world" 3 times.
 
-What is the `for variable in [2, 2, 3, 5]`? It is saying, quite literally, "for every item in the list". 
+What is the `for variable in [2, 3, 5]`? It is saying, quite literally, "for every item in the list". 
 
 A "for" loop in Python use lists to know the number of times we want to loop.
 
@@ -1013,7 +901,7 @@ for item in [2, 2, 3, 5]:
 
 This goes to an item in the list, stores it in the "item" variable, then runs any code inside the loop. In this case we print "item" variable every loop.
 
-When we print a variable we are *accessing* what it represents. We call the thing a variable represents its "value". So really variables just give us references to values.
+When we print a variable we are *accessing* what it represents. We call the thing a variable represents its "value". So really variables just give us "references to values".
 
 You'll notice the `:`, this does the same thing as a function, we have to indent our code after the `:` to show that it is inside of the loop.
 
@@ -1025,10 +913,10 @@ In Python you put a hash `#` before human comments. Delete the old code and type
 ```py
 # This is a comment
 # Comments don't affect code
-print("This a `string`, aka words ")
+print("This a `string`, aka *string* of characters ")
 ```
 
-By putting the hash in front of a comment the Python programming language can tell comments apart from the code.
+By putting a hash "#" in front of a comment the Python programming language can tell comments apart from the code.
 
 # If, then?
 What if we want to compare two numbers and see if they are the same?
@@ -1085,29 +973,28 @@ def add(a, b):
 add(5, 5)
 ```
 
-5 + 5 = 10. Simple. But how can wee store that in a variable? Remember the `input` function? It gave us something to hold onto and store in a variable.
+5 + 5 = 10. Simple. But... how can we store the resulting number in a variable? Remember the `input` function? It "gave us" something to hold onto and store in a variable.
 
 ```py
-variable = input("Type in some words:")
+variable = input("Type in a string:")
 ```
 
-How can we do this with the `add` function!? We use a keywrod insode of the function.
+How can we do this with the `add` function!? We use a keyword inside of the function.
 
 ```py
 def add(a, b):
     return a + b
 ```
 
-Now when we assign a variable to the `add` function it will *give back* (aka "return") whtever `a + b` is.
+Then we can do this
 
 ```py
-def add(a, b):
-    return a + b
-
 result = add(5, 5)
 ```
 
-And now we can print the `result` variable.
+When we set a variable to the `add` function it will store whatever `add` *returned* (aka "gave back").
+
+Now we can print the `result` variable.
 
 ```py
 def add(a, b):
