@@ -33,7 +33,7 @@ int main(void) {
 }
 ```
 
-Delete everything except for the function called "main" so that the code looks like this. Don't run this code yet, as it will not work.
+Delete everything except for the function called "main" so that the code looks like this. Don't run this code yet, as it will not work (if replit did not give you this code automatically then just paste the below).
 
 ```c
 int main(void) {
@@ -43,11 +43,11 @@ int main(void) {
 
 This is the "main" function in C.
 
-The word "int" in front of the function, tells C that `main` *returns* an integer.
+The word "int" in front of the function, tells C that `main` *returns* (aka "gives back") an *integer*.
 
-(In C we don't use "def" for defining a function. Other languages often use "fn" or "func" for functions)
+(In C we don't use "def" for defining a function. Other popular languages often use "fn" or "func" for functions)
 
-You will also see the word "void" inside of the functions input. In C we have to tell the computer that the function *doesn't* take any input, so we type the `void` keyword.
+You will also see the word "void" inside of the functions input. In C we have to tell the computer that the function *doesn't* take any input, which is what the `void` keyword is for.
 
 (When using Python, the Python interpreter automatically assumes you don't want input if you don't put anything in the parenthesis "()")
 
@@ -59,7 +59,7 @@ int main(void) {
 }
 ```
 
-Now lets make our own function, it will add 2 numbers together. Make another function under `main` so that the code looks like this.
+Now lets make our own function, it will add 2 numbers together. Make a function under `main` so that the code looks like this.
 
 ```c
 int main(void) {
@@ -71,17 +71,15 @@ int add(int a, int b) {
 }
 ```
 
-We take as input two "integers". In C we have to always know the *type* "is this a number, or is it some letters?".
+We take as input two "integers". In C we have to always know the *type*. A *type* tells C how to treat the 0s and 1s. "Is this a number? Is this a Unicode character?".
 
-We tell the computer this is an integer (aka number) by putting a "type" in front of the functions variables. In this case the *type* is an `int` (aka integer, a number with no decimal places).
+We tell the computer this is an integer (aka number) by putting the `int` *type* in front of the paramters (aka "functions variables").
 
-The `int a, int b` are two integer parameters for the `add` function.
+(remember, function variables are called "parameters").
 
-(remember, function inputs are called "parameters" meaning "function variable").
+We tell C that the `add` function *returns* (aka gives back) an `int` by putting `int` in front of the functions name.
 
-We tell C that the `add` function *returns* (aka gives back) an `int` by putting "int" in front of the function.
-
-Inside of `main`, make a variable called "result" that holds what the `add` function gives us (aka "returns").
+Inside of `main`, make a variable called "result" that holds onto what the `add` function returns ("gives back").
 
 ```c
 int main(void) {
@@ -93,11 +91,13 @@ int add(int a, int b) {
 }
 ```
 
-The `result` variable also has a type, its type is `int`.
+The `result` also has to have a type of `int`, since that is what the `add` function returns.
 
 This code still won't run though!
 
 In C, whenever we type a line of code we have to end it with a semicolon ";". This is how C tells one line of code apart from another.
+
+Change your code to the following.
 
 ```c
 int main(void) {
@@ -110,17 +110,25 @@ int add(int a, int b) {
 }
 ```
 
-You can't just say "get the next line of code". This is because "the next line of code" is stored using a "newline" symbol `\n`. So our code actually looks like this in the file.
+You can't just say "get the next line of code". This is because "the next line of code" is stored as a "newline" symbol `\n`. So our code actually looks like this in the file.
 
 `int main(void) {\n  int result = add(12, 12);\n  int result2 = add(12, 12);\n}\n\nint add(int a, int b) {\n  return a + b;\n}`
 
-(Except most "text editors" (like the one we are using) don't show you the newline symbol "\n", they just make a newline)
+(Except most "text editors" (aka Microsoft Word) don't show you the newline symbol "\n", they just make a newline)
 
-So yeah, we use a semicolon ";" to make it easier for C. Although when we made the `add` function we don't have to add a semicolon since it is easy to tell when the function ends. Eventually you will figure out where to put semicolons and where to not put them.
+So yeah, C makes us use a semicolon ";" (the makers of Python took care of this for us). 
 
-Sadly, this code (still!) won't work because C reads code from top to bottom. So when C reads the first function (aka `main`) it doesn't know what the `add` function is because it hasn't seen it yet.
+Although when making a function we don't have to add a semicolon at the end
 
-(Again Python took care of this for us, while C won't)
+```c
+int example_add(int a, int b) {
+    return a + b;
+}; <- semicolon not needed
+```
+
+...since it is easy to tell when the function ends by just using the curly bracket "}". You will figure out where to put semicolons and where to not put them given experience.
+
+Sadly, our code (still!) won't work because C reads code from top to bottom. So when C reads the code inside of `main` it doesn't know what the `add` function is because it hasn't seen it yet.
 
 ```c
 int main(void) {
@@ -128,6 +136,8 @@ int main(void) {
     int result2 = add(12, 12);
 }
 ```
+
+(Again Python took care of this for us, while C won't)
 
 and honestly we wouldn't know where `add` was unless we kept scrolling down to find it.
 
@@ -145,11 +155,10 @@ int main(void) {
 
 Now you can run this code!
 
-There is a shortcut for being able to put a function below main.
+There is a shortcut for being able to put a function below main. You just have to put a function "hint" above main.
 
 ```c
-// function hint
-int add(int a, int b);
+int add(int a, int b); <- function hint
 
 int main(void) {
   int variable = add(12, 12);
@@ -160,23 +169,34 @@ int add(int a, int b) {
 }
 ```
 
-So above main we put a function "hint". Interestingly we have to put a semicolon ";" at the end of the hint. This is because C automatically figures out when you finish a function by looking for the curly brackets "{}" that contain the code for the function.
+"function hints" are called "prototypes". 
 
-If we take the curly brackets away then C doesn;t know when the function ends. So we have to put a semicolon ";". 
+Interestingly we have to put a semicolon ";" at the end of the function *prototype*. This is because C automatically figures out when you finish a function by looking for the ending curly bracket "}". So we have to put a semicolon ";" after a prototype.
 
-(Why a semicolon? I honestly don't know and haven't taken the time to look it up)
+# Main returns an int?
+Main returns (gives back) a number, but we haven't added that as C doesn't make us.
 
-# Errors? 
-If you get a whole bunch of errors... Just scroll up to the first error at the top, since the rest of the errors are the *compiler* (aka program that converts code to binary instructions) getting confused from the first error.
+```c
+// function hint
+int add(int a, int b);
 
-If you encounter any errors and can't figure them out feel free to join our discord to get help https://discord.gg/QhqTE4t2tR <- here is the invite link.
+int main(void) {
+  int variable = add(12, 12);
+
+  return 0; <- main returns 0
+}
+
+int add(int a, int b) {
+  return a + b;
+}
+```
+
+The number `main` returns is an `int`. It represents an "error code". returning `0` means success (aka no error). Returning `1` means there was an error! But since we don't *have to* return an number we won't bother returning an "error code" from main.
 
 Nothing gets printed to the console! Lets work on that.
 
-# Printing
-The `print` function in C doesn't come builtin, we have to "include" code written by someone else (that figures out the specific binary (0 and 1) instructions). We use a hash symbol "#" followed "include". "include" is called a "command".
-
-Commands after the hash "#" are things the the compiler should "pre-process". In this case we want to *include* all the code from the "stdio.h" file into our main.c file.
+# Printing + including
+The `print` function doesn't come builtin in C. So we have to "include" code written by someone else that figures out the specific 0 and 1 instructions.
 
 Change the code to the following.
 
@@ -192,15 +212,20 @@ int main(void) {
 }
 ```
 
-(The name of the file we want to include is surreounded by "<>")
+We use a hash symbol "#" followed by "include". "include" is called a "command".
 
-"std" is short for "standard", and "io" is short for "input output". 
+Commands after the hash "#" are things the compiler "pre-processes" (the compiler literally replaces `#include <stdio.h>` with the code from the "stdio.h" file).
 
 When we *include* this file, the compiler literally replaces `#include <stdio.h>` with the code from the "stdio.h" file.
 
-(stdio.h is used so often it (usaually) automatically gets downloaded along with a compiler)
+"std" is short for "standard", and "io" is short for "input output". 
 
-The ".h" means it is a C "header" file. Headers files are code that is for "program code" to use. "main.c" will get compiled into a program.
+Where is the "stdio.h" code? "stdio.h" code is used so often it comes builtin with the compiler (aka when you download a compiler it also downloads the stdio.h file).
+
+The ".h" means it is a C "header" file. Headers files are normal C code that is for other code to use. (We can alos include `.c` files)
+
+`.h` files after the `include` command get surrounded by triangle brackets `<>`. 
+`.c` files after an `include` command get surrounded by double quotes `""`.
 
 Now that we've included the standard input output header, we can send output to the console using its `printf` function (`printf` meaning "print formatted").
 
@@ -236,9 +261,14 @@ int main(void) {
 }
 ```
 
-And now a newline will be added.
+And now a newline will be added after the "Hello, world" string (aka *string* of ASCII characters).
 
-# Print formatted
+# Errors? 
+If you get a whole bunch of errors when running code... Just scroll up to the first error at the top in the console, since the rest of the errors are the *compiler* (aka program that converts code to binary instructions) getting confused from the first error.
+
+If you encounter any errors and can't figure them out feel free to join our discord to get help https://discord.gg/QhqTE4t2tR <- here is the invite link.
+
+# Printing variables
 How can we print a variable?
 
 In C we have to declare the type a variable holds. `printf` also makes us put *types*.
@@ -257,7 +287,9 @@ int main(void) {
 }
 ```
 
-Run this code. You will see that the "%i" in the string gets replaced by an 24 (we also added a newline "\n").
+The `%i` will get replaced by `variable`.
+
+Run this code. You will see that the "%i" in the string gets replaced by 24. We also added a newline `\n`.
 
 We refer to the percent sign "%" *types* for `printf` as "conversion specifiers". These *conversion specifiers* tell `printf` *how* to treat the 0s and 1s of a variable. 
 
@@ -287,36 +319,60 @@ int main(void) {
 
 Run this code.
 
-It will print out "Hello " with nothing afterwards. This is because the number 24 maps to a character that the web browser doesn't support (I think?). Change the number to 77, and you will see an uppercase "M" get printed, "Hello M".
+It will print out "Hello " with nothing afterwards. This is because the number 24 maps to a character that the web browser doesn't support (I think?). 
 
-The "f" in `printf` just means print a "formatted" *string* standing for the fact we can replace the *converson specifiers* with a variable.
+Change `variable` to 77. Run the new code and you will see an uppercase "M" get printed like this `Hello M`.
+
+The "f" in `printf` just means print a "formatted" string. standing for the fact we can replace placeholders (aka *converson specifiers*) with a variable.
 
 (Why all the techinical words? When talking to another programmer it's nice when you can figure out what the heck he is talking about)
 
-# Comments
-In python we could make programmer comments. In C we can do the same thing, with different syntax.
-
-We use two slashes "//".
+We can also have multiple *conversion specifiers*.
 
 ```c
 #include <stdio.h>
 
 int main(void) {
     int variable = 77;
+    
+    char character = 'B';
 
-    // Convert int to char
-    printf("Hello %c\n", variable);
+    printf("Hello %c %c\n", variable, character);
 }
 ```
 
-notice the `// Convert int to char`, this will be ignored by `make`. ("make" is one of many compilers for C).
+The `character` variable has a type of `char`. We use single quotes `''` around single characters, and double quotes `""` around *strings* of characters (aka words phrases).
+
+We told `printf` to treat the `character` variable as a character, so we got `B`.
+
+# Comments
+In Python we can make programmer comments. In C we also have comments.
+
+In C you use two slashes "//".
+
+```c
+#include <stdio.h>
+
+int main(void) {
+    int variable = 77;
+  
+    char character = 'B';
+
+    // Treat 77 like ASCII character
+    printf("Hello %c %c\n", variable, character);
+}
+```
+
+notice the `// Treat 77 like ASCII character`, this comment will be ignored by the compiler.
 
 # Command Line Interface
-Clicking the run button (at the top center) is a shortcut button made by Replit that runs a program called a compiler. The compiler takes our text code and converts it to binary (0s and 1s). Then Replit runs the "program" file.
+Clicking the run button (at the top center) is a shortcut button made by Replit that runs a program called a compiler. The compiler takes our code and converts it to binary (0s and 1s). Then Replit runs the "program" file made by the compiler.
 
-But how can we compile the code ourselves? And then run the resulting (binary) program file?
+Buttons and Menus are a Graphical User Interface. But before there was GUI's there were Command Line Interfaces, aka CLI's.
 
-You are used to using all sorts of buttons, and menus for *doing* stuff in your computer, but before there was graphical buttons and menus, there was text-based commands.
+How can we manually "compile" the code ourselves and run the program file, using a CLI?
+
+We use text-based "commands".
 
 You will notice the tab called "shell".
 
@@ -324,43 +380,54 @@ You will notice the tab called "shell".
 
 You will notice the word "Hello-C", this means we are in the "Hello-C" folder (at least in the picture above. Yours may be different).
 
-If we want to change the folder we are in we can run a command. 
+If we want to change the folder we are in we can run a "command".
 
-Type "cd" (a command) into the shell. "cd" stands for "Change Directory", or in plain english "change folders".
+Type `cd` (a command) into the shell. `cd` stands for "Change Directory", or in plain english "change folders".
 
-The "cd" command takes in an *argument*. Type "/" after "cd" like this `cd /`. Then click the return (or enter) key on your keyboard. This runs the command.
+The `cd` command takes in an *argument* (aka input). Type slash `/` after `cd` like this `cd /`. Click the return (or enter) key on your keyboard. This runs the command.
 
-Now we are in the root folder of the computer! (Actually a server computer that is running our code). "/" stands for the root folder of a computer.
+`/` usually refers to the *root* folder of a computer. So `cd /` moved us into the root folder of the computer! (Actually a server computer that is running our code).
 
-Now lets "list" all the files and folders in the root folder! Type `ls` and hit enter.
+How can we view the files inside of the root folder? Type `ls` and hit enter. `ls` stands for "list", and it *lists* all the stuff inside of our current folder.
 
-Ooooh. Thats quite a lot of files and folders! How can we get back to our "Hello-C" folder?
+Ooooh. Thats quite a lot of files and folders! But how can we get back to our "Hello-C" folder?!
 
-The "Hello-C" folder is our "home" folder, so if we type `cd` and hit enter (without any arguments), the `cd` command will take back "home", which is conviently the "Hello-C" folder!
+The "Hello-C" folder has been set as our "home" folder. Typing `cd` (without any arguments) and hitting enter always takes us back to our "home" folder, which is conviently the "Hello-C" folder!
 
-So how did this all work? When we type `cd` (and some arguments) and hit enter, the *shell* looks for a program called `cd`. Once it finds the program called `cd` it sends the arguments we typed and passes them to the `cd` program. `cd` then figures out what to do with the arguments.
+So how did this all work? When we type `cd` (and some arguments) and hit enter, the *shell* looks for a program called `cd`. 
+
+Once the shell finds the program called `cd` it sends the *arguments* (aka input) we typed and passes them to the `cd` program. `cd` then figures out what twe want based on the arguments.
 
 (You could actually make your own "command line" programs!)
 
-How does the shell, or "command line interface" know the difference between `cd` and the arguments we gave it? (aka `cd /`).
+How does the shell, a "command line interface", know what the arguments were?
 
-Well we typed in a spce between them! That is how it can tell. So, if you didn't put a space you might get an error. Also if you type in the name of a "command line" tool (like `cd`) that doesn't exist, you will also get an error.
+Well we put a space `cd /` <- notice the space. So, if you didn't put a space you might get an error.
 
-To clear all the text in shell, hold the `ctrl` key and click `L`.
+To clear all the *text* in a shell, hold the `ctrl` key and click `L`.
 
-(The black "console" tab can run the same commands, but it is a simplified shell, and it doesn't tell us what folder we are currently in. So for this course we will be using the shell, and we recommend you do too as we will switch to using your computers shell, so it will help to be familiar with shell layouts).
+(The black "console" tab can do that same thing as the shell, but it is a simplified shell, and it doesn't tell us the folder we are currently in. For this course we will be using the shell (not the console). We recommend you use the shell too as later we will use your computers shell)
 
-# Compiling
+# Compiling + CLI
 Now that we know how to use a CLI (Command Line Interface) we can run a compiler.
 
-Type in `cd` and hit enter to make sure you are in your "home" directory (aka folder).
-Type in `ls` to see that "main.c" file is in that same folder as you.
+Type in `cd` and hit enter to make sure you are in your "home" directory (aka "Hello-C" folder).
 
-Now type `make`, and the name of our program (aka "main.c") except leave out ".c", like this `make main`, click the `enter` (or `return`) key to run the command (this may take a second). 
+("Can I go into any folder in the computer by simply typing it name after `cd`?"
 
-`make` is the name of a compiler, `main` is the name of the file to compile. `make` automatically figures out that "main" is the name of a file called `main.c`.
+No, only the folders that are in the same folder as you. Find out which folders are inside of your folder by running `ls`
 
-Now type `ls` and click enter to see the (binary instruction) program files that the compiler made. You should see this
+"How about parent folders?"
+
+We'll get to that!)
+
+Type in `ls` to see the `main.c` file get listed.
+
+Now type `make`, and the name of our program `make main` (without `.c`), then hit the enter (or return) key to run the command (this may take a second). 
+
+`make` is the name of a compiler, `main` is the name of the file to compile. We can leave out `.c` since `make` automatically figures out that we meant `main.c`.
+
+Now type `ls` and click enter to see the file that has been made. You should see this
 
 ```
 ~/Hello-C$ ls
@@ -369,15 +436,15 @@ main  main.c
 
 Ha! The file called "main" (without the ".c") is our program! The binary information in it is referd to as "machine code", aka code for the computer to run.
 
-To run "main" (our program) we need to "open" or select the program file called `main`.
+To run "main" (our program) we need to "open" or select the program called `main`.
 
-Typing a single period "." (in the shell) refers to the folder we are in right now (aka "Hello-C"). To refer to the "main" file we do "/main". 
+A single period "." (in the shell) refers to the folder we are in right now (aka "Hello-C"). To refer to the "main" file we do "/main". 
 
-So, to select "main" and run it, type the following `./main`. THen clicking enter will run the program! You should see "Hello M" get printed (from our main.c code).
+So, to select "main" and run it, type the following `./main`. Then clicking enter will run the program! You should see "Hello M" get printed (from our main.c code).
 
-From now on we will be using the shell to run our programs instead of the button at the top. Please do the same as you will need to know how to use a shell for a coming week when you start using your computers builtin shell.
+From now on we will be using the shell to run our programs instead of the button at the top. Please do the same as you will need to know how to use a shell for a coming week when we start using your computers builtin shell.
 
-# Commands
+# Common Command Line Tools
 There are other *commands line tools* like `cd` and `ls`. Here is a list of some of them.
 
 `mkdir`
@@ -465,17 +532,402 @@ Now that we are back in the "Hello-C" folder lets delete the "NewProject" direct
 
 Run `rmdir NewProject`. `rmdir` stands for Remove Directory. The command *removes* the "NewProject" *directory*.
 
-Again, replit will break. Just click on the old `main.c` file.
+Again, replit might break. Just click on the old `main.c` file in the "Files" tab.
 
 Run `ls`. The "NewProject" directory should be gone.
 
-Hold `ctrl` key and click `L` to clear the commands in the shell.
+Hold the `ctrl` key and click `L` to clear the commands in the shell.
+
+One last cool feature. If you want to type a command that you typed earlier you can go through your history of commands by using the up and down arrow keys.
+
+# Numbers Overflow
+Lets make a really big number and print it.
+
+Make a new C program called `overflow.c`. 
+
+Go to the shell, run `touch overflow.c`. The `touch` command it making a new file called `overflow.c`.
+
+(If you made a file with the wrong name you can delete it using `rm`)
+
+In the files tab click on the new file called `overflow.c` to open it.
+
+Now write the `main` function and include `stdio.h` since we will be printing stuff to the console.
+
+Your code should look like this.
+
+```c
+#include <stdio.h>
+
+int main(void) {
+  int a = 4000000000;
+
+  printf("%i", a);
+}
+```
+
+We set the variable `a` to the number 4 billion.
+
+Run `make overflow` to compile our new program using `make`.
+Run `ls` to see our new program called "overflow".
+Run our new program using `./overflow`.
+
+You should see the following get printed.
+
+```
+~/Hello-C$ ./overflow
+-294967296~/Hello-C$ 
+```
+
+That number is definitally not 4 billion. But lets first fix another error, we forgot to include a newline `\n`.
+
+Change the code to add a newline.
+
+```c
+#include <stdio.h>
+
+int main(void) {
+  int a = 4000000000;
+
+  printf("%i\n", a);
+}
+```
+
+Compile our change and run the resulting program again.
+
+Why is the number `-294967296` showing up!?
+
+Remember Binary?
+
+```
+16 | 8 | 4 | 2 | 1
+1    1   1   1   1 = 16 + 8 + 4 + 2 + 1 = 31
+```
+
+What happens when we try to represent a number without enough columns? Lets add one to our current binary number. Theoretically we add another column.
+
+```
+32 | 16 | 8 | 4 | 2 | 1
+1    0    0   0   0   0 = 32
+```
+
+But in reality number in our computer do not "grow". They get a certain amoutn of memory and thats it. So things break and we get `-294967296`.
+
+But why negative?
+
+The first bit (the first 0 or 1) is used to represent negative or positive.
+
+So using 1 as the first bit would make the number positive.
+
+```
+sign | 16 | 8 | 4 | 2 | 1
+1      0    0   0   0   0 = +32
+```
+
+And using 0 would make the number negative.
+
+```
+sign | 16 | 8 | 4 | 2 | 1
+0      0    0   0   0   0 = -32
+```
+
+When we tried to go past the maximum number we ended up putting a 0 as the first bit, making the number negative.
+
+The `int` type in C has 32 bits. With 32 bits we could count as high as 4 billion, but when we take one of those bits away and use it for the "sign" of the number we can go almost as high as 2 billion (both in the negative 2 billion, and the positive 2 billion).
+
+We could swith to using a `long` wich gives us 64 bits if we wanted to be able to represent 4 billion.
+
+If we change the code to use a `long` and try to compile we will get an error.
+
+![replit error](/Assets/Week_1/replit_error.png)
+
+You'll notice the green `%li` this is a hint saying we need to change the conversion specifier to a `long` conversion specifier which is `%li`.
+
+Fix the code by either changing the conversion specifier or changing the variable to an int.
+
+# Casting a type
+Lets divide two `int`s. Although, the `int` type doesn't let us represent decimal places like `0.5` or `1.34`. So what happens?
+
+Run `touch division.c` to make a new C code file.
+
+Open it by clicking the file.
+
+Copy Paste the following code into the file.
+
+```c
+#include <stdio.h>
+
+int main(void) {
+  int a = 2;
+  int b = 3;
+}
+```
+
+Now lets divide `a` and `b` and store its result. Now we know that `2 / 3` equals `0.6666` with `6` going on forever.
+
+If we want to result to support decimal places we can't use an `int`. Instead we have to use a `float` which supports decimal places.
+
+```c
+#include <stdio.h>
+
+int main(void) {
+  int a = 2;
+  int b = 3;
+
+  float result = a / b;
+}
+```
+
+We name the variable that holds onto `a / b` "result".
+
+Now lets print the result.
+
+```c
+#include <stdio.h>
+
+int main(void) {
+  int a = 2;
+  int b = 3;
+
+  float result = a / b;
+
+  printf("%f \n", result);
+}
+```
+
+The `%f` is a conversion specifier for a float. We also make sure to add `\n`.
+
+Compile the program using make by running `make division`.
+Then run the program `./division`.
+
+We get `0.000000`. So what happened?
+
+When we divided `a` and `b` their type is an `int`. And so they gave back an `int` and *cut off* (aka ignored) the decimal places and we end up with `0.000000`.
+
+To fix this we have to convert `a` and `b` to a `float`.
+
+```
+float result = (float) a / (float) b;
+```
+
+We use parenthesis `()` around the `float` type in front of `a` and `b`. This converts `a` and `b` to a `float`.
+
+Now with this fix we get a number with decimal places and store it in the `result` variable.
+
+Your code should look like this.
+
+```c
+#include <stdio.h>
+
+int main(void) {
+  int a = 2;
+  int b = 3;
+
+  float result = (float) a / (float) b;
+
+  printf("%f \n", result);
+}
+```
+
+Run `make division`.
+Run `./division`.
+
+You should see `0.666667` get printed.
+
+# Conditions
+Make a new file using the `touch` command and call it `condition.c`.
+
+Copy Paste this code.
+
+```c
+#include <stdio.h>
+
+int main(void) {
+  if (2 < 3) {
+    printf("2 is less than 3! \n");
+  }
+}
+```
+
+You'll notice the `if` keyword followed by parenthesis `()`. The *condtion* of true or false is inside of the parenthesis.
+
+If the *condition* is true then we run the code inside of the curly brackets -> `printf("2 is less than 3!");`.
+
+This code is pretty dumb tho. So we'll use `if` statements again later.
 
 # Loops?
+Lets work on C *loop*'s.
 
-# Getting input - Strings, memory addresses (pointers), and arrays and iterators
-TODO place above CLI? Or is it good to take a break from coding?
-- Yes. Now while coding they can use the shell instead of the button
+In C we can loop *while* something is true.
+
+Make a new C program called `loop.c` using the `touch` command.
+
+In the files tab click on the new `loop.c` file to open it.
+
+Now write the `main` function and include `stdio.h` since we will be printing stuff to the console.
+
+Your code should look like this.
+
+```c
+#include <stdio.h>
+
+int main(void) {
+  
+}
+```
+
+Now lets use a "while" loop to print "hello world" forever!
+
+```c
+#include <stdio.h>
+
+int main(void) {
+  while (true) {
+    printf("hello world!");
+  }
+}
+```
+
+`while` is like an if statement. Except it runs over and over as long as the *condition* is true.
+
+(the `true` and `false` types are lowercase in C, whereas in Python they are uppercase)
+
+Also C doesn't come with *booleans* (`true` or `false` types) by default! We have to include them!
+
+Include the `stdbool.h` file at the top.
+
+```c
+#include <stdio.h>
+#include <stdbool.h>
+
+int main(void) {
+  while (true) {
+    printf("hello world!");
+  }
+}
+```
+
+Compile this code and run it using the correct commands.
+
+Hint:
+- `make loop`
+- `./loop`
+
+To stop the onslaught of "hello world!" click inside of the shell and hold `ctrl` and click `C` (while holding down `ctrl`).
+
+It may take few seconds for it to stop because of the delay. Now clear the shell using `ctrl` + `L`.
+
+Now lets loop a certain number of times by "counting".
+
+Make a new `int` variable called `counter`, then inside of `while` increase `counter` by 1.
+
+```c
+#include <stdio.h>
+#include <stdbool.h>
+
+int main(void) {
+  int counter = 0;
+
+  while (true) {
+    counter = counter + 1;
+  }
+}
+```
+
+`counter = counter + 1`? This sets `counter` to whatever it was *previously* plus 1.
+
+We can use *syntax sugar* (aka a shortcut) to do this.
+
+
+```c
+#include <stdio.h>
+#include <stdbool.h>
+
+int main(void) {
+  int counter = 0;
+
+  while (true) {
+    counter += 1;
+  }
+}
+```
+
+`counter += 1;` is the same as `counter = counter + 1;`, but its way easier to type.
+
+But... there is an even faster shortcut. It is so common to increase a number by 1 that you can do `counter++;`, this increases a number by 1.
+
+```c
+#include <stdio.h>
+#include <stdbool.h>
+
+int main(void) {
+  int counter = 0;
+
+  while (true) {
+    counter++;
+  }
+}
+```
+
+We want this loop to stop at some point. Every loop we are also checking if a condition is true. We can simply change the condition to check if the number has increased to a certain level.
+
+```c
+#include <stdio.h>
+#include <stdbool.h>
+
+int main(void) {
+  int counter = 0;
+
+  while (counter < 5) {
+
+    counter++;
+  }
+}
+```
+
+`while (counter < 5)` checks if `counter` is less than 5.
+
+Now add code to print "hello world" (or whatever phrase you want) inside of the while loop.
+
+```c
+#include <stdio.h>
+#include <stdbool.h>
+
+int main(void) {
+  int counter = 0;
+
+  while (counter < 5) {
+    printf("Hello world \n");
+
+    counter++;
+  }
+}
+```
+
+Compile the code and run it. You will see "Hello world" get printed 5 times.
+
+# For loops
+There is an even bigger shortcut for looping. You put all the code in 1 line.
+
+```c
+#include <stdio.h>
+#include <stdbool.h>
+
+int main(void) {
+  
+  for (int counter = 0; counter < 5; counter++) 
+  {
+    printf("Hello world \n");
+  }
+}
+```
+
+This is identical to the while loop we made! It just does it all in one line! We call this a `for` loop.
+
+The last part of a `for` loop (`counter++`) runs *after* each loop.
+
+The first part happens once (`int counter = 0`).
+
+Like I said it if functionally **identical** to our while loop.
 
 # Linear search
 
@@ -487,6 +939,7 @@ If you didn't take the "Searching Algorithms" tutorial for week 0 then we highly
 AFTER "linear search" finish the lecture
 
 To cover? (don't do in same order)
+- type casting
 - addition `int` max number size
     - first bit used for negative or positive sign
 

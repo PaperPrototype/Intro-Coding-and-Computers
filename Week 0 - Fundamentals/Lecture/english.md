@@ -793,7 +793,7 @@ def hello_to(name, age):
   print("Hello, " + name + " you are " + age)
 ```
 
-And to *call* the function (and pass in some *arguments* (aka input)) we do the following. 
+And to *call* the function (and pass in some *arguments* (aka input)) we do the following.
 
 ```py
 hello_to("Bob", 12)
@@ -804,6 +804,21 @@ Or you can do this instead.
 ```py
 hello_to(name="Bob", age=12)
 ```
+
+# Scope
+You can't use functions variables (parameters) outside of their function!
+
+```py
+def hello_to(name, age):
+  print("Hello, " + name + " you are " + age)
+
+name = "Dan" <- new variable
+hello_to("Bob", 12)
+```
+
+We try to set the `name` variable to "Dan". But this just makes a new variable. It doesn't change the `name` variable (parameter) in the `hello_to` function.
+
+We call this "scope". Scope means you cannot access variables outside of their functions.
 
 # Lists?
 What if we want to make a list of things? In python this is super easy.
