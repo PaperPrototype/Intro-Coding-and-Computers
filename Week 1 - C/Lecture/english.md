@@ -1,4 +1,4 @@
-Last week we talked about how computers represent data and instructions using only two symbols 0 and 1, representing the *millions and millions* of dollars... I mean switches, in the computers memory. 0 represents off, and 1 represents on.
+Last week we talked about how computers represent data and instructions using only two symbols 0 and 1, representing the *millions and millions of dollars*... I mean switches, in the computers memory. 0 represents off, and 1 represents on.
 
 The programming language we used, called Python, was an interpreted language meaning it is a program file, that reads in our text based "code" (*string* of Unicode characters), and then figures out how to translate that code on your processor as 0 and 1 instructions.
 
@@ -14,9 +14,9 @@ def main():
 main() # run the code
 ```
 
-Well in C there is a function that gets called automatically. Except here's the catch, it is the only function that gets called! Any code that we want to run, including our own functions, has to go inside of the "main" function (which is the only function that gets called by default in C, otherwise your computer wouldn't know where to start).
+Well in C there is a function that gets called automatically. Except here's the catch, it is the only function that gets called! Any code that we want to run, including our own functions, has to go inside of the "main" function. This gives all computers a unifide way to have a "starting point" for where to run your program.
 
-Lets write this function. Go to https://replit.com/ and make a new replit.
+Lets write this "main" function. Go to https://replit.com/ and make a new replit.
 
 (if you don't see the "New replit" button, it is probably hidden. To find it, look in the top left corner of the website, you should see three lines, click those. Then you should see a blue button)
 
