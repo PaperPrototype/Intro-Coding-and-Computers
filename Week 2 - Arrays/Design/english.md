@@ -1,4 +1,8 @@
 
+- Getting Input, main gets input from shell
+
+- 
+
 - Compiling
     - `make` autmatically figures out how to use a compiler for you
     - assembly?
