@@ -931,7 +931,7 @@ Like I said it is functionally **identical** to our while loop.
 
 
 # Arrays
-C doesn't have "lists". But in C we have "arrays". 
+C doesn't have "lists". In C we have "arrays". 
 
 An *array* is blocks of memory one after the other, each of the same size.
 
