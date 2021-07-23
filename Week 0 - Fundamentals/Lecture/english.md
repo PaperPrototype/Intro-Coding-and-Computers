@@ -3,7 +3,7 @@ The language that computers understand are positive `+` and negative `-` electri
 
 Each electric charge is called a "bit". A bit can be either positive, or negative. We use the symbol `1` to represent positive charges and `0` to represent negative charges. This is always the case.
 
-The formal name for the *language* of 0s and 1s "binary".
+The formal name for the *language* of 0s and 1s is "binary".
 
 In case your wondering how a computers "processor" can take tons of `+` and `-` signals and "process" them, we **won't** be covering that because THAT is not the focus of this course. Instead, we will focus on how we can represent numbers, letters, and everything you see on a computer, using only 0s and 1s (aka electric signals) to be able to code, and understand how that code is able to create images and text files (such as your reading right now; when you click on a letter there is litterally a computer code of 0's and 1's in the background for each letter or symbol).
 
@@ -516,7 +516,7 @@ Once you've made an account click the "New repl" button to create a new repl pro
 
 If you don't see the "New Repl" button, click the three lines in top left corner.
 
-Once yu click the "New repl" button, you should see this.
+Once you click the "New repl" button, you should see this.
 
 ![create repl](/Assets/create_repl.png)
 
@@ -524,7 +524,11 @@ Select "Python" as the programming language, and call the project "HelloWorld".
 
 Then click the "Create repl" button.
 
-Now we can write some code in replit's IDE.
+We recommend that you "split" your screen in half, having this tutorial on one side, and replits IDE in another.
+
+![course workflow window layout](/Assets/Week_1/course_workflow_window_layout.gif)
+
+Now we can write some code in replit's IDE!
 
 ![replit ide](/Assets/replit_ide.png)
 
@@ -994,7 +998,7 @@ add(5, 5)
 variable = input("Type in a string:")
 ```
 
-How can we do this with the `add` function!? We use a keyword inside of the function.
+How can we do this with the `add` function!? We use the `return` keyword.
 
 ```py
 def add(a, b):
@@ -1004,10 +1008,13 @@ def add(a, b):
 Then we can do this
 
 ```py
+def add(a, b):
+    return a + b
+
 result = add(5, 5)
 ```
 
-When we set a variable to the `add` function it will store whatever `add` *returned* (aka "gave back").
+When we set the `result` variable to the `add` function it will store whatever `add` *returned* (aka "gave back").
 
 Now we can print the `result` variable.
 

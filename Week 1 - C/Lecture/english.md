@@ -1,8 +1,10 @@
 Last week we talked about how computers represent data and instructions using only two symbols 0 and 1, representing the *millions and millions of dollars*... I mean switches, in the computers memory. 0 represents off, and 1 represents on.
 
-The programming language we used, called Python, was an interpreted language meaning it is a program file, that reads in our text based "code" (*string* of Unicode characters), and then figures out how to translate that code on your processor as 0 and 1 instructions.
+The programming language we used, called Python, was an interpreted language meaning it is a program file, that reads in our text based "code" (*string* of Unicode characters), and then figures out how to translate that code onto your processor as 0 and 1 instructions.
 
-We are now going to learn a new language called C. This language is a *compiled* language. It is written as text that gets converted to binary instructions by a programm called a *compiler*.
+We are now going to learn a new language called C. This language is a *compiled* language (wheas Python was *interpreted*). 
+
+This just means it is written as text that is converted to binary instructions by a program called a *compiler*.
 
 Remember how functions work in Python?
 
@@ -20,9 +22,9 @@ Lets write this "main" function. Go to https://replit.com/ and make a new replit
 
 (if you don't see the "New replit" button, it is probably hidden. To find it, look in the top left corner of the website, you should see three lines, click those. Then you should see a blue button)
 
-This time select C as the programming language. Name it "Hello C". Now click "create repl".
+This time select C as the programming language. Name the the project "Hello C". Now click "create repl".
 
-Now there should already be a file called "main.c". In it you should see the following.
+There should already be a file called "main.c". In it you should see the following.
 
 ```c
 #include <stdio.h>
@@ -33,7 +35,7 @@ int main(void) {
 }
 ```
 
-Delete everything except for the function called "main" so that the code looks like this. Don't run this code yet, as it will not work (if replit did not give you this code automatically then just paste the below).
+Delete everything except for the function called "main" so that the code looks like this. 
 
 ```c
 int main(void) {
@@ -41,17 +43,19 @@ int main(void) {
 }
 ```
 
-This is the "main" function in C.
+Don't run this code yet, as it won't do anything (if replit did not give you this code automatically then just copy paste the below into a new file called "main.c").
+
+The above is the "main" function in C, and is the starting point that computers understand.
 
 The word "int" in front of the function, tells C that `main` *returns* (aka "gives back") an *integer*.
 
-(In C we don't use "def" for defining a function. Other popular languages often use "fn" or "func" for functions)
+(In C we don't use "def" for defining a function)
 
-You will also see the word "void" inside of the functions input. In C we have to tell the computer that the function *doesn't* take any input, which is what the `void` keyword is for.
+You will see the word "void" inside of the functions input. In C we have to tell the computer that the function *doesn't* take any input, which is what the `void` keyword is for.
 
 (When using Python, the Python interpreter automatically assumes you don't want input if you don't put anything in the parenthesis "()")
 
-You will notice the code inside of the function goes inside of curly brackets "{}". This is what C uses instead of the colon ":".
+You will notice the code inside of the function goes inside of curly brackets "{}". This is what C uses instead of Python's colon ":".
 
 ```c
 int main(void) {
@@ -73,9 +77,9 @@ int add(int a, int b) {
 
 We take as input two "integers". In C we have to always know the *type*. A *type* tells C how to treat the 0s and 1s. "Is this a number? Is this a Unicode character?".
 
-We tell the computer this is an integer (aka number) by putting the `int` *type* in front of the paramters (aka "functions variables").
+We tell the computer this is an integer (aka number) by putting the `int` *type* in front of the function's input variables.
 
-(remember, function variables are called "parameters").
+(function variables are called "parameters").
 
 We tell C that the `add` function *returns* (aka gives back) an `int` by putting `int` in front of the functions name.
 
@@ -91,7 +95,7 @@ int add(int a, int b) {
 }
 ```
 
-The `result` also has to have a type of `int`, since that is what the `add` function returns.
+The `result` variable has to have a type of `int`. C doesn't automatically figure out that the `result` variable should be an `int` (it could figure it out since the `add` function returns an `int`, and most programming languages do this).
 
 This code still won't run though!
 
@@ -102,7 +106,6 @@ Change your code to the following.
 ```c
 int main(void) {
   int result = add(12, 12);
-  int result2 = add(12, 12);
 }
 
 int add(int a, int b) {
@@ -114,26 +117,25 @@ You can't just say "get the next line of code". This is because "the next line o
 
 `int main(void) {\n  int result = add(12, 12);\n  int result2 = add(12, 12);\n}\n\nint add(int a, int b) {\n  return a + b;\n}`
 
-(Except most "text editors" (aka Microsoft Word) don't show you the newline symbol "\n", they just make a newline)
+(Most "text editors" (Microsoft Word) don't show you the newline symbol "\n", they just make a newline)
 
-So yeah, C makes us use a semicolon ";" (the makers of Python took care of this for us). 
+So yeah, C makes us use a semicolon ";" so it can tell lines of code apart.
 
 Although when making a function we don't have to add a semicolon at the end
 
 ```c
-int example_add(int a, int b) {
+int add(int a, int b) {
     return a + b;
-}; <- semicolon not needed
+}; <- semicolon NOT needed!
 ```
 
-...since it is easy to tell when the function ends by just using the curly bracket "}". You will figure out where to put semicolons and where to not put them given experience.
+...since it is easy to tell when the function ends by just using the ending curly bracket "}". You will figure out where to put semicolons and where to not put them given experience.
 
 Sadly, our code (still!) won't work because C reads code from top to bottom. So when C reads the code inside of `main` it doesn't know what the `add` function is because it hasn't seen it yet.
 
 ```c
 int main(void) {
     int result = add(12, 12); <- where did `add` come from?
-    int result2 = add(12, 12);
 }
 ```
 
@@ -153,9 +155,9 @@ int main(void) {
 }
 ```
 
-Now you can run this code!
+Now you can run this code!.. Although it won't print anything...
 
-There is a shortcut for being able to put a function below main. You just have to put a function "hint" above main.
+There is a way to put a function below main. You just have to put a function "hint" above main.
 
 ```c
 int add(int a, int b); <- function hint
@@ -171,10 +173,10 @@ int add(int a, int b) {
 
 "function hints" are called "prototypes". 
 
-Interestingly we have to put a semicolon ";" at the end of the function *prototype*. This is because C automatically figures out when you finish a function by looking for the ending curly bracket "}". So we have to put a semicolon ";" after a prototype.
+We have to put a semicolon ";" at the end of the function *prototype* because there are no curly brackets in a prototype just its name and parameters ("function variables").
 
 # Main returns an int?
-Main returns (gives back) a number, but we haven't added that as C doesn't make us.
+Main returns (gives back) a number right?
 
 ```c
 // function hint
@@ -191,7 +193,7 @@ int add(int a, int b) {
 }
 ```
 
-The number `main` returns is an `int`. It represents an "error code". returning `0` means success (aka no error). Returning `1` means there was an error! But since we don't *have to* return an number we won't bother returning an "error code" from main.
+The number `main` returns is an `int` (obviously). It represents an "error code". returning `0` means success (aka no error). Returning `1` means there was an error! But since we don't *have to* return an number we won't bother returning an "error code" from main.
 
 Nothing gets printed to the console! Lets work on that.
 
@@ -208,26 +210,30 @@ int add(int a, int b) {
 }
 
 int main(void) {
-  int variable = add(12, 12);
+  int result = add(12, 12);
 }
 ```
 
 We use a hash symbol "#" followed by "include". "include" is called a "command".
 
-Commands after the hash "#" are things the compiler "pre-processes" (the compiler literally replaces `#include <stdio.h>` with the code from the "stdio.h" file).
+Commands after the hash "#" are things the compiler "pre-processes". Which means
+when we *include* this file, the compiler literally replaces `#include <stdio.h>` with the code from the "stdio.h" file.
 
-When we *include* this file, the compiler literally replaces `#include <stdio.h>` with the code from the "stdio.h" file.
+"including" is part of the "pre-process" stage that the compiler goes through to eventually convert our code into 0s and 1s.
 
 "std" is short for "standard", and "io" is short for "input output". 
 
-Where is the "stdio.h" code? "stdio.h" code is used so often it comes builtin with the compiler (aka when you download a compiler it also downloads the stdio.h file).
+Where is the "stdio.h" code? The "stdio.h" code is used so often it comes builtin with the compiler (aka when you download a compiler it also downloads the stdio.h file).
 
-The ".h" means it is a C "header" file. Headers files are normal C code that is for other code to use. (We can alos include `.c` files)
+The ".h" means it is a C "header" file. Headers files are normal C code except the code has already been turned into 0s and 1s! (This way the compiler doesn't have to compile all the *headers* we include and can just "link" them all to together in a stage called "linking"). The code in a header file is just a bunch of "function hints" to functions that are in the binary (0s and 1s) code file.
+
+(You can also include `.c` files)
 
 `.h` files after the `include` command get surrounded by triangle brackets `<>`. 
+
 `.c` files after an `include` command get surrounded by double quotes `""`.
 
-Now that we've included the standard input output header, we can send output to the console using its `printf` function (`printf` meaning "print formatted").
+Now that we've included the standard input output *header*, we can send output to the console using its `printf` function (`printf` meaning "print formatted").
 
 ```c
 #include <stdio.h>
@@ -237,14 +243,14 @@ int add(int a, int b) {
 }
 
 int main(void) {
-  int variable = add(12, 12);
+  int result = add(12, 12);
   printf("Hello, world");
 }
 ```
 
 Now run this code. You will see "Hello world" get printed.
 
-![replit print hello world](/Assets/Week_0/replit_print_hello_world.png)
+![replit print hello world](/Assets/Week_1/replit_print_hello_world.png)
 
 But the console didn't make a newline after printing! So we have to add this manually ourselves. (Again, Python added "\n" for us).
 
@@ -261,7 +267,9 @@ int main(void) {
 }
 ```
 
-And now a newline will be added after the "Hello, world" string (aka *string* of ASCII characters).
+Now a newline will be added after the "Hello, world" string (we call words or phrases enclosed with double quotes `""` *strings*).
+
+![replit print hello world with newline](/Assets/Week_1/replit_print_hello_world_2.png)
 
 # Errors? 
 If you get a whole bunch of errors when running code... Just scroll up to the first error at the top in the console, since the rest of the errors are the *compiler* (aka program that converts code to binary instructions) getting confused from the first error.
@@ -271,25 +279,29 @@ If you encounter any errors and can't figure them out feel free to join our disc
 # Printing variables
 How can we print a variable?
 
-In C we have to declare the type a variable holds. `printf` also makes us put *types*.
+In C we have to declare the type a variable holds (aka `int result = 12;`). `printf` also has *types*.
 
-In `printf` you use the percent symbol `%` followed by a letter to represent a *type*. In this case `variable` has a type of `int`. So in `printf` we have to write `%i` which stands for the `int` type.
+In `printf` you use the percent symbol `%` followed by a letter. In this case our variable is an `int`, so in `printf` we write `%i` which stands for the `int` type.
 
 Change the code to the following.
 
 ```c
 #include <stdio.h>
 
+int add(int a, int b) {
+	return a + b;
+}
+
 int main(void) {
-  int variable = add(12, 12);
+  int result = add(12, 12);
 
   printf("%i \n", variable);
 }
 ```
 
-The `%i` will get replaced by `variable`.
+The `%i` is a placeholder, and will get replaced by `result`.
 
-Run this code. You will see that the "%i" in the string gets replaced by 24. We also added a newline `\n`.
+Run this code. You will see that the `%i` in the string gets replaced by 24 (we also make sure to add a newline `\n`).
 
 We refer to the percent sign "%" *types* for `printf` as "conversion specifiers". These *conversion specifiers* tell `printf` *how* to treat the 0s and 1s of a variable. 
 
@@ -305,7 +317,7 @@ commonly used conversion specifiers
   %c    character  
 ```
 
-We can use the "%c" conversion specifier to tell `printf` to treat 24 like an ASCII character.
+We can use the "%c" conversion specifier to tell `printf` to treat 24 like an ASCII character. Delete the add function and change ht code to this.
 
 ```c
 #include <stdio.h>
@@ -319,15 +331,13 @@ int main(void) {
 
 Run this code.
 
-It will print out "Hello " with nothing afterwards. This is because the number 24 maps to a character that the web browser doesn't support (I think?). 
+It will print out "Hello " with nothing afterwards. This is because the number 24 maps to a character that is apparently invisible? (Go back to Week 0's notes to see what 24 maps to).
 
-Change `variable` to 77. Run the new code and you will see an uppercase "M" get printed like this `Hello M`.
+Change `variable` to hold 77. Run the new code and you will see an uppercase "M" get printed like this `Hello M`.
 
 The "f" in `printf` just means print a "formatted" string. standing for the fact we can replace placeholders (aka *converson specifiers*) with a variable.
 
-(Why all the techinical words? When talking to another programmer it's nice when you can figure out what the heck he is talking about)
-
-We can also have multiple *conversion specifiers*.
+We can also have multiple *conversion specifiers*. Change the code to this.
 
 ```c
 #include <stdio.h>
@@ -341,7 +351,7 @@ int main(void) {
 }
 ```
 
-The `character` variable has a type of `char`. We use single quotes `''` around single characters, and double quotes `""` around *strings* of characters (aka words phrases).
+The `character` variable has a type of `char`. We use single quotes `''` around single characters, and double quotes `""` around *strings* of characters (aka words / phrases).
 
 We told `printf` to treat the `character` variable as a character, so we got `B`.
 
