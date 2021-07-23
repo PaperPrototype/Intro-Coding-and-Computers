@@ -1,6 +1,6 @@
 Last week we talked about how computers represent data and instructions using only two symbols 0 and 1, representing the *millions and millions* of dollars... I mean switches, in the computers memory. 0 represents off, and 1 represents on.
 
-The programming language we used, called Python, was an interpreted language. Python is a program file (of 0 and 1 instructions), that reads in our "code" in the form of english words (aka *string* of Unicode characters), and then figures out how to run that code on your processor as 0 and 1 instructions.
+The programming language we used, called Python, was an interpreted language meaning it is a program file, that reads in our text based "code" (*string* of Unicode characters), and then figures out how to translate that code on your processor as 0 and 1 instructions.
 
 We are now going to learn a new language called C. This language is a *compiled* language. It is written as text that gets converted to binary instructions by a programm called a *compiler*.
 
