@@ -600,7 +600,7 @@ which tells you you are in the "NewProject" folder.
 
 Now lets make a new "main.c" file (Inside of the `NewProject` folder). Type in `touch main.c`. This command makes a file called "main.c". You should see the file in Replits file viewer.
 
-![replit ide touch command](./Assets/Week_1/replit_ide_touch_command.png)
+![replit ide touch command](/Assets/Week_1/replit_ide_touch_command.png)
 
 Click the file (using replits "Files" tab). You should be able to open it and edit it.
 
