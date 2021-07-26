@@ -547,6 +547,8 @@ There are other *commands line tools* like `cd` and `ls`. Here is a list of some
 > does: Moves a file (or renames a file)
 >
 > usage: `mv originalFile.c myFancyFolder` <- moves "originalFile.c" into "myFancyFolder".
+> 
+> usage: `mv oldFileName newFileName` <- renames the `oldFileName` file to `newFileName`
 
 `rm`
 > stands for: Remove
@@ -588,11 +590,17 @@ Lets make a folder using `mkdir`. Type in `mkdir NewProject`. This will make a f
 main  main.c  NewProject
 ```
 
-Now move into the "NewProject" folder by typing `cd NewProject`. You should now see `~/Hello-C/NewProject$ ` which tells you you are in the "NewProject" folder.
+Now move into the "NewProject" folder by typing `cd NewProject`. You should now see 
+
+```
+~/Hello-C/NewProject$
+```
+
+which tells you you are in the "NewProject" folder.
 
 Now lets make a new "main.c" file (Inside of the `NewProject` folder). Type in `touch main.c`. This command makes a file called "main.c". You should see the file in Replits file viewer.
 
-![replit ide touch command](./Assets/Week_O/replit_ide_touch_command.png)
+![replit ide touch command](./Assets/Week_1/replit_ide_touch_command.png)
 
 Click the file (using replits "Files" tab). You should be able to open it and edit it.
 
