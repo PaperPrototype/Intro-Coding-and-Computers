@@ -252,7 +252,7 @@ Now run this code. You will see "Hello world" get printed.
 
 ![replit print hello world](/Assets/Week_1/replit_print_hello_world.png)
 
-But the console didn't make a newline after printing! So we have to add this manually ourselves. (Again, Python added "\n" for us).
+But the console didn't make a newline after "Hello world"! So we have to add this manually ourselves. (Again, Python added "\n" for us in its `print` function).
 
 ```c
 #include <stdio.h>
@@ -356,9 +356,9 @@ The `character` variable has a type of `char`. We use single quotes `''` around 
 We told `printf` to treat the `character` variable as a character, so we got `B`.
 
 # Comments
-In Python we can make programmer comments. In C we also have comments.
+In Python we can make programmer comments.
 
-In C you use two slashes "//".
+In C you use two slashes "//" for comments.
 
 ```c
 #include <stdio.h>
@@ -376,86 +376,150 @@ int main(void) {
 notice the `// Treat 77 like ASCII character`, this comment will be ignored by the compiler.
 
 # Command Line Interface
-Clicking the run button (at the top center) is a shortcut button made by Replit that runs a program called a compiler. The compiler takes our code and converts it to binary (0s and 1s). Then Replit runs the "program" file made by the compiler.
+Clicking the run button (at the top center) is a shortcut button that compiles our code (a compiler takes our code and converts it to binary (0s and 1s) instructions). Then Replit runs the "program" file made by the compiler.
 
-Buttons and Menus are a Graphical User Interface. But before there was GUI's there were Command Line Interfaces, aka CLI's.
+Buttons and Menus are called a "Graphical User Interface" (GUI). But before there was GUI's there was a "Command Line Interface", aka CLI.
 
 How can we manually "compile" the code ourselves and run the program file, using a CLI?
 
-We use text-based "commands".
+We type in text-based "commands" and run them.
 
 You will notice the tab called "shell".
 
 ![replit ide shell](/Assets/Week_1/replit_ide_shell.png)
 
-You will notice the word "Hello-C", this means we are in the "Hello-C" folder (at least in the picture above. Yours may be different).
+You will notice the word "Hello-C", this means we are in the "Hello-C" folder.
 
 If we want to change the folder we are in we can run a "command".
 
-Type `cd` (a command) into the shell. `cd` stands for "Change Directory", or in plain english "change folders".
+Type `cd` (a command) into the shell. 
 
-The `cd` command takes in an *argument* (aka input). Type slash `/` after `cd` like this `cd /`. Click the return (or enter) key on your keyboard. This runs the command.
+```
+~/Hello-C$ cd
+            \____this is a command
+```
 
-`/` usually refers to the *root* folder of a computer. So `cd /` moved us into the root folder of the computer! (Actually a server computer that is running our code).
+`cd` stands for "Change Directory", or in plain english "change folders".
 
-How can we view the files inside of the root folder? Type `ls` and hit enter. `ls` stands for "list", and it *lists* all the stuff inside of our current folder.
+The `cd` command takes in an *argument* (aka input). Type slash `/` after `cd` like this.
 
-Ooooh. Thats quite a lot of files and folders! But how can we get back to our "Hello-C" folder?!
+```
+~/Hello-C$ cd /
+```
 
-The "Hello-C" folder has been set as our "home" folder. Typing `cd` (without any arguments) and hitting enter always takes us back to our "home" folder, which is conviently the "Hello-C" folder!
+Click the return (or enter) key on your keyboard. This runs the command with the slash argument `cd /`.
 
-So how did this all work? When we type `cd` (and some arguments) and hit enter, the *shell* looks for a program called `cd`. 
+Running `cd /` moved us into the root folder of the computer! (Actually a server computer that is running our code). slash `/` on its own usually refers to the *root* folder of a computer.
 
-Once the shell finds the program called `cd` it sends the *arguments* (aka input) we typed and passes them to the `cd` program. `cd` then figures out what twe want based on the arguments.
+How can we view the files inside of the root folder? Type `ls` into the shell.
 
-(You could actually make your own "command line" programs!)
+```
+/$ ls
+```
 
-How does the shell, a "command line interface", know what the arguments were?
+Then click the `enter` (or `return`) key on your keyboard. You will see a LOT of folders and files get listed. Hacking... Hehe. Just kidding...
 
-Well we put a space `cd /` <- notice the space. So, if you didn't put a space you might get an error.
+`ls` stands for "list", and it *lists* all the stuff inside of our current folder (our current folder is currently `/`, the root folder).
 
-To clear all the *text* in a shell, hold the `ctrl` key and click `L`.
+How can we get back to our "Hello-C" folder?!
 
-(The black "console" tab can do that same thing as the shell, but it is a simplified shell, and it doesn't tell us the folder we are currently in. For this course we will be using the shell (not the console). We recommend you use the shell too as later we will use your computers shell)
+The "Hello-C" folder is inside of a "home" folder. A *home* folder is a folder that has been marked as a default folder for the shell. (usually all the stuff for a specific user (aka pictures, documents, desktop folder) is in a 
 
-# Compiling + CLI
-Now that we know how to use a CLI (Command Line Interface) we can run a compiler.
+To go to your home folder just type `cd` (without any arguments) and click enter.
 
-Type in `cd` and hit enter to make sure you are in your "home" directory (aka "Hello-C" folder).
+```
+/$ cd  <- ran cd
+~$     <- now in the home folder
+```
 
-("Can I go into any folder in the computer by simply typing it name after `cd`?"
+The tilde symbols `~` represents the "home" folder. Whats the name of our home folder? I don't know cause its usually replaced by a tilde symbol `~`, lol.
 
-No, only the folders that are in the same folder as you. Find out which folders are inside of your folder by running `ls`
+Now run the `ls` command.
 
-"How about parent folders?"
+```
+~$ ls
+Hello-C  _test_runner.py
+~$ 
+```
 
-We'll get to that!)
+You will see our "Hello-C" folder get listed! To move into the Hello-C folder run `cd Hello-C`.
 
-Type in `ls` to see the `main.c` file get listed.
+```
+~$ cd Hello-C   <- ran a command to change the directory
+~/Hello-C$ 
+```
 
-Now type `make`, and the name of our program `make main` (without `.c`), then hit the enter (or return) key to run the command (this may take a second). 
-
-`make` is the name of a compiler, `main` is the name of the file to compile. We can leave out `.c` since `make` automatically figures out that we meant `main.c`.
-
-Now type `ls` and click enter to see the file that has been made. You should see this
+And now run `ls` to see our `main.c` file (where we've been writing our code) get listed.
 
 ```
 ~/Hello-C$ ls
 main  main.c
 ```
 
-Ha! The file called "main" (without the ".c") is our program! The binary information in it is referd to as "machine code", aka code for the computer to run.
+# Command Line Programs (aka Command Line Tools)
+So how did this all work? When we type `cd` (and some arguments) and hit enter, the *shell* looks for a program called `cd` (there is a file called a "profile" with a list of programs for the shell).
 
-To run "main" (our program) we need to "open" or select the program called `main`.
+Once the shell finds the program called `cd` (using the information a "profile" file), it sends the *arguments* (aka input) we typed and passes them to the `cd` program (that the shell ran for us). `cd` then figures out what to do based on the arguments (sometimes we'll just get an error if `cd` couldn't understand the arguments we typed).
 
-A single period "." (in the shell) refers to the folder we are in right now (aka "Hello-C"). To refer to the "main" file we do "/main". 
+(You could actually make your own "command line" programs! We'll get to this later in the course)
 
-So, to select "main" and run it, type the following `./main`. Then clicking enter will run the program! You should see "Hello M" get printed (from our main.c code).
+How does the shell, a "command line interface", know what the arguments were?
+
+Well we put a space after the name of the program `cd /` <- notice the space. So, if you didn't put a space you might get an error because the shell looked for a program called `cd/`.
+
+To clear all the *text* and commands in the shell, hold the `ctrl` key and click `L`.
+
+The black "console" tab is a simplified shell. It can do everything that the a shell can do. Although it doesn't tell us the folder we are currently in! So for this course we will be using the shell (not the console). We recommend you use the shell too since it is similar to your computers shell. (You can use the console if you want to, or if the shell stops working).
+
+"Can I go into any folder in the computer by simply typing it name after `cd`?"
+
+No, only the folders that are in the same folder as you. To find out which folders are available to you run `ls`.
+
+How do I get back out of a folder, into my "parent" folder?
+
+Run `cd ..`. 
+
+```
+~/Hello-C$ cd ..   <- move into parent folder
+~$ 
+```
+
+The `..` stands for "go to whoever my *parent* is", so we move into the tilde folder `~` (which conatained our folder).
+
+Data in a computer is just a long line of switches (or electric charges). A *file system* is just a program that lets of think of that data in the form of files and folders.
+
+# Compiling using a CLI 
+Now that we know how to use a CLI (Command Line Interface) we can run a compiler (to *compile* our code into binary) using the CLI!
+
+Type in `ls` to see the `main.c` file get listed.
+
+Now type `make`, and the name of our program `make main` (without `.c`), then hit the enter (or return) key to run the command (this may take a second). 
+
+`make` is the name of a compiler, `main` is the name of the file to compile. We can leave out `.c` since `make` automatically figures out that we mean `main.c` (if you type in `make main.c` then `make` will giv eyou an error).
+
+Now type `ls` and click enter to see the file that has been made.
+
+```
+~/Hello-C$ ls
+main  main.c
+```
+
+When we ran `make` it processed our `main.c` file and made a new *program file* called `main`! 
+
+The binary information in the `main` program file (without the ".c") is refered to as "machine code", aka code for the computer to run.
+
+When we clicked the "run" button earlier, replit was first compiling our code into a program file, then running the program file.
+
+To run "main" (our program file) we need to "open" or select the program using commands.
+
+So, to select "main" and run it, type the following `./main` and run this command. You should see "Hello M B" get printed!
+
+A single period `.` refers to the folder we are in right now. To refer to a file (and open it) we type in its *directory* (where it is) using a slash `/myCoolFile`. So to open / run the our `main` program file we typed `./main`.
 
 From now on we will be using the shell to run our programs instead of the button at the top. Please do the same as you will need to know how to use a shell for a coming week when we start using your computers builtin shell.
 
-# Common Command Line Tools
-There are other *commands line tools* like `cd` and `ls`. Here is a list of some of them.
+# List of Common Command Line Tools
+There are other *commands line tools* like `cd` and `ls`. Here is a list of some of them that you can use for reference.
 
 `mkdir`
 > stands for: Make Directory, aka "make folder"
@@ -464,7 +528,7 @@ There are other *commands line tools* like `cd` and `ls`. Here is a list of some
 
 `touch`
 > stands for: touch?
-> does: Make new empty file, or update existing an files timestamp (eg. last edited date)
+> does: Make new empty file, or update an existing files timestamp (eg. last edited date)
 > usage: `touch myFancyFile` <- makes a file called "myFancyFile" in the current folder
 
 `mv`
@@ -475,7 +539,7 @@ There are other *commands line tools* like `cd` and `ls`. Here is a list of some
 `rm`
 > stands for: Remove
 > does: Deletes a file
-> usage: `rm myHorribleFileThatIWantToDelete`
+> usage: `rm myHorribleFile`
 
 `rmdir`
 > stands for: Remove Directory,
@@ -487,17 +551,17 @@ There are other *commands line tools* like `cd` and `ls`. Here is a list of some
 > does: Moves you into a different folder
 > usage: `cd myRandomFolder`
 > tips:
->   `cd ..` to go into your "parent folder".
+>   `cd ..` move up into your "parent folder" (out of the folder you are inside of)
 
 `ls`
-> stands for: "list" as in "list everything and show me"
+> stands for: "list" as in "list everything and show it to me"
 > does: Lists all the files and folders in yur current Directory (aka current folder)
 
-These commands should work on any Linux or MacOS *command line interface* (aka shell). By default the Mac shell app is called "Terminal", but you can use an alternative terminal app. On Linux there are different ones (I think? pull request to correct?). 
+These commands should work on any Linux or MacOS *command line interface* (aka shell). By default the Mac shell app is called "Terminal", but you can use any shell app. On Linux there are different ones (I think? pull request to correct?). If you are using Linux I assume you already know how to use a shell.
 
-(Although, these commands will not work on Windows since Windows has its own set of commands. Window's default \ command line interface app is called "Command Prompt").
+These commands will not work on Windows since Windows has its own set of commands. Window's default command line interface app is called "Command Prompt".
 
-Lets make a folder. Type in `mkdir NewProject`. This will make a folder called "NewProject", type `ls` (and hit enter) to see a a list of files and folders inside of your current folder. You should see 
+Lets make a folder using `mkdir`. Type in `mkdir NewProject`. This will make a folder called "NewProject", type `ls` (and hit enter) to see a a list of files and folders inside of your current folder. You should see 
 
 ```
 ~/Hello-C$ ls
@@ -506,21 +570,21 @@ main  main.c  NewProject
 
 Now move into the "NewProject" folder by typing `cd NewProject`. You should now see `~/Hello-C/NewProject$ ` which tells you you are in the "NewProject" folder.
 
-Now lets make a new "main.c" file. Type in `touch main.c`. This command makes a file called "main.c". You should see the file in Replits file viewer.
+Now lets make a new "main.c" file (Inside of the `NewProject` folder). Type in `touch main.c`. This command makes a file called "main.c". You should see the file in Replits file viewer.
 
 ![replit ide touch command](./Assets/Week_O/replit_ide_touch_command.png)
 
-Click the file, you should be able to open it and edit it.
+Click the file (using replits "Files" tab). You should be able to open it and edit it.
 
-Type run the `ls` command. You should see "main.c" get listed.
+Run the `ls` command. You should see our new "main.c" file get listed.
 
-(From the folder we are in we could compile the new "main.c" file by running `make main`)
+(We could compile the new "main.c" file by running `make main`, but we haven't added any code to "main.c")
 
-Lets *rename* the new "main.c" file. Type `mv main.c deleteMe`. 
+Lets *rename* the new "main.c" file using `mv`. Type `mv main.c deleteMe`.
 
-(The `mv` command can also rename files. eg -> `mv oldFileName newFileName`.)
+(The `mv` command can rename files. eg -> `mv oldFileName newFileName`.)
 
-Replit will break since you renamed the file it was trying to show you!
+(Replit will break if once you rename the file, and were trying to edit it)
 
 Once you reload the page you should see the `main.c` file was renamed to `deleteMe`. Open the shell tab again. We have been moved back to the "Hello-C" folder. Run `cd NewProject` to go into the "NewProject" folder in the shell.
 
@@ -528,9 +592,9 @@ Run `ls` to see the `deleteMe` file.
 
 Now run `rm deleteMe`. This runs the "remove" command and will delete the "deleteMe" file.
 
-Run `ls` again, nothing gets listed!
+Run `ls` again, nothing gets listed since we deleted the `deleteMe` file.
 
-How do we get back to our parent folder? Since "Hello-C" (our parent folder) is the home folder we could just type `cd` and click enter, since that takes us back to the home directory... But don't do that! What if the parent folder was not the *home directory*?
+How do we get back to our parent folder? 
 
 To refer to a parent folder we use two periods `..`. Run this command `cd ..`.
 
@@ -540,7 +604,7 @@ Run `ls`, you should see "NewProject" get listed.
 
 Now that we are back in the "Hello-C" folder lets delete the "NewProject" directory (aka folder).
 
-Run `rmdir NewProject`. `rmdir` stands for Remove Directory. The command *removes* the "NewProject" *directory*.
+Run `rmdir NewProject`. `rmdir` is a command for deleting folders and anything inside of them. `rmdir NewProject` *removes* the "NewProject" *directory*.
 
 Again, replit might break. Just click on the old `main.c` file in the "Files" tab.
 
@@ -548,12 +612,12 @@ Run `ls`. The "NewProject" directory should be gone.
 
 Hold the `ctrl` key and click `L` to clear the commands in the shell.
 
-One last cool feature. If you want to type a command that you typed earlier you can go through your history of commands by using the up and down arrow keys.
+One last cool feature. You can go through your history of commands by using the up and down arrow keys. This way you don't have to constantly retype every command, you can just use a command you typed earlier.
 
 # Numbers Overflow
-Lets make a really big number and print it.
+Lets make a really big number and print it in C.
 
-Make a new C program called `overflow.c`. 
+Make a new C program called `overflow.c` using `touch overflow.c`.
 
 Go to the shell, run `touch overflow.c`. The `touch` command it making a new file called `overflow.c`.
 
