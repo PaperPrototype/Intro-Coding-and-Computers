@@ -604,7 +604,7 @@ Now lets make a new "main.c" file (Inside of the `NewProject` folder). Type in `
 
 Click the file (using replits "Files" tab). You should be able to open it and edit it.
 
-Run the `ls` command. You should see our new "main.c" file get listed.
+Run the `ls` command. You should see our new "main.c" file get listed as well.
 
 (We could compile the new "main.c" file by running `make main`, but we haven't added any code to "main.c")
 
@@ -612,7 +612,7 @@ Lets *rename* the new "main.c" file using `mv`. Type `mv main.c deleteMe`.
 
 (The `mv` command can rename files. eg -> `mv oldFileName newFileName`.)
 
-(Replit will break if once you rename the file, and were trying to edit it)
+(Replit might break oncew you rename the file)
 
 Once you reload the page you should see the `main.c` file was renamed to `deleteMe`. Open the shell tab again. We have been moved back to the "Hello-C" folder. Run `cd NewProject` to go into the "NewProject" folder in the shell.
 
