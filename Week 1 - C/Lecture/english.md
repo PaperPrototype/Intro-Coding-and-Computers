@@ -43,9 +43,9 @@ int main(void) {
 }
 ```
 
-Don't run this code yet, as it won't do anything (if replit did not give you this code automatically then just copy paste the below into a new file called "main.c").
+Don't run this code yet, as it won't do anything! (if replit did not give you this code automatically then just copy paste the above).
 
-The above is the "main" function in C, and is the starting point that computers understand.
+The above is the "main" function in C, and is a program code *starting point* that most computers use.
 
 The word "int" in front of the function, tells C that `main` *returns* (aka "gives back") an *integer*.
 
@@ -279,7 +279,7 @@ If you encounter any errors and can't figure them out feel free to join our disc
 # Printing variables
 How can we print a variable?
 
-In C we have to declare the type a variable holds (aka `int result = 12;`). `printf` also has *types*.
+In C we have to declare the type a variable holds (aka `int result = 12;`). To print variabkes using `printf` we also have to tell it the *type* of the variable.
 
 In `printf` you use the percent symbol `%` followed by a letter. In this case our variable is an `int`, so in `printf` we write `%i` which stands for the `int` type.
 
@@ -299,11 +299,11 @@ int main(void) {
 }
 ```
 
-The `%i` is a placeholder, and will get replaced by `result`.
+The `%i` is a placeholder (with a type), and will get replaced by the `result` variable.
 
 Run this code. You will see that the `%i` in the string gets replaced by 24 (we also make sure to add a newline `\n`).
 
-We refer to the percent sign "%" *types* for `printf` as "conversion specifiers". These *conversion specifiers* tell `printf` *how* to treat the 0s and 1s of a variable. 
+We refer to the percent sign "%" *placeholders / types* for `printf` as "conversion specifiers". These *conversion specifiers* tell `printf` *how* to treat the 0s and 1s of a variable. 
 
 Here is a list of *conversion specifiers*.
 
