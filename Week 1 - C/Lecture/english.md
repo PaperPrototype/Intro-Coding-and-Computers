@@ -419,11 +419,13 @@ How can we view the files inside of the root folder? Type `ls` into the shell.
 
 Then click the `enter` (or `return`) key on your keyboard. You will see a LOT of folders and files get listed. Hacking... Hehe. Just kidding...
 
+(Use `ctrl` + `L` to clear the shell).
+
 `ls` stands for "list", and it *lists* all the stuff inside of our current folder (our current folder is currently `/`, the root folder).
 
 How can we get back to our "Hello-C" folder?!
 
-The "Hello-C" folder is inside of a "home" folder. A *home* folder is a folder that has been marked as a default folder for the shell. (usually all the stuff for a specific user (aka pictures, documents, desktop folder) is in a 
+The "Hello-C" folder is inside of a "home" folder. A *home* folder is a folder that has been marked as a default folder for the shell. (usually all the stuff for a specific user is in the users "home" folder (aka pictures, documents, the desktop folder).
 
 To go to your home folder just type `cd` (without any arguments) and click enter.
 
@@ -456,6 +458,8 @@ And now run `ls` to see our `main.c` file (where we've been writing our code) ge
 main  main.c
 ```
 
+One important thing to know is that Replit will automatically move you into the "Hello-C" folder after a few minutes of inactivity.
+
 # Command Line Programs (aka Command Line Tools)
 So how did this all work? When we type `cd` (and some arguments) and hit enter, the *shell* looks for a program called `cd` (there is a file called a "profile" with a list of programs for the shell).
 
@@ -471,9 +475,11 @@ To clear all the *text* and commands in the shell, hold the `ctrl` key and click
 
 The black "console" tab is a simplified shell. It can do everything that the a shell can do. Although it doesn't tell us the folder we are currently in! So for this course we will be using the shell (not the console). We recommend you use the shell too since it is similar to your computers shell. (You can use the console if you want to, or if the shell stops working).
 
-"Can I go into any folder in the computer by simply typing it name after `cd`?"
+"Can I go into any folder in the computer by simply typing its name after `cd`?"
 
-No, only the folders that are in the same folder as you. To find out which folders are available to you run `ls`.
+No, only the folders that are in the same folder as you (or your parent folder). To find out which folders are available to you run `ls`.
+
+Although, you can type the full "path" to a folder from the root folder `cd /users/bob/Hello-C`. This takes you directly to "Hello-C" regardless of where you were. This is an example and would only work if there was a path of folders `/users/bob/Hello-C` from the root.
 
 How do I get back out of a folder, into my "parent" folder?
 
@@ -523,7 +529,9 @@ There are other *commands line tools* like `cd` and `ls`. Here is a list of some
 
 `mkdir`
 > stands for: Make Directory, aka "make folder"
+>
 > does: Makes a folder in the current folder
+>
 > usage: `mkdir myFancyNewFolder`
 
 `touch`
