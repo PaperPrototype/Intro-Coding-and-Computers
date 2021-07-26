@@ -536,33 +536,45 @@ There are other *commands line tools* like `cd` and `ls`. Here is a list of some
 
 `touch`
 > stands for: touch?
+>
 > does: Make new empty file, or update an existing files timestamp (eg. last edited date)
+>
 > usage: `touch myFancyFile` <- makes a file called "myFancyFile" in the current folder
 
 `mv`
 > stands for: Move
+>
 > does: Moves a file (or renames a file)
+>
 > usage: `mv originalFile.c myFancyFolder` <- moves "originalFile.c" into "myFancyFolder".
 
 `rm`
 > stands for: Remove
+>
 > does: Deletes a file
+>
 > usage: `rm myHorribleFile`
 
 `rmdir`
-> stands for: Remove Directory,
+> stands for: Remove Directory
+>
 > does: Deletes a folder and any files/folders inside of it
+>
 > usage: `rmdir myHorribleFolder`
 
 `cd`
 > stands for: Change Directory
+>
 > does: Moves you into a different folder
+>
 > usage: `cd myRandomFolder`
+>
 > tips:
 >   `cd ..` move up into your "parent folder" (out of the folder you are inside of)
 
 `ls`
 > stands for: "list" as in "list everything and show it to me"
+>
 > does: Lists all the files and folders in yur current Directory (aka current folder)
 
 These commands should work on any Linux or MacOS *command line interface* (aka shell). By default the Mac shell app is called "Terminal", but you can use any shell app. On Linux there are different ones (I think? pull request to correct?). If you are using Linux I assume you already know how to use a shell.
