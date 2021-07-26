@@ -4,7 +4,7 @@ The programming language we used, called Python, was an interpreted language mea
 
 We are now going to learn a new language called C. This language is a *compiled* language (wheas Python was *interpreted*). 
 
-This just means it is written as text that is converted to binary instructions by a program called a *compiler*.
+This just means our code is written as text that is processed by a compiler. The compiler makes a program file (binary instructions file) from our code.
 
 Remember how functions work in Python?
 

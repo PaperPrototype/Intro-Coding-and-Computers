@@ -1,4 +1,4 @@
-(Originally part of the lecture, but moved to the "Archive" folder of old lectures)
+(Originally part of the lecture, but that lecture was moved to the "Archive" folder of old lectures)
 
 In this tutorial we will make a simple game with a jumping cat! In the end the game will be like this.
 
