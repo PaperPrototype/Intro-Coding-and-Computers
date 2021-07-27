@@ -1143,6 +1143,7 @@ You can do this with any number and it will hold true. We usually call keepiing 
 
 And that is week 1! phew. I'm thinking of moving the "Types" section into an optional Tutorial or shortening it, let me know in Discord! Here is a quick invitation link https://discord.gg/QhqTE4t2tR to my Discord server.
 
+The one thing we haven't taught you is how to get input in C, that will be covered next week!
+
 Tutorials
-- Linear search
 - Mario Pyramid (Text based)
