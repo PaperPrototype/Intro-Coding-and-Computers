@@ -83,6 +83,7 @@ We tell the computer this is an integer (aka number) by putting the `int` *type*
 
 We tell C that the `add` function *returns* (aka gives back) an `int` by putting `int` in front of the functions name.
 
+### Variables
 Inside of `main`, make a variable called "result" that holds onto what the `add` function returns ("gives back").
 
 ```c
@@ -680,7 +681,7 @@ You should see the following get printed.
 -294967296~/Hello-C$ 
 ```
 
-That number is definitally not 4 billion. But lets first fix another error, we forgot to include a newline `\n`.
+That number is definitally NOT 4 billion... lets first fix another error, we forgot to include a newline `\n`.
 
 Change the code to add a newline.
 
@@ -690,61 +691,70 @@ Change the code to add a newline.
 int main(void) {
   int a = 4000000000;
 
-  printf("%i\n", a);
+  printf("%i \n", a);
 }
 ```
 
 Compile our change and run the resulting program again.
 
-Why is the number `-294967296` showing up!?
+Now why is the number `-294967296` showing up!?
 
-Remember Binary?
+Lets look at what 4 billion is in binary... Actually lets use a smaller number (lol) so that we don't have to break our mind over such a large number... So the number 47.
 
-```
-16 | 8 | 4 | 2 | 1
-1    1   1   1   1 = 16 + 8 + 4 + 2 + 1 = 31
-```
-
-What happens when we try to represent a number without enough columns? Lets add one to our current binary number. Theoretically we add another column.
+To make the number 47 we need 6 bits.
 
 ```
-32 | 16 | 8 | 4 | 2 | 1
-1    0    0   0   0   0 = 32
+places  32th | 16th | 8th | 4th | 2th | 1st
+bits    1      0      1     1     1     1 = 32 + 8 + 4 + 2 + 1 = 47
 ```
 
-But in reality number in our computer do not "grow". They get a certain amoutn of memory and thats it. So things break and we get `-294967296`.
-
-But why negative?
-
-The first bit (the first 0 or 1) is used to represent negative or positive.
-
-So using 1 as the first bit would make the number positive.
+But... the type we are using gives us 4 bits for our number, and 1 bit for the *sign*.
 
 ```
-sign | 16 | 8 | 4 | 2 | 1
-1      0    0   0   0   0 = +32
+sign | 8 | 4 | 2 | 1
+1      0   0   0   1 = +1
 ```
 
-And using 0 would make the number negative.
+If the "sign bit" is `1` the number is positive. If the sign bit is `0` then the number is negative.
 
 ```
-sign | 16 | 8 | 4 | 2 | 1
-0      0    0   0   0   0 = -32
+sign | 8 | 4 | 2 | 1
+0      0   0   0   1 = -1
 ```
 
-When we tried to go past the maximum number we ended up putting a 0 as the first bit, making the number negative.
+What happens when we try to represent a 47 with a type that doesn't have enough bits? Our type can't hold 47, so it ends up cutting off the front of 47 and just putting the bits of 47 into the space it has.
 
-The `int` type in C has 32 bits. With 32 bits we could count as high as 4 billion, but when we take one of those bits away and use it for the "sign" of the number we can go almost as high as 2 billion (both in the negative 2 billion, and the positive 2 billion).
+```
+PLACES             = 32 | 16  | 8 | 4 | 2 | 1
 
-We could swith to using a `long` wich gives us 64 bits if we wanted to be able to represent 4 billion.
+BITS (OUR NUMBER)  = 1  | 0   | 1 | 1 | 1 | 1  = 101111 = 47
 
-If we change the code to use a `long` and try to compile we will get an error.
+TYPE               =     sign | 8 | 4 | 2 | 1
+
+RESULT             =      0   | 1 | 1 | 1 | 1  =  01111 = -15
+                                                  \___we are missing the first bit!
+```
+
+By putting 47 into a type that is too small we get negative 15! 
+
+When we tried to put 4 billion into the `int` type our code broke and we got `-294967296`.
+
+The `int` type in C has 32 bits. With 32 bits we could count as high as 4 billion... but the first bit is used for the "sign" of the number. So an `int` we can go almost as high as 2 billion, and as low as -2 billion.
+
+We could switch to using a `long` which gives us 64 bits if we wanted to be able to represent 4 billion.
+
+If we change the code to use the `long` type and try to compile we will get an error.
 
 ![replit error](/Assets/Week_1/replit_error.png)
 
-You'll notice the green `%li` this is a hint saying we need to change the conversion specifier to a `long` conversion specifier which is `%li`.
+You'll notice the green `%li` in the error. This is a hint saying we need to change the conversion specifier to a `long` conversion specifier which is `%li`.
 
-Fix the code by either changing the conversion specifier or changing the variable to an int.
+Fix the code by either changing the conversion specifier in `printf` to `%li` or change the variable to an int and make the number smaller.
+
+Run `make overflow.c`
+Run `./overflow`
+
+The `int` type has 32 bits. The first bit is used for the sign. So we have 31 bits for counting. with 31 bits we can hold a number that is 2 to the 31 power, which is 2147483648. We can write this as `2^31`.
 
 # Casting a type
 Lets divide two `int`s. Although, the `int` type doesn't let us represent decimal places like `0.5` or `1.34`. So what happens?
@@ -766,7 +776,7 @@ int main(void) {
 
 Now lets divide `a` and `b` and store its result. Now we know that `2 / 3` equals `0.6666` with `6` going on forever.
 
-If we want to result to support decimal places we can't use an `int`. Instead we have to use a `float` which supports decimal places.
+If we want the result to support decimal places we can't use an `int`. Instead we have to use a `float` which supports decimal places (aka `0.5` and `0.34` are examples of decimal places).
 
 ```c
 #include <stdio.h>
@@ -801,21 +811,11 @@ The `%f` is a conversion specifier for a float. We also make sure to add `\n`.
 Compile the program using make by running `make division`.
 Then run the program `./division`.
 
-We get `0.000000`. So what happened?
+We get `0.000000`. We call this "truncation". So what happened?
 
-When we divided `a` and `b` their type is an `int`. And so they gave back an `int` and *cut off* (aka ignored) the decimal places and we end up with `0.000000`.
+When we divided `a` and `b` their type is an `int`. And so they gave back an `int` which *cut off* (aka truncated or ignored) the decimal places and we ended up with `0.000000`.
 
 To fix this we have to convert `a` and `b` to a `float`.
-
-```
-float result = (float) a / (float) b;
-```
-
-We use parenthesis `()` around the `float` type in front of `a` and `b`. This converts `a` and `b` to a `float`.
-
-Now with this fix we get a number with decimal places and store it in the `result` variable.
-
-Your code should look like this.
 
 ```c
 #include <stdio.h>
@@ -824,21 +824,26 @@ int main(void) {
   int a = 2;
   int b = 3;
 
+  //            "cast" a and b to float
   float result = (float) a / (float) b;
 
   printf("%f \n", result);
 }
 ```
 
+We use parenthesis `()` around the `float` type in front of `a` and `b`. This converts `a` and `b` to a `float`.
+
+Now with this fix we get a number with decimal places and store it in the `result` variable.
+
 Run `make division`.
 Run `./division`.
 
-You should see `0.666667` get printed.
+You should see `0.666667` get printed!
 
 # Conditions
 Make a new file using the `touch` command and call it `condition.c`.
 
-Copy Paste this code.
+Write this code into `condition.c` so that you get used to writing an `if` *statement* (don't copy paste the code).
 
 ```c
 #include <stdio.h>
@@ -854,7 +859,13 @@ You'll notice the `if` keyword followed by parenthesis `()`. The *condtion* of t
 
 If the *condition* is true then we run the code inside of the curly brackets -> `printf("2 is less than 3!");`.
 
-This code is pretty dumb tho. So we'll use `if` statements again later.
+We call this an if "statement".
+
+Run `make condition`.
+Run `./condition`
+
+This code is pretty dumb tho. So we'll use `if` statements again later in the tutorials after the lecture.
+
 
 # Loops?
 Lets work on C *loop*'s.
@@ -891,7 +902,7 @@ int main(void) {
 
 `while` is like an if statement. Except it runs over and over as long as the *condition* is true.
 
-(the `true` and `false` types are lowercase in C, whereas in Python they are uppercase)
+The `true` and `false` types are lowercase in C, whereas in Python they are uppercase, `True` and `False`.
 
 Also C doesn't come with *booleans* (`true` or `false` types) by default! We have to include them!
 
@@ -914,7 +925,7 @@ Hint:
 - `make loop`
 - `./loop`
 
-To stop the onslaught of "hello world!" click inside of the shell and hold `ctrl` and click `C` (while holding down `ctrl`).
+To stop the onslaught of "hello world!" click inside of the shell and click `ctrl` + `C`. Ths "cancels" the program.
 
 It may take few seconds for it to stop because of the delay. Now clear the shell using `ctrl` + `L`.
 
@@ -930,6 +941,8 @@ int main(void) {
   int counter = 0;
 
   while (true) {
+
+    // increase counter
     counter = counter + 1;
   }
 }
@@ -939,7 +952,6 @@ int main(void) {
 
 We can use *syntax sugar* (aka a shortcut) to do this.
 
-
 ```c
 #include <stdio.h>
 #include <stdbool.h>
@@ -948,6 +960,8 @@ int main(void) {
   int counter = 0;
 
   while (true) {
+    
+    // syntax sugar for increasing a number
     counter += 1;
   }
 }
@@ -955,7 +969,7 @@ int main(void) {
 
 `counter += 1;` is the same as `counter = counter + 1;`, but its way easier to type.
 
-But... there is an even faster shortcut. It is so common to increase a number by 1 that you can do `counter++;`, this increases a number by 1.
+But... there is an even faster shortcut. It is so common to increase a number by 1 that you can do `counter++;`, this increases a variable by 1.
 
 ```c
 #include <stdio.h>
@@ -965,12 +979,14 @@ int main(void) {
   int counter = 0;
 
   while (true) {
+
+    // super sugary syntax
     counter++;
   }
 }
 ```
 
-We want this loop to stop at some point. Every loop we are also checking if a condition is true. We can simply change the condition to check if the number has increased to a certain level.
+We want this loop to stop at some point. Every loop we are checking if the condition is true. We can simply change the condition to check if the number has increased to a certain level.
 
 ```c
 #include <stdio.h>
@@ -1005,10 +1021,10 @@ int main(void) {
 }
 ```
 
-Compile the code and run it. You will see "Hello world" get printed 5 times.
+Compile the code and run it using the shell. You will see "Hello world" get printed 5 times.
 
 # For loops
-There is an even bigger shortcut for looping. You put all the code in 1 line.
+There even a *super sugary shortcut* for looping! Its all 1 line of code.
 
 ```c
 #include <stdio.h>
@@ -1023,136 +1039,115 @@ int main(void) {
 }
 ```
 
-This is identical to the while loop we made! It just does it all in one line! We call this a `for` loop.
+This is does exactly the same thing as our while loop! It just does it all in one line! We call this a "for loop".
 
-The last part of a `for` loop (`counter++`) runs at the end of each loop.
+(very different than Python's for loop).
 
-The first part happens once (`int counter = 0`).
+The last part of a `for` loop, `counter++`, runs at the end of each loop.
 
-Like I said it is functionally **identical** to our while loop.
+`int counter = 0` happens once.
 
-
-# Arrays
-C doesn't have "lists". In C we have "arrays". 
-
-An *array* is blocks of memory one after the other, each of the same size.
-
-![memory array](/Assets/Week_1/memory_array.png)
-
-Memory is really just a long line of swithes. But to make accessing memeory faster it is stored in blocks of 8 bits (called a byte).
-
-We can visualize memory as a grid of blocks.
-
-![memory grid](/Assets/Week_1/memory_grid.png)
-
-Each block has 8 bits (1 byte) of data in it.
-
-Make a new file called `array.c` using `touch` (use `rm` to delete the file if you named it incorrectly).
-
-Open `array.c` and paste the following.
-
-```c
-int main(void) {
-  int integers[] = { 2, 3, 6, 1 };
-}
-```
-
-We use curly brackets `{}` for making an array (that's just how C's syntax works).
-
-We put square brackets `[]` next to the variables name to show that is is an array variable.
-
-In C, array variables "point" to the first item in the array.
-
-![memory array address](/Assets/Week_1/memory_array_address.png)
-
-The `integers` variable is an *address* to the first piece of memory in the array. Addresses are a number telling us what block of memory something is in.
-
-![memory continous linear](/Assets/Week_1/memory_continous_linear.png)
-
-We put memory in a grid so that it fits in our computer. This doesn't affect the memory address.
-
-![memory grid linear](/Assets/Week_1/memory_grid_linear.png)
-
-Memory addresses are called "pointers" in C.
-
-When we access an item in the array we are "going to" the first element in the array + an offset.
-
-TODO ![memory array offset](/Assets/Week_1/TODO)
-
-Change the code to access the second item (by using an offest of 1), then print the second item.
-
-```c
-#include <stdio.h>
-
-int main(void) {
-  int integers[] = { 2, 3, 6, 1 };
-
-  printf("%i\n", integers[1]);
-}
-```
-
-(Make sure to add a `\n`)
-
-The "offset" is what goes into the square brackets `[]`.
-
-How much does C offset? It uses the *size of the type*. Currently we are using an `int` type which is 4 bytes. You can test the size of a type by using the builtin `sizeof()` function.
-
-Change the code to print out the size of an `int` type.
-
-```c
-#include <stdio.h>
-
-int main(void) {
-  int integers[] = { 2, 3, 6, 1 };
-
-  printf("sizeof int: %lu\n", sizeof(int));
-
-  printf("%i\n", integers[1]);
-}
-```
-
-(Make sure to add a `\n`)
-
-So an offest of 1 moves us by 4 bytes.
-
-TODO ![memory offset by 1]()
-
-Computers store everything in blocks of memory, each block holding 1 byte (8 bits). As a result the smallest size possible for a type is 8 bits. As a result the `bool` (true or false type) is stored as 1 byte (8 bits), even though it only stores 2 possible values.
-
-If we want to access the first element we don't need an offset so its just `[0]`
-
-```c
-#include <stdio.h>
-
-int main(void) {
-  int integers[] = { 2, 3, 6, 1 };
-
-  printf("sizeof int: %lu\n", sizeof(int));
-
-  printf("%i", integers[0]);
-}
-```
-
-# Strings
-It turns out that strings are an array of the type `char`.
-
-# Loops + Arrays
-Now we can use a `for` loop on an array. This is pretty cool.
+Like I said it is **identical** to our while loop.
 
 
-# Getting Input 
-- main gets input from shell
+# Types
+There are a few types in C. Each type takes up a certain number of bits.
 
+### Integers
+`int`
+- 32 bits
+- negative numbers -2^31 (2 to the 31 power)
+- positive numbers 2^31 (2 to the 31 power)
+
+`long`
+- 64 bits
+- negative numbers -2^63 (2 to the 63 power)
+- positive numbers 2^63 (2 to the 63 power)
+
+### Unsigned integers
+We can use the keyword `unsigned` to not have negative numbers giving us twice as big positive numbers
+
+`unsigned int`
+- 32 bits
+- positive numbers 2^32
+- The exact limit is 2^32 -1
+
+`unsigned long`
+- 64 bits
+- positive numbers 2^64
+- The exact limit is 2^64 -1
+
+
+### Floats
+You cannot have *unsigned* floats.
+
+"There are several ways to represent real numbers on computers." -- Steve Hollasch
+
+Floats are a type that tells us how to represent a number with decimal places using 0s and 1s.
+
+Floats use scientific notation. The number 123.456 could be represented as `1.23456 × 10^2` (1.23456 times 10 to the 2nd power).
+
+8 bits for the *exponent*. 
+
+23 bits are used for the *fraction*. All fractions are treated as leaving one number in front of the decimal palce and the rest being after the decimal place
+
+The exponent multiplies the numbers after decimal point, essentially moving the decimal point over by some desired amount.
+
+`float`
+- 32 bits
+- 1 bit for the sign
+- 8 bits for the expponent
+- 23 bits for the fraction (aka number)
+- How floats are treated in memory `SEEEEEEE EFFFFFFF FFFFFFFF FFFFFFFF` (S = Sign, E = Exponent , F = Fraction)
+
+`double`
+- 1 bit for the sign
+- 11 bits for the exponent
+- 52 bits for the fraction (aka number)
+- How doubles are treated in memory `SEEEEEEE EEEEFFFF FFFFFFFF FFFFFFFF FFFFFFFF FFFFFFFF FFFFFFFF FFFFFFFF` (S = Sign, E = Exponent , F = Fraction)
+
+For a deeper explanation of float see http://steve.hollasch.net/cgindex/coding/ieeefloat.html
+
+Floats are endlessly interesting and you can study them forever. But we won't bore you with them.
+
+### char
+`char`
+- A char uses 8 bits. 
+- It is an ASCII type. 
+- It can represent 256 different symbols (2^8)
+
+# Operators
+We call math symbols like `+`, `-`, `/`, and `*` "operators". 
+
+`+` plus
+`-` minus
+`/` divide by. `4 / 2` = `2`
+`*` multiply. `4 * 2` = `8`
+
+### Remainder Operator
+There is one operator that is often not understood well. It is the remainder operator `%`.
+
+It is actually the result of doing a division. `11 / 4`, is how many times does 4 fit into 11?
+
+![operator division](/Assets/operator_division.png)
+
+The remainder gives us back the remainder `11 % 4`.
+
+![remainder remainder](/Assets/operator_remainder.png)
+
+A cool math property of the remainder operator `%` is that we can keep a number inside of the range of 0 to 3 by remainder-ing by 4.
+
+![operator remainder expamples](/Assets/operator_remainder_examples.png)
+
+You can do this with any number and it will hold true. We usually call keepiing a number within a range "wrapping" the number. This will come in very useful later in the course.
+
+And that is week 1! phew. I'm thinking of moving the "Types" section into an optional Tutorial or shortening it, let me know in Discord! Here is a quick invitation link https://discord.gg/QhqTE4t2tR to my Discord server.
 
 Tutorials
 - Linear search
-- Agree?
 - Mario Pyramid (Text based)
 
-TOSAY:
 If you didn't take the "Searching Algorithms" tutorial for week 0 then we highly recommend you do.
-
-- Don't expect they have done the "searching algorithms" tutorial.
 
 AFTER "linear search" finish the lecture
 

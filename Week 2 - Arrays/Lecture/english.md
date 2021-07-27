@@ -6,6 +6,8 @@ C doesn't have "lists". In C we have "arrays".
 
 An *array* is blocks of memory one after the other, each of the same size.
 
+TODO 
+- move pictures into one large folder
 ![memory array](/Assets/Week_1/memory_array.png)
 
 Memory is really just a long line of swithes. But to make accessing memeory faster it is stored in blocks of 8 bits (called a byte).
@@ -105,10 +107,35 @@ int main(void) {
 # Strings
 It turns out that strings are an array of the type `char`.
 
+# Pointers (aka address variables)
+Addresses 
+We call variables that hold an address "pointers".
+
+# Void
+void is an unkown type https://www.c-programming-simple-steps.com/what-is-void.html
+
+We can use void with a pointer to hold onto an unknown type. This is because addresses are per byte.  A pointer using void will give you the address of the first byte of a type. If we hold onto an `int` using a void pointer we will reference the frist byte. An int is 4 bytes, but the void pointer doesn't *how much* after the address is part of the type. So when we use the void pointer we have to "cast" it to the type it represents.
+
+```c
+void* pointer;
+
+int number = 10;
+
+// we know the type of number
+pointer = &number; // get the memeory address of the number variable
+
+// cast pointer to an int pointer
+int finalNumber = (int *)pointer;
+```
+
+We can give back a void from a function. But later
+
 # Loops + Arrays
 Now we can use a `for` loop on an array. This is pretty cool.
-
 
 # Getting Input 
 - main gets input from shell
 
+
+# Do while and Scope
+- getting input until it is correct (from Getting inout section)

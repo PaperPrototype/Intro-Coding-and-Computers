@@ -14,3 +14,12 @@ Note to Contributers.
 - If you are going to add a topic to the course, don't just throw it in there and then never talk about it again. Make sure to incorporate it with the rest of the course.
 
 - Also, if you are making a course wide change make it a pull request, so that it can be reviewed.
+
+- It is better
+
+
+TO CONSIDER
+- function pointers
+- compression
+- bitwise operators
+- I can't remember what I wanted to cover

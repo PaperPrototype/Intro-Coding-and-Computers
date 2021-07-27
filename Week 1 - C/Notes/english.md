@@ -33,13 +33,11 @@ Functions
 >   }
 > ```
 
-Memory Address
-> "Most modern computers are byte-addressable. Each address identifies a single byte (eight bits) of storage. Data larger than a single byte may be stored in a sequence of consecutive addresses" (aka arrays)
--- https://en.wikipedia.org/wiki/Memory_address#Unit_of_address_resolution
+IEEE
+> Institute of Electrical and Electronics Engineers
 
-Arrays
-> Continous blocks of memory
-> The first element in an array is stored in a variable as a memory address (called a "pointer" in C).
+Truncation
+> Cutting off the decimal places when use an int, or convert a float to an int. It is best to NOT do convert from a float to an int, and round the number. 
 
 # CLI Commands
 
@@ -73,3 +71,10 @@ Greater than
 > If you open your right hand towards your left you make a *greater than* symbol `>`.
 > 
 > Now its easy to remember to less than symbol `<` because it gets eaten by the greater right hand.
+
+# Types
+float and double
+> Numbers that support decimal points
+> 
+> For a detailed explanation see
+> IEEE Standard 754 Floating Point Numbers http://steve.hollasch.net/cgindex/coding/ieeefloat.html
