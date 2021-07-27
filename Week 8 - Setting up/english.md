@@ -12,3 +12,7 @@ TO COVER:
 
 - making an app with git
     - Making a simple graphical app with the SOKOL headers
+
+- setting up an IDE on your computer?
+    - getting clang on your computer
+    - setting up vs code

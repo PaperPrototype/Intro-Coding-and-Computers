@@ -849,23 +849,97 @@ Write this code into `condition.c` so that you get used to writing an `if` *stat
 #include <stdio.h>
 
 int main(void) {
-  if (2 < 3) {
-    printf("2 is less than 3! \n");
+  int a = 2;
+  int b = 3;
+
+  if (a < b) {
+    printf("%i is less than %i! \n", a, b);
   }
 }
 ```
 
 You'll notice the `if` keyword followed by parenthesis `()`. The *condtion* of true or false is inside of the parenthesis.
 
-If the *condition* is true then we run the code inside of the curly brackets -> `printf("2 is less than 3!");`.
+If the *condition* is true, **then** we run the code inside of the curly brackets.
 
-We call this an if "statement".
+```
+printf("%i is less than %i! \n", a, b);
+
+prints out:
+    2 is less than 3!
+```
+
+We call this an "if statement".
+
+We can also do an alternative check using an `else if` statement.
+
+```c
+#include <stdio.h>
+
+int main(void) {
+  int a = 2;
+  int b = 3;
+
+
+  if (a < b) {
+    printf("%i is less than %i! \n", a, b);
+  }
+  else if (a > b) {
+    printf("%i is greater than %i! \n", a, b);
+  }
+}
+```
+
+Now there is one other possibility. If 2 is not less than or greater than 3, then **it could be equal to 3**.
+
+(lets just say you are the type of person who changes the variables all the time and you need to know the answer).
+
+```c
+#include <stdio.h>
+
+int main(void) {
+  int a = 2;
+  int b = 3;
+
+
+  if (a < b) {
+    printf("%i is less than %i! \n", a, b);
+  }
+  else if (a > b) {
+    printf("%i is greater than %i! \n", a, b);
+  }
+  else if (a == b) {
+    printf("%i is equal to %i! \n", a, b);
+  }
+}
+```
+
+Although we don't reallyhave to do that last check. If a number is not greater than or less than another number, the only possibility left is that they are equal. So we cna use a simple `else` block.
+
+```c
+#include <stdio.h>
+
+int main(void) {
+  int a = 2;
+  int b = 3;
+
+
+  if (a < b) {
+    printf("%i is less than %i! \n", a, b);
+  }
+  else if (a > b) {
+    printf("%i is greater than %i! \n", a, b);
+  }
+  else {
+    printf("%i is equal to %i! \n", a, b);
+  }
+}
+```
 
 Run `make condition`.
-Run `./condition`
+Run `./condition`.
 
 This code is pretty dumb tho. So we'll use `if` statements again later in the tutorials after the lecture.
-
 
 # Loops?
 Lets work on C *loop*'s.
@@ -904,7 +978,7 @@ int main(void) {
 
 The `true` and `false` types are lowercase in C, whereas in Python they are uppercase, `True` and `False`.
 
-Also C doesn't come with *booleans* (`true` or `false` types) by default! We have to include them!
+Also C doesn't come with *booleans* (`true` or `false` types) by default! We have to include them! This is because "false" in C is treated as the (binary) number zero, while true is any number above zero. So the `true` and `false` types in C are actually an "alias" for the number 0 (false), and the number 1 (true).
 
 Include the `stdbool.h` file at the top.
 
@@ -1108,21 +1182,32 @@ The exponent multiplies the numbers after decimal point, essentially moving the 
 
 For a deeper explanation of float see http://steve.hollasch.net/cgindex/coding/ieeefloat.html
 
-Floats are endlessly interesting and you can study them forever. But we won't bore you with them.
+Floats are endlessly interesting and you can study them forever. But we won't bore you with them. One important thing to note is that floats only have a certain number digits and not a max number. As a result if we have a very big number in front of the decimal point, then the fraction numbers after the decimal point start getting rounded in weird ways.
+
+TODO (FOR TEACHER) printf `%f.2` to print out only 2 decimal places. Then print to 100 decimal places `%f.100` showing how the decial places start to break.
 
 ### char
 `char`
-- A char uses 8 bits. 
+- A char uses 8 bits (1 byte)
 - It is an ASCII type. 
 - It can represent 256 different symbols (2^8)
+
+### bool
+A boolean uses 8 bits (1 byte). This is because computers store everything in blocks of 8 bits. So the smallest possible type is 8 bits. Although for 8 true an false variabels we could store them all in 1 byte (8 bits).
+
+`true`
+- It is an alias for the number 0
+
+`false`
+- It is an alias for the number 1
 
 # Operators
 We call math symbols like `+`, `-`, `/`, and `*` "operators". 
 
-`+` plus
-`-` minus
-`/` divide by. `4 / 2` = `2`
-`*` multiply. `4 * 2` = `8`
+`+` plus       `4 + 2` = `6`
+`-` minus      `4 - 2` = `2`
+`/` divide by  `4 / 2` = `2`
+`*` multiply   `4 * 2` = `8`
 
 ### Remainder Operator
 There is one operator that is often not understood well. It is the remainder operator `%`.

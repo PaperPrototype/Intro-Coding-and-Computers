@@ -114,7 +114,15 @@ We call variables that hold an address "pointers".
 # Void
 void is an unkown type https://www.c-programming-simple-steps.com/what-is-void.html
 
-We can use void with a pointer to hold onto an unknown type. This is because addresses are per byte.  A pointer using void will give you the address of the first byte of a type. If we hold onto an `int` using a void pointer we will reference the frist byte. An int is 4 bytes, but the void pointer doesn't *how much* after the address is part of the type. So when we use the void pointer we have to "cast" it to the type it represents.
+We can use void with a pointer to hold onto an unknown type. This is because addresses are per byte.
+
+![] picture of address to a byte
+
+A pointer using void will give you the address of the first byte of a type. If we hold onto an `int` using a void pointer we will reference the first byte of the 4 bytes in an `int`.
+
+![] picture of pointer to first byte (but int takes up more space)
+
+An int is 4 bytes, but the void pointer doesn't *how much* after the address is part of the type. So when we use the void pointer to access the data we have to "cast" it to the type it represents (so that we know how much after the address is part of the `int`)
 
 ```c
 void* pointer;
@@ -128,7 +136,7 @@ pointer = &number; // get the memeory address of the number variable
 int finalNumber = (int *)pointer;
 ```
 
-We can give back a void from a function. But later
+TODO MAYBE? We can give back a void from a function.
 
 # Loops + Arrays
 Now we can use a `for` loop on an array. This is pretty cool.
