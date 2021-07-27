@@ -1,4 +1,4 @@
-print hashes in the terminal to make a pyramid.
+print hashes in the Terminal to make a pyramid.
 
 ![] show picture of mario's pyramid
 
@@ -13,7 +13,7 @@ print(" ### \n");
 print("#### \n");
 ```
 
-but we can use a for loop!
+But we can use a for loop!
 
 ```
 ![] TODO explain?
