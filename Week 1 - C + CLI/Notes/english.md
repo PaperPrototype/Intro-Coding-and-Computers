@@ -125,15 +125,6 @@ Greater than
 > 
 > If you open your right hand towards your left you make a *greater than* symbol `>`.
 
-### Booleans
-The stdbool.h file code http://gel.sourceforge.net/examples/stdbool_8h-source.php
-
-`true`
-An alias for the number 1
-
-`false`
-An alias for the number 0
-
 ### syntax sugar
 
 `+=`
@@ -166,8 +157,27 @@ An alias for the number 0
 - same as `num = num - 1`
 
 # Types
-float and double
-> Numbers that support decimal points
-> 
-> For a detailed explanation see
-> IEEE Standard 754 Floating Point Numbers http://steve.hollasch.net/cgindex/coding/ieeefloat.html
+
+### floating point numbers
+`float` and `double`
+- Numbers that support decimal points
+- `float` is 32 bits
+- `double` is 64 bits
+
+- For a detailed explanation see
+- IEEE Standard 754 Floating Point Numbers http://steve.hollasch.net/cgindex/coding/ieeefloat.html
+
+### Integers
+`int` and `long`
+- Numbers that don't support decimal points
+- `int` is 32 bits
+- `long` is 64 bits
+
+### Booleans
+The stdbool.h file code http://gel.sourceforge.net/examples/stdbool_8h-source.php
+
+`true`
+An alias for the number 1
+
+`false`
+An alias for the number 0
