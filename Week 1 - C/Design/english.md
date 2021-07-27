@@ -1,5 +1,6 @@
 
 To cover? (don't do in same order)
+- type casting
 - addition `int` max number size
     - first bit used for negative or positive sign
 
@@ -15,7 +16,7 @@ To cover? (don't do in same order)
 
 - loops
     - while true
-    - count up to 50
+    - count up to 5
     - syntax sugar
     - all in one line with `for`
 
@@ -28,6 +29,19 @@ To cover? (don't do in same order)
 
 - linear search in C
 - binary search in C
+
+TODO talk about
+- IDE (Integrated developer environment)
+- the C language
+
+Coding in C
+
+Coding with compilers
+ - hello world
+ - 
+
+functions
+variables
 
 TODO
 - help students solve errors from the compiler?
