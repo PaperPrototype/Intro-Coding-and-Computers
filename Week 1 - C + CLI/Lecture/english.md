@@ -393,7 +393,7 @@ You will notice the word "Hello-C", this means we are in the "Hello-C" folder.
 
 If we want to change the folder we are in we can run a "command".
 
-Type `cd` (a command) into the shell. 
+Type `cd` (a command) into the shell tab. The shell tab should look like this.
 
 ```
 ~/Hello-C$ cd
