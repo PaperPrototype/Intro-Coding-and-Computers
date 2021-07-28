@@ -445,7 +445,7 @@ Hello-C  _test_runner.py
 ~$ 
 ```
 
-You will see our "Hello-C" folder get listed! To move into the Hello-C folder run `cd Hello-C`.
+You will see our `Hello-C` folder get listed! To move into the Hello-C folder run `cd Hello-C`.
 
 ```
 ~$ cd Hello-C   <- ran a command to change the directory
@@ -462,7 +462,9 @@ main  main.c
 One important thing to know is that Replit will automatically move you into the "Hello-C" folder after a few minutes of inactivity.
 
 # Command Line Programs (aka Command Line Tools)
-So how did this all work? When we type `cd` (and some arguments) and hit enter, the *shell* looks for a program called `cd` (there is a file called a "profile" with a list of programs for the shell).
+So how did this all work? When we type `cd` (and some arguments) and hit enter, the *shell* looks for a program called `cd`.
+
+(there is a file called a "profile" with a list of programs for the shell that the shell uses to find the programs)
 
 Once the shell finds the program called `cd` (using the information a "profile" file), it sends the *arguments* (aka input) we typed and passes them to the `cd` program (that the shell ran for us). `cd` then figures out what to do based on the arguments (sometimes we'll just get an error if `cd` couldn't understand the arguments we typed).
 
@@ -1157,15 +1159,14 @@ You cannot have *unsigned* floats.
 
 "There are several ways to represent real numbers on computers." -- Steve Hollasch
 
-Floats are a type that tells us how to represent a number with decimal places using 0s and 1s.
+Floats are a type that tells us how to represent a number with a decimal point using 0s and 1s.
 
-Floats use scientific notation. The number 123.456 could be represented as `1.23456 × 10^2` (1.23456 times 10 to the 2nd power).
+Floats use scientific notation. The number 123.456 could be represented as `1.23456 × 10^2` (1.23456 times 10 to the 2nd power). This was decided by the IEEE (Institute of Electrical and Electronics Engineers) pronounced "I triple E".
 
-8 bits for the *exponent*. 
+We use 8 bits for the *exponent*. The exponent multiplies the numbers after the decimal point, essentially "floating" (moving) the decimal point over by some desired amount.
 
 23 bits are used for the *fraction*. All fractions are treated as leaving one number in front of the decimal palce and the rest being after the decimal place
 
-The exponent multiplies the numbers after decimal point, essentially moving the decimal point over by some desired amount.
 
 `float`
 - 32 bits

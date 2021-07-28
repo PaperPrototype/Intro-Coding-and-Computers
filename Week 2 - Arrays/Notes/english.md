@@ -9,3 +9,13 @@ Arrays
 
 Void
 > A pointer to an unkown type
+
+
+`return`
+give back a number. Any code after a `return` will not get run.
+
+`break`
+exits and stops a loop.
+
+`continue`
+goes back to the beginning of a loop, without finishing the current loop.

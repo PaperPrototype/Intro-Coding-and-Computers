@@ -1,4 +1,4 @@
-# Terminalogy
+# Terminology
 Interpreted Language
 > A text based programming language that an *interpreter* interprets into binary instructions as it reads them.
 
@@ -9,17 +9,20 @@ Compiled Language
 > A text based programming language that gets compiled (through a process called "compiling") into the binary instructions as a program or app.
 
 Compiling
-> The process of converting text into binary instructions
+> The process of converting a text based programming language into binary instructions using a Compiler.
 
 Clang
 > A compiler for the C family of programming languages C, C++, Objective-C, Objective-C++.
 > clang explained in detail https://www.joshwieder.net/2014/11/compiling-c-using-clang.html
 
+Make
+> A compiler.
+
 Syntax
 > A specific way of writing code so that the compiler can correctly process convert it to binary instructions (0s and 1s).
 
 Syntax "Sugar"
-> Ways of coding something using a shortcut.
+> A way of coding something using a shortcut.
 
 Functions
 > ```c
@@ -46,6 +49,7 @@ Compile and run
 `./myProgram`
 
 Change Directory
+`cd`
 
 Clear shell
 `ctrl` + `L`
@@ -55,7 +59,13 @@ Cancel (Stop) program
 
 # C Keywords
 
-### loops
+`return`
+give back a number. Any code after a `return` will not get run.
+
+`break`
+exits a loop
+
+# loops
 
 `while`
 while the condition is true it loops the code inside.
@@ -103,13 +113,13 @@ int main(void)
 }
 ```
 
-### conditions
+# conditions
 
-`if` checks if the condition is true, if it is then runs the code in the brackets
+`if` checks if the condition is true, if it is then runs the code in the curly brackets.
 
 `else if` must go after an `if` statement. Checks if the condition is true, if it is then runs the code in the brackets
 
-`else` must go after an `if` statement. There is no condition, runs if the previous if statement was false.
+`else` must go after an `if` or `else if` statement. There is no condition, runs if the previous if statement was false.
 
 Less than
 `<`
@@ -125,7 +135,7 @@ Greater than
 > 
 > If you open your right hand towards your left you make a *greater than* symbol `>`.
 
-### syntax sugar
+# syntax sugar
 
 `+=`
 - `num += 2`
@@ -172,6 +182,11 @@ Greater than
 - Numbers that don't support decimal points
 - `int` is 32 bits
 - `long` is 64 bits
+
+### Characters
+`char`
+- ASCII "number" type (under the hood `char`s are is just a number).
+- numbers up to 256
 
 ### Booleans
 The stdbool.h file code http://gel.sourceforge.net/examples/stdbool_8h-source.php

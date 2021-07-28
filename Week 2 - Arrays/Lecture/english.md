@@ -141,9 +141,16 @@ TODO MAYBE? We can give back a void from a function.
 # Loops + Arrays
 Now we can use a `for` loop on an array. This is pretty cool.
 
+TODO
+- `break` keyword
+- `return` keyword
+- `continue` keyword
+
 # Getting Input 
 - main gets input from shell
 
 
-# Do while and Scope
+# Do while and Scope and Return
 - getting input until it is correct (from Getting inout section)
+
+Any code after return will not get ran. SO if we did .... EXPLAIN
