@@ -554,7 +554,7 @@ print("Hello world")
 
 Click the button at the top (with a green arow in it) to *run* the code. 
 
-![replit ide run arrow](./Assets/replit_ide_green_arrow.png)
+![replit ide run arrow](/Assets/replit_ide_green_arrow.png)
 
 You will see the phrase "Hello world" printed in the "console" (the black box on the right).
 
