@@ -770,13 +770,6 @@ hello_to("Bob")
 
 (An "argument" is the thing we put in when we call a function)
 
-```py
-def hello_to(name):
-  print("Hello, " + name)
-
-hello_to("Bob")
-```
-
 The variable called "name" is a variable for the function.
 
 When we type `hello_to("Bob")` we are passing in "Bob" as an argument to the "name" *parameter* in the function.
