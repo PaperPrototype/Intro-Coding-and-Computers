@@ -127,7 +127,7 @@ Although when making a function we don't have to add a semicolon at the end
 ```c
 int add(int a, int b) {
     return a + b;
-}; <- semicolon NOT needed!
+}; // semicolon not needed!
 ```
 
 ...since it is easy to tell when the function ends by just using the ending curly bracket "}". You will figure out where to put semicolons and where to not put them given experience.
@@ -136,7 +136,7 @@ Sadly, our code (still!) won't work because C reads code from top to bottom. So 
 
 ```c
 int main(void) {
-    int result = add(12, 12); <- where did `add` come from?
+    int result = add(12, 12); // where did `add` come from?
 }
 ```
 
@@ -186,7 +186,7 @@ int add(int a, int b);
 int main(void) {
   int variable = add(12, 12);
 
-  return 0; <- main returns 0
+  return 0; // main returns 0
 }
 
 int add(int a, int b) {
