@@ -966,7 +966,7 @@ Also a bool (True or False variable) in Python requires us to uppercase the firs
 
 ```py
 if True:
-    print("This is true")
+    print("This will get printed")
 
 if False:
     # this code will not ever get run since False is always False
@@ -992,11 +992,13 @@ def add(a, b):
 add(5, 5)
 ```
 
-5 + 5 = 10. Simple. But... how can we store the resulting number in a variable? Remember the `input` function? It "gave us" something to hold onto and store in a variable.
+5 + 5 = 10. Simple. But... how can we store the resulting number in a variable? Remember the `input` function? 
 
 ```py
 variable = input("Type in a string:")
 ```
+
+It "gave us" something to hold onto and store in a variable.
 
 How can we do this with the `add` function!? We use the `return` keyword.
 
@@ -1005,7 +1007,7 @@ def add(a, b):
     return a + b
 ```
 
-Then we can do this
+Then we can do this in our code.
 
 ```py
 def add(a, b):
@@ -1014,7 +1016,7 @@ def add(a, b):
 result = add(5, 5)
 ```
 
-When we set the `result` variable to the `add` function it will store whatever `add` *returned* (aka "gave back").
+The `result` variable "gets" what the `add` function "returns" (aka "gave back").
 
 Now we can print the `result` variable.
 
@@ -1028,7 +1030,7 @@ print(result)
 
 If you run this code you will see 10 get printed!
 
-Yay! Now you know how to code!
+Yay! Now you know all the basics of coding!
 
 In the Tutorials folder you will find tutorials on how to implement the search algorithms we talked about earlier. Here is a quick link [(click this)](https://github.com/PaperPrototype/Intro-to-Coding/blob/main/Week%200%20-%20Fundamentals/Tutorials/Searching%20Algorithms/english.md)
 

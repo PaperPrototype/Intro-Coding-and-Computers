@@ -2,9 +2,9 @@ Last week we talked about how computers represent data and instructions using on
 
 The programming language we used, called Python, was an interpreted language meaning it is a program file, that reads in our text based "code" (*string* of Unicode characters), and then figures out how to translate that code onto your processor as 0 and 1 instructions.
 
-We are now going to learn a new language called C. This language is a *compiled* language (wheas Python was *interpreted*). 
+We are now going to learn a new language called C. This language is a *compiled* language (whereas Python was *interpreted*). 
 
-This just means our code is written as text that is processed by a compiler. The compiler makes a program file (binary instructions file) from our code.
+This just means our code is written as text that gets "compiled" into a program file by a "compiler" program.
 
 Remember how functions work in Python?
 
@@ -22,7 +22,7 @@ Lets write this "main" function. Go to https://replit.com/ and make a new replit
 
 (if you don't see the "New replit" button, it is probably hidden. To find it, look in the top left corner of the website, you should see three lines, click those. Then you should see a blue button)
 
-This time select C as the programming language. Name the the project "Hello C". Now click "create repl".
+This time select C as the programming language. Name the the project "Hello C", then click "create repl".
 
 There should already be a file called "main.c". In it you should see the following.
 
@@ -45,7 +45,7 @@ int main(void) {
 
 Don't run this code yet, as it won't do anything! (if replit did not give you this code automatically then just copy paste the above).
 
-The above is the "main" function in C, and is a program code *starting point* that most computers use.
+The above code is the "main" function in C, and is the program *starting point* that most computers use.
 
 The word "int" in front of the function, tells C that `main` *returns* (aka "gives back") an *integer*.
 
@@ -650,9 +650,9 @@ Lets make a really big number and print it in C.
 
 Make a new C program called `overflow.c` using `touch overflow.c`.
 
-Go to the shell, run `touch overflow.c`. The `touch` command it making a new file called `overflow.c`.
+Go to the shell, run `touch overflow.c`. The `touch` command made a new file called `overflow.c`.
 
-(If you made a file with the wrong name you can delete it using `rm`)
+(If you named a file with the wrong name you can delete it using `rm`, then make it again using `touch`)
 
 In the files tab click on the new file called `overflow.c` to open it.
 
