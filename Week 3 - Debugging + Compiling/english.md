@@ -2,8 +2,6 @@ This week may not be necessary since it was mostly covered in week 2.
 
 Convert to "Compilers" week?
 
-This link video onwards (debugging is spearate week)
-https://video.cs50.io/tI_tIZFyKBw?screen=SOJ4zTf_nkg&start=3008&end=3369
 
 - Compiling
     - `make` autmatically figures out how to use a compiler for you
@@ -11,7 +9,7 @@ https://video.cs50.io/tI_tIZFyKBw?screen=SOJ4zTf_nkg&start=3008&end=3369
     - linking external files (math.h)
         - header file calls functions
             - those functions 0s and 1s stored somewhere else
-    - https://cs50.harvard.edu/x/2021/weeks/2/ <- how to use clang
+    - 
         - `clang main.c` -> `a.out` (assembly output)
         - `clang -o main main.c` -> `main`
             - `-o` = output, output "main"
