@@ -393,7 +393,7 @@ You will notice the word "Hello-C", this means we are in the "Hello-C" folder.
 
 If we want to change the folder we are in we can run a "command".
 
-Type `cd` (a command) into the shell tab. The shell tab should look like this.
+Type `cd` (a command) into the shell window. The shell window should look like this.
 
 ```
 ~/Hello-C$ cd
@@ -600,30 +600,6 @@ Now move into the "NewProject" folder by typing `cd NewProject`. You should now 
 ```
 
 which tells you you are in the "NewProject" folder.
-
-Now lets make a new "main.c" file (Inside of the `NewProject` folder). Type in `touch main.c`. This command makes a file called "main.c". You should see the file in Replits file viewer.
-
-![replit ide touch command](/Assets/Week_1/replit_ide_touch_command.png)
-
-Click the file (using replits "Files" tab). You should be able to open it and edit it.
-
-Run the `ls` command. You should see our new "main.c" file get listed as well.
-
-(We could compile the new "main.c" file by running `make main`, but we haven't added any code to "main.c")
-
-Lets *rename* the new "main.c" file using `mv`. Type `mv main.c deleteMe`.
-
-(The `mv` command can rename files. eg -> `mv oldFileName newFileName`.)
-
-(Replit might break oncew you rename the file)
-
-Once you reload the page you should see the `main.c` file was renamed to `deleteMe`. Open the shell tab again. We have been moved back to the "Hello-C" folder. Run `cd NewProject` to go into the "NewProject" folder in the shell.
-
-Run `ls` to see the `deleteMe` file.
-
-Now run `rm deleteMe`. This runs the "remove" command and will delete the "deleteMe" file.
-
-Run `ls` again, nothing gets listed since we deleted the `deleteMe` file.
 
 How do we get back to our parent folder? 
 
