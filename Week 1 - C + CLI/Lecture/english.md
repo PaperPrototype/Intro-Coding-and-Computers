@@ -296,7 +296,7 @@ int add(int a, int b) {
 int main(void) {
   int result = add(12, 12);
 
-  printf("%i \n", variable);
+  printf("%i \n", result);
 }
 ```
 
