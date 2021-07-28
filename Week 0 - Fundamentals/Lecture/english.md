@@ -526,7 +526,7 @@ Then click the "Create repl" button.
 
 We recommend that you "split" your screen in half, having this tutorial on one side, and replits IDE in another.
 
-![course workflow window layout](/Assets/Week_1/course_workflow_window_layout.gif)
+![course workflow window layout](/Assets/course_workflow_window_layout.gif)
 
 Now we can write some code in replit's IDE!
 
