@@ -639,7 +639,7 @@ variable = 12
 And then print the variable below it.
 
 ```py
-variable = 12 # old code
+variable = 12
 
 print(variable)
 ```
@@ -771,10 +771,10 @@ hello_to("Bob")
 (An "argument" is the thing we put in when we call a function)
 
 ```py
-def hello_to(name): <- parameter (aka variable)
+def hello_to(name):
   print("Hello, " + name)
 
-hello_to("Bob") <- argument (aka input)
+hello_to("Bob")
 ```
 
 The variable called "name" is a variable for the function.
@@ -937,7 +937,7 @@ print("This a `string`, aka *string* of characters ")
 
 By putting a hash "#" in front of a comment the Python programming language can tell comments apart from the code.
 
-# If, then?
+# If, then? (Conditions)
 What if we want to compare two numbers and see if they are the same?
 
 Most programming languages have a keyword called "if". It works like this.
