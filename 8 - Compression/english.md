@@ -1,0 +1,4 @@
+Bitmap compression
+
+
+zip compression

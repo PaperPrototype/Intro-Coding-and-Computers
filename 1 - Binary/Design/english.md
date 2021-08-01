@@ -1,0 +1,4 @@
+
+To understand something ... first princicples.. break things doewn to their most fundamental parts to understadn them well. This is what is used for physics, quantum mechanics (I think).... its the thinking elon musk uses to find fundmental problems (rocket throw away everty time, like throw away aiplrane after evwry use)... Its the thinking I use when learning.... It is the thinking that will solve the worlds problems and bring about the future... naturaslly think in anaology... analogy doesn't tell us how soemthing works....
+
+Originally could have started with a description of Binary... to boring
