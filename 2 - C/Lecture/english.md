@@ -2,7 +2,7 @@ Last week we talked about how computers represent data and instructions using on
 
 We are now going to learn a new language called C. This language is a *compiled* language (whereas Python was *interpreted*). 
 
-A cmpiler program This just means our code is written as text that gets "compiled" into a program file of binary (`0` and `1`) instructions for the CPU.
+A compiler program This just means our code is written as text that gets "compiled" into a program file of binary (`0` and `1`) instructions for the CPU.
 
 Remember how functions work in Python?
 
@@ -41,11 +41,9 @@ int main(void) {
 }
 ```
 
-Don't run this code yet, as it won't do anything! (if replit did not give you this code automatically then just copy paste the above).
+Don't run this code yet, as it won't do anything! (if replit did not give you this code automatically then just copy paste the above). The above code is the "main" function in C, and is the program *starting point* that most computers use.
 
-The above code is the "main" function in C, and is the program *starting point* that most computers use.
-
-The word "int" in front of the function, tells C that `main` *returns* (aka "gives back") an *integer*.
+The word "int" in front of the function, tells C that `main` *returns* (aka "gives back") an integer.
 
 (In C we don't use "def" for defining a function)
 
@@ -59,6 +57,22 @@ You will notice the code inside of the function goes inside of curly brackets "{
 int main(void) {
   // code goes here
 }
+```
+
+We can change the position of the curly brackets too.
+
+(example)
+```c
+int main(void)
+{
+  // code goes here
+}
+```
+
+C doesn't care where you put the curly brackets. You can even write all your code in one line!
+
+```c
+int main(void) { // code goes here }
 ```
 
 Now lets make our own function, it will add 2 numbers together. Make a function under `main` so that the code looks like this.
