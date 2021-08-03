@@ -11,7 +11,7 @@ The end goal for the tutorial is to print hashes to make a half pyrmaid like the
 #####
 ```
 
-Lets do it! Make a new replit called "mario".
+Lets do it! Make a new replit called "mario". Selct the C programming language.
 
 Now we could can print out the hashes manually using the below code. (write the below code).
 
