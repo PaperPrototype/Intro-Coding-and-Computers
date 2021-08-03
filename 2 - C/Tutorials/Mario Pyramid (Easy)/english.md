@@ -1,4 +1,4 @@
-![] show picture of mario's pyramid
+![] TODO show picture of mario's pyramid
 
 The end goal for the tutorial is to print hashes to make a pyrmaid like the one in mario. Below is an example.
 
