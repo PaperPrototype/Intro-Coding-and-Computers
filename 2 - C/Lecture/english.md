@@ -2,7 +2,7 @@ Last week we talked about how computers represent data and instructions using on
 
 We are now going to learn a new language called C. This language is a *compiled* language (whereas Python was *interpreted*). 
 
-This just means our code is written as text that gets "compiled" into a program file of binary instructions for the CPU by a program called a compiler.
+A cmpiler program This just means our code is written as text that gets "compiled" into a program file of binary (`0` and `1`) instructions for the CPU.
 
 Remember how functions work in Python?
 

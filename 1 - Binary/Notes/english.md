@@ -11,6 +11,9 @@ http://paulbourke.net/dataformats/bitmaps/
 
 - RGB-32 is faster https://www.animemusicvideos.org/forum/viewtopic.php?t=45357
 
+Memory sizes
+http://www.athropolis.com/popup/c-comp2.htm#explanation
+
 
 ASCII
 - https://theasciicode.com.ar/ascii-codes.txt

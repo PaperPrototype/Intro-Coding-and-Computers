@@ -8,13 +8,15 @@ You may have noticed if you typed gibberish like "qnerkjq 1924uj1,.3 rj32m,5r)aj
 
 This syntax made us put a colon `:` at the end of functions or if statements, as well as "indent" our code using a tab (putting 2 or 4 spaces in front of code). Now you know why.
 
+We also store information as 0s and 1s. How does that work? Our number system uses ten symbols, 0 to 9, but it could have used 7 symbols (0 to 6)! 
+
+It turns out you can count using only two symbols, 0 and 1. You can even count with only one symbol (1 = 1, 11 = 2, 111 = 3). 
+
+Once we can count using binary (0s and 1s) we can then store any character or letter as a binar number. All that is left is to make a "system" of mapping numbers to specific symbols character and letters. For example the letter G is representined by the number 71.
+
+In fact these very words are probably encoded using the Unicode format. We'll get to that in a second. For now lets learn to count using only two symbols `0` and `1`.
+
 # Binary
-We also store information as 0s and 1s. How does that work? Our number system uses ten symbols, 0 to 9, but it could have used 7 symbols, 0 to 6! 
-
-It turns out you can even count using only two symbols, 0 and 1! Once we can count using two symbols we can then store any symbol as a number in the computer. When I say symbol, I mean anything made of lines and ink that has been written down like "9" or "T" or "$". All that is left is to make a "system" of mapping numbers to specific symbols, in fact these very words are probably encoded using the Unicode standard (we'll get to that in a second.).
-
-Lets learn how to count using only two symbols `0` and `1`.
-
 In the tens system (called "decimal") we can count as high as nine using the symbols we have.
 
 ```
@@ -79,7 +81,7 @@ thousands | hundreds | tens | ones
 1           0           0       0 = 1000
 ```
 
-Lets try this with the twos system (called "binary" or "duodecimal").
+Lets try this with the twos systemm, called "binary".
 
 ```
 0
@@ -92,15 +94,16 @@ After only two symbols we have to add another column.
 twos | ones
 0       0 = zero
 0       1 = one
-1       1 = two
+1       0 = two
 ```
 
-See the pattern? And with this system we can count as high as we want, its just going to take a whole lot more columns than decimal does! 
+See the pattern? And with this system we can count as high as we want!... Its just going to take a whole lot more columns than decimal (tens system) does! 
 
 ```
-fours | twos | ones          decimal (tens system)
+fours | twos | ones          decimal equivalent 
 0       0       0 =    0  =  0
 0       0       1 =    1  =  1
+0       1       0 =   10  =  2
 0       1       1 =   11  =  3
 1       0       0 =  100  =  4
 1       0       1 =  101  =  5
@@ -108,12 +111,13 @@ fours | twos | ones          decimal (tens system)
 1       1       1 =  111  =  7
 ```
 
-Although since technically all these bits (a `0` or `1`) are just switches or electric charges all in a row, so the emtpy `0`s in front of our numbers are still present.
+Although technically all these bits (a `0` or `1`) are just switches (or electric charges) all in a row in your memory the emtpy `0`s in front of our numbers would still be present as off switches (or off (negative) electric charges).
 
 ```
 fours | twos | ones          decimal (tens system)
 0       0       0 =  000  =  0
 0       0       1 =  001  =  1
+0       1       0 =  010  =  2
 0       1       1 =  011  =  3
 1       0       0 =  100  =  4
 1       0       1 =  101  =  5
@@ -121,8 +125,9 @@ fours | twos | ones          decimal (tens system)
 1       1       1 =  111  =  7
 ```
 
-In computers we have to have decide before hand how high we want to count. We then asign a set of 0s and 1s in our computers for that number. We can't just grow the number of bits (`0`s and `1`s) we use for a number (if say we decide we want to be able to count higher) because the neighboring `0`s are probably being used for something else!
+In computers we have to have decide before hand how high we want to count. We then reserve some 0s and 1s in our memory for that number. We can't just increase the number of bits (`0`s and `1`s) we use for a number (if say we decide we want to be able to count higher) because the neighboring `0`s and `1`s are probably being used for something else!
 
+# ASCII
 Now that we can count using binary we'll use those numbers and map them to specific symbols and characters. The ASCII standard is very old but is still used today by programming languages like the C programming language. C actually lets us manipulate the `0`s and `1`s, but we'll get to that another time.
 
 Here is a short list of some ASCII symbols you might be familiar with.
@@ -234,14 +239,12 @@ ASCII ENCODING
 
 Every ASCII symbol uses 8 bits. This lets gives us 256 possible symbols since with 8 bits we can only count from 0 to 255.
 
+# Unicode
 ASCII only supports latin characters (latin symbols cover spanish, english, french and others). If we want more rare characters then we are out of luck when it comes to ASCII. As a result a new standard was made called Unicode.
 
 Unicode has several levels of "transform formats". UTF-8 (Unicode Transform Format 8) givews us 8 bits, and is backwards compatible with ASCII.
 
 UTF-16 uses 16 bits, and gives us 16^2 (16 to the power of 2) possible characters. There is also UTF-32 and possibly a UTF-64, but I don't think anyone uses UTF-64 since UTF-32 still has room for new symbols (at the time of writing).
-
-Further reading (feel free to contribute to this list)
-- https://theasciicode.com.ar/ascii-codes.txt
 
 # Colors
 For color we use lights in our computer. Each "pixel" is made up of a combination of three smaller LEDs (Light Emiting Diodes). These smaller LEDS are Red Green and Blue. We mix different amounts of each color to make all the colors you see on your screen.
@@ -255,26 +258,22 @@ For example the numbers 249, 255, 0, make the color yellow.
 ![yellow color](/Assets/yellow_color.png)
 
 
-In memroy the RGB values look like this
+In memory the RGB values look like this
 
 ```
 11111001 11111111 00000000
 ```
 
-Why are all the smallest numbers using 8 bits? To make making accessing memory faster, modern computers store memory in blocks of 8 bits. Since this is ubiquitous (so common that it is seen everywhere) we call these blocks of memory a "byte". A byte also refers to 8 bits, like dollars refer to 100 pennies.
+(I used https://decimaltobinary.pro/ to convert the numbers to binary)
 
-This may be slightly incorrect, and I think some computers store information in 32 bits or 86 bits. Computers these days are pretty confusing.
+Why are all the smallest numbers using 8 bits? To make making accessing memory faster, modern computers store memory in *blocks of 8 bits*. Since this is ubiquitous (so common that it is seen everywhere) we call these blocks of memory a "byte". A byte can also refers to 8 bits (like dollars refer to 100 pennies).
 
-Resources
-- Very good explanation of RGB http://paulbourke.net/dataformats/bitmaps/ 
+This may be slightly incorrect, and I think some computers store information in 32 bits or 86 bits... Computers these days are pretty confusing.
 
 # Pictures
-The simplest picture is a bitmap picture. Bitmap pictures just store each pixel as an RGB value.
+The simplest picture is a bitmap picture. Bitmap pictures just store each pixel as an RGB value, usually in a file.
 
 Using bitmaps for pictures tends to take up a lot of space.
-
-Resources (also link to other courses that are relevant)
-- Very good explanation of bitmaps http://paulbourke.net/dataformats/bitmaps/
 
 # Audio
 Yeah, I have no idea. There are many, many audio formats. I wonder if there is a simple one we could talk about...
@@ -282,4 +281,14 @@ Yeah, I have no idea. There are many, many audio formats. I wonder if there is a
 # File systems
 You migh have wondered how your computer can have files and folders if the only things the computers understand is bits (`0`s and `1`s).
 
-There is a program on your computer that manages presenting the information in your computer as yfiles and folders. Not interestingly these programs are called a "file system".
+There is a program on your computer that manages presenting the millions of bytes in your computer as files and folders. Not interestingly these programs are called a "file system".
+
+# Size
+There are different words we use to talk about memory sizes. Much liek the word "dollar" refers to 100 pennies.
+
+8 bits = 1 byte
+1024 bytes = 1 kilobyte
+1024 kilobytes = 1 megabyte
+1024 megabytes = 1 gigabyte
+1024 gigabytes = 1 terabyte
+1024 terabytes = 1 petabyte

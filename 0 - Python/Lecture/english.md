@@ -467,9 +467,122 @@ result = divide(2, 0)
 Now this code will work! Now you know the basics of coding!
 
 
+
+TODO save for later? too advanced?
+
+# PyGame
 Now lets learn the basics of making a game with Python! 
 
-Afterwards in the Tutorials there will be tutorials on how to make different types of games.
+Afterwards in the Tutorials there will be tutorials on how to make different types of games using what you've learned.
+
+Create a new repl. Select Pyxel (a Python framework for making games). Name the project "bounce".
+
+Now we need to get access to the Pyxel code. Write this into your code.
+
+```py
+import Pyxel
+```
+
+This "imports" the code for making Pyxel games.
+
+Now we need to make a window for our game. Make your code look like the following.
+
+```py
+import pyxel
+
+pyxel.init(100, 80)
+```
+
+This gives us a window that is 100 pixels wide by 80 pixels tall. Now we need some code that will run every single frame (every few milliseconds) that we can put the code for moving our cube that we will make. We will make a function that we put all the code that will happen every frame.
+
+We will also make a separate function for the rendering / drawing code. Change your code so that it looks like the following.
+
+```py
+import pyxel
+
+pyxel.init(100, 80)
+
+def update():
+    # code to run every frame
+    # the movement code
+    pass
+
+def draw():
+    # code for drawing / rendering
+    pass
+
+pyxel.run(update, draw)
+```
+
+We are not allowed to make a function that does nothing! So we have to put the "pass" function temporarily.
+
+Now lets draw a simple cube. Although its called a "rect", standing for the word "rectangle".
+
+```py
+import pyxel
+
+pyxel.init(100, 80)
+
+def update():
+	pass
+
+def draw():
+    pyxel.rect(10, 10, 20, 20, 11)
+
+pyxel.run(update, draw)
+```
+
+Click the play button to see the following!
+
+![replit pyxel](/Assets/replit_pyxel.png)
+
+Techincally when we stop the game using Replits pause button our code is supposed to "quit" or exit the game so lets add that code.
+
+```py
+import pyxel
+
+pyxel.init(100, 80)
+
+def update():
+	if pyxel.btnp(pyxel.KEY_Q):
+		pyxel.quit()
+
+def draw():
+    pyxel.rect(10, 10, 20, 20, 11)
+
+pyxel.run(update, draw)
+```
+
+The extra code we added can be turned into this 
+
+```
+if pyxel.button pressed(pyxel Key "Q") then 
+    quit
+```
+
+Now lets make our cube fall as if it had gravity.
+
+Now lets make the rect fall with gravity. We will make two variables called `x` and `y`, and then set the rects position using the variables.
 
 
+NOT WORKING CODE
+```py
+import pyxel
 
+pyxel.init(100, 80)
+
+# x and y variables
+x = 10
+y = 10
+
+def update():
+	if pyxel.btnp(pyxel.KEY_Q):
+		pyxel.quit()
+
+def draw():
+    pyxel.rect(x, y, 20, 20, 11) # use x and y variables
+
+pyxel.run(update, draw)
+```
+
+Now lets move the y position down every "update".
