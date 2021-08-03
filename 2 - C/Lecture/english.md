@@ -71,6 +71,7 @@ int main(void)
 
 C doesn't care where you put the curly brackets. You can even write all your code in one line!
 
+(example)
 ```c
 int main(void) { // code goes here }
 ```
