@@ -4,10 +4,10 @@ The end goal for the tutorial is to print hashes to make a pyrmaid like the one 
 
 (example)
 ```
-    #
-   ##
-  ###
- ####
+#
+##
+###
+####
 #####
 ```
 
@@ -41,7 +41,7 @@ int main(void)
         printf("#");
 	}
 
-	printf("n\");
+	printf("\n");
 }
 ```
 
