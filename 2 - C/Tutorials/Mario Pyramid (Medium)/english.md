@@ -1,7 +1,5 @@
 ![] TODO show picture of mario's pyramid
 
-DON'T READ THIS TUTORIAL IT IS NOT CORRECT!
-
 This tutorial assumes you've finished the previous "Mario (Easy)" tutorial.
 
 The end goal for this tutorial is to print hashes to make a half pyramid like the one in mario. Except in this case in needs to be slanted to the right. Below is an example.
