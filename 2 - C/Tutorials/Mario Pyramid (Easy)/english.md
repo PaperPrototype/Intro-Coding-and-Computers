@@ -22,8 +22,8 @@ int main(void)
 {
 	printf("#    \n");
 	printf("##   \n");
-    printf("###  \n");
-    printf("#### \n");
+	printf("###  \n");
+	printf("#### \n");
 }
 ```
 
@@ -38,7 +38,7 @@ int main(void)
 
 	for (int hash = size; hash > 0; hash--) 
 	{
-        printf("#");
+		printf("#");
 	}
 
 	printf("\n");
