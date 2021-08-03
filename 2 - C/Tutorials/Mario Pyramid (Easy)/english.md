@@ -126,4 +126,4 @@ Every time we print a hash we increase the hash variable. Run this code. You wil
 #####
 ```
 
-And tada we made a pyramid!
+And we made a pyramid!
