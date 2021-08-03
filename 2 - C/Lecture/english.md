@@ -51,7 +51,7 @@ You will notice the curly brackets "{}". This is what C uses instead of Python's
 
 ```c
 int main(void) {
-  // code goes here
+	// code goes here
 }
 ```
 
@@ -61,7 +61,7 @@ We can change the position of the curly brackets too.
 ```c
 int main(void)
 {
-  // code goes here
+	// code goes here
 }
 ```
 
@@ -95,17 +95,17 @@ Inside of `main`, make a variable called "result" that holds onto what the `add`
 
 ```c
 int main(void) {
-  int result = add(12, 12)
+	int result = add(12, 12)
 }
 
 int add(int a, int b) {
-  return a + b
+	return a + b
 }
 ```
 
-The `result` variable has to have a type of `int` as well. C doesn't automatically figure out that the `result` variable should be an `int` 
+The `result` variable has to have a type of `int` as well. C doesn't automatically figure out that the `result` variable should be an `int`. This is because C lets us work at the binary (0s and 1s) level, so we have to know how many bytes a variable holds, as well as how to treat each `0` and `1`.
 
-(it could figure it out since the `add` function returns an `int`, but the makers of C wanted to make it more *clear* as to what excaclty a variable is)
+(it could figure iout that the `result` is an `int`, but the makers of C wanted to make it more *clear* as to what exactly a variables type was)
 
 This code still won't run though!
 
@@ -115,11 +115,11 @@ Change your code to the following.
 
 ```c
 int main(void) {
-  int result = add(12, 12);
+	int result = add(12, 12);
 }
 
 int add(int a, int b) {
-  return a + b;
+	return a + b;
 }
 ```
 
@@ -136,7 +136,7 @@ Although when making a function we don't have to add a semicolon at the end
 (example)
 ```c
 int add(int a, int b) {
-    return a + b;
+	return a + b;
 }; // semicolon not needed!
 ```
 
@@ -147,7 +147,7 @@ Sadly, our code (still!) won't work because C reads code from top to bottom. So 
 (example)
 ```c
 int main(void) {
-    int result = add(12, 12); // where did `add` come from?
+	int result = add(12, 12); // where did `add` come from?
 }
 ```
 
@@ -159,11 +159,11 @@ So we just have to put the `add` function above `main`. Change the code so that 
 
 ```c
 int add(int a, int b) {
-  return a + b;
+	return a + b;
 }
 
 int main(void) {
-  int variable = add(12, 12);
+	int variable = add(12, 12);
 }
 ```
 
@@ -175,11 +175,11 @@ There is a way to put a function below main. You just have to put a function "hi
 int add(int a, int b); // function hint
 
 int main(void) {
-  int variable = add(12, 12);
+	int variable = add(12, 12);
 }
 
 int add(int a, int b) {
-  return a + b;
+	return a + b;
 }
 ```
 
@@ -196,13 +196,13 @@ Main returns (gives back) a number right?
 int add(int a, int b);
 
 int main(void) {
-  int variable = add(12, 12);
+	int variable = add(12, 12);
 
-  return 0; // main returns 0
+	return 0; // main returns 0
 }
 
 int add(int a, int b) {
-  return a + b;
+	return a + b;
 }
 ```
 
@@ -219,11 +219,11 @@ Change the code to the following.
 #include <stdio.h>
 
 int add(int a, int b) {
-  return a + b;
+	return a + b;
 }
 
 int main(void) {
-  int result = add(12, 12);
+	int result = add(12, 12);
 }
 ```
 
@@ -239,7 +239,7 @@ The ".h" means it is a C "header" file. Headers files are normal C code except t
 
 Where is the "stdio.h" code in the computer? The "stdio.h" code is used so often it comes builtin with the compiler (aka when you download a compiler it also downloads the stdio.h file).
 
-(You can also include `.c` files by using double quotes around the name of the file like this `#include "mycode.c")
+(You can also include `.c` files by using double quotes around the name of the file like this `#include "mycode.c"`)
 
 Now that we've included the standard input output *header* code, we can send output to the console using its `printf` function (`printf` meaning "print formatted").
 
@@ -247,12 +247,12 @@ Now that we've included the standard input output *header* code, we can send out
 #include <stdio.h>
 
 int add(int a, int b) {
-  return a + b;
+	return a + b;
 }
 
 int main(void) {
-  int result = add(12, 12);
-  printf("Hello, world");
+	int result = add(12, 12);
+	printf("Hello, world");
 }
 ```
 
@@ -266,12 +266,12 @@ But the console didn't make a newline after "Hello world"! So we have to add thi
 #include <stdio.h>
 
 int add(int a, int b) {
-  return a + b;
+	return a + b;
 }
 
 int main(void) {
-  int variable = add(12, 12);
-  printf("Hello, world\n");
+	int variable = add(12, 12);
+	printf("Hello, world\n");
 }
 ```
 
@@ -279,22 +279,20 @@ Now a newline will be added after the "Hello, world" string (remember, we call w
 
 ![replit print hello world with newline](/Assets/replit_print_hello_world_2.png)
 
-# Errors? 
+# Errors?
 If you get a whole bunch of errors when running code... Just scroll up to the first error at the top in the console, since the rest of the errors are the *compiler* (aka program that converts code to binary instructions) getting confused from the first error.
 
-# Debugger!
-But... if you have a really complex program use can use a Debugger! 
-
-Open the debugger 
-
-If you encounter any errors and can't figure them out feel free to join our discord to get help https://discord.gg/QhqTE4t2tR <- here is the invite link.
-
 # Printing variables
-How can we print a variable?
+How can we print a variable? In Python it was easy.
 
-In C we have to declare the type a variable holds (aka `int result = 12;`). To print variabkes using `printf` we also have to tell it the *type* of the variable.
+```py
+name = "Jafly"
+print(name)
+```
 
-In `printf` you use the percent symbol `%` followed by a letter. In this case our variable is an `int`, so in `printf` we write `%i` which stands for the `int` type.
+To print variables using `printf` we have to tell it the *type* of the variable.
+
+In `printf` you use the percent symbol `%` followed by a letter for the type. In this case our variable is an `int`, so in `printf` we write `%i`. "%i" stands for the `int` type.
 
 Change the code to the following.
 
@@ -306,13 +304,13 @@ int add(int a, int b) {
 }
 
 int main(void) {
-  int result = add(12, 12);
+	int result = add(12, 12);
 
-  printf("%i \n", result);
+	printf("%i \n", result);
 }
 ```
 
-The `%i` is a placeholder (with a type), and will get replaced by the `result` variable.
+The `%i` is a placeholder, and will get replaced by the `result` variable.
 
 Run this code. You will see that the `%i` in the string gets replaced by 24 (we also make sure to add a newline `\n`).
 
@@ -330,15 +328,15 @@ commonly used conversion specifiers
   %c    character  
 ```
 
-We can use the "%c" conversion specifier to tell `printf` to treat 24 like an ASCII character. Delete the add function and change ht code to this.
+We can use the "%c" conversion specifier to tell `printf` to treat 24 like an ASCII character. Delete the add function and change the code to this.
 
 ```c
 #include <stdio.h>
 
 int main(void) {
-  int variable = 24;
+	int variable = 24;
 
-  printf("Hello %c\n", variable);
+	printf("Hello %c\n", variable);
 }
 ```
 
@@ -346,7 +344,19 @@ Run this code.
 
 It will print out "Hello " with nothing afterwards. This is because the number 24 maps to a character that is apparently invisible? (Go back to Week 0's notes to see what 24 maps to).
 
-Change `variable` to hold 77. Run the new code and you will see an uppercase "M" get printed like this `Hello M`.
+Change `variable` to hold 77 instead.
+
+```c
+#include <stdio.h>
+
+int main(void) {
+	int variable = 77;
+
+	printf("Hello %c\n", variable);
+}
+```
+
+Run the new code and you will see an uppercase "M" get printed like this `Hello M`.
 
 The "f" in `printf` just means print a "formatted" string. standing for the fact we can replace placeholders (aka *converson specifiers*) with a variable.
 
@@ -356,11 +366,11 @@ We can also have multiple *conversion specifiers*. Change the code to this.
 #include <stdio.h>
 
 int main(void) {
-    int variable = 77;
+	int variable = 77;
     
-    char character = 'B';
+	char character = 'B';
 
-    printf("Hello %c %c\n", variable, character);
+	printf("Hello %c %c\n", variable, character);
 }
 ```
 
@@ -388,5 +398,18 @@ int main(void) {
 
 notice the `// Treat 77 like ASCII character`, this comment will be ignored by the compiler.
 
-TODO
-- numbers overflow
+# Overflow
+
+
+# Debugger!
+If you have a really complex program that has many problems you can use a Debugger!
+
+Open the debugger in replit.
+
+![]
+
+Now add some "breakpoints" by clicking next to the line numbers.
+
+![]
+
+If you encounter any errors and can't figure them out feel free to join our discord to get help https://discord.gg/QhqTE4t2tR <- here is the invite link.
