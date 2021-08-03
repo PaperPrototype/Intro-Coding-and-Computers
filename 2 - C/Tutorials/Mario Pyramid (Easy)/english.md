@@ -36,7 +36,7 @@ int main(void)
 {
 	int size = 5;
 
-	for (int hash = 0; hash < size; hash++) 
+	for (int hash = size; hash > 0; hash--) 
 	{
         printf("#");
 	}
@@ -44,6 +44,8 @@ int main(void)
 	printf("\n");
 }
 ```
+
+The above for loop starts the `hash` variable at `0`. It decreases the hash number until it reaches `0`.
 
 Run this code. It will print 5 hashes in a row.
 
@@ -61,22 +63,20 @@ We can put our loop (that prints hashes) inside of another loop to "stack" the h
 int main(void) 
 {
 	int size = 5;
-	
-	// new loop
-	for (int stack = 0; stack < size; stack++) 
-    {
 
-		for (int hash = 0; hash < size; hash++) 
-        {
-            printf("#");
-        }
+	for (int stack = 0; stack < size; stack++)
+	{
+		for (int hash = size; hash > 0; hash--) 
+		{
+			printf("#");
+		}
 
 		printf("\n");
 	}
 }
 ```
 
-Run this. It will print 5 hashes, stacked on top of eachother 5 times.
+We make sure to add a newline after every row of hashes. Run this. It will print 5 hashes, stacked on top of eachother 5 times.
 
 ```
 #####
@@ -86,7 +86,7 @@ Run this. It will print 5 hashes, stacked on top of eachother 5 times.
 #####
 ```
 
-To slowly make hashes increase as we move down we need an offset number. We will increase this offset number every stack.
+To slowly make hashes increase as we move down we need an offset number. We will increase this offset number every "stack".
 
 ```c
 #include <stdio.h>
@@ -96,14 +96,12 @@ int main(void)
 	int size = 5;
 
 	int offset = 0;
-	
-	for (int stack = 0; stack < size; stack++) 
-    {
 
-		for (int hash = 0; hash < size; hash++) 
-        {
-
-			if (hash <= offset)
+	for (int stack = 0; stack < size; stack++)
+	{
+		for (int hash = size; hash > 0; hash--) 
+		{
+			if (hash < offset + 2)
 			{
 				printf("#");
 			}
@@ -116,7 +114,7 @@ int main(void)
 }
 ```
 
-Every time we print a hash we increase the hash variable. Run this code. You will see this.
+Every time we print a hash we increase the hash variable, and check if the hash variable has gotten bigger than the offset for its current stack. Run this code. You will see this.
 
 ```
 #
