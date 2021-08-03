@@ -8,6 +8,9 @@ Interpreter
 Compiled Language
 > A text based programming language that gets compiled (through a process called "compiling") into the binary instructions as a program or app.
 
+Make
+> A program that automically takes care of running a compiler with the rename command (it also takes care of linking).
+
 Compiling
 > The process of converting a text based programming language into binary instructions using a Compiler.
 
@@ -15,8 +18,6 @@ Clang
 > A compiler for the C family of programming languages C, C++, Objective-C, Objective-C++.
 > clang explained in detail https://www.joshwieder.net/2014/11/compiling-c-using-clang.html
 
-Make
-> A compiler.
 
 Syntax
 > A specific way of writing code so that the compiler can correctly process convert it to binary instructions (0s and 1s).
@@ -42,21 +43,6 @@ IEEE
 Truncation
 > Cutting off the decimal places when use an int, or convert a float to an int. It is best to NOT do convert from a float to an int, and round the number. 
 
-# CLI Commands
-
-Compile and run
-`make myProgram`
-`./myProgram`
-
-Change Directory
-`cd`
-
-Clear shell
-`ctrl` + `L`
-
-Cancel (Stop) program
-`ctrl` + `C`
-
 # C Keywords
 
 `return`
@@ -64,6 +50,11 @@ give back a number. Any code after a `return` will not get run.
 
 `break`
 exits a loop
+
+`include`
+- `.h` files after the `include` command get surrounded by triangle brackets `<>`. 
+
+- `.c` files after an `include` command get surrounded by double quotes `""`.
 
 # loops
 

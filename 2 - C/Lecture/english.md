@@ -1,26 +1,24 @@
 Last week we talked about how computers represent data and instructions using only two symbols 0 and 1, representing the millions and millions of bits in our computer.
 
-We are now going to learn a new language called C. This language is a *compiled* language (whereas Python was *interpreted*). 
-
-A compiler program This just means our code is written as text that gets "compiled" into a program file of binary (`0` and `1`) instructions for the CPU.
+We are now going to learn a new language called C. This language is a *compiled* language (whereas Python was *interpreted*). This just means our code is written as text that gets "compiled" into a program file of 0 and 1 instructions for the CPU.
 
 Remember how functions work in Python?
 
 ```py
 def main():
-    # put code here
-    print("hello world")
+	# put code here
+	print("hello world")
 
 main() # run the code
 ```
 
-In C there is a function that gets called automatically, except here's the catch, it is the only function that gets called! Any code that we want to run, including our own functions, has to go inside of the "main" function. This gives all computers a unifide way to have a "starting point" for where to run your program.
+In C there is a function that gets called automatically, except here's the catch, it is the only function that gets called! Any code that we want to run, including our own functions, have to go inside of the "main" function. This gives all computers a unifide way to have a "starting point" for where to run your program.
 
 Lets write this "main" function. Go to https://replit.com/ and make a new replit.
 
 (if you don't see the "New replit" button, it is probably hidden. To find it, look in the top left corner of the website, you should see three lines, click those. Then you should see a blue button)
 
-This time select C as the programming language. Name the the project "Hello C", then click "create repl".
+This time select C as the programming language. Name the the project "hello c", then click "create repl".
 
 There should already be a file called "main.c". In it you should see the following.
 
@@ -28,8 +26,8 @@ There should already be a file called "main.c". In it you should see the followi
 #include <stdio.h>
 
 int main(void) {
-  printf("Hello World\n");
-  return 0;
+	printf("Hello World\n");
+	return 0;
 }
 ```
 
@@ -37,21 +35,19 @@ Delete everything except for the function called "main" so that the code looks l
 
 ```c
 int main(void) {
-  // code goes here
+	// code goes here
 }
 ```
 
 Don't run this code yet, as it won't do anything! (if replit did not give you this code automatically then just copy paste the above). The above code is the "main" function in C, and is the program *starting point* that most computers use.
 
-The word "int" in front of the function, tells C that `main` *returns* (aka "gives back") an integer.
+The word "int" in front of the function, tells C that `main` gives back an integer. This is different from Python where we use "def" for defining a function. Don't worry you'll get used to it.
 
-(In C we don't use "def" for defining a function)
+You will see the word "void" inside of the functions input (the parenthesis). In C we have to tell the computer that the function *doesn't* take any input, which is what the `void` keyword is for.
 
-You will see the word "void" inside of the functions input. In C we have to tell the computer that the function *doesn't* take any input, which is what the `void` keyword is for.
+When using we were using Python, the Python interpreter automatically assumed you didn't want input if you don't put anything in the parenthesis "()".
 
-(When using Python, the Python interpreter automatically assumes you don't want input if you don't put anything in the parenthesis "()")
-
-You will notice the code inside of the function goes inside of curly brackets "{}". This is what C uses instead of Python's colon ":".
+You will notice the curly brackets "{}". This is what C uses instead of Python's colon ":".
 
 ```c
 int main(void) {
@@ -80,24 +76,22 @@ Now lets make our own function, it will add 2 numbers together. Make a function 
 
 ```c
 int main(void) {
-  
+
 }
 
 int add(int a, int b) {
-  return a + b
+	return a + b
 }
 ```
 
 We take as input two "integers". In C we have to always know the *type*. A *type* tells C how to treat the 0s and 1s. "Is this a number? Is this a Unicode character?".
 
-We tell the computer this is an integer (aka number) by putting the `int` *type* in front of the function's input variables.
-
-(function variables are called "parameters").
+We tell the computer this is an integer (aka number) by putting the `int` *type* in front of the function's input parameters (parameters means variables for a function).
 
 We tell C that the `add` function *returns* (aka gives back) an `int` by putting `int` in front of the functions name.
 
 ### Variables
-Inside of `main`, make a variable called "result" that holds onto what the `add` function returns ("gives back").
+Inside of `main`, make a variable called "result" that holds onto what the `add` function returns.
 
 ```c
 int main(void) {
@@ -109,7 +103,9 @@ int add(int a, int b) {
 }
 ```
 
-The `result` variable has to have a type of `int`. C doesn't automatically figure out that the `result` variable should be an `int` (it could figure it out since the `add` function returns an `int`, and most programming languages do this).
+The `result` variable has to have a type of `int` as well. C doesn't automatically figure out that the `result` variable should be an `int` 
+
+(it could figure it out since the `add` function returns an `int`, but the makers of C wanted to make it more *clear* as to what excaclty a variable is)
 
 This code still won't run though!
 
@@ -137,25 +133,27 @@ So yeah, C makes us use a semicolon ";" so it can tell lines of code apart.
 
 Although when making a function we don't have to add a semicolon at the end
 
+(example)
 ```c
 int add(int a, int b) {
     return a + b;
 }; // semicolon not needed!
 ```
 
-...since it is easy to tell when the function ends by just using the ending curly bracket "}". You will figure out where to put semicolons and where to not put them given experience.
+...since it is easy to tell when the function ends by just using the ending curly bracket "}". 
 
-Sadly, our code (still!) won't work because C reads code from top to bottom. So when C reads the code inside of `main` it doesn't know what the `add` function is because it hasn't seen it yet.
+Sadly, our code (still!) won't work because C reads code from top to bottom. So when C reads the code inside of the `main` function it doesn't know that the `add` function exists!
 
+(example)
 ```c
 int main(void) {
     int result = add(12, 12); // where did `add` come from?
 }
 ```
 
-(Again Python took care of this for us, while C won't)
-
 and honestly we wouldn't know where `add` was unless we kept scrolling down to find it.
+
+Again Python took care of this for us, while C won't.
 
 So we just have to put the `add` function above `main`. Change the code so that `add` is above `main`.
 
@@ -169,12 +167,12 @@ int main(void) {
 }
 ```
 
-Now you can run this code!.. Although it won't print anything...
+Now you can run this code! (Although it won't print anything... yet)
 
 There is a way to put a function below main. You just have to put a function "hint" above main.
 
 ```c
-int add(int a, int b); <- function hint
+int add(int a, int b); // function hint
 
 int main(void) {
   int variable = add(12, 12);
@@ -187,11 +185,12 @@ int add(int a, int b) {
 
 "function hints" are called "prototypes". 
 
-We have to put a semicolon ";" at the end of the function *prototype* because there are no curly brackets in a prototype just its name and parameters ("function variables").
+We have to put a semicolon ";" at the end of the function *prototype* because there are no curly brackets in a prototype, just its name and parameters (function variables).
 
 # Main returns an int?
 Main returns (gives back) a number right?
 
+(example)
 ```c
 // function hint
 int add(int a, int b);
@@ -207,7 +206,7 @@ int add(int a, int b) {
 }
 ```
 
-The number `main` returns is an `int` (obviously). It represents an "error code". returning `0` means success (aka no error). Returning `1` means there was an error! But since we don't *have to* return an number we won't bother returning an "error code" from main.
+The number `main` returns is an integer `int` (obviously). It represents an "error code". returning `0` means success (aka no error). Returning `1` means there was an error! But since we don't *have to* return an error code we won't bother with it.
 
 Nothing gets printed to the console! Lets work on that.
 
@@ -230,24 +229,19 @@ int main(void) {
 
 We use a hash symbol "#" followed by "include". "include" is called a "command".
 
-Commands after the hash "#" are things the compiler "pre-processes". Which means
-when we *include* this file, the compiler literally replaces `#include <stdio.h>` with the code from the "stdio.h" file.
+Commands after the hash "#" are things the compiler "pre-processes", which means when we *include* this file, the compiler literally replaces `#include <stdio.h>` with the code from the "stdio.h" file.
 
-"including" is part of the "pre-process" stage that the compiler goes through to eventually convert our code into 0s and 1s.
+(We will get to what a compiler is later, just know it converts text based code into `0`s and `1`s instructions for the computers processor)
 
-"std" is short for "standard", and "io" is short for "input output". 
-
-Where is the "stdio.h" code? The "stdio.h" code is used so often it comes builtin with the compiler (aka when you download a compiler it also downloads the stdio.h file).
+"std" is short for "standard", and "io" is short for "input output", so we get "include standard input output code". 
 
 The ".h" means it is a C "header" file. Headers files are normal C code except the code has already been turned into 0s and 1s! (This way the compiler doesn't have to compile all the *headers* we include and can just "link" them all to together in a stage called "linking"). The code in a header file is just a bunch of "function hints" to functions that are in the binary (0s and 1s) code file.
 
-(You can also include `.c` files)
+Where is the "stdio.h" code in the computer? The "stdio.h" code is used so often it comes builtin with the compiler (aka when you download a compiler it also downloads the stdio.h file).
 
-`.h` files after the `include` command get surrounded by triangle brackets `<>`. 
+(You can also include `.c` files by using double quotes around the name of the file like this `#include "mycode.c")
 
-`.c` files after an `include` command get surrounded by double quotes `""`.
-
-Now that we've included the standard input output *header*, we can send output to the console using its `printf` function (`printf` meaning "print formatted").
+Now that we've included the standard input output *header* code, we can send output to the console using its `printf` function (`printf` meaning "print formatted").
 
 ```c
 #include <stdio.h>
@@ -264,7 +258,7 @@ int main(void) {
 
 Now run this code. You will see "Hello world" get printed.
 
-![replit print hello world](/Assets/Week_1/replit_print_hello_world.png)
+![replit print hello world](/Assets/replit_print_hello_world.png)
 
 But the console didn't make a newline after "Hello world"! So we have to add this manually ourselves. (Again, Python added "\n" for us in its `print` function).
 
@@ -281,12 +275,17 @@ int main(void) {
 }
 ```
 
-Now a newline will be added after the "Hello, world" string (we call words or phrases enclosed with double quotes `""` *strings*).
+Now a newline will be added after the "Hello, world" string (remember, we call words or phrases enclosed with double quotes `""` *strings*).
 
-![replit print hello world with newline](/Assets/Week_1/replit_print_hello_world_2.png)
+![replit print hello world with newline](/Assets/replit_print_hello_world_2.png)
 
 # Errors? 
 If you get a whole bunch of errors when running code... Just scroll up to the first error at the top in the console, since the rest of the errors are the *compiler* (aka program that converts code to binary instructions) getting confused from the first error.
+
+# Debugger!
+But... if you have a really complex program use can use a Debugger! 
+
+Open the debugger 
 
 If you encounter any errors and can't figure them out feel free to join our discord to get help https://discord.gg/QhqTE4t2tR <- here is the invite link.
 
