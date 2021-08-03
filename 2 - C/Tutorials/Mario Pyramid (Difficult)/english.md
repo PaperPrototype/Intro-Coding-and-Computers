@@ -1,5 +1,7 @@
 ![] TODO show picture of mario's pyramid
 
+DON"T READ THIS TUTORIAL IT IS NOT CORRECT!
+
 The end goal for the tutorial is to print hashes to make a pyrmaid like the one in mario. Below is an example.
 
 (example)
