@@ -387,12 +387,12 @@ In C you use two slashes "//" for comments.
 #include <stdio.h>
 
 int main(void) {
-    int variable = 77;
+	int variable = 77;
   
-    char character = 'B';
+	char character = 'B';
 
-    // Treat 77 like ASCII character
-    printf("Hello %c %c\n", variable, character);
+	// Treat 77 like ASCII character
+	printf("Hello %c %c\n", variable, character);
 }
 ```
 
