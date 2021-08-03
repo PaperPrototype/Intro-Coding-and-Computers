@@ -12,7 +12,7 @@ To download Discord https://discord.com/download
 
 THIS COURSE IS STILL A WORK IN PROGRESS. I will remove this message once it is finished. Feel free to add to the tutorials. 
 
-Currently only week 0 and week 1 are done.
+Currently only week part 0 to part 3 are done.
 
 # Quick links (Layout)
 
