@@ -1,8 +1,6 @@
 ![] show picture of mario's pyramid
 
-Goal: Print hashes in the Terminal to make a half pyramid like the one from Mario.
-
-Here is an example.
+The end goal for the tutorial is to print hashes to make a pyrmaid liek the one in mario. Below is an example.
 
 (example)
 ```
