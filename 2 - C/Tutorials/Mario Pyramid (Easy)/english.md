@@ -21,7 +21,7 @@ Now we could can print out the hashes manually using the below code. (write the 
 int main(void) 
 {
 	printf("#    \n");
-    printf("##   \n");
+	printf("##   \n");
     printf("###  \n");
     printf("#### \n");
 }
