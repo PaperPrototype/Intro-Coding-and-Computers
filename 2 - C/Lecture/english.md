@@ -376,7 +376,7 @@ int main(void) {
 
 The `character` variable has a type of `char`. We use single quotes `''` around single characters, and double quotes `""` around *strings* of characters (aka words / phrases).
 
-We told `printf` to treat the `character` variable as a character, so we got `B`.
+The type for characters (ASCII strings) is `char`.
 
 # Comments
 In Python we can make programmer comments.
