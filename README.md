@@ -12,11 +12,9 @@ To download Discord https://discord.com/download
 
 THIS COURSE IS STILL A WORK IN PROGRESS. I will remove this message once it is finished. Feel free to add to the tutorials. 
 
-Currently only week part 0 to part 3 are done.
-
 # Quick links (Layout)
 
-LINKS ARE BROKEN RIGHT NOW
+LINKS ARE INCORRECT!!! THEY NEED FIXED
 
 [Week 0 - Fundamentals](https://github.com/PaperPrototype/Intro-to-Coding/tree/main/Week%200%20-%20Fundamentals)
 - [Lecture (click this)](https://github.com/PaperPrototype/Intro-to-Coding/blob/main/Week%200%20-%20Fundamentals/Lecture/english.md)
