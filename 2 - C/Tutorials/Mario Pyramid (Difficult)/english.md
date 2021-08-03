@@ -4,7 +4,7 @@ DON'T READ THIS TUTORIAL IT IS NOT CORRECT!
 
 This tutorial assumes you've finished the previous "Mario (Easy)" tutorial.
 
-The end goal for the tutorial is to print hashes to make a pyrmid like the one in mario, except this time it is slanted to the right. Below is an example.
+The end goal for this tutorial is to print hashes to make a half pyramid like the one in mario. Except in this case in needs to be slanted to the right. Below is an example.
 
 (example)
 ```
@@ -17,6 +17,8 @@ The end goal for the tutorial is to print hashes to make a pyrmid like the one i
 
 Lets do it! Make a new replit called "mario2".
 
+
+
 Now we could can print out the hashes manually using the below code. (write the below code).
 
 ```c
@@ -25,9 +27,9 @@ Now we could can print out the hashes manually using the below code. (write the 
 int main(void) 
 {
 	printf("   # \n");
-    printf("  ## \n");
-    printf(" ### \n");
-    printf("#### \n");
+	printf("  ## \n");
+	printf(" ### \n");
+	printf("#### \n");
 }
 ```
 
@@ -40,14 +42,16 @@ int main(void)
 {
 	int size = 5;
 
-	for (int hash = 0; hash < size; hash++) 
+	for (int hash = size; hash > 0; hash--) 
 	{
-        printf("#");
+		printf("#");
 	}
 
-	printf("n\");
+	printf("\n");
 }
 ```
+
+The above for loop starts the `hash` variable at `0`. It decreases the hash number until it reaches `0`.
 
 Run this code. It will print 5 hashes in a row.
 
@@ -65,22 +69,20 @@ We can put our loop (that prints hashes) inside of another loop to "stack" the h
 int main(void) 
 {
 	int size = 5;
-	
-	// new loop
-	for (int stack = 0; stack < size; stack++) 
-    {
 
-		for (int hash = 0; hash < size; hash++) 
-        {
-            printf("#");
-        }
+	for (int stack = 0; stack < size; stack++)
+	{
+		for (int hash = size; hash > 0; hash--) 
+		{
+			printf("#");
+		}
 
 		printf("\n");
 	}
 }
 ```
 
-Run this. It will print 5 hashes, stacked on top of eachother 5 times.
+We make sure to add a newline after every row of hashes. Run this. It will print 5 hashes, stacked on top of eachother 5 times.
 
 ```
 #####
@@ -90,7 +92,7 @@ Run this. It will print 5 hashes, stacked on top of eachother 5 times.
 #####
 ```
 
-To slowly make hashes increase as we move down we need an offset number. We will increase this offset number every stack.
+To slowly make hashes increase as we move down we need an offset number. We will increase this offset number every "stack".
 
 ```c
 #include <stdio.h>
@@ -100,14 +102,12 @@ int main(void)
 	int size = 5;
 
 	int offset = 0;
-	
-	for (int stack = 0; stack < size; stack++) 
-    {
 
-		for (int hash = 0; hash < size; hash++) 
-        {
-
-			if (hash <= offset)
+	for (int stack = 0; stack < size; stack++)
+	{
+		for (int hash = size; hash > 0; hash--) 
+		{
+			if (hash <= offset + 1)
 			{
 				printf("#");
 			}
@@ -120,7 +120,28 @@ int main(void)
 }
 ```
 
-Every time we print a hash we increase the hash variable. Run this code. You will see this.
+Every time we print a hash we increase the hash variable, and check if the hash variable has gotten bigger than the offset (remember we increase the offset every "stack" for loop). 
+
+The `<=` stands for "less than or equal to", so you can read this as.
+
+```
+if hash number is less than or equal to offset + 1
+{
+	print "#"
+}
+```
+
+When we check if the current hash number is less than the offset we have to add 1 to correct the pyramid slightly. Otherwise you would see this.
+
+```
+
+#
+##
+###
+####
+```
+
+Which isn't wrong... but its not what we want. Run the above code to see this.
 
 ```
 #
@@ -130,4 +151,4 @@ Every time we print a hash we increase the hash variable. Run this code. You wil
 #####
 ```
 
-And tada we made a pyramid!
+And we made a half pyramid!

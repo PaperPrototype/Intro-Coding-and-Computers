@@ -1,6 +1,6 @@
 ![] TODO show picture of mario's pyramid
 
-The end goal for the tutorial is to print hashes to make a pyrmaid like the one in mario. Below is an example.
+The end goal for the tutorial is to print hashes to make a half pyrmaid like the one in mario. Below is an example.
 
 (example)
 ```
@@ -101,7 +101,7 @@ int main(void)
 	{
 		for (int hash = size; hash > 0; hash--) 
 		{
-			if (hash < offset + 2)
+			if (hash <= offset + 1)
 			{
 				printf("#");
 			}
@@ -114,7 +114,28 @@ int main(void)
 }
 ```
 
-Every time we print a hash we increase the hash variable, and check if the hash variable has gotten bigger than the offset for its current stack. Run this code. You will see this.
+Every time we print a hash we increase the hash variable, and check if the hash variable has gotten bigger than the offset (remember we increase the offset every "stack" for loop). 
+
+The `<=` stands for "less than or equal to", so you can read this as.
+
+```
+if hash number is less than or equal to offset + 1
+{
+	print "#"
+}
+```
+
+When we check if the current hash number is less than the offset we have to add 1 to correct the pyramid slightly. Otherwise you would see this.
+
+```
+
+#
+##
+###
+####
+```
+
+Which isn't wrong... but its not what we want. Run the above code to see this.
 
 ```
 #
@@ -124,4 +145,4 @@ Every time we print a hash we increase the hash variable, and check if the hash 
 #####
 ```
 
-And we made a pyramid!
+And we made a half pyramid!
