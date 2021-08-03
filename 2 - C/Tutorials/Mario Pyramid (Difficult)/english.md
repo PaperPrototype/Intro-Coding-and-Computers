@@ -1,8 +1,10 @@
 ![] TODO show picture of mario's pyramid
 
-DON"T READ THIS TUTORIAL IT IS NOT CORRECT!
+DON'T READ THIS TUTORIAL IT IS NOT CORRECT!
 
-The end goal for the tutorial is to print hashes to make a pyrmaid like the one in mario. Below is an example.
+This tutorial assumes you've finished the previous "Mario (Easy)" tutorial.
+
+The end goal for the tutorial is to print hashes to make a pyrmid like the one in mario, except this time it is slanted to the right. Below is an example.
 
 (example)
 ```
@@ -13,7 +15,7 @@ The end goal for the tutorial is to print hashes to make a pyrmaid like the one 
 #####
 ```
 
-Lets do it! Make a new replit called "mario".
+Lets do it! Make a new replit called "mario2".
 
 Now we could can print out the hashes manually using the below code. (write the below code).
 

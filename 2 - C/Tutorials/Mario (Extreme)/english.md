@@ -1,4 +1,9 @@
 
+
+TODO re-write
+
+DON'T read this tutorial (yet) it is NOT correct and was from an older version of the course!
+
 Goal: Print hashes in the Terminal to make a full pyramid like the one from Mario.
 
 ```
