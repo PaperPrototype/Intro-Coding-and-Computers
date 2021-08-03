@@ -1,10 +1,9 @@
 ![] show picture of mario's pyramid
 
-The end goal for the tutorial is to print hashes to make a pyrmaid liek the one in mario. Below is an example.
+The end goal for the tutorial is to print hashes to make a pyrmaid like the one in mario. Below is an example.
 
 (example)
 ```
-~/Hello-C$ ./mario
     #
    ##
   ###
@@ -14,24 +13,21 @@ The end goal for the tutorial is to print hashes to make a pyrmaid liek the one 
 
 Lets do it! Make a new replit called "mario".
 
-Now we could print out hashes out manually. Type in the following code.
+Now we could can print out the hashes manually using the below code. (write the below code).
 
 ```c
 #include <stdio.h>
 
-int main(void) {
+int main(void) 
+{
 	printf("   # \n");
-	printf("  ## \n");
-	printf(" ### \n");
-	printf("#### \n");
+    printf("  ## \n");
+    printf(" ### \n");
+    printf("#### \n");
 }
 ```
 
-Run this code.
-
-The problem is it limits us to a certain pyramid size!
-
-But... if we use a for loop we can make our pyramid be any size we want.
+Run this code. The problem with this code is that the pyrmaid will never change! If we use a for loop we can dynamically change the pyramid based on a size. Change your code to the following.
 
 ```c
 #include <stdio.h>
@@ -44,40 +40,20 @@ int main(void)
 	{
         printf("#");
 	}
+
+	printf("n\");
 }
 ```
 
-Run this code. It prints 5 hashes in a row.
+Run this code. It will print 5 hashes in a row.
 
 ```
 #####
 ```
 
-Now we also need to add a newline at the end.
+This code loops, and every time it loops it increases the `hash` variable and prints a hash. Once the hash variable is greater than the `size` variable (which is set at 5) then the loop stops.
 
-```c
-#include <stdio.h>
-
-int main(void) 
-{
-	int size = 5;
-
-    for (int hash = 0; hash < size; hash++) 
-    {
-        printf("#");
-    }
-
-    printf("\n");
-}
-```
-
-This prints out 5 hashes with a newline at the end.
-
-```
-#####
-```
-
-Now lets put each row of hashes in another loop so that we "stack" the rows.
+We can put our loop (that prints hashes) inside of another loop to "stack" the hashes. Change your code ot the following.
 
 ```c
 #include <stdio.h>
@@ -86,6 +62,7 @@ int main(void)
 {
 	int size = 5;
 	
+	// new loop
 	for (int stack = 0; stack < size; stack++) 
     {
 
@@ -109,7 +86,7 @@ Run this. It will print 5 hashes, stacked on top of eachother 5 times.
 #####
 ```
 
-Now we need an offset that we increase every stack. This will give us a bigger offset each stack. 
+To slowly make hashes increase as we move down we need an offset number. We will increase this offset number every stack.
 
 ```c
 #include <stdio.h>
@@ -126,34 +103,8 @@ int main(void)
 		for (int hash = 0; hash < size; hash++) 
         {
 
-			printf("#");
-		}
-
-		offset++;
-
-		printf("\n");
-	}
-}
-```
-
-We can use that offset and check if the current hash is less than the offset giving us a slowly increasing stack!
-
-```c
-#include <stdio.h>
-
-int main(void) 
-{
-	int size = 5;
-
-	int offset = 0;
-	
-	for (int stack = 0; stack < size; stack++) 
-    {
-
-		for (int hash = 0; hash < size; hash++) 
-        {
-
-			if (hash <= offset) {
+			if (hash <= offset)
+			{
 				printf("#");
 			}
 		}
@@ -165,7 +116,7 @@ int main(void)
 }
 ```
 
-Run this code. You will see this.
+Every time we print a hash we increase the hash variable. Run this code. You will see this.
 
 ```
 #
