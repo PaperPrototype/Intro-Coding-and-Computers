@@ -12,11 +12,9 @@ To download Discord https://discord.com/download
 
 THIS COURSE IS STILL A WORK IN PROGRESS. I will remove this message once it is finished. Feel free to add to the tutorials. 
 
-Currently only week 0 and week 1 are done.
-
 # Quick links (Layout)
 
-LINKS ARE BROKEN RIGHT NOW
+LINKS ARE INCORRECT!!! THEY NEED FIXED
 
 [Week 0 - Fundamentals](https://github.com/PaperPrototype/Intro-to-Coding/tree/main/Week%200%20-%20Fundamentals)
 - [Lecture (click this)](https://github.com/PaperPrototype/Intro-to-Coding/blob/main/Week%200%20-%20Fundamentals/Lecture/english.md)
@@ -35,79 +33,3 @@ LINKS ARE BROKEN RIGHT NOW
     - Tutorials show you how to use the knowledge you learned in a cool project of your choice.
 
 This process is the same for every week.
-
-# Layout IDEAS (Random notes for indstructor DON'T read this)
-Course layout idea 2
-Week 0
-- coding is instructions for a computer
-- psuedo code for video game physics (gravity)
-- coding in scratch
-    - say hello 3 times
-    - functions (hello x times)
-- simulating gravity physics
-    - movement over time
-    - velocity and variables
-    - applying velocity
-
-- algorithm for searching?
-- linear search
-- pseudo code for linear search
-- divide and conquer search (binary search)
-- pseudo code for divide and conquer
-- Graphing algorithm work O(n)?
-- Work vs memory speed? (Memory is the slowest factor in speed -> TODO come back to later once memory is explained aka arrays)
-
-
-Week 1
-- compilers "compile" convert text into binary instructions
-- binary + hexadecimal + rgb
-- ASCII, -> Unicode
-- pictures
-- videos
-- music?
-- .png .excel .word .jpeg .gif etc etc because so many formats that people have made for how to represent data
-- your first text language C
-- compilers require syntax
-    - english language needs syntax
-    - take away all the paranthesis what is a function? which is a variable?
-    - use parenthesis, keywords (aka void) usualluy means a function
-- print
-- variables
-- functions
-- command line
-    - text instructions to a program
-    - compile c
-    - run c
-    - make a folder
-    - change directory (move through folders)
-- getting input?
-
-
-Week 2
-- Memory
-- Arrays
-- Memory is slow vs Number of steps, aka pointers are slow, arrays are fast
-- 
-
-
-Topics covered
-- none
-
-Topics that need covered
-- functions
-- variables
-- parameters (variables for functions)
-- gravity with code
-- search algorithms
-- linear search
-- binary search
-- C
-- algorithms O(n)
-- memory
-- pointers
-- arrays
-- git
-- hash tables
-- dictionaries
-- compression
-- installing a C compiler on mac / linux / windows
