@@ -222,6 +222,17 @@ Lets now run the resulting "main" program file. To run a program using a CLI we 
 
 The "." refers to our current folder. The "/main" refers to the "main" program file.
 
+# Make
+It will get annoying to have to write a clang command with the `-o` feature to rename the output program file to be named "main". SOoinstead we can use the make program.
+
+```
+make main
+```
+
+Run the above command. This will compile our "main.c" code into a program file called "main". The make program doesn't make us type the ".c" in `make main.c`, inctead we can just say `make main` and the make program figures out that the file is called "main.c". 
+
+The make program also outputs a program file called "main" and not "a.out".
+
 # Compilers
 Lets now understand how a compiler works.
 

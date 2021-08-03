@@ -41,7 +41,7 @@ The `integers` variable in the aboove code is an *address* to the first item in 
 
 ![memory array address](/Assets/memory_array_address.png)
 
-To access an item in the array we "go to" the first element in the array + an offset.
+To access an item in an array we "go to" the first element in the array + an offset.
 
 Change your code to the below to print out the second item in the list (Make sure to add a `\n`)
 
@@ -55,9 +55,9 @@ int main(void) {
 }
 ```
 
-This code accesses the second item in the array by using an offset of 1. The "offset" is what goes into the square brackets `[]` when we use the variable.
+This code accesses the second item in the array by using an offset of 1. The "offset" is what goes into the square brackets `[]` when we use the variable to access its items.
 
-But how much do we offset exactly? The offset uses the *size of the type*. Currently we are using an `int` type which is 4 bytes (4 "blocks") so we offset by `1 * 4`. You can test the size of a type by using the builtin `sizeof` function.
+When we offset using the curly brackets `[]` the offset uses the *size of the type* to know how many bytes to offset in memory. Currently we are using an `int` type which is 4 bytes (4 "blocks") so we offset by `1 * 4` to get to the second item in the array. You can test the size of a type by using the builtin `sizeof` function.
 
 Change the code to print out the size of the `int` type. (Make sure to add a `\n`)
 
@@ -74,7 +74,7 @@ int main(void) {
 }
 ```
 
-The size of a type is measured using a non negative `long` type, so when printing the size of a type we use an unsigned long specifier `%lu`. 
+The size of a type is measured using a unsigned (non negative) `long` type, so when printing the size of a type we use an unsigned long specifier `%lu`. 
 
 To access the first element we don't need an offset so its just `[0]`
 
@@ -95,42 +95,130 @@ int main(void) {
 It turns out that *strings* are an array of the type `char`. Edit the above code so that we have a `char` array that spells the word "Hello".
 
 ```c
+#include <stdio.h>
 
+int main(void) {
+	char hello[] = { 'H', 'e', 'l', 'l', 'o' };
+
+	printf("%s \n", hello);
+}
 ```
 
-# Pointers (aka address variables)
-Addresses 
-We call variables that hold an address "pointers".
+Now run the make command to compile the "array.c" code
 
-# Void
-void is an unkown type https://www.c-programming-simple-steps.com/what-is-void.html
+```
+make array
+```
 
-We can use void with a pointer to hold onto an unknown type. This is because addresses are per byte.
+Then run it using 
 
-![] picture of address to a byte
+```
+./array
+```
 
-A pointer using void will give you the address of the first byte of a type. If we hold onto an `int` using a void pointer we will reference the first byte of the 4 bytes in an `int`.
+you will see "Hello" get printed.
 
-![] picture of pointer to first byte (but int takes up more space)
+We use the string conversion specifier `%s`. Makings strings is so common that nobody writes strings this way. Instead we have special syntax for strings. 
 
-An int is 4 bytes, but the void pointer doesn't *how much* after the address is part of the type. So when we use the void pointer to access the data we have to "cast" it to the type it represents (so that we know how much after the address is part of the `int`)
+Change your code to the following.
 
 ```c
-void* pointer;
+#include <stdio.h>
 
-int number = 10;
+int main(void) 
+{
+	char hello[] = "Hello";
 
-// we know the type of number
-pointer = &number; // get the memeory address of the number variable
-
-// cast pointer to an int pointer
-int finalNumber = (int *)pointer;
+	printf("%s \n", hello);
+}
 ```
 
-TODO MAYBE? We can give back a void from a function.
+Now compile and run it using the shell (see above commands).
+
+TODO `\0` symbol
+
+# Pointers (aka address variables)
+In C, we call variables that hold an address "pointers". It turns out that using the square brackets `[]` after a variables name is also a shortcut.
+
+Change your code to the following.
+
+```c
+#include <stdio.h>
+
+int main(void) 
+{
+    // pointer
+	char* hello = "Hello";
+
+	printf("%s \n", hello);
+}
+```
+
+We change variable to be a pointer of the type char which gives us `char*`. The star symbol `*` means it is a pointer!
+
+# Void
+Since a pointer (aka address) simply points to the first byte of an array we don't have to tell the type!
+
+Change the code to the following.
+
+```c
+#include <stdio.h>
+
+int main(void) 
+{
+    // address to first byte
+	void* hello = "Hello";
+
+    //             convert to a char pointer "char*"
+	printf("%s \n", (char*) hello);
+}
+```
+
+Now compile and run the code using the shell.
+
+Void is an unkown type (but it also stands for "no input" in functions). By using `void` for the pointer type we can point to any array in memory! 
+
+When we use the void pointer `void*`, we have to know the type though. Otherwise we wouldn't know how much to offset in memory to get the next element in an array! So we cast the type (aka convert the type) with this line of code `(char*)`.
+
+If we hold onto an `int` using a void pointer we will reference the first byte of the 4 bytes in an `int`.
 
 # Getting Input 
-The main function gets input from the shell.
+The main function gets input from the shell. Except so far we haven't used this functionality. 
+
+Make a new file using the touch command called "input.c"
+
+```
+touch input.c
+```
+
+Write the following into "input.c".
+
+```c
+#include <stdio.h>
+
+int main(int argc, const char * argv[])
+{
+	
+}
+```
+
+Wow! What is `const char * argv[]`? Well the first part `const` just means we can't change the variables values (stuff inside the variable).
+
+The `char * argv[]` is weird. It is an array of addresses `char *` to an array of strings `argv[]`. Another way of writing this line of code would be.
+
+```c
+#include <stdio.h>
+
+int main(int argc, const char ** argv)
+{
+	
+}
+```
+
+If we visualize an array of addresses to an array of strings in memory it would look like this.
+
+![]
+
 
 
 # Loops + Arrays
