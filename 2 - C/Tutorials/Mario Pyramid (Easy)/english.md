@@ -20,9 +20,9 @@ Now we could can print out the hashes manually using the below code. (write the 
 
 int main(void) 
 {
-	printf("   # \n");
-    printf("  ## \n");
-    printf(" ### \n");
+	printf("#    \n");
+    printf("##   \n");
+    printf("###  \n");
     printf("#### \n");
 }
 ```
@@ -126,39 +126,4 @@ Every time we print a hash we increase the hash variable. Run this code. You wil
 #####
 ```
 
-Huh... its stacked the wrong way. We are increasing the offset each stack. If the current hash number is greater than the offset then we print a hash. So we got
-
-```
-#
-##
-###
-####
-#####
-```
-
-We recommend you pause and try to figure this out yourself. There is many ways to solve this.
-
-The answer we found was:
-
-first flip the hashes updside down.
-
-```
-#####
-#### 
-###  
-##   
-#  
-```
-
-You can do this by starting the the hash number at 5, so `int hash = size; hash > 0; hash--)` and decreasing it. Then changing the `if` statement to check if the hash is *bigger* than the offset in the `if` statement.
-
-Then replace printing the hashes using spaces. This results in the following being printed.
-
-```   
-    #
-   ##
-  ###
- ####
-```
-
-Which is not entirely correct (yes we are being picky). There is many complex solutions to this. But the easiest mental one is to add an offset to the `if` statement.
+And tada we made a pyramid!
