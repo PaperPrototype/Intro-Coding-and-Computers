@@ -2,6 +2,9 @@
 
 Goal: Print hashes in the Terminal to make a half pyramid like the one from Mario.
 
+Here is an example.
+
+(example)
 ```
 ~/Hello-C$ ./mario
     #
@@ -11,9 +14,9 @@ Goal: Print hashes in the Terminal to make a half pyramid like the one from Mari
 #####
 ```
 
-Make a new file called `mario.c` using `touch`. Open it using the "Files" tab.
+Lets do it! Make a new replit called "mario".
 
-We could print out hashes out manually. Type in the following code.
+Now we could print out hashes out manually. Type in the following code.
 
 ```c
 #include <stdio.h>
@@ -26,29 +29,30 @@ int main(void) {
 }
 ```
 
-Compile this using `make`. Then run it using `./mario`.
+Run this code.
 
-This limits us to a certain max pyramid size though!
+The problem is it limits us to a certain pyramid size!
 
-But if we use a for loop we can make our pyramid be any size we want.
+But... if we use a for loop we can make our pyramid be any size we want.
 
 ```c
 #include <stdio.h>
 
-int main(void) {
+int main(void) 
+{
 	int size = 5;
 
-	for (int hash = 0; hash < size; hash++) {
+	for (int hash = 0; hash < size; hash++) 
+	{
         printf("#");
-    }
+	}
 }
 ```
 
-This prints 5 hashes in a row.
+Run this code. It prints 5 hashes in a row.
 
 ```
-~/Hello-C$ ./mario
-#####~/Hello-C$
+#####
 ```
 
 Now we also need to add a newline at the end.
@@ -69,14 +73,10 @@ int main(void)
 }
 ```
 
-We also change the placement of the first curly bracket `{`. This is perfeclty correct code, just a different way of writing it. This will make the loop code easier to read.
-
 This prints out 5 hashes with a newline at the end.
 
 ```
-~/Hello-C$ ./mario
 #####
-~/Hello-C$ 
 ```
 
 Now lets put each row of hashes in another loop so that we "stack" the rows.
@@ -101,10 +101,9 @@ int main(void)
 }
 ```
 
-This will print 5 hashes, stacked on top of eachother 5 times.
+Run this. It will print 5 hashes, stacked on top of eachother 5 times.
 
 ```
-~/Hello-C$ ./mario
 #####
 #####
 #####
@@ -168,12 +167,9 @@ int main(void)
 }
 ```
 
-Compile this using `make`, then run it using `./mario`.
-
-You will see this.
+Run this code. You will see this.
 
 ```
-~/Hello-C$ ./mario
 #
 ##
 ###
@@ -191,7 +187,7 @@ Huh... its stacked the wrong way. We are increasing the offset each stack. If th
 #####
 ```
 
-We recommend you pause and try to figure this out yourself. 
+We recommend you pause and try to figure this out yourself. There is many ways to solve this.
 
 The answer we found was:
 
