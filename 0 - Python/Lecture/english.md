@@ -292,7 +292,7 @@ for number in range(12):
 This prints the numbers from 0 to 11 (in total you loop 12 times). For reasons we'll see later computers start counting at 0.
 
 ## While
-Python also has a while loop. Delete all the code and write this.
+Python also has a *while* loop. Delete all the code and write this.
 
 ```py
 counter = 0
@@ -304,7 +304,7 @@ while True:
 
 Woh! 
 
-`while` is a loop that runs *while* something is true. In this case its always true so it infinitely runs the code inside of it forever! `True` and `False` have to be uppercase in Python (again, I don't know why).
+`while` is a loop that runs *while* something is true. In this case its always true so it infinitely runs the code inside of it! Forever! `True` and `False` have to be uppercase in Python (again, I don't know why).
 
 We have a variable called a counter that we increase every loop and then print its *value* (the number it holds). Play this code and see how fast your computer can count!!
 
@@ -312,7 +312,7 @@ We have a variable called a counter that we increase every loop and then print i
 Lets write one of those progrsams that asks you to agree some to "terms and conditions".
 
 ```py
-answer = input("Do you agree to the terms and conditions:")
+answer = input("Do you agree to the terms and conditions?:")
 
 if answer == "yes":
 	print("Ha! You agreed to eating a booger!")
@@ -349,8 +349,35 @@ else:
 
 Obviously we could also provide a million different possible answers. 
 
+# Equality
+We can also check if a number is greater or less than using the greater than ">", and less than "<" symbols. Delete our previous (stupid) code (we don't want anyone to see it).
+
+```py
+a = 4
+b = 5
+
+if a > b:
+	print("a is greater than b")
+elif a < b:
+	print("a is less than b")
+```
+
+The word that says "elif" is just stands for "else if".
+
+We can also check if something is greater than or equal to ">=", or if its less than or equal to "<=". Edit our beautiful code to look like the following.
+
+```py
+a = 4
+b = 5
+
+if a >= b:
+	print("a is equal to or greater than b")
+else:
+	print("a is less than b")
+```
+
 # Functions
-Lets make our own function. Delete the code and type in the following code.
+Lets make our own function. Delete all our boring code and type in the exciting following code!
 
 ```py
 # defining a function that we can use later

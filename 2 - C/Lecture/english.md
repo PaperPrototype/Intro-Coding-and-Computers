@@ -398,7 +398,102 @@ int main(void) {
 
 notice the `// Treat 77 like ASCII character`, this comment will be ignored by the compiler.
 
+# Conditions
+Delete all your previous code (or if you don't want to then make a new repl). Now write this code.
+
+```c
+#include <stdio.h>
+
+int main(void) {
+	int a = 2;
+	int b = 3;
+
+	if (a < b) 
+	{
+		printf("%i is less than %i! \n Wow! thats surprising...\n", a, b);
+	}
+}
+```
+
+The condition for an if statement in C goes inside of parenthesis "()". I think you can figure out what this code is doing by now.
+
+Here are some example of if statements in C.
+
+(example)
+```c
+	// true
+	if (2 <= 3)
+	{
+		printf("2 is less than or equal to 3 \n");
+	}
+	else if (2 > 3)
+	{
+		printf ("2 is greater than 3? Really?! \n");
+	}
+	else
+	{
+		printf("At this point... I don't know what your thinking. \n");
+	}
+```
+
+In C we don't use the "elif" keyword like Python does, we just write "else if".
+
+# Loops
+A loop in C runs *while* something is true. The for loop in Python loops over a list. The "for" loop in C doesn't do this, instead a "for" loop is exactly like a while loop.
+
+## While loop
+```c
+#include <stdio.h>
+
+int main(void) 
+{
+	while (true) 
+	{
+		printf("Hello. Yes, its me again... No I did not bring pizza. \n \n");
+	}
+}
+```
+
+The `true` and `false` types are lowercase in C, whereas in Python they are uppercase, `True` and `False`.
+
+TODO TODO TODO
+
+This code won't actually work though! Because C doesn't come with *booleans* (`true` or `false` types) by default! We have to include them! This is because "false" in C is treated as the number zero, while true is any number above zero. 
+
+So the `true` and `false` types in C are actually an "alias" for the number 0 (false), and the number 1 (true).
+
+Include the `stdbool.h` file at the top so we can use the `true` type.
+
+```c
+#include <stdio.h>
+#include <stdbool.h>
+
+int main(void) 
+{
+	while (true) 
+	{
+		printf("Hello. Yes, its me again... No, I did not bring pizza. \n \n");
+	}
+}
+```
+
+This will infintally print the phrase "Hello. Yes, its me again... No, I did not bring pizza."
+
+Although this code does that really fast! Lets make the code wait about 1 second. We need to include
+
+## For loop
+
+# Casting
+TODO
+
 # Overflow
+TODO use while loop to increase number and print it.
+
+Lets try to make a massive number in C and print it. Edit the code to look like this. (Don't copy paste all of the code we show you, you won't learn how to code by doing that)
+
+```c
+
+```
 
 
 # Debugger!

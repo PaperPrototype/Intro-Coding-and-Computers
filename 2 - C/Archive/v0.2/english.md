@@ -838,16 +838,7 @@ int main(void) {
 
 You'll notice the `if` keyword followed by parenthesis `()`. The *condtion* of true or false is inside of the parenthesis.
 
-If the *condition* is true, **then** we run the code inside of the curly brackets.
-
-```
-printf("%i is less than %i! \n", a, b);
-
-prints out:
-    2 is less than 3!
-```
-
-We call this an "if statement".
+If the *condition* is true, **then** we run the code inside of the curly brackets. We call this an "if statement".
 
 We can also do an alternative check using an `else if` statement.
 
