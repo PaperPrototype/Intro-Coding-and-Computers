@@ -176,7 +176,6 @@ How does the shell, a "command line interface", know what the arguments were?
 
 Well we put a space after the name of the program `cd /` <- notice the space. So, if you didn't put a space you might get an error because the shell looked for a program called `cd/`.
 
-https://apple.stackexchange.com/questions/388622/zsh-zprofile-zshrc-zlogin-what-goes-where
 
 # Compiling
 With the C programming language we have to convert our code into series of 0 and 1 instructions for the computer. We store the result of converting our C code into binary instructions (specific to a CPU) in a file, called a program file. In Python we used a program that interpreted our text based code as it read it. With C we create programs from the code.

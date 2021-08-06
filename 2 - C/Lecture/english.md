@@ -227,9 +227,9 @@ int main(void) {
 }
 ```
 
-We use a hash symbol "#" followed by "include". "include" is called a "command".
+We use a hash symbol "#" followed by "include". "include" is called a "compiler directive".
 
-Commands after the hash "#" are things the compiler "pre-processes", which means when we *include* this file, the compiler literally replaces `#include <stdio.h>` with the code from the "stdio.h" file.
+Compiler directives after the hash "#" are things the compiler "pre-processes", which means when we *include* this file, the compiler literally replaces `#include <stdio.h>` with the code from the "stdio.h" file.
 
 (We will get to what a compiler is later, just know it converts text based code into `0`s and `1`s instructions for the computers processor)
 
@@ -777,10 +777,57 @@ If you have a really complex program that has many problems you can use a Debugg
 
 Open the debugger in replit.
 
-![]
+![replit debugger](/Assets/replit_debugger.png)
 
-Now add some "breakpoints" by clicking next to the line numbers.
+Replace your code with the following.
 
-![]
+```c
+#include <stdio.h>
+
+int main(void) 
+{
+	int size = 5;
+
+	int offset = 0;
+
+	for (int stack = 0; stack < size; stack++)
+	{
+		for (int hash = size; hash > 0; hash--) 
+		{
+			if (hash <= offset + 1)
+			{
+				printf("#");
+			}
+		}
+
+		offset++;
+
+		printf("\n");
+	}
+}
+```
+
+This is the code from the Mario Pyramid tutorials you will do after this lecture.
+
+Now add some "breakpoints" to the code by clicking next to the line numbers.
+
+![replit set breakpoints](/Assets/replit_set_breakpoints.gif)
+
+Now click the run button that is INSIDE of the debugger tab.
+
+![replit run debugger](/Assets/replit_run_debugger.png)
+
+Now you can step through your code to see what each variable is at each step / breakpoint! 
+
+![replit debugger step through](/Assets/replit_debugger_step_through.gif)
+
+This will help you a LOT when trying to find bugs in yours code. "bug" is a word used to refer to errors that we made when writing code that causes... things to break or... code that just doesn't work. This happens a lot, as you've probably already experienced!
+
+De-buggers let us *de-bug* code by stepping through it one line at a time. 
+
+# The rubber duck debugger
+A funny thing that apparently is very common (and I used to too when I first started) is called rubber duck debugging!
+
+The (quite funny) idea is that you explain your code to a rubber duck. And this really works! By sitting there explaining what your code is doing to someone (the joke is that you use a rubber duck) that you will find your own mistakes! It really works and even Harvard teaches their students to use it!
 
 If you encounter any errors and can't figure them out feel free to join our discord to get help https://discord.gg/QhqTE4t2tR <- here is the invite link.

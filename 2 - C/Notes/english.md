@@ -1,4 +1,5 @@
 # Terminology
+
 Interpreted Language
 > A text based programming language that an *interpreter* interprets into binary instructions as it reads them.
 
@@ -27,10 +28,13 @@ Functions
 > ```
 
 IEEE
-> Institute of Electrical and Electronics Engineers
+> Institute of Electrical and Electronics Engineers. They decided the format for Floats in memory
 
 Truncation
 > Cutting off the decimal places when use an int, or convert a float to an int. It is best to NOT do convert from a float to an int, and round the number. 
+
+Compiler directives
+> Code that tells the compiler to do something in the pre-process stage.
 
 # C Keywords
 
@@ -176,7 +180,6 @@ An alias for the number 1
 
 `false`
 An alias for the number 0
-
 
 # Included headers
 "unistd.h"
