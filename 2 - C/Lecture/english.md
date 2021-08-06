@@ -572,7 +572,7 @@ counter = counter + 1;
 
 Increasing a number by 1 is soooooo common that we have an even sugarier way of increasing a variable by 1.
 
-(sugariest way to increase a number by 1)
+(sugariest method to increase a number by 1)
 ```c
 counter++;
 ```
@@ -599,7 +599,7 @@ int main(void)
 
 		printf("Hey! Did you bring pizza?\n");
 
-		// increase counter
+		// super sugary way of increasing anumber by 1
 		counter++;
 	}
 }
@@ -616,7 +616,7 @@ for (int counter = 0; counter < 10; counter++)
 }
 ```
 
-The above is identical to using a while loop like below
+The above is identical to using a while loop like below.
 
 (example)
 ```c
@@ -629,19 +629,148 @@ while (counter < 10)
 }
 ```
 
+The only difference between these two pieces of code is that the for loop lets us put the counter variable, the condition checking if it is greater than 10, and increasing the `counter` variable, all in one line.
 
-# Casting
-TODO
+Change our annoying program to use a for loop.
 
-# Overflow
-TODO use while loop to increase number and print it.
-
-Lets try to make a massive number in C and print it. Edit the code to look like this. (Don't copy paste all of the code we show you, you won't learn how to code by doing that)
-
+(answer)
 ```c
+#include <stdio.h>
+#include <stdbool.h>
+#include <unistd.h>
 
+int main(void) 
+{
+	printf("Hey! Did you bring pizza?\n");
+
+	for (int counter = 0; counter < 10; counter++)
+	{
+		printf("Hello. Yes, its me again... No I did not bring pizza. \n \n");
+
+		sleep(2);
+
+		printf("Hey! Did you bring pizza?\n");
+	}
+}
 ```
 
+# Casting
+Delete all of our old code (or make a new repl called "casting", then select the C language). 
+
+What will happen if we divide to `int`'s? Since an `int` doesn't support decimal places they will literally just get cut off! So if we did `2 / 3` we won't get `0.6666...` instead we will just get `0`! 
+
+The only types (`int` and `char` are "types") that support decimal places are `float` and `double`. A float uses 32 bits, while a double uses 64 bits.
+
+Lets learn how to deal with dividing two `int`s. Paste in the following code.
+
+```c
+#include <stdio.h>
+
+int main(void) 
+{
+	int a = 2;
+	int b = 3;
+
+	float result = a / b;
+
+	printf("%f", result);
+}
+```
+
+We use the `%f` conversion specifier for printing out our float.
+
+Run this code.
+
+Even though the `result` variable is a float it will get a `0.0` (Honestly it is weird that C lets us set a `float` number to an int `number`). This is because when we divide `a` and `b` they give a `0`, but then we store that `0` in a float variable called `result`. The solution is to convert `a` and `b` to a `float` before we divide them.
+
+Change your code to the following.
+
+```c
+#include <stdio.h>
+
+int main(void) 
+{
+	int a = 2;
+	int b = 3;
+
+	float result = (float) a / (float) b;
+
+	printf("%f", result);
+}
+```
+
+We use two parenthesis around a type in front of a variable `(float) a`. This converts the `a` variable to float. We call this "casting". I can probably think of reasons why they called it that, but hey, thats what everyone calls a "cast" (aka `(float) a`).
+
+This will print out.
+
+```
+0.666667
+```
+
+(We also forgot to add a `\n`, but whatever!)
+
+## Imprecision
+You will also notice that our number gets rounded to the 6th place (or 6th column). We can tell `printf` to print out even more numbers after the decimal place!
+
+Change your code to the following.
+
+```c
+#include <stdio.h>
+
+int main(void) 
+{
+	int a = 2;
+	int b = 3;
+
+	float result = (float) a / (float) b;
+
+	printf("%.15f", result);
+}
+```
+
+We use some special syntax for the conversion specifier, namely `%.15f`. The `.15` tells `printf` to print out 15 places after the decimal point (we put the `f` at the end to tell `printf` the type).
+
+Run this code. It will print out `0.666666686534882`! "86534882" is definitely not part of `2 / 3`! This is actually a very common problem, and is why games have trouble simulating massive worlds! Often even if they are able to they start having precision problems and things... start breaking.
+
+Remember that a float uses only 32 bits! So it has limits. We can use a `double` to *double* the precision of the decimal places.
+
+Change your code to use a `double` instead of a `float.
+
+(answer)
+```c
+#include <stdio.h>
+
+int main(void) 
+{
+	int a = 2;
+	int b = 3;
+
+	double result = (double) a / (double) b;
+
+	printf("%.15f", result);
+}
+```
+
+We change the code to cast our `int` variables to a double, as well as change the `result` variable to a `double`. The conversion specifier for a `double` stays the same.
+
+# Overflow
+Now that we've seen the limitations of a float what will happen if we try to make a number that is really big?
+
+```c
+#include <stdio.h>
+
+int main(void) 
+{
+	int a = 2000000000;
+	int b = 2000000000;
+
+	printf("%i", a + b);
+}
+```
+
+If we run this we won't see 4 billion! Although we can hold 2 billion in an `int` once we add them together we get -294967296! 
+
+An `int` can hold negative numbers. We use the first bit of the 32 bits to represent a negative or positive sign, 0 = negative, 1 = positive. When we made the number grow past its max (which is 2147483648. 2^31, 2 to the 31st power), we end up changing the positive sign to a negative sign, as well as creating a weird number.
 
 # Debugger!
 If you have a really complex program that has many problems you can use a Debugger!

@@ -298,7 +298,7 @@ Python also has a *while* loop. Delete all the code and write this.
 counter = 0
 
 while True:
-    counter = counter + 1
+    counter = counter * 2
     print(counter)
 ```
 
@@ -306,7 +306,7 @@ Woh!
 
 `while` is a loop that runs *while* something is true. In this case its always true so it infinitely runs the code inside of it! Forever! `True` and `False` have to be uppercase in Python (again, I don't know why).
 
-We have a variable called a counter that we increase every loop and then print its *value* (the number it holds). Play this code and see how fast your computer can count!!
+We have a variable called a counter that we increase every loop and then print its *value* (the number it holds). Play this code. The number will keep getting bigger and bigger forever! In Python there is no limit to how big a number can get! (at least I don't think).
 
 # Conditions
 Lets write one of those progrsams that asks you to agree some to "terms and conditions".

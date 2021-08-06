@@ -283,7 +283,7 @@ You migh have wondered how your computer can have files and folders if the only 
 
 There is a program on your computer that manages presenting the millions of bytes in your computer as files and folders. Not interestingly these programs are called a "file system".
 
-# Size
+# Sizes
 There are different words we use to talk about memory sizes. Much liek the word "dollar" refers to 100 pennies.
 
 8 bits = 1 byte
