@@ -19,13 +19,13 @@ The shell window is a Command Line Interface. The console window is also a CLI b
 
 the tilde symbol is the "home" folder. Usually a home folder has your documents, downloads, and pictures folders. It is alos sometimes called your "user folder".
 
-The most basic command you can write is the list command
+The most basic command you can write is the list command.
 
 ```
 ls
 ```
 
-Write the `ls` command into the shell. Then click the enter (or return) key. Running the `ls` command lists all the files and folders who are in the same folder as us.
+Write the `ls` command into the shell. To run the list command click the enter (or return) key. Running the `ls` command lists all the files and folders who are in the same folder as us.
 
 You should see the following in the shell.
 
@@ -34,10 +34,11 @@ You should see the following in the shell.
 main.c
 ~/cli$ 
 ```
+You will see the "main.c" file get listed.
 
-We write our commands after the dollar sign. Thats actually the only thing the dollar sign is there for, to indicate where to write our commands.
+We write our commands after the dollar sign. Thats actually the only thing the dollar sign is there for, to indicate where to write our commands!
 
-Use the `ctrl` + `L` keys to clear the shell (actually it just moves all the old commands up and out of view).
+You can use the shortcut `ctrl` + `L` keys to clear the shell (actually it just moves all the old commands up and out of view).
 
 So how do we move into another folder? We can use the *change directory* command.
 
@@ -45,7 +46,7 @@ So how do we move into another folder? We can use the *change directory* command
 cd (insert name)
 ```
 
-After you type cd you can type the name of any neighboring folders to move into... but if there are none! So lets make one.
+After you type cd you can type the name of any neighboring folders to move into... but there are no folders to move into! Lets make one!
 
 Use the make directory command to make a new folder.
 
