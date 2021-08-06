@@ -88,7 +88,7 @@ Lets try this with the twos systemm, called "binary".
 1
 ```
 
-After only two symbols we have to add another column.
+In binary, after only two symbols we have to add another column.
 
 ```
 twos | ones
@@ -97,35 +97,35 @@ twos | ones
 1       0 = two
 ```
 
-See the pattern? And with this system we can count as high as we want!... Its just going to take a whole lot more columns than decimal (tens system) does! 
+See the pattern? And with this system we can count as high as we want, just like the tens system (its just going to take a whole lot more columns than decimal (tens system) does). 
 
 ```
-fours | twos | ones          decimal equivalent 
-0       0       0 =    0  =  0
-0       0       1 =    1  =  1
-0       1       0 =   10  =  2
-0       1       1 =   11  =  3
-1       0       0 =  100  =  4
-1       0       1 =  101  =  5
-1       1       0 =  110  =  6
-1       1       1 =  111  =  7
+4s | 2s | 1s   binary = decimal
+0    0    0   =    0   =   0
+0    0    1   =    1   =   1
+0    1    0   =   10   =   2
+0    1    1   =   11   =   3
+1    0    0   =  100   =   4
+1    0    1   =  101   =   5
+1    1    0   =  110   =   6
+1    1    1   =  111   =   7
 ```
 
 Although technically all these bits (a `0` or `1`) are just switches (or electric charges) all in a row in your memory the emtpy `0`s in front of our numbers would still be present as off switches (or off (negative) electric charges).
 
 ```
-fours | twos | ones          decimal (tens system)
-0       0       0 =  000  =  0
-0       0       1 =  001  =  1
-0       1       0 =  010  =  2
-0       1       1 =  011  =  3
-1       0       0 =  100  =  4
-1       0       1 =  101  =  5
-1       1       0 =  110  =  6
-1       1       1 =  111  =  7
+4s | 2s | 1s          decimal
+0    0    0 =  000  =  0
+0    0    1 =  001  =  1
+0    1    0 =  010  =  2
+0    1    1 =  011  =  3
+1    0    0 =  100  =  4
+1    0    1 =  101  =  5
+1    1    0 =  110  =  6
+1    1    1 =  111  =  7
 ```
 
-In computers we have to have decide before hand how high we want to count. We then reserve some 0s and 1s in our memory for that number. We can't just increase the number of bits (`0`s and `1`s) we use for a number (if say we decide we want to be able to count higher) because the neighboring `0`s and `1`s are probably being used for something else!
+In computers we have to have decide how many 0s and 1s to use for a number, and then reserve some 0s and 1s in our memory for that number. We can't just increase the number of bits (`0`s and `1`s) we use for the number (if say we decide we want to be able to count higher) because the neighboring `0`s and `1`s are probably being used for something else!
 
 # ASCII
 Now that we can count using binary we'll use those numbers and map them to specific symbols and characters. The ASCII standard is very old but is still used today by programming languages like the C programming language. C actually lets us manipulate the `0`s and `1`s, but we'll get to that another time.
