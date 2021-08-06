@@ -439,7 +439,7 @@ Here are some example of if statements in C.
 In C we don't use the "elif" keyword like Python does, we just write "else if".
 
 # Loops
-A loop in C runs *while* something is true. The for loop in Python loops over a list. The "for" loop in C doesn't do this, instead a "for" loop is exactly like a while loop.
+A loop in C runs *while* something is true. The for loop in Python loops over a list. The "for" loop in C doesn't do this, instead a C "for loop" is a shortcut version of a while loop.
 
 ## While loop
 ```c
@@ -477,11 +477,158 @@ int main(void)
 }
 ```
 
-This will infintally print the phrase "Hello. Yes, its me again... No, I did not bring pizza."
+This will infinitely print the phrase "Hello. Yes, its me again... No, I did not bring pizza."
 
-Although this code does that really fast! Lets make the code wait about 1 second. We need to include
+Although this code does that really fast! Lets make the code wait about 2 seconds every loop.
 
-## For loop
+We need to include a *library* called "unistd.h" (the word "library" just means lots of code written by other people provided through a header file).
+
+```c
+#include <stdio.h>
+#include <stdbool.h>
+#include <unistd.h>
+
+int main(void) 
+{
+	while (true) 
+	{
+		printf("Hello. Yes, its me again... No I did not bring pizza. \n \n");
+		
+		sleep(2);
+	}
+}
+```
+
+And lets make the conversation more interesting by adding some questions.
+
+```c
+#include <stdio.h>
+#include <stdbool.h>
+#include <unistd.h>
+
+int main(void) 
+{
+	printf("Hey! Did you bring pizza?\n");
+
+	while (true) 
+	{
+		printf("Hello. Yes, its me again... No I did not bring pizza. \n \n");
+		
+		sleep(2);
+
+		printf("Hey! Did you bring pizza?\n");
+	}
+}
+```
+
+Run this code. Pretty cool right? The sleep function makes our code wait 2 seconds.
+
+Now lets prevent the above loop from running forever and limit it to 10 rounds of annoying jabber. We will make a variable called counter and increase it every loop.
+
+```c
+#include <stdio.h>
+#include <stdbool.h>
+#include <unistd.h>
+
+int main(void) 
+{
+	printf("Hey! Did you bring pizza?\n");
+
+	int counter = 0;
+
+	// loop only if counter is less than 10
+	while (counter < 10) 
+	{
+		printf("Hello. Yes, its me again... No I did not bring pizza. \n \n");
+
+		sleep(2);
+
+		printf("Hey! Did you bring pizza?\n");
+
+		// increase counter
+		counter = counter + 1;
+	}
+}
+```
+
+...then check each loop if counter is less than 10. If counter becomes bigger than 10 then the loop will stop running.
+
+Run this code. 
+
+# Syntax sugar
+It turns out that increasing a number is so common we have shortcuts (called "syntax sugar") for doing them.
+
+(example)
+```c
+counter += 1;
+```
+
+The above will increase the counter variable by 1. The above code is identical to our previous method of increasing a variable.
+
+(previous method)
+```c
+counter = counter + 1;
+```
+
+Increasing a number by 1 is soooooo common that we have an even sugarier way of increasing a variable by 1.
+
+(sugariest way to increase a number by 1)
+```c
+counter++;
+```
+
+Change your code to use the super sugary way of increasing a number.
+
+(answer)
+```c
+#include <stdio.h>
+#include <stdbool.h>
+#include <unistd.h>
+
+int main(void) 
+{
+	printf("Hey! Did you bring pizza?\n");
+
+	int counter = 0;
+
+	while (counter < 10) 
+	{
+		printf("Hello. Yes, its me again... No I did not bring pizza. \n \n");
+
+		sleep(2);
+
+		printf("Hey! Did you bring pizza?\n");
+
+		// increase counter
+		counter++;
+	}
+}
+```
+
+## For loops
+Using a while loop to loop a certain number of times can get annoying so we have a way to loop a certain number of times using only 1 line called a "for loop".
+
+(example)
+```c
+for (int counter = 0; counter < 10; counter++)
+{
+	// code goes here
+}
+```
+
+The above is identical to using a while loop like below
+
+(example)
+```c
+int counter = 0;
+while (counter < 10) 
+{
+	// code goes here
+
+	counter++;
+}
+```
+
 
 # Casting
 TODO

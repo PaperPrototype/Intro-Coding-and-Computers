@@ -11,8 +11,9 @@ The history of Graphical User Interfaces https://www.youtube.com/watch?v=pQocN_c
 
 https://www.extremetech.com/computing/104661-how-steve-jobs-stole-the-mouse-and-gui-video
 
-# CLI Commands
+# CLI
 
+## Common command
 Compile and run
 `make myProgram`
 `./myProgram`
@@ -25,6 +26,11 @@ Clear shell
 
 Cancel (Stop) program
 `ctrl` + `C`
+
+## How it works
+Information in a profile file gets loaded by the shell. Using the profile file it loads programs like `cd`.
+
+https://apple.stackexchange.com/questions/388622/zsh-zprofile-zshrc-zlogin-what-goes-where
 
 # Compilers
 Make

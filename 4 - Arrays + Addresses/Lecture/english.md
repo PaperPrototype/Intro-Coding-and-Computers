@@ -224,7 +224,7 @@ If we visualize an array of addresses to an array of strings in memory it would 
 # Loops + Arrays
 Now we can use a `for` loop on an array. This is pretty cool.
 
-TODO (maybe in below section)
+TODO
 - `break` keyword
 - `return` keyword
 - `continue` keyword

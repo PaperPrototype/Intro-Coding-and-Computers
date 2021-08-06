@@ -165,6 +165,19 @@ use one of these commands:
 ~/cli$
 ```
 
+# CLI explained
+So how did this all work? When we type `cd` (and some arguments) and hit enter, the *shell* looks for a program called `cd`.
+
+There is a file called a "profile" that the shell uses to find the different programs. You can add your own programs to the profile file! So you could actually make your own "command line" programs!
+
+Once the shell finds a program, for example `cd`, it sends the *arguments* (aka input) we typed after the word `cd` and passes them to the `cd` program (that the shell ran for us). `cd` then figures out what to do based on the arguments (aka input) we typed.
+
+How does the shell, a "command line interface", know what the arguments were?
+
+Well we put a space after the name of the program `cd /` <- notice the space. So, if you didn't put a space you might get an error because the shell looked for a program called `cd/`.
+
+https://apple.stackexchange.com/questions/388622/zsh-zprofile-zshrc-zlogin-what-goes-where
+
 # Compiling
 With the C programming language we have to convert our code into series of 0 and 1 instructions for the computer. We store the result of converting our C code into binary instructions (specific to a CPU) in a file, called a program file. In Python we used a program that interpreted our text based code as it read it. With C we create programs from the code.
 
@@ -284,3 +297,9 @@ We then go through another step called "assembling". AN assembler program conver
 Finally we have "linking". Linking takes files that have already been compiled into binary and "links" them all together into one program file. For example, it is common for the code for the "math.h" code to come already compiled. So rather than the compiler having to compile "math.h" every time, it can just link the binary version at the end. This saves a lot of time in projects with lots of code.
 
 Alright! Now you know how a compiler works!
+
+
+TODO
+- To stop the onslaught of click inside of the shell then click the `ctrl` + `C` keys. This "cancels" the program.
+- To clear the shell use `ctrl` + `L`
+- How the heck did this work?

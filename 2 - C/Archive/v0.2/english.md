@@ -968,7 +968,7 @@ Hint:
 - `make loop`
 - `./loop`
 
-To stop the onslaught of "hello world!" click inside of the shell and click `ctrl` + `C`. Ths "cancels" the program.
+To stop the onslaught of "hello world!" click inside of the shell and click `ctrl` + `C`. This "cancels" the program.
 
 It may take few seconds for it to stop because of the delay. Now clear the shell using `ctrl` + `L`.
 

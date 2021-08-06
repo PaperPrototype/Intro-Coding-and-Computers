@@ -8,17 +8,6 @@ Interpreter
 Compiled Language
 > A text based programming language that gets compiled (through a process called "compiling") into the binary instructions as a program or app.
 
-Make
-> A program that automically takes care of running a compiler with the rename command (it also takes care of linking).
-
-Compiling
-> The process of converting a text based programming language into binary instructions using a Compiler.
-
-Clang
-> A compiler for the C family of programming languages C, C++, Objective-C, Objective-C++.
-> clang explained in detail https://www.joshwieder.net/2014/11/compiling-c-using-clang.html
-
-
 Syntax
 > A specific way of writing code so that the compiler can correctly process convert it to binary instructions (0s and 1s).
 
@@ -187,3 +176,16 @@ An alias for the number 1
 
 `false`
 An alias for the number 0
+
+
+# Included headers
+"unistd.h"
+- `sleep` function
+- https://www.poftut.com/what-is-sleep-function-and-how-to-use-it-in-c-program/
+
+"stdio.h"
+
+"stdbool.h"
+- booleans use 1 byte = 8 bits
+- `true` is an alias for 1
+- `false` is an alias for 0
