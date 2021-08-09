@@ -1,31 +1,39 @@
-Clicking a run button, or using our mouse to navigate acomputer is what most of us are used to. We call this  Graphical User Interface, or GUI for short.
+Clicking a run button, or using our mouse to navigate a computer is what most of us are used to. We call this a Graphical User Interface, or GUI for short.
 
-Now we are going to learn to use an older way of navigating and using computers called a Command Line Interface, or CLI for short.
+But before the time of GUIs we had small black consoles with little white letters that only the beardiest hackers could use. We call these consoles Command Line Interfaces, or CLI for short.
+
+We are now going to learn to use a CLI! They are actually an extremely common tool that programmers use (and they make you look like a pro XD).
 
 # Shell
-Go to this link https://replit.com/ to open up replit. Now make a new repl. Choose the C programming language. Name the new repl "cli".
+Go to this link https://replit.com/ to open up replit. Now make a new repl. Select the C programming language. Then name the new repl "cli".
 
-You should see the default "Hello world" program made by C.
+You should see the default "Hello world" code in your new repl.
 
-Now open the window called Shell.
+Open the window called Shell.
 
 ![replit ide shell](/Assets/replit_ide_shell.png)
 
-The shell window is a Command Line Interface. The console window is also a CLI but a shell is usually more helpful because it tells us what folder we are currently in. The word "cli" is the name of the folder we are in.
+The shell window is a Command Line Interface. The console window is also a CLI, but the shell is usually more helpful because it tells us what folder we are currently in. 
+
+You'll notice the word "cli" in the shell.
 
 ```
 ~/cli$
 ```
 
-the tilde symbol is the "home" folder. Usually a home folder has your documents, downloads, and pictures folders. It is alos sometimes called your "user folder".
+"cli" is the name of the folder we are in. A shell basivcally lets you do stuff through the files and folders of a computer.
 
-The most basic command you can write is the list command.
+You will also notice the tilde symbol `~`. The tilde symbol `~` represents the "home" folder. Usually a home folder has your documents, downloads, and pictures folders. It is also sometimes called your "user folder".
+
+The most basic command you can run is the list command.
 
 ```
 ls
 ```
 
-Write the `ls` command into the shell. To run the list command click the enter (or return) key. Running the `ls` command lists all the files and folders who are in the same folder as us.
+Write the `ls` command into the shell. Now run it. To run a command click the enter (or return) key on your keyboard (similar to clicking enter when you send a message to someone). 
+
+Running the `ls` command lists all the files and folders *who are in the same folder as us*.
 
 You should see the following in the shell.
 
@@ -34,30 +42,31 @@ You should see the following in the shell.
 main.c
 ~/cli$ 
 ```
-You will see the "main.c" file get listed.
 
-We write our commands after the dollar sign. Thats actually the only thing the dollar sign is there for, to indicate where to write our commands!
+The "main.c" file get will probably get listed. It is the file that is holding the code you see!
+
+You will also notice the dollar sign `$`. We write our commands after the dollar sign... thats... actually the only thing the dollar sign is there for, as a visual indicator for where to write our commands!
 
 You can use the shortcut `ctrl` + `L` keys to clear the shell (actually it just moves all the old commands up and out of view).
 
-So how do we move into another folder? We can use the *change directory* command.
+So how do we move into another folder? We can use the *change directory* command. The "cd" (change directory) command is formatted like this.
 
 ```
-cd (insert name)
+cd (replace this with name of folder)
 ```
 
-After you type cd you can type the name of any neighboring folders to move into... but there are no folders to move into! Lets make one!
+After you type cd you can type the name of any neighboring folders... but there are no folders to move into, so lets make one!
 
-Use the make directory command to make a new folder.
+Use the make directory "mkdir" command to make a new folder.
 
 ```
 mkdir myNewFolder
 ```
 
-Write the above command into the shell (or just copy paste it). Click the enter (or return) key to run the command.
+Write the above command into the shell (or just copy paste it). Click the enter (or return) key to run the command. This will make a new folder called "myNewFolder".
 
-Now run the `ls` command to see your new folder get listed. 
-It should look like this.
+Now run the `ls` command to see our new folder get listed!
+Your CLI (aka, the Shell) should look like this.
 
 ```
 ~/cli$ mkdir myNewFolder
@@ -66,7 +75,7 @@ main.c  myNewFolder
 ~/cli$ 
 ```
 
-You can see the name of your folder as well as our main.c file.
+You can see our folder as well as our main.c file gets listed.
 
 Now move into your new folder by using the `cd` command.
 
@@ -74,20 +83,20 @@ Now move into your new folder by using the `cd` command.
 cd myNewFolder
 ```
 
-After your run this command you will see that the current folder has changed.
+After your run this command you will see that the current folder has changed!
 
 ```
 ~/cli$ cd myNewFolder
 ~/cli/myNewFolder$ 
 ```
 
-We can also make files using the touch command.
+HA! We can also make new files using the touch command.
 
 ```
 touch myNewFile
 ```
 
-Run the above command. Now run the list command. You should see the following in your shell.
+Run the above command. Now run the list command. Your Shell should look like this.
 
 ```
 ~/cli/myNewFolder$ touch myNewFile
@@ -96,45 +105,52 @@ myNewFile
 ~/cli/myNewFolder$
 ```
 
-Now how do we get back to our cli parent folder? Run the below command.
+Now how do we get back to our parent folder (the "cli" folder)? Run the below command. It will move us into our parent folder!
 
 ```
 cd ..
 ```
 
-The `..` in computers usually refers to a parent folder (from the current folder). So by running 
+A double period `..` in computers usually refers to the parent folder (from the current folder). So by running 
 
 ```
 cd ..
 ```
 
-you move into our parent folder! You should see the follwoing in the shell.
+...you move into our parent folder! You should see the follwoing in the shell.
 
 ```
 ~/cli/myNewFolder$ cd ..
 ~/cli$ 
 ```
 
-We can delete files using the remove command.
+Make sure your shell looks like this! And that you are in the "cli" folder before continuing!
+
+Now we can delete files using the remove command.
 
 ```
-rm
+rm (name of file)
 ```
 
-But if we want to delete *folders* we also have to remember that folders can conatain other folders and files. So we have to tell the remove command to enable a "feature".
+But if we want to delete *folders* we also have to remember that folders can contain other folders and files! So we have to tell the remove command to enable a "feature".
 
 ```
 rm -r myNewFolder
 ```
 
-Run the above command. This will delete the "myNewFolder" folder, as well as the "myNewFile" inside of that folder.
+Run the above command. This will delete the "myNewFolder" folder, as well as the "myNewFile" inside of "myNewFolder folder.
+
+(if you run `ls` you will see that "myNewFolder" has been deleted!)
 
 This above command uses the *recursive remove* feature `-r`, which goeas through any sub-folders and files inside of "myNewFolder" and deletes them. 
 
-The word `myNewFolder` is called an argument. The `-r` in the remove command is called a feature "flag" (Theres a name for everything!). Although sometimes flags use two minus signs `--` instead of one `-`.
+In the command we typed "myNewFolder". "myNewFolder" is called an argument. 
 
-If you run the remove command with the `--help` flag you will see a list of all the feature flags for the remove program.
+The `-r` in the remove command is called a feature "flag" (Theres a name for everything!). Although sometimes flags use two minus signs `--` instead of one `-`.
 
+If you run the remove command with the `--help` flag (like this `rm --help`) you will see a list of all the *feature flags* for the remove program!
+
+(example)
 ```
 ~/cli$ rm --help
 Usage: rm [OPTION]... [FILE]...
@@ -144,7 +160,7 @@ Remove (unlink) the FILE(s).
   -i                    prompt before every removal
   -I                    prompt once before removing more than three files, or
 
-... deleted extra output for brevity
+... I deleted the extra output to make this shorter to read
 
   -r, -R, --recursive   remove directories and their contents recursively
   -d, --dir             remove empty directories
@@ -169,7 +185,12 @@ use one of these commands:
 # CLI explained
 So how did this all work? When we type `cd` (and some arguments) and hit enter, the *shell* looks for a program called `cd`.
 
-There is a file called a "profile" that the shell uses to find the different programs. You can add your own programs to the profile file! So you could actually make your own "command line" programs!
+There is a file called a "profile" that the shell uses to find the different programs. You can add your own programs to the profile *file*!
+
+TODO
+- show how to find profile *file* for Replit
+
+You could actually make your own "command line" programs (like cd and rm) by simply adding them to the *profile* file!
 
 Once the shell finds a program, for example `cd`, it sends the *arguments* (aka input) we typed after the word `cd` and passes them to the `cd` program (that the shell ran for us). `cd` then figures out what to do based on the arguments (aka input) we typed.
 
