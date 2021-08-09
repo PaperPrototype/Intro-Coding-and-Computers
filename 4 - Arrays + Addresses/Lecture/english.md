@@ -39,11 +39,14 @@ In C, an array variable is an *address*. Addresses are a number telling us what 
 
 The `integers` variable in the aboove code is an *address* to the first item in the array.
 
+TODO
+- currently the picture below is incorrect since an `int` uses 4 bytes, not 2.
+
 ![memory array address](/Assets/memory_array_address.png)
 
-To access an item in an array we "go to" the first element in the array + an offset.
+To access an item in an array we "go to" the first element in the array + an offset. 
 
-Change your code to the below to print out the second item in the list (Make sure to add a `\n`)
+Change your code to the below to print out the second item in the list by using an offset of 1 (Make sure to add a `\n`)
 
 ```c
 #include <stdio.h>
@@ -55,9 +58,14 @@ int main(void) {
 }
 ```
 
-This code accesses the second item in the array by using an offset of 1. The "offset" is what goes into the square brackets `[]` when we use the variable to access its items.
+The "offset" is what goes into the square brackets `[]`.
 
-When we offset using the curly brackets `[]` the offset uses the *size of the type* to know how many bytes to offset in memory. Currently we are using an `int` type which is 4 bytes (4 "blocks") so we offset by `1 * 4` to get to the second item in the array. You can test the size of a type by using the builtin `sizeof` function.
+When we offset using the square brackets `[]` the number of bytes (blocks) we offset depend on the *size of the type*. Currently we are using an `int` type which is 4 bytes (4 blocks) so we offset by `1 * 4` to get to the second item in the array. 
+
+TODO
+- show picture of offsetting
+
+You can test the size of a type by using the builtin `sizeof` function.
 
 Change the code to print out the size of the `int` type. (Make sure to add a `\n`)
 
@@ -296,7 +304,7 @@ Just so you know, argc doesn't start counting at 0. If we put 2 arguments (inclu
 
 In the above code we print an error message and "return" an error code of 1 if no argument was given. 
 
-Any code after a `return` keyword won't get run. This prevents us from running the greeting message "Hello, mikey", since the word "mikey" wouldn't exist (or any other word you put)!
+Any code after a `return` keyword won't get run (to an extend). This prevents us from running the greeting message "Hello, mikey", since the word "mikey" wouldn't exist (or any other word you put)!
 
 If we do put 2 arguments, then print the greeting message, and return an error code of 0 (0 meaning nothing went wrong).
 
