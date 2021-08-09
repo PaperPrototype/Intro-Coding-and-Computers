@@ -456,11 +456,7 @@ int main(void)
 
 The `true` and `false` types are lowercase in C, whereas in Python they are uppercase, `True` and `False`.
 
-TODO TODO TODO
-
-This code won't actually work though! Because C doesn't come with *booleans* (`true` or `false` types) by default! We have to include them! This is because "false" in C is treated as the number zero, while true is any number above zero. 
-
-So the `true` and `false` types in C are actually an "alias" for the number 0 (false), and the number 1 (true).
+This code won't actually work though! Because C doesn't come with *booleans* (`true` or `false` types) by default! We have to include them! This is because "false" in C is treated as the number zero, while true is any number above zero. The `true` and `false` types in C are actually an "alias" for the number 0 (false), and the number 1 (true).
 
 Include the `stdbool.h` file at the top so we can use the `true` type.
 
@@ -534,6 +530,7 @@ int main(void)
 {
 	printf("Hey! Did you bring pizza?\n");
 
+	// counter variable
 	int counter = 0;
 
 	// loop only if counter is less than 10
@@ -551,12 +548,12 @@ int main(void)
 }
 ```
 
-...then check each loop if counter is less than 10. If counter becomes bigger than 10 then the loop will stop running.
+...then check each loop if counter is less than 10. If `counter` becomes bigger than 10 then the loop will stop running.
 
 Run this code. 
 
 # Syntax sugar
-It turns out that increasing a number is so common we have shortcuts (called "syntax sugar") for doing them.
+It turns out that increasing a number is so common we have "syntax sugar" (aka a shortcut) for doing this!
 
 (example)
 ```c
@@ -570,14 +567,14 @@ The above will increase the counter variable by 1. The above code is identical t
 counter = counter + 1;
 ```
 
-Increasing a number by 1 is soooooo common that we have an even sugarier way of increasing a variable by 1.
+Increasing a number by 1 is soooooo common that we have an even sugarier method.
 
 (sugariest method to increase a number by 1)
 ```c
 counter++;
 ```
 
-Change your code to use the super sugary way of increasing a number.
+Change your code to use the super sugary way of increasing a variable by 1.
 
 (answer)
 ```c
@@ -599,14 +596,14 @@ int main(void)
 
 		printf("Hey! Did you bring pizza?\n");
 
-		// super sugary way of increasing anumber by 1
+		// super sugary way of increasing a variable by 1
 		counter++;
 	}
 }
 ```
 
-## For loops
-Using a while loop to loop a certain number of times can get annoying so we have a way to loop a certain number of times using only 1 line called a "for loop".
+# For loops
+Using a while loop to loop a certain number of times can get annoying so we have the "for loop", which is a shortcut for the while loop.
 
 (example)
 ```c
@@ -616,7 +613,7 @@ for (int counter = 0; counter < 10; counter++)
 }
 ```
 
-The above is identical to using a while loop like below.
+The above is identical to using a while loop.
 
 (example)
 ```c
@@ -629,9 +626,9 @@ while (counter < 10)
 }
 ```
 
-The only difference between these two pieces of code is that the for loop lets us put the counter variable, the condition checking if it is greater than 10, and increasing the `counter` variable, all in one line.
+The only difference between these two pieces of code is that we do all the variable stuff in one line. We also use a semicolon `;` to separate each part.
 
-Change our annoying program to use a for loop.
+Change our pizza begging program to use a for loop.
 
 (answer)
 ```c
@@ -655,11 +652,11 @@ int main(void)
 ```
 
 # Casting
-Delete all of our old code (or make a new repl called "casting", then select the C language). 
+Delete all of our old code. Or if you don't like that, you can make a new repl called "casting" (select the C language) and continue by using the new repl.
 
-What will happen if we divide to `int`'s? Since an `int` doesn't support decimal places they will literally just get cut off! So if we did `2 / 3` we won't get `0.6666...` instead we will just get `0`! 
+What will happen if we divide to `int`'s? Since an `int` doesn't support decimal places they will literally just cut off any fractions! So if we did `2 / 3` we won't get `0.6666...` instead we will just get `0`! 
 
-The only types (`int` and `char` are "types") that support decimal places are `float` and `double`. A float uses 32 bits, while a double uses 64 bits.
+The only types (`int` and `char` are "types") that support decimal places are the `float` and `double` types. A float uses 32 bits, while a double uses 64 bits (obviously with a double we get twice as big numbers).
 
 Lets learn how to deal with dividing two `int`s. Paste in the following code.
 
@@ -677,13 +674,15 @@ int main(void)
 }
 ```
 
-We use the `%f` conversion specifier for printing out our float.
+We use the `%f` conversion specifier for printing a float.
 
 Run this code.
 
-Even though the `result` variable is a float it will get a `0.0` (Honestly it is weird that C lets us set a `float` number to an int `number`). This is because when we divide `a` and `b` they give a `0`, but then we store that `0` in a float variable called `result`. The solution is to convert `a` and `b` to a `float` before we divide them.
+Even though the `result` variable is a float it will get a `0.0` from the ints `a` and `b`. This is because when we divide `a` and `b` they give an `int` (and `int`'s don;\'t support decimals!). 
 
-Change your code to the following.
+The solution is to convert `a` and `b` to a `float` before we divide them.
+
+Change the code to the following.
 
 ```c
 #include <stdio.h>
@@ -699,9 +698,9 @@ int main(void)
 }
 ```
 
-We use two parenthesis around a type in front of a variable `(float) a`. This converts the `a` variable to float. We call this "casting". I can probably think of reasons why they called it that, but hey, thats what everyone calls a "cast" (aka `(float) a`).
+We use two parenthesis around the `float` type in front of the variables `(float) a`. This converts the `a` variable to float. We call this "casting". I can probably think of reasons why they called it "casting", but hey, anyone can come up with an excuse! When we "cast" something `(float) a` we are telling C to treat one type like it was the type we are casting it too.
 
-This will print out.
+If you run the new code it will print out.
 
 ```
 0.666667
@@ -710,7 +709,7 @@ This will print out.
 (We also forgot to add a `\n`, but whatever!)
 
 ## Imprecision
-You will also notice that our number gets rounded to the 6th place (or 6th column). We can tell `printf` to print out even more numbers after the decimal place!
+You will also notice that our number gets rounded to the 6th place (or 6th column). We can tell `printf` to print out even more numbers after the decimal place to see how "precise" a float can be (eg. how many numbers after the decimal place it can represent using only 32 bits).
 
 Change your code to the following.
 
@@ -728,11 +727,13 @@ int main(void)
 }
 ```
 
-We use some special syntax for the conversion specifier, namely `%.15f`. The `.15` tells `printf` to print out 15 places after the decimal point (we put the `f` at the end to tell `printf` the type).
+Inside of `printf` we change the cpnversion specifer syntax to `%.15f`. The `.15` tells `printf` to print out 15 places after the decimal point, then we put the `f` at the end to tell `printf` it is a `float`.
 
-Run this code. It will print out `0.666666686534882`! "86534882" is definitely not part of `2 / 3`! This is actually a very common problem, and is why games have trouble simulating massive worlds! Often even if they are able to they start having precision problems and things... start breaking.
+Run this code. It will print out `0.666666686534882`! "86534882" is definitely not part of `2 / 3`! This is actually a very common problem, and is why games have trouble simulating massive worlds! After a certain point using only 32 bits we can't represetn super precise numbers! So you'll start having precision problems and things... start breaking, or physics don't work! A common solution is to move everything around the player to be in the center of the world constantly, keeping the floats relatively small.
 
-Remember that a float uses only 32 bits! So it has limits. We can use a `double` to *double* the precision of the decimal places.
+With only 32 bits we can have about 7 (??? is this correct?) columns of numbers. The decimal point slides around between these 7 columns of numbers. 
+
+We can use a `double` to *double* the precision of our number is we want.
 
 Change your code to use a `double` instead of a `float.
 
@@ -751,10 +752,10 @@ int main(void)
 }
 ```
 
-We change the code to cast our `int` variables to a double, as well as change the `result` variable to a `double`. The conversion specifier for a `double` stays the same.
+We also cast our `int` variables to a double! As well as change the `result` variable to a `double`. The conversion specifier for a `double` is the same as a floats.
 
 # Overflow
-Now that we've seen the limitations of a float what will happen if we try to make a number that is really big?
+Now that we've seen the limitations of a float what will happen if we try to make a number that is really big using an `int`?...
 
 ```c
 #include <stdio.h>
@@ -768,18 +769,22 @@ int main(void)
 }
 ```
 
-If we run this we won't see 4 billion! Although we can hold 2 billion in an `int` once we add them together we get -294967296! 
+If we run this we won't see 4 billion (which is the correct answer)! We hold 2 billion in our `int` variables, but once we add them together we get -294967296!
 
-An `int` can hold negative numbers. We use the first bit of the 32 bits to represent a negative or positive sign, 0 = negative, 1 = positive. When we made the number grow past its max (which is 2147483648. 2^31, 2 to the 31st power), we end up changing the positive sign to a negative sign, as well as creating a weird number.
+An `int` can hold negative numbers. We use the first bit of the 32 bits to represent a negative or positive sign, 0 = negative, 1 = positive. 
+
+When we made the number grow past its max (the max is 2147483648 or 2^31, which is 2 to the 31st power), we make the number grow so big it overrides the first bit that is being used for the sign (positive or negative). We also (some how) manage to distord the number!
+
+So, yeah an `int` has limits. We can bypass those limits (to an extent) by using a `long` which uses 64 bits (whereas an `int` uses 32).
 
 # Debugger!
-If you have a really complex program that has many problems you can use a Debugger!
+If you have a really complex program that is having problems you can use a Debugger, to *de-bug* the code. (get iit? *de-bug*? Oh, right you don't get it... The term was coined by a person who found a bug in one of Harvards computers. The bug was short-circuiting the computers electircity causing the computer to not work properly!).
 
-Open the debugger in replit.
+Replit has a "Debugger". Open replits debugger.
 
 ![replit debugger](/Assets/replit_debugger.png)
 
-Replace your code with the following.
+Now, Replace your code with the following (or make a new repl if you don't want to delete your work. Then paste this code into the new repl).
 
 ```c
 #include <stdio.h>
@@ -807,9 +812,9 @@ int main(void)
 }
 ```
 
-This is the code from the Mario Pyramid tutorials you will do after this lecture.
+This is the code from one of the tutorials (called "Marios Pyramid") you will do after this lecture.
 
-Now add some "breakpoints" to the code by clicking next to the line numbers.
+Don't worry about trying to understand it. For now we'll learn to use adebugger. Add some "breakpoints" to the code by clicking next to the line numbers.
 
 ![replit set breakpoints](/Assets/replit_set_breakpoints.gif)
 
@@ -821,13 +826,84 @@ Now you can step through your code to see what each variable is at each step / b
 
 ![replit debugger step through](/Assets/replit_debugger_step_through.gif)
 
-This will help you a LOT when trying to find bugs in yours code. "bug" is a word used to refer to errors that we made when writing code that causes... things to break or... code that just doesn't work. This happens a lot, as you've probably already experienced!
+Use the "next step" arrow to step through each line of code.
 
-De-buggers let us *de-bug* code by stepping through it one line at a time. 
+![replit debugger next step](/Assets/replit_debugger_next_step.png)
+
+Go directly to one of the breakpoints that you highlighted by using the "next breakpoint" button.
+
+![replit debugger next breakpoint](/Assets/replit_debugger_next_breakpoint.png)
+
+And, at each step you can see what the variables are!
+
+![replit debugger variables](/Assets/replit_debugger_variables.png)
+
+This will help you a LOT when trying to find bugs in your code. "bug" is a logic error in our code. A bug is ***not*** something that keeps us from running the code (Oh yes, bugs are very evil) they are hidden inside of code that works, but isn't doing what we *inteded* it to do.
+
+De-buggers let us *de-bug* the logic in our code by stepping through each line of code, one at a time, and telling us what each variable is at each step.
+
+Although... you won't even be able to click the play button if your code has a syntax error! An example of a syntax error is when you forget to put the ending curly bracket `}` after some code. 
+
+Lets fix some fake syntax errors, to help you become more familair with C. The following code has 3 syntax errors.
+
+(example, 3 syntax errors)
+```c
+int add(int a, b) {
+	return a + b
+
+```
+
+Can you spot them?
+
+The first syntax error is the parameter `b` (parameters are function variables). `b` doesn't have a type! Lets fix that.
+
+(example, 2 syntax errors)
+```c
+int add(int a, int b) {
+	return a + b
+
+```
+
+Now `b` is set to the `int` type.
+
+The second syntax error is that we forgot the ending curly bracket `}`. Lets fix that as well.
+
+(example, 1 syntax errors)
+```c
+int add(int a, int b) {
+	return a + b
+}
+```
+
+Functions (in C) require that we enclose the code with a starting curly bracket `{`, and an ending curly bracket `}`, like this `{ my code }`. Although C doesn't care where exactly we put the curly brackets and code, as long as it follows the pattern of encolsing the code with the brackets, so the above code could also be this.
+
+(example, different placement of curly brackets)
+```c
+int add(int a, int b) 
+{
+	return a + b
+}
+```
+
+Which is perfectly legal, and won't give us any errors.
+
+There is one final syntax error! We forgot to add a semicolon at the end of `return a + b`!
+
+(example, no syntax errors)
+```c
+int add(int a, int b) {
+	return a + b;
+}
+```
+
+And now there are no syntax errors!
 
 # The rubber duck debugger
-A funny thing that apparently is very common (and I used to too when I first started) is called rubber duck debugging!
+A funny thing that apparently is very common (and I used to use it too when I first started) is called Rubber Duck debugging! (lol)
 
-The (quite funny) idea is that you explain your code to a rubber duck. And this really works! By sitting there explaining what your code is doing to someone (the joke is that you use a rubber duck) that you will find your own mistakes! It really works and even Harvard teaches their students to use it!
+The (quite funny) idea is that you explain your code to a rubber duck (XD). And this really works! By sitting there explaining what your code is doing to someone (the joke is that you use a rubber duck) that you will find your own mistakes! It really works and even Harvard teaches their students to use it!
 
-If you encounter any errors and can't figure them out feel free to join our discord to get help https://discord.gg/QhqTE4t2tR <- here is the invite link.
+If you encounter any errors and can't figure them out feel free to join our discord to get help from me or other students! https://discord.gg/QhqTE4t2tR <- here is the invite link.
+
+TODO
+- You can disable the annoying "code wrapping" feature by going to the settings (the gear wheel on the left column) set wrapping to "none".
