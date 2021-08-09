@@ -219,6 +219,10 @@ If we visualize an array of addresses to an array of strings, in memory it would
 
 ![]
 
+
+TODO 
+- do something with input from main
+
 # Loops + Arrays
 Now we can use a `for` loop on an array. This is pretty cool.
 
