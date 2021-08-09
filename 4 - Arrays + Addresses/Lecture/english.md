@@ -215,11 +215,9 @@ int main(int argc, const char ** argv)
 }
 ```
 
-If we visualize an array of addresses to an array of strings in memory it would look like this.
+If we visualize an array of addresses to an array of strings, in memory it would look something like this.
 
 ![]
-
-
 
 # Loops + Arrays
 Now we can use a `for` loop on an array. This is pretty cool.
@@ -233,3 +231,6 @@ TODO
 - getting input until it is correct (from Getting inout section)
 
 Any code after return will not get ran. SO if we did .... EXPLAIN
+
+TODO
+- all variables are technically an address. To view the address that a variable holds you can use the `&` to get access to the address
