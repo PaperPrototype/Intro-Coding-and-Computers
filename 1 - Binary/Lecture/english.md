@@ -125,10 +125,12 @@ Although technically all these bits (a `0` or `1`) are just switches (or electri
 1    1    1 =  111  =  7
 ```
 
-In computers we have to have decide how many 0s and 1s to use for a number, and then reserve some 0s and 1s in our memory for that number. We can't just increase the number of bits (`0`s and `1`s) we use for the number (if say we decide we want to be able to count higher) because the neighboring switches (`0`s and `1`s) are probably being used by something else!
+In computers we have to have decide how many 0s and 1s to use for a number, and then reserve some 0s and 1s in our memory for that number. We can't just increase the number of bits (`0`s and `1`s) we use for a number (if say we decide we want to be able to count higher) because the neighboring switches (`0`s and `1`s) are probably being used by something else!
 
 # ASCII
-Now that we can count using binary we'll use those numbers and map them to specific symbols and characters. The ASCII standard is very old but is still used today by programming languages like the C programming language. C actually lets us manipulate the switches (`0`s and `1`s), but we'll get to that another time.
+Now that its possible to count using only `0`s and `1` we can use those numbers and map them to specific symbols and characters! There is a mapping system called ASCII (American Standard Code for Information Interchange). The ASCII standard is very old but is still used today by computers.
+
+As an example of ASCII, the number 77 maps to the symbol "M", all we have to do is tell the computer *when* the number 77 is representing "M"
 
 Here is a short list of some ASCII symbols you might be familiar with. Do NOT try to memorize this whole list (I don't know any programmers who have). You will mainly need the ASCII mappings if you made a program that has to work with the ASCII standard.
 
