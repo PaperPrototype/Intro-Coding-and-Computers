@@ -493,18 +493,25 @@ result = divide(2, 0)
 
 Now this code will work! Now you know the basics of coding!
 
+pyxel tutorial and documentation
+https://pypi.org/project/pyxel/
 
+pyxel game engine
+https://github.com/kitao/pyxel
+
+pisxel editor
+https://www.pyxeledit.com/
 
 TODO save for later? too advanced?
 
-# PyGame
+# Pyxel Game Engine
 Now lets learn the basics of making a game with Python! 
 
-Afterwards in the Tutorials there will be tutorials on how to make different types of games using what you've learned.
+Afterwards in the Tutorials there will be tutorials on how to make different types of games using what you've learned from this.
 
-Create a new repl. Select Pyxel (a Python framework for making games). Name the project "bounce".
+Create a new repl. Select Pyxel (a Python "framework" for making games). Name the project "bounce".
 
-Now we need to get access to the Pyxel code. Write this into your code.
+Now we need to get access to the Pyxel code. Write this into your python code.
 
 ```py
 import Pyxel
@@ -520,9 +527,9 @@ import pyxel
 pyxel.init(100, 80)
 ```
 
-This gives us a window that is 100 pixels wide by 80 pixels tall. Now we need some code that will run every single frame (every few milliseconds) that we can put the code for moving our cube that we will make. We will make a function that we put all the code that will happen every frame.
+`pyxel.init()` gives us a window that is 100 pixels wide by 80 pixels tall. Now we need some code that will run every single "frame". Video games are many pictures being redrawn onto your screen every few seconds, each picture slightly different, making it look like a video.
 
-We will also make a separate function for the rendering / drawing code. Change your code so that it looks like the following.
+Change your code so that it looks like the following.
 
 ```py
 import pyxel
@@ -530,20 +537,21 @@ import pyxel
 pyxel.init(100, 80)
 
 def update():
-    # code to run every frame
-    # the movement code
-    pass
+	# code that runs every few milliseconds
+	pass
 
 def draw():
-    # code for drawing / rendering
+    # code for drawing / rendering / updating
     pass
 
 pyxel.run(update, draw)
 ```
 
-We are not allowed to make a function that does nothing! So we have to put the "pass" function temporarily.
+We are not allowed to make a function that does nothing! So we have to put the `pass` keyword temporarily (telling python to ignore the function) so we don't get any errors.
 
-Now lets draw a simple cube. Although its called a "rect", standing for the word "rectangle".
+We "run" our pyxel game by saying `pyxel.run`. The `run` function takes 2 arguments (inputs). The first is a function (with code) that will run every few milliseconds (in this case `update`), and the second being code that will render stuff (in this  `draw`).
+
+Now lets draw a simple cube using the "rect" function, standing for the word "rectangle".
 
 ```py
 import pyxel
@@ -551,6 +559,7 @@ import pyxel
 pyxel.init(100, 80)
 
 def update():
+	# code that runs every few milliseconds
 	pass
 
 def draw():
@@ -563,7 +572,7 @@ Click the play button to see the following!
 
 ![replit pyxel](/Assets/replit_pyxel.png)
 
-Techincally when we stop the game using Replits pause button our code is supposed to "quit" or exit the game so lets add that code.
+Techincally when we stop the game using Replits pause button our code is supposed to "quit" or exit so lets add that code.
 
 ```py
 import pyxel
@@ -580,16 +589,14 @@ def draw():
 pyxel.run(update, draw)
 ```
 
-The extra code we added can be turned into this 
+`btnp` stands for "button pressed". You can read the coe for quitting as this.
 
 ```
-if pyxel.button pressed(pyxel Key "Q") then 
+if button pressed(Key "Q") then 
     quit
 ```
 
-Now lets make our cube fall as if it had gravity.
-
-Now lets make the rect fall with gravity. We will make two variables called `x` and `y`, and then set the rects position using the variables.
+Now lets make our cube fall as if it had gravity! We'll make two variables called `x` and `y`, to control the position of the cube.
 
 
 NOT WORKING CODE
@@ -598,18 +605,18 @@ import pyxel
 
 pyxel.init(100, 80)
 
-# x and y variables
-x = 10
-y = 10
-
 def update():
 	if pyxel.btnp(pyxel.KEY_Q):
 		pyxel.quit()
 
 def draw():
+	# x and y variables
+	x = 10
+	y = 10
+
     pyxel.rect(x, y, 20, 20, 11) # use x and y variables
 
 pyxel.run(update, draw)
 ```
 
-Now lets move the y position down every "update".
+Now we can change the y's position every draw? TODO: how to decrease y?
