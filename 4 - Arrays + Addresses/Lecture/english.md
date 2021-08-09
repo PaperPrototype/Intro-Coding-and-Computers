@@ -202,26 +202,105 @@ int main(int argc, const char * argv[])
 }
 ```
 
-Wow! What is `const char * argv[]`? Well the first part `const` just means we can't change the variables values (stuff inside the variable).
+What is `const char * argv[]`? Well the first part `const` is a keyword, it is telling us that we are not allowed to change the variables values (stuff inside the variable) and they are "constant".
 
-The `char * argv[]` is weird. It is an array of addresses `char *` to an array of strings `argv[]`. Another way of writing this line of code would be.
+The `char * argv[]` is weird. It is an array of addresses `char *` to an array of strings `argv[]`... Another way of writing this would be.
 
+(example, don't change your code)
 ```c
 #include <stdio.h>
 
 int main(int argc, const char ** argv)
 {
-	
+	// do something with the input
 }
 ```
 
 If we visualize an array of addresses to an array of strings, in memory it would look something like this.
 
-![]
+![argv in c](/Assets/argv.png)
 
+Not to complicated (it probably sounded complicated). The word `argv` stands for "argument vector".
 
-TODO 
-- do something with input from main
+Lets use `argv`! Lets make a program that gets our name, then prints it out along with a "hello" message.
+
+```c
+#include <stdio.h>
+
+int main(int argc, const char * argv[])
+{
+	printf("Hello, %s! \n", argv[0]);
+}
+```
+
+The above code gets the first string from the array of strings (in `argv`). Compile this code using `make` and run it using `./input` along with an argument, like the following command.
+
+```
+./input Mikey
+```
+
+It runs the input program with an argument (the word "Mikey"). You should see the following get printed.
+
+```
+~/arrays$ ./input Mikey
+Hello, ./input!
+~/arrays$ 
+```
+
+What? So getting the first argument from `argv` (by using an offset of 0) gave us "./input", which was the command for running the input program! Instead lets access the second string in `argv` by using an offset of 1.
+
+(answer)
+```c
+#include <stdio.h>
+
+int main(int argc, const char * argv[])
+{
+	printf("Hello, %s! \n", argv[1]);
+}
+```
+
+Run `make input` then run the input program using...
+
+```
+./input Mikey
+```
+
+Yay! You should see the phrase "Hello, Mikey!" get printed!
+
+If you happen to run the "input" program without giving it an argument (like the word Mikey) you will see the word "null" get printed instead! This is because we are offsetting in our array to a spot in memory that has not been set to anything (because we didn't type in "mikey" after "./input"). 
+
+In C "null" usually means we are accessing memory that has not been set to anything.
+
+It is generally not a good idea to read memory outside the "bounds" (boundaries) of an array! So, in C we have to manually check how long our array is. One of the parameters (inputs) from main is called `argc` which stands for "argument count", and funny enough `argc` is an int! You can use `argc` to see how many arguments were given!
+
+Change our program to detect if it was run with an argument by using `argc`'s number.
+
+(possible answer)
+```c
+#include <stdio.h>
+
+int main(int argc, const char * argv[])
+{
+	if (argc < 2) {
+		printf("Error, expected input! `./input <argument>` \n");
+		return 1;
+	}
+
+	printf("Hello, %s! \n", argv[1]);
+
+	return 0;
+}
+```
+
+Just so you know, argc doesn't start counting at 0. If we put 2 arguments (including the command to run the program) then argc will be 2.
+
+In the above code we print an error message and "return" an error code of 1 if no argument was given. 
+
+Any code after a `return` keyword won't get run. This prevents us from running the greeting message "Hello, mikey", since the word "mikey" wouldn't exist (or any other word you put)!
+
+If we do put 2 arguments, then print the greeting message, and return an error code of 0 (0 meaning nothing went wrong).
+
+Run the above code (or your variation that you made), and see if it prints an error message when you don't put "mikey" (or some other word) after "./input".
 
 # Loops + Arrays
 Now we can use a `for` loop on an array. This is pretty cool.
@@ -232,7 +311,7 @@ TODO
 - `continue` keyword
 
 # Do while and Scope and Return
-- getting input until it is correct (from Getting inout section)
+- getting input until it is correct (from Getting input section)
 
 Any code after return will not get ran. SO if we did .... EXPLAIN
 
