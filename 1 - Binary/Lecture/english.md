@@ -1,12 +1,18 @@
-Somehow we have been able to write text into a file, call that text code, "run" the code, and somehow our computer understood it.
+Somehow we have been able to write text into a file, call that text "code", and "run" the code, and somehow our computer understood it!
 
-So how did all that work? You may have hear that computers understand 0s and 1s. Really a 0 or a 1 just represents a switch or electric charge in your computer. 0 representing an off switch or a negative electric charge, and 1 representing an on switch or a positive electric charge. We call this "binary". "bi" meaning 2. Every positive or electriv charge is stored using a switch or electric charge. We call each charge (or switch) a "bit".
+So how did all that work? Al we were doing was writing words that folowed some special rules.
 
-So how did our text based code translate to binary? It turns out that your computers processor understands a few instructions. Each instruction is represented by sequences of 0s and 1s. In your computer you have a file, called an app or program, that contains binary instructions. When we "ran" the code, then a program called Python, read through our text file and "interpreted" our text instructions. We call the Python programming language an interpreted programming language because our code gets "interpreted" by the Python program (usually called an "interpreter" program). Don't worry the people who made the Python interpreter didn't have to make the Python interpreter using 0s and 1s! Instead they used a "compiled" programming language, we'll get to this in a second.
+You may have hear that computers understand 0s and 1s. Really a 0 or a 1 just represents a switch or electric charge in your computer. 0 representing an off switch or a negative electric charge, and 1 representing an on switch or a positive electric charge. We call this "binary". "bi" meaning 2. Every positive or electriv charge is stored using a switch or electric charge. We call each charge (or switch) a "bit".
 
-You may have noticed if you typed gibberish like "qnerkjq 1924uj1,.3 rj32m,5r)ajebqrkqm }  2}:q2" you would get an error and nothing would happen. Since someone had to write the Python program, they came up with a certain "syntax" (format for writing code) that could be understood by Python (the interpreter program). Without this syntax it would be near to impossible to decipher the code programmers wrote.
+So how did our text based code translate to binary? It turns out that your computers processor understands a few instructions. Each instruction is represented by sequences of 0s and 1s. In your computer you have a file, called an app or program, that contains binary instructions! When we "ran" the code, then a program called Python, read through our text file and "interpreted" our text instructions. 
 
-This syntax made us put a colon `:` at the end of functions or if statements, as well as "indent" our code using a tab (putting 2 or 4 spaces in front of code). Now you know why.
+We call the Python programming language an *interpreted* programming language because our code gets "interpreted" by the *Python program* (usually called an "interpreter" program).
+
+Don't worry the people who made the Python interpreter didn't have to make the Python interpreter using 0s and 1s! Instead they used a "compiled" programming language, we'll get to this in a second.
+
+You may have noticed if you typed gibberish like "qnerkjq 1924uj1,.3 rj32m,5r)ajebqrkqm }  2}:q2" you would get an error and nothing would happen. Since someone had to write the Python program, they came up with a certain "syntax" (format for writing code) that could be understood by Python (the interpreter program). Without this syntax it would be near to impossible to decipher the code us programmers wrote!
+
+This syntax made us put a colon `:` at the end of functions (or if statements) as well as "indent" our code to show that is it "inside" of the function. We did this using a tab (putting 2 or 4 spaces in front of code). Now you know why.
 
 We also store information as 0s and 1s. How does that work? Our number system uses ten symbols, 0 to 9, but it could have used 7 symbols (0 to 6)! 
 
