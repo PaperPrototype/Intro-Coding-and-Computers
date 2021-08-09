@@ -905,5 +905,65 @@ The (quite funny) idea is that you explain your code to a rubber duck (XD). And 
 
 If you encounter any errors and can't figure them out feel free to join our discord to get help from me or other students! https://discord.gg/QhqTE4t2tR <- here is the invite link.
 
-TODO
-- You can disable the annoying "code wrapping" feature by going to the settings (the gear wheel on the left column) set wrapping to "none".
+# Printf
+We can also temporarily use the `printf` function to print out the values of variables (to find out what they are at each step). 
+
+I found myself doing this a lot when trying to understand why my code wasn't working right. We can insert a `printf` in some code to find out why it isn't working right.
+
+(example)
+```c
+#include <stdio.h>
+
+int main(void) 
+{
+	int size = 5;
+
+	int offset = 0;
+
+	for (int stack = 0; stack < size; stack++)
+	{
+		for (int hash = size; hash > 0; hash--) 
+		{
+            // printing hash number
+			printf("%i", hash);
+
+			if (hash <= offset + 1)
+			{
+				printf("#");
+			}
+		}
+
+		offset++;
+
+		printf("\n");
+	}
+}
+```
+
+If you run the above code you will see the `hash` variables number get printed next to each hash.
+
+```
+54321#
+5432#1#
+543#2#1#
+54#3#2#1#
+5#4#3#2#1#
+```
+
+If we remove the numbers that have no corresponding hash we see the following.
+
+```
+1#
+2#1#
+3#2#1#
+4#3#2#1#
+5#4#3#2#1#
+```
+
+This could prove to be very useful in understanding how the code works. You could then remove the extra `printf` once you understand what is happening.
+
+And thats it! Have fun!
+
+TODO:
+Replit IDE, code "wrapping"
+- You can disable the annoying "code wrapping" feature by going to the settings (the gear wheel on the left column) then set "wrapping" to "none".
