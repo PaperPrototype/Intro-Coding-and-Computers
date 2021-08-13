@@ -9,6 +9,8 @@ Compiler
 The history of Graphical User Interfaces https://www.youtube.com/watch?v=pQocN_c2uLI
 
 
+https://apple.stackexchange.com/questions/388622/zsh-zprofile-zshrc-zlogin-what-goes-where
+
 https://www.extremetech.com/computing/104661-how-steve-jobs-stole-the-mouse-and-gui-video
 
 # CLI

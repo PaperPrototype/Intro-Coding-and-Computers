@@ -493,130 +493,64 @@ result = divide(2, 0)
 
 Now this code will work! Now you know the basics of coding!
 
-pyxel tutorial and documentation
-https://pypi.org/project/pyxel/
+One last thing we should probably teach you about is "Objects". 
 
-pyxel game engine
-https://github.com/kitao/pyxel
+An "object" in programming is a weird idea that programmers got from biology and how cells work. The father of object "oriented" programming (using objects for everything) is Alan Kay, who was a biologist. 
 
-pisxel editor
-https://www.pyxeledit.com/
+Essentially an object "holds" variables and function *inside of it*. Lets make a simple object in Python.
 
-TODO save for later? too advanced?
-
-# Pyxel Game Engine
-Now lets learn the basics of making a game with Python! 
-
-Afterwards in the Tutorials there will be tutorials on how to make different types of games using what you've learned from this.
-
-Create a new repl. Select Pyxel (a Python "framework" for making games). Name the project "bounce".
-
-Now we need to get access to the Pyxel code. Write this into your python code.
+Delete all your code (or make a new repl if you want), and write the following.
 
 ```py
-import Pyxel
+class MyObject():
+    # add stuf inside of here
 ```
 
-This "imports" the code for making Pyxel games.
+For some reason objects are made using the "class" keyword (I honestly have no idea why). We usually uppercase the name of an Object. To "make" the object you simply "call it" like you would a function.
 
-Now we need to make a window for our game. Make your code look like the following.
+(example, don't write this)
+```py
+class MyObject():
+    # add stuff inside of here
+
+# Made a new object...
+MyObject()
+```
+
+Lets get our "object" to do something interesting. There is a function that gets called automatically when we "make" a new object. Below we change the `MyObject` object to have the `__init__` function.
+
+Change your code to match this.
 
 ```py
-import pyxel
+class MyObject():
+	def __init__(self):
+        # print function
+		print("Made a new object called:", self)
 
-pyxel.init(100, 80)
 ```
 
-`pyxel.init()` gives us a window that is 100 pixels wide by 80 pixels tall. Now we need some code that will run every single "frame". Video games are many pictures being redrawn onto your screen every few seconds, each picture slightly different, making it look like a video.
+I don't like the fact you have to have the double underscore in the `init` function, but thats just what the creators of Python decided, so we are stuck with it.
 
-Change your code so that it looks like the following.
+You'll also notice that the `__init__` function has a parameter called "self". This is a variable that refers to the object we are curretnly in. Every single function inside of an object will have to have this "self" variable.
 
+I think you can tell what the rest of the code is doing (I'm talking about the `print` function).
+
+Lets now "make" this object, and see code from the `__init__` function print our our message (remember the `init` function runs automatically when we "make" the object, similar to calling a function).
+
+(answer)
 ```py
-import pyxel
+class MyObject():
+	def __init__(self):
+		print("Made a new object:", self)
 
-pyxel.init(100, 80)
-
-def update():
-	# code that runs every few milliseconds
-	pass
-
-def draw():
-    # code for drawing / rendering / updating
-    pass
-
-pyxel.run(update, draw)
+MyObject()
 ```
 
-We are not allowed to make a function that does nothing! So we have to put the `pass` keyword temporarily (telling python to ignore the function) so we don't get any errors.
-
-We "run" our pyxel game by saying `pyxel.run`. The `run` function takes 2 arguments (inputs). The first is a function (with code) that will run every few milliseconds (in this case `update`), and the second being code that will render stuff (in this  `draw`).
-
-Now lets draw a simple cube using the "rect" function, standing for the word "rectangle".
-
-```py
-import pyxel
-
-pyxel.init(100, 80)
-
-def update():
-	# code that runs every few milliseconds
-	pass
-
-def draw():
-    pyxel.rect(10, 10, 20, 20, 11)
-
-pyxel.run(update, draw)
-```
-
-Click the play button to see the following!
-
-![replit pyxel](/Assets/replit_pyxel.png)
-
-Techincally when we stop the game using Replits pause button our code is supposed to "quit" or exit so lets add that code.
-
-```py
-import pyxel
-
-pyxel.init(100, 80)
-
-def update():
-	if pyxel.btnp(pyxel.KEY_Q):
-		pyxel.quit()
-
-def draw():
-    pyxel.rect(10, 10, 20, 20, 11)
-
-pyxel.run(update, draw)
-```
-
-`btnp` stands for "button pressed". You can read the coe for quitting as this.
+The above code should print out something like this
 
 ```
-if button pressed(Key "Q") then 
-    quit
+Made a new object: <__main__.MyObject object at 0x7f9669431400>
 ```
 
-Now lets make our cube fall as if it had gravity! We'll make two variables called `x` and `y`, to control the position of the cube.
+The last part `0x7f9669431400>` I think is memory address telling us where in memory the object is. Its also in hexadecimal (hexadecimal is a number system that uses 16 digits instead of 10). You'll learn hexadecimal in the "Fundamentals" section of this course.
 
-
-NOT WORKING CODE
-```py
-import pyxel
-
-pyxel.init(100, 80)
-
-def update():
-	if pyxel.btnp(pyxel.KEY_Q):
-		pyxel.quit()
-
-def draw():
-	# x and y variables
-	x = 10
-	y = 10
-
-    pyxel.rect(x, y, 20, 20, 11) # use x and y variables
-
-pyxel.run(update, draw)
-```
-
-Now we can change the y's position every draw? TODO: how to decrease y?

@@ -126,9 +126,9 @@ Then run it using
 
 you will see "Hello" get printed.
 
-We use the string conversion specifier `%s`. Makings strings is so common that nobody writes strings this way. Instead we have special syntax for strings. 
+We use the string conversion specifier `%s`. Makings strings is so common that nobody writes strings this way. Instead we have special syntax for strings, which lets us use double quotes `"item item item"` rather than the clunky array syntax `{ item, item, item }`.
 
-Change your code to the following.
+Change your code to use the double quotes `""`.
 
 ```c
 #include <stdio.h>
@@ -141,12 +141,12 @@ int main(void)
 }
 ```
 
-Now compile and run it using the shell (see above commands).
+Now compile and run the above code using the shell (see above commands).
 
 TODO `\0` symbol
 
 # Pointers (aka address variables)
-In C, we call variables that hold an address "pointers". It turns out that using the square brackets `[]` after a variables name is also a shortcut.
+In C, we call variables that hold an address number "pointers". It turns out that using the square brackets `[]` after a variables name is also a shortcut.
 
 Change your code to the following.
 
@@ -162,10 +162,17 @@ int main(void)
 }
 ```
 
-We change variable to be a pointer of the type char which gives us `char*`. The star symbol `*` means it is a pointer!
+We change the "hello" variable to be a pointer of the type char by putting a star `*` next to the type -> `char*`. The star symbol `*` just signifies it is a "pointer" (aka address).
+
+Since pointers are just address numbers we can just increase the address as if it was a number to do the offset instead of using the square brackets `[]`, since suing the square brackets `[]` is a shortcut for offsetting the address number.
+
+The type after the address is just telling us "how much" after the first byte is part of the variable.
+
+![] picture of pointer to first byte, but "type" tells how "big" or how much after the first byte is part of the variable
+
 
 # Void
-Since a pointer (aka address) simply points to the first byte of an array we don't have to tell the type!
+Since a pointer (aka address) simply points to the first byte of an array (or type) we don't have to tell the type!
 
 Change the code to the following.
 
@@ -189,6 +196,7 @@ Void is an unkown type (but it also stands for "no input" in functions). By usin
 When we use the void pointer `void*`, we have to know the type though. Otherwise we wouldn't know how much to offset in memory to get the next element in an array! So we cast the type (aka convert the type) with this line of code `(char*)`.
 
 If we hold onto an `int` using a void pointer we will reference the first byte of the 4 bytes in an `int`.
+
 
 # Getting Input 
 The main function gets input from the shell. Except so far we haven't used this functionality. 
@@ -308,17 +316,42 @@ Any code after a `return` keyword won't get run (to an extend). This prevents us
 
 If we do put 2 arguments, then print the greeting message, and return an error code of 0 (0 meaning nothing went wrong).
 
-Run the above code (or your variation that you made), and see if it prints an error message when you don't put "mikey" (or some other word) after "./input".
+Run the above code (or your variation), and see if it prints an error message when you don't put "mikey" (or some other word) after "./input".
+
 
 # Loops + Arrays
 Now we can use a `for` loop on an array. This is pretty cool.
+
+TODO (not in order presented)
+make sure to introduce gradually and explain the for loop
+- avarage a bunch of numbers
+
+- const keyword, protects to make sure no one is allowed to change the number (very useful to prevent people from making mistakes)
+    - prevents you from going through all your code and changing all the numbers you typed, just store the number in a variable and use the const variable!
+
+- then move everything into an "average" function
+
 
 TODO
 - `break` keyword
 - `return` keyword
 - `continue` keyword
 
-# Do while and Scope and Return
+
+(example)
+```c
+TODO
+```
+
+TODO (for pointer offsetting manually without the square brackets `[]`)
+- show example code?
+- find place to put this in lecture
+
+
+TODO
+- average all the numbers together in an array? using a for loop?
+
+# Do while and Scope and Return?
 - getting input until it is correct (from Getting input section)
 
 Any code after return will not get ran. SO if we did .... EXPLAIN

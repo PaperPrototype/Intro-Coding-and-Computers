@@ -4,13 +4,17 @@ So how did all that work? Al we were doing was writing words that folowed some s
 
 You may have hear that computers understand 0s and 1s. Really a 0 or a 1 just represents a switch or electric charge in your computer. 0 representing an off switch or a negative electric charge, and 1 representing an on switch or a positive electric charge. We call this "binary". "bi" meaning 2. Every positive or electriv charge is stored using a switch or electric charge. We call each charge (or switch) a "bit".
 
-So how did our text based code translate to binary? It turns out that your computers processor understands a few instructions. Each instruction is represented by sequences of 0s and 1s. In your computer you have a file, called an app or program, that contains binary instructions! When we "ran" the code, then a program called Python, read through our text file and "interpreted" our text instructions. 
+So how did our text based code translate to binary? It turns out that your computers central processor (called a CPU, or Central Processing Unit) only understand a few instructions (like moving memory or adding some numbers together). Each of these instruction is represented by sequences of 0s and 1s! 
+
+What we called programs, also called "apps", are files that contain binary (0 and 1) instructions for the CPU.
+
+When we "ran" our Python code, a program called Python read through our words of text and "interpreted" them into binary instructions (0s and 1s instructions) for the processor!
 
 We call the Python programming language an *interpreted* programming language because our code gets "interpreted" by the *Python program* (usually called an "interpreter" program).
 
-Don't worry the people who made the Python interpreter didn't have to make the Python interpreter using 0s and 1s! Instead they used a "compiled" programming language, we'll get to this in a second.
+Don't worry the people who made the Python interpreter didn't have to make the Python interpreter using 0s and 1s! Instead they used a "compiled" programming language. A compiled programming language is text based code (like Python), that gets converted directly into a program file of 0s and 1s. Don;t worry you'll learn C in the next lecture which is a compiled programming language.
 
-You may have noticed if you typed gibberish like "qnerkjq 1924uj1,.3 rj32m,5r)ajebqrkqm }  2}:q2" you would get an error and nothing would happen. Since someone had to write the Python program, they came up with a certain "syntax" (format for writing code) that could be understood by Python (the interpreter program). Without this syntax it would be near to impossible to decipher the code us programmers wrote!
+You may have noticed if you typed gibberish like "qnerkjq 1924uj1,.3 rj32m,5r)ajebqrkqm }  2}:q2" you would get an error and nothing would happen. Since someone had to write the Python interpreter program, they had to come up with a certain "syntax" (format for writing code) that be understood by the Python interpreter program. Without this syntax it would be pretty horribly difficult to decipher the code us programmers wrote!
 
 This syntax made us put a colon `:` at the end of functions (or if statements) as well as "indent" our code to show that is it "inside" of the function. We did this using a tab (putting 2 or 4 spaces in front of code). Now you know why.
 
@@ -38,55 +42,49 @@ In the tens system (called "decimal") we can count as high as nine using the sym
 9
 ```
 
-But then we get stuck at nine. The solution became to add another column, reset the symbols, and say that the second column will multiply all the numbers by ten (since that is where the last column left off).
+But then we get stuck at nine. The solution became to add another column, and say that the second column will multiply all the numbers by ten, since that is where the last column left off.
 
 ```
-tenth | ones
-0       0
-0       1
-0       2
-0       3
-0       4
-0       5
-0       6
-0       7
-0       8
-0       9
-1       0 = 1 * ten = ten
+tens | ones
+0      0
+0      1
+0      2
+0      3
+0      4
+0      5
+0      6
+0      7
+0      8
+0      9
+1      0 = 1 * ten = ten (10)
 ```
 
-Then we can count up to nineteen.
+With 2 columns we can count up to nineteen.
 
 ```
-tenth | ones
-1       0 = 1 * ten = ten
-
-1       1 = (1 * ten) + 1 = eleven
-```
-
-We will simplify the diagram for your reading, just know that each column is multiplied by its "place" (tenth place, ones place).
-
-```
-tenth | ones
-1       0   = ten
-1       1   = eleven
-1       2   = twelve
-1       3   = thirteen
-1       4   = fourteen
-1       5   = fifteen
+tens | ones
+1      0 = 1 * ten = ten (10)
+1      1 = (1 * ten) + 1 = eleven (11)
 ...
-1       8   = eighteen
-1       9   = nineteen
+1      1 = (1 * ten) + 9 = nineteen (19)
 ```
 
-Now we can keep increasing the columns in sequence to get ever increasing numbers.
+We will simplify the diagram for your reading, just know that each column is multiplied by its "place" (tens place, ones place etc).
 
 ```
-thousands | hundreds | tens | ones
-0           9           9       9 = 999
-1           0           0       0 = 1000
+tens | ones
+1      0   = ten
+1      1   = eleven
+1      2   = twelve
+1      3   = thirteen
+1      4   = fourteen
+1      5   = fifteen
+...
+1      8   = eighteen
+1      9   = nineteen
 ```
 
+Now in computers we only have 2 possible symbols!
 Lets try this with the twos systemm, called "binary".
 
 ```

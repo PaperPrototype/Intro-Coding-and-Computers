@@ -7,6 +7,8 @@ Arrays
 > Continous blocks of memory
 > The first element in an array is stored in a variable as a memory address (called a "pointer" in C).
 
+Arrays of not same size (arrays of unknown t)
+
 Void
 > A pointer to an unkown type https://www.c-programming-simple-steps.com/what-is-void.html
 
