@@ -1,14 +1,15 @@
+# Code?
 Somehow we have been able to write text into a file, call that text "code", and "run" the code, and somehow our computer understood it!
 
-So how did all that work? Al we were doing was writing words that folowed some special rules.
+So how did all that work? All we were doing was writing words that followed some special rules.
 
 You may have hear that computers understand 0s and 1s. Really a 0 or a 1 just represents a switch or electric charge in your computer. 0 representing an off switch or a negative electric charge, and 1 representing an on switch or a positive electric charge. We call this "binary". "bi" meaning 2. Every positive or electriv charge is stored using a switch or electric charge. We call each charge (or switch) a "bit".
 
-So how did our text based code translate to binary? It turns out that your computers central processor (called a CPU, or Central Processing Unit) only understand a few instructions (like moving memory or adding some numbers together). Each of these instruction is represented by sequences of 0s and 1s! 
+So how did our text based code translate to binary? It turns out that your computers central processor (called a CPU, or Central Processing Unit) only understands a few instructions like moving memory or adding some numbers together. Each of these instruction is represented by sequences of 0s and 1s! 
 
-What we called programs, also called "apps", are files that contain binary (0 and 1) instructions for the CPU.
+What we called programs, or "apps", are files that contain binary (0 and 1) instructions for the CPU!
 
-When we "ran" our Python code, a program called Python read through our words of text and "interpreted" them into binary instructions (0s and 1s instructions) for the processor!
+When we "ran" our Python code, a program (called Python) read through our words of text and "interpreted" them into binary instructions (0s and 1s instructions) for the processor!
 
 We call the Python programming language an *interpreted* programming language because our code gets "interpreted" by the *Python program* (usually called an "interpreter" program).
 
@@ -84,15 +85,16 @@ tens | ones
 1      9   = nineteen
 ```
 
-Now in computers we only have 2 possible symbols!
-Lets try this with the twos systemm, called "binary".
+Now in computers we only have 2 possible symbols 0 and 1! Called binary = plural, and bit = singular. 
+
+If we start counting using only 1 bit we have to add another column after reaching the number 1 (wow, this is terrible).
 
 ```
 0
 1
 ```
 
-In binary, after only two symbols we have to add another column.
+So we add another column and that column becomes the 2s place (because that is where the previous column left off).
 
 ```
 twos | ones
@@ -101,7 +103,9 @@ twos | ones
 1       0 = two
 ```
 
-See the pattern? And with this system we can count as high as we want, just like the tens system (its just going to take a whole lot more columns than decimal (tens system) does). 
+With 2 columns we can count to the number... 2.
+
+So with only 0s and 1s we can count as high as we want, just like the tens system (its just going to take a whole lot more columns than decimal (the tens system) does!). 
 
 ```
 4s | 2s | 1s   binary = decimal
@@ -115,10 +119,10 @@ See the pattern? And with this system we can count as high as we want, just like
 1    1    1   =  111   =   7
 ```
 
-Although technically all these bits (a `0` or `1`) are just switches (or electric charges) all in a row in your memory the emtpy `0`s in front of our numbers would still be present as off switches (or off (negative) electric charges).
+Although technically all these bits (a `0` or `1`) are just switches (or electric charges) all in a row in your memory, so the emtpy `0`s in front of a number would still be present as an off switches (or negative electric charge). So we usually write bianry with all the 0s in front.
 
 ```
-4s | 2s | 1s          decimal
+4s | 2s | 1s           decimal
 0    0    0 =  000  =  0
 0    0    1 =  001  =  1
 0    1    0 =  010  =  2
@@ -129,7 +133,33 @@ Although technically all these bits (a `0` or `1`) are just switches (or electri
 1    1    1 =  111  =  7
 ```
 
-In computers we have to have decide how many 0s and 1s to use for a number, and then reserve some 0s and 1s in our memory for that number. We can't just increase the number of bits (`0`s and `1`s) we use for a number (if say we decide we want to be able to count higher) because the neighboring switches (`0`s and `1`s) are probably being used by something else!
+In computers we have to have reserve some 0s and 1s to use for a number. We can't just increase the number of bits (`0`s and `1`s) we use for a number later, if say we decide we want to be able to count higher, because the neighboring bits (`0`s and `1`s) may already be reserved! You will see this problem when we start using the C programming language.
+
+# Hexadecimal
+While we are at it we will also show you a number system that is often used for memory addresses (and colors) called hexadecimal. Hexadecimal uses 16 (!) symbols rather than just 2 or 10. This makes it great for large numbers like memory addresses.
+
+The symbols hexadecimal uses are `0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F`. It uses the standard symbols for 0 to 9 and then the alphabetical symbols A to F for 10 to 15. Thanks to using so many symbols we an count up to 15 without needing to add another column.
+
+```
+32s | 16s | 1s
+0      0     0
+0      0     1
+0      0     2
+0      0     3
+0      0     4
+0      0     5
+0      0     6
+0      0     7
+0      0     8
+0      0     9
+0      0     a  <- represents 10
+0      0     b  <- 11
+0      0     c
+0      0     d
+0      0     e
+0      0     f  <- 15
+0      1     0  <- 16
+```
 
 # ASCII
 Now that its possible to count using only `0`s and `1` we can use those numbers and map them to specific symbols and characters! There is a mapping system called ASCII (American Standard Code for Information Interchange). The ASCII standard is very old but is still used today by computers.

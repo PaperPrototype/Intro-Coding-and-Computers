@@ -127,6 +127,12 @@ You can also turn on dark mode.
 
 ![replit dark mode](/Assets/replit_dark_mode.gif)
 
+There is also a setting there for "code wrapping" (you'll have to scroll down a bit). Make sure to change this to "none".
+
+![replit code wrapping](/Assets/replit_code_wrapping.gif)
+
+It will prevent our code from getting "wrapped" weirdly as you can see in the gif.
+
 You can also resize everything in your browser by using the `ctrl` and `+` keys to zoom in (use the `ctrl` and `-` keys to zoom out).
 
 ![replit resize](/Assets/replit_resize.gif)
@@ -529,13 +535,13 @@ class MyObject():
 
 ```
 
-I don't like the fact you have to have the double underscore in the `init` function, but thats just what the creators of Python decided, so we are stuck with it.
+I don't like the fact you have to have the double underscore `__` in the `init` function, but thats just what the creators of Python decided, so we are stuck with it.
 
 You'll also notice that the `__init__` function has a parameter called "self". This is a variable that refers to the object we are curretnly in. Every single function inside of an object will have to have this "self" variable.
 
 I think you can tell what the rest of the code is doing (I'm talking about the `print` function).
 
-Lets now "make" this object, and see code from the `__init__` function print our our message (remember the `init` function runs automatically when we "make" the object, similar to calling a function).
+Lets now "make" this object, and see code from the `__init__` function print our our message (remember the `init` function runs automatically when we "make" the object).
 
 (answer)
 ```py
@@ -546,11 +552,64 @@ class MyObject():
 MyObject()
 ```
 
-The above code should print out something like this
+The above code should print out something like this.
 
 ```
 Made a new object: <__main__.MyObject object at 0x7f9669431400>
 ```
 
-The last part `0x7f9669431400>` I think is memory address telling us where in memory the object is. Its also in hexadecimal (hexadecimal is a number system that uses 16 digits instead of 10). You'll learn hexadecimal in the "Fundamentals" section of this course.
+The last part `0x7f9669431400>` I think is a memory address telling us where in memory the object is. Its also in hexadecimal (hexadecimal is a number system that uses 16 digits instead of 10). You'll learn hexadecimal in the "Fundamentals" section of this course.
 
+To make a variable in the class you can just... make a new variable in the class! Change your code to make a new variable (call it whatever you want) and then print that variable in the `__init__` function.
+
+(answer)
+```py
+class MyObject():
+	x = 0
+
+	def __init__(self):
+		print("printing out a variable", self.x)
+
+MyObject()
+```
+
+You will notice we have to use the "self" parameter to access the x variable.
+
+We can also make other funcitons besides the `__init__` function. Make a new function inside of the class (or "object") that prints "hello world".
+
+(answer)
+```py
+class MyObject():
+	x = 0
+
+	def __init__(self):
+		print("printing out a variable", self.x)
+
+	def say_hello(self):
+		print("hello idiots")
+
+MyObject()
+```
+
+Now run the `say_hello` (or whatever you called it) function inside of the `__init__` function.
+
+(answer)
+```py
+class MyObject():
+	x = 0
+
+	def __init__(self):
+		print("printing out a variable", self.x)
+
+		# we have to use the "self" parameter to access it
+		self.say_hello()
+
+	def say_hello(self):
+		print("hello idiots")
+
+MyObject()
+```
+
+And thats all there is to know for now! Trust me theres... way more like... objects that inherit from other objects... but thats gonna be too broing and I think we are ready for something more fun like making a game! And that is what the next section will teach you! 
+
+Although... if your just wanting to get things done as fast as possible (like me) you can skip the next section without any problems! We  structured the course (actually currently its just me) so that the next section doesn't cover any crucial concepts and is purely for fun!
