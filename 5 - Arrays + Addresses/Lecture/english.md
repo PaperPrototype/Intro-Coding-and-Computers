@@ -1,17 +1,45 @@
-# Arrays
-C doesn't have "lists". In C we have "arrays". 
+# Address
+Memory is really just a long line of swithes. Each switch is refered to as a bit. To make accessing memory faster we store bits in blocks of 8, called bytes.
 
-An *array* is blocks of memory one after the other. 
-
-![memory array](/Assets/memory_array.png)
-
-Memory is really just a long line of swithes. Each switch is refered to as a bit.To make accessing memory faster we store bits in blocks of 8. Each block is called a byte. 
-
-We can think of memory as a grid of bytes.
+We can think of memory as a grid of bytes (aka blocks).
 
 ![memory grid](/Assets/memory_grid.png)
 
-Each block having 8 bits (1 byte) of data in it.
+Each byte having 8 bits of data in it.
+
+It turns out variables are actually just a memory address. An "address" is just a number to a specific byte.
+
+![]
+
+
+
+
+
+
+TODO:
+Teach addresses, then arrays + `[]` as array offsets
+
+
+
+
+C doesn't have "lists". In C we have "arrays". 
+
+So an *array* is blocks of memory one after the other, each of the same size so that the offsets can work.
+
+![memory array](/Assets/memory_array.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 Make a new repl. Call it "arrays". Select the C programming language. Make a new file called `array.c` using the `touch` command in the shell.
 
@@ -99,6 +127,8 @@ int main(void) {
 }
 ```
 
+C won't stop us from offsetting outside of the array! This is why some people prefer languages like Rust which guarantee "memory safety".
+
 # Strings
 It turns out that *strings* are an array of the type `char`. Edit the above code so that we have a `char` array that spells the word "Hello".
 
@@ -146,7 +176,7 @@ Now compile and run the above code using the shell (see above commands).
 TODO `\0` symbol
 
 # Pointers (aka address variables)
-In C, we call variables that hold an address number "pointers". It turns out that using the square brackets `[]` after a variables name is also a shortcut.
+In C, we call variables that hold an address number "pointers" (It turns out that using the square brackets `[]` after a variables name is also a shortcut).
 
 Change your code to the following.
 
@@ -155,21 +185,20 @@ Change your code to the following.
 
 int main(void) 
 {
-    // pointer
-	char* hello = "Hello";
+    // pointer (address)
+	int* numbers = "Hello";
 
 	printf("%s \n", hello);
 }
 ```
 
-We change the "hello" variable to be a pointer of the type char by putting a star `*` next to the type -> `char*`. The star symbol `*` just signifies it is a "pointer" (aka address).
+We change the "hello" variable to be a pointer (aka, address) of the type char by putting a star with the type -> `char*` in front of the variable. The star symbol `*` just signifies it is a "pointer" (aka address).
 
-Since pointers are just address numbers we can just increase the address as if it was a number to do the offset instead of using the square brackets `[]`, since suing the square brackets `[]` is a shortcut for offsetting the address number.
+Since pointers are just address numbers we can just increase the address as if it was a number to do the offset instead of using the square brackets `[]`, since uing the square brackets `[]` is a shortcut for offsetting the address number by the size of the type.
 
-The type after the address is just telling us "how much" after the first byte is part of the variable.
+![]
 
-![] picture of pointer to first byte, but "type" tells how "big" or how much after the first byte is part of the variable
-
+The we have to know the "type of an address" to know how much to offset when using the square brackets, hence `char*` is an address, with offsets as big as a char.
 
 # Void
 Since a pointer (aka address) simply points to the first byte of an array (or type) we don't have to tell the type!
@@ -287,7 +316,11 @@ If you happen to run the "input" program without giving it an argument (like the
 
 In C "null" usually means we are accessing memory that has not been set to anything.
 
-It is generally not a good idea to read memory outside the "bounds" (boundaries) of an array! So, in C we have to manually check how long our array is. One of the parameters (inputs) from main is called `argc` which stands for "argument count", and funny enough `argc` is an int! You can use `argc` to see how many arguments were given!
+It is generally not a good idea to read memory that has not been set, as it proably has random 0s and 1s from something else. 
+
+In C we have to manually check how long our array is so that we don't accidentally offset outside of the array. 
+
+One of the parameters (inputs) from main is called `argc` which stands for "argument count", `argc` is an int. You can use `argc` to prevent yourself from offsetting outside of the arrays bounds. Yiu can also use `argc` see how many arguments were given.
 
 Change our program to detect if it was run with an argument by using `argc`'s number.
 
@@ -308,7 +341,7 @@ int main(int argc, const char * argv[])
 }
 ```
 
-Just so you know, argc doesn't start counting at 0. If we put 2 arguments (including the command to run the program) then argc will be 2.
+Just so you know, `argc` doesn't start counting at 0. If we put 2 arguments (including the command to run the program) then `argc` will be 2 (so if your using `argc` to stop yourself from offsetting outside of an array you will need to subtract 1 from `argc`, since offsets start counting from 0 and not 1).
 
 In the above code we print an error message and "return" an error code of 1 if no argument was given. 
 
