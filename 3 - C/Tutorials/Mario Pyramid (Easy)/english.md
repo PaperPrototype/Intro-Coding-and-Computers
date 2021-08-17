@@ -12,7 +12,7 @@ The end goal for the tutorial is to print hashes to make a half pyrmaid like the
 
 First watch this walkthrough (click on the picture, it is a link to the youtube video).
 
-![https://i.ytimg.com/vi/zm3D1CHDt0s/hqdefault.jpg](https://www.youtube.com/watch?v=zm3D1CHDt0s)
+![![Marios Pyramid (easy) - Walkthrough](https://i.ytimg.com/vi/zm3D1CHDt0s/hqdefault.jpg)](https://www.youtube.com/watch?v=zm3D1CHDt0s)
 
 Lets do it! Make a new replit called "mario". Select the C programming language.
 
