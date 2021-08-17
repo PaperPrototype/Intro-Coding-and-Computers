@@ -12,7 +12,7 @@ The end goal for the tutorial is to print hashes to make a half pyrmaid like the
 
 First watch this walkthrough (click on the picture, it is a link to the youtube video).
 
-![![](https://i.ytimg.com/vi/zm3D1CHDt0s/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLA7EJlXDh12QBbJ1nQ1fX-lgUwoww)](https://www.youtube.com/watch?v=zm3D1CHDt0s)
+![https://i.ytimg.com/vi/zm3D1CHDt0s/hqdefault.jpg](https://www.youtube.com/watch?v=zm3D1CHDt0s)
 
 Lets do it! Make a new replit called "mario". Select the C programming language.
 
