@@ -43,7 +43,7 @@ This prints 10 hashes in a row with a space between.
 ##### #####
 ```
 
-Then you can stack each of these rows, then have an offset for each row, and make them each change their size. THe end result should look like this.
+Then you can stack each of these rows, then have an offset for each row. The end result should look like this.
 
 ```
     # #
