@@ -55,7 +55,7 @@ int main(void) {
 
 The "offset" is what goes into the square brackets `[]`.
 
-When we offset using the square brackets `[]` the number of bytes (blocks) we offset depend on the *size of the type*. Currently we are using an `int` type which is 4 bytes (4 blocks) so in the above code we offset by `1 * 4` bytes to get to the second item in the array.
+When we offset using the square brackets `[]` the number of bytes (blocks) we offset depend on the *size of the type*. Currently we are using an `int` type which is 4 bytes (4 blocks) so the above code offsets by `1 * 4` bytes to get the second item in the array.
 
 ![array ints offsetting](/Assets/array_ints_offsetting.png)
 
