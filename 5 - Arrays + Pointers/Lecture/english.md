@@ -27,11 +27,11 @@ In C, an *array variable* is just an *address*. "Addresses" are a number telling
 
 ![memory continous linear](/Assets/memory_continuous_linear.png)
 
-Memory is usually layed out in a grid of bytes. Each byte having 8 bits of data in it.
+Memory is usually layed out in a grid of bytes. Each byte having 8 bits of data in it. You should think of addresses being a ***number to a specific byte***. Although we often represent memory as a grid since that is more space efficient.
 
 ![memory grid](/Assets/memory_grid.png)
 
-You should still think of addresses being a number even though we are using a grid to represent memory, it is just a bunch of switches in sets of 8 bits (in our case a byte looks like a square block) on after the other, although we put them in rows since that is much more space efficient.
+Even though we think of memory as a "grid", addresses are still a number to a specific byte.s
 
 ![memory wrap around](/Assets/memory_wrap_around.png)
 
