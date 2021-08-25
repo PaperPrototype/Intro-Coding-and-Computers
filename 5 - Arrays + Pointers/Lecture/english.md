@@ -35,7 +35,7 @@ Even though we think of memory as a "grid", addresses are still a number to a sp
 
 ![memory wrap around](/Assets/memory_wrap_around.png)
 
-The `integers` variable in the above code is an *address* to the first item in the array.
+The `integers` variable in the above code is an *address* to the first item in our array.
 
 ![array ints](/Assets/array_ints.png)
 
