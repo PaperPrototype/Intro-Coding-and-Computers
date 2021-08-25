@@ -143,17 +143,13 @@ The positions for the rect are in a grid. X is horizontal (horizontal like the h
 
 Here is a chart visualizing this.
 
-![]
+![pyxel coordinates](/Assets/pyxel_coordinates.png)
 
-The cube's x and y positions work like the following.
-
-![] TODO picutre of cube coordinates with the x and y variable + offsets.
-
-We want to simulate physics so that the cube falls. We can do this by changing the y position every "update".
+We want to simulate physics so that the cube falls. We can do this by changing the y variable every "update".
 
 But... currently there's a problem. We can't access the x and y variables inside of the `draw` function (or the `update` function) since x and y are outside of the functions!
 
-We could pass x and y as arguments (inputs) to the function, but the problem is that function arguments in most language are a **copy of the value** (copy of whatever was *inside of* the variable), so modifying x and y inside of update or draw, won't affect the x and y variables we originally made. 
+We could pass x and y as arguments (inputs) to the `update` function, but the problem is that function arguments in most language are a **copy of the value** (copy of whatever was *inside of* the variable), so modifying x and y inside of update or draw, won't affect the x and y variables we originally made. 
 
 To overcome this problem we will have to use a concept in programming where we wrap everything in an "object" (including the variables). 
 
@@ -211,7 +207,7 @@ class Game():
         pyxel.rect(self.x, self.y, self.x + 10, self.y + 10, 11)
 ```
 
-The whole point in the "self" parameter is to access variables that are "part of the object", and that is exactly what we do! We use `self` to access x and y through a period `.` like this `self.x` and `self.y`.
+The whole point in the "self" parameter is to access variables that are "part of the object", and that is exactly what we do! We use `self` to access x and y through a period `.` like this `self.x` and `self.y`. Make sure you change your code to use "self" to access the x and y variables.
 
 Now we can finally work on simulating gravity by changing y's position. We are supposed to only put "rendering" code inside of `draw`, so we'll use `update` for the gravity code.
 
@@ -221,24 +217,26 @@ Change the code in the update function to be the following.
 # ...
     def update(self):
         # ...
-    self.y = self.y - 1
+        self.y = self.y + 0.5
 
 # ...
 ```
 
-(We use `# ...` to signify code that is not being shown, in order to focus on code that is important)
+(We use `# ...` to signify code that is not being shown, in order to focus on code that is important, don't delete code that is not being shown though!)
 
-Our gravity code is litterally one line of code `self.y = self.y - 1` although we can use the shortcut for decreasing a number.
+Our gravity code is litterally one line of code `self.y = self.y + 0.5` although we can use the shortcut for decreasing a number.
 
 (example)
 ```py
 # ...
     def update(self):
         # ...
-    self.y -= 1
+        self.y += 0.5
 
 # ...
 ```
+
+We "increase" the y position to go down since y goes downwards (as you saw previously). We also increase y by 0.5 because otherwise it won't fall as fast.
 
 Now, if you want this code to actually do something we need to "make" the object. To make a "new" `Game` object we use the following code.
 
@@ -260,4 +258,107 @@ class Game():
 Game()
 ```
 
-This looks like a function call, aka, running a function verses defining a function.
+"Making" an object looks like running a function. There is a funciton that gets called automatically when we "make" a new object. 
+
+Change your cade and add the `__init__` funtion (I don't know why they have the double underscore in the name, but hey, thats just how it is).
+
+```py
+import pyxel
+
+class Game():
+	x = 10
+	y = 10
+
+	def __init__(self):
+		pyxel.init(100, 80)
+		pyxel.run(self.update, self.draw)
+
+    def update():
+        # ... removed for brevity (shortness)
+
+    def draw():
+        # ... removed for brevity (shortness)
+
+Game()
+```
+
+We "initialize" our games window with `pyxel.init` and then "run" the `update` and `draw` function with `pyxel.run`. All of the code inside of an `__init__` funciton (in an object) will get called once automatically when you "make" a new object.
+
+In the end your code should look like this.
+
+```py
+import pyxel
+
+class Game():
+	x = 10
+	y = 10
+
+	def __init__(self):
+		pyxel.init(100, 80)
+		pyxel.run(self.update, self.draw)
+
+	def update(self):
+		if pyxel.btnp(pyxel.KEY_Q):
+			# quit / exit
+			pyxel.quit()
+
+		self.y += 1
+
+	def draw(self):
+		pyxel.cls(0)
+		pyxel.rect(self.x, self.y, self.x + 10, self.y + 10, 11)
+
+# "Make" a new object
+Game()
+```
+
+We made sure to add one extra line of code that clears the screen before drawing the cube `pyxel.cls(0)` <- this clears the screen to red before drawing a cube again.
+
+If you run this code you should see a yellow cube falling! Without the `cls` (clear screen) function, we would draw cobe after cube, without clearing the old ones (making a "smear" of yellow cubes).
+
+Now we can simulate jumping / falling with a simple if statement.
+
+(pseudo code)
+```
+if space_key pressed then
+    move up
+else
+    fall down
+```
+
+Change the code inside of the `update` function to look like this.
+
+```py
+    def update(self):
+		if pyxel.btnp(pyxel.KEY_Q):
+			# quit / exit
+			pyxel.quit()
+
+        # jumping / falling
+		if pyxel.btn(pyxel.KEY_SPACE):
+            # jumping
+			self.y -= 1
+		else
+            # falling
+			self.y += 0.5
+```
+
+We make the jumping coe faster than the falling code.
+
+Run thsi code, by clicking the space key you can make the player fall or "jump" (actually just move upwards).
+
+If clicking the space key doesn't do anyhting, make sure to click inside of the game's window, then try clicking the space key (this is because the browser doesn't know you want to send input to the pyxel game, so you have to click on it).
+
+Now what about making the player move side ot side? Ooooh
+
+(pseudo code)
+```
+if right_arrow pressed then
+    self.x += 1
+if left_arrow pressed then 
+    self.x -= 1
+```
+
+I'll let you figure out how to translate this pseudo code (concept code) into real Python code, but this pseudo-code is pretty close to how it would look. (Make sure to put it in the `update` function).
+
+And now go and make a game! Make sure to check out the Tutorials! Or make a tutorial showing other people how to make what you made!

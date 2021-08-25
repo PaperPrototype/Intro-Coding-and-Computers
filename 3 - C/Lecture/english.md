@@ -950,7 +950,7 @@ If you run the above code you will see the `hash` variables number get printed n
 5#4#3#2#1#
 ```
 
-If we remove the numbers that have no corresponding hash we see the following.
+If we manually remove the numbers that have no corresponding hash we would see the following.
 
 ```
 1#
@@ -963,7 +963,3 @@ If we remove the numbers that have no corresponding hash we see the following.
 This could prove to be very useful in understanding how the code works. You could then remove the extra `printf` once you understand what is happening.
 
 And thats it! Have fun!
-
-TODO:
-Replit IDE, code "wrapping"
-- You can disable the annoying "code wrapping" feature by going to the settings (the gear wheel on the left column) then set "wrapping" to "none".

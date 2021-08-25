@@ -2,7 +2,7 @@ Clicking a run button, or using our mouse to navigate a computer is what most of
 
 But before the time of GUIs we had small black consoles with little white letters that only the beardiest hackers could use. We call these consoles Command Line Interfaces, or CLI for short.
 
-We are now going to learn to use a CLI! They are actually an extremely common tool that programmers use (and they make you look like a pro XD).
+We are now going to learn to use a CLI! They are actually an extremely common tool that programmers use (and they make you look like a pro).
 
 # Shell
 Go to this link https://replit.com/ to open up replit. Now make a new repl. Select the C programming language. Then name the new repl "cli".
@@ -17,6 +17,7 @@ The shell window is a Command Line Interface. The console window is also a CLI, 
 
 You'll notice the word "cli" in the shell.
 
+(shell)
 ```
 ~/cli$
 ```
@@ -27,6 +28,7 @@ You will also notice the tilde symbol `~`. The tilde symbol `~` represents the "
 
 The most basic command you can run is the list command.
 
+(command)
 ```
 ls
 ```
@@ -37,6 +39,7 @@ Running the `ls` command lists all the files and folders *who are in the same fo
 
 You should see the following in the shell.
 
+(shell)
 ```
 ~/cli$ ls
 main.c
@@ -47,18 +50,20 @@ The "main.c" file get will probably get listed. It is the file that is holding t
 
 You will also notice the dollar sign `$`. We write our commands after the dollar sign... thats... actually the only thing the dollar sign is there for, as a visual indicator for where to write our commands!
 
-You can use the shortcut `ctrl` + `L` keys to clear the shell (actually it just moves all the old commands up and out of view).
+Use the shortcut keys `ctrl` + `L` to clear the shell of all yuour old commands. When your shell starts to fill up with all kinds of commands just use `ctrl` + `L` to clear them. Make sure you do this after your done reading the output of a command, otherwise your shell will fill up with all kinds of info and it becomes hard to read.
 
 So how do we move into another folder? We can use the *change directory* command. The "cd" (change directory) command is formatted like this.
 
+(placeholder example command)
 ```
-cd (replace this with name of folder)
+cd (replace with name of folder to move to)
 ```
 
-After you type cd you can type the name of any neighboring folders... but there are no folders to move into, so lets make one!
+After you type `cd` you can type the name of any neighboring folders... but there are no folders to move into! Lets make one!
 
 Use the make directory "mkdir" command to make a new folder.
 
+(command)
 ```
 mkdir myNewFolder
 ```
@@ -68,6 +73,7 @@ Write the above command into the shell (or just copy paste it). Click the enter 
 Now run the `ls` command to see our new folder get listed!
 Your CLI (aka, the Shell) should look like this.
 
+(shell)
 ```
 ~/cli$ mkdir myNewFolder
 ~/cli$ ls
@@ -75,16 +81,20 @@ main.c  myNewFolder
 ~/cli$ 
 ```
 
-You can see our folder as well as our main.c file gets listed.
+You can see our folder as well as our "main.c" file gets listed.
+
+(Now clear your shell using the `ctrl` + `L` keys)
 
 Now move into your new folder by using the `cd` command.
 
+(command)
 ```
 cd myNewFolder
 ```
 
 After your run this command you will see that the current folder has changed!
 
+(shell)
 ```
 ~/cli$ cd myNewFolder
 ~/cli/myNewFolder$ 
@@ -92,12 +102,14 @@ After your run this command you will see that the current folder has changed!
 
 HA! We can also make new files using the touch command.
 
+(command)
 ```
 touch myNewFile
 ```
 
 Run the above command. Now run the list command. Your Shell should look like this.
 
+(shell)
 ```
 ~/cli/myNewFolder$ touch myNewFile
 ~/cli/myNewFolder$ ls
@@ -107,18 +119,21 @@ myNewFile
 
 Now how do we get back to our parent folder (the "cli" folder)? Run the below command. It will move us into our parent folder!
 
+(command)
 ```
 cd ..
 ```
 
 A double period `..` in computers usually refers to the parent folder (from the current folder). So by running 
 
+(command)
 ```
 cd ..
 ```
 
 ...you move into our parent folder! You should see the follwoing in the shell.
 
+(shell)
 ```
 ~/cli/myNewFolder$ cd ..
 ~/cli$ 
@@ -128,12 +143,14 @@ Make sure your shell looks like this! And that you are in the "cli" folder befor
 
 Now we can delete files using the remove command.
 
+(command)
 ```
 rm (name of file)
 ```
 
 But if we want to delete *folders* we also have to remember that folders can contain other folders and files! So we have to tell the remove command to enable a "feature".
 
+(command)
 ```
 rm -r myNewFolder
 ```
@@ -187,25 +204,22 @@ So how did this all work? When we type `cd` (and some arguments) and hit enter, 
 
 There is a file called a "profile" that the shell uses to find the different programs. You can add your own programs to the profile *file*!
 
-TODO
-- show how to find profile *file* for Replit
-
-You could actually make your own "command line" programs (like cd and rm) by simply adding them to the *profile* file!
+You could actually make your own "command line" programs (like cd and rm) by simply adding them to the *profile* file, which would make it so that you can skip having to type `./cd` before the name of make and just type its name `cd`.
 
 Once the shell finds a program, for example `cd`, it sends the *arguments* (aka input) we typed after the word `cd` and passes them to the `cd` program (that the shell ran for us). `cd` then figures out what to do based on the arguments (aka input) we typed.
 
-How does the shell, a "command line interface", know what the arguments were?
+How does the shell, a "command line interface", know what the arguments were? Liek fi we typed `cd /` how does it know that `/` is for `cd` and not part of its name?
 
-Well we put a space after the name of the program `cd /` <- notice the space. So, if you didn't put a space you might get an error because the shell looked for a program called `cd/`.
-
+The Shell checks for a space after the name of the program `cd /` (<- notice the space). So, if you didn't put a space and just typed `cd/` you might get an error because the Shell uses a space to find the program name and then search the "profile" file for any programs with that name and runs them.
 
 # Compiling
 With the C programming language we have to convert our code into series of 0 and 1 instructions for the computer. We store the result of converting our C code into binary instructions (specific to a CPU) in a file, called a program file. In Python we used a program that interpreted our text based code as it read it. With C we create programs from the code.
 
 To convert text based code into a series of 0s and 1s instructions in a program file we use a program called a "compiler". 
 
-In fact whenever your ran your C programs last week you might have seen that Replit did run a compiler command using the console.
+In fact whenever you clicked the "run" button in Replit you might have seen that Replit compiled your code then ran it for you!
 
+(Replits console when you click the play button)
 ```
 > clang-7 -pthread -lm -o main main.c
 > ./main
@@ -215,16 +229,18 @@ Hello World
 
 We are now going to use the shell to compile our code. We will be using the clang compiler (the same one replit has been using all along) to compile our code into a program file. 
 
-(Make sure you didn't delete our main.c file because we are about to compile it!)
+(Make sure you didn't delete your main.c file because we are about to compile it!)
 
 Run the following command.
 
+(command)
 ```
 clang main.c
 ```
 
 Your shell should look like this 
 
+(shell)
 ```
 ~/cli$ clang main.c
 ~/cli$
@@ -232,40 +248,52 @@ Your shell should look like this
 
 Now use the list command to see our new program file we just created! You should see this
 
+(shell)
 ```
 ~/cli$ ls
 a.out  main.c
 ~/cli$ 
 ```
 
-clang made a new program file called "a.out". The "a" stands for Assembly (we'll get to what assembly is in a second).
+clang made a new program file called "a.out". The "a" stands for Assembly (we'll get to what assembly is in a second), and the "out" stands for "output".
 
-You may also see a file called "main" get listed. This is a program file of our "main.c" code that Replit made. We can rename our "a.out" file to be "main" when we compile by using the `-o` flag (which stands for output).
+You may also see a file called "main" get listed if you ran the code using the play button. This is a program file of our "main.c" code that Replit made. We can rename our "a.out" file to be "main" when we compile by using the `-o` flag (which stands for output).
 
+(command)
 ```
 clang main.c -o main
 ```
 
-Now you should see a program file called "main"
+Now you should see a program file called "main".
 
 Lets now run the resulting "main" program file. To run a program using a CLI we have to *refer* to the program directly. The CLI then runs the program. Type in the following command to run the resulting program.
 
+(command)
 ```
 ./main
 ```
 
 The "." refers to our current folder. The "/main" refers to the "main" program file.
 
-# Make
-It will get annoying to have to write a clang command with the `-o` feature to rename the output program file to be named "main". SOoinstead we can use the make program.
+Run the above command to "run" the main program.
 
+# Make
+It will get annoying to have to write a clang command with the `-o` feature to rename the output program file to be named "main". So instead we can use the make program.
+
+(command)
 ```
 make main
 ```
 
-Run the above command. This will compile our "main.c" code into a program file called "main". The make program doesn't make us type the ".c" in `make main.c`, inctead we can just say `make main` and the make program figures out that the file is called "main.c". 
+Run the above command. This will compile our "main.c" code into a program file called "main". The `make` program doesn't make us type the ".c" in `make main.c`, instead we can just say `make main` and the `make` program figures out that our code is in a file called "main.c".
 
 The make program also outputs a program file called "main" and not "a.out".
+
+Now run the resulting "main" program using 
+
+```
+./main
+```
 
 # Compilers
 Lets now understand how a compiler works.
@@ -279,22 +307,25 @@ assembling
 linking
 ```
 
-First the compiler pre-processes our code. This includes "including" code with the `include` directive. You can view the pre-processed output by running the below command
+First the compiler pre-processes our code. This includes "including" code into our "main.c" file from the header files. You can view the pre-processed code by running the below command
 
+(command)
 ```
 clang -E main.c
 ```
 
 This prints the preprocessed code into the console! We can make clang put the preprocessed code into a new file by using the below command.
 
+(command)
 ```
 clang -E main.c > preprocessed.c
 ```
 
-This puts the pre-processed output of our main.c code into a new file called a "preprocessed.c".
+This puts the pre-processed code (with the included headers) from our main.c code into a new file called a "preprocessed.c". Use Replits files tab to view the output.
 
-clang then convert our preprocessed code into assembly instructions, this step is (consfusingly) called "compiling". Assembly code is specific to each CPU (Central Processing Unit). Here is an example of Assembly code from a "Hello world" C program.
+Clang then convert our preprocessed code (with all the header code) into assembly instructions, this step is (consfusingly) called "compiling". Assembly code is specific to each CPU ("Central Processing Unit:, or just processor). Here is an example of Assembly code from a "Hello world" C program.
 
+(assembly instructions for a CPU)
 ```x86_64
 .LC0:
         .string "Hello world"
@@ -309,18 +340,30 @@ main:
         ret
 ```
 
-(I used https://godbolt.org/ to view the resulting assembly in realtime as I edited)
+(I used https://godbolt.org/ to view the resulting assembly in realtime)
 
-Before we had *compiled programming languages* (like C) everyone had to write code specific to each CPU using Assembly! But now, with C (and others) we can make our code run on any CPU thanks to compilers.
+Before we had *compiled programming languages* (like C) everyone had to write code specific to each CPU using Assembly! But now, with C (and others) we can make our code run on any CPU thanks to modern compilers that convert our code into Assembly.
 
-We then go through another step called "assembling". AN assembler program converts our assembly code into a file of 0s and 1s instructions. Assembler programs often come builtin with your computer.
+```
+preprocessing
+compiling <- converting code into assembly instructions
+assembling
+linking
+```
 
-Finally we have "linking". Linking takes files that have already been compiled into binary and "links" them all together into one program file. For example, it is common for the code for the "math.h" code to come already compiled. So rather than the compiler having to compile "math.h" every time, it can just link the binary version at the end. This saves a lot of time in projects with lots of code.
+We then go through another step called "assembling". An assembler program converts our assembly code into a file of 0s and 1s instructions. Assembler programs often come builtin with your computer.
 
-Alright! Now you know how a compiler works!
+```
+preprocessing
+compiling
+assembling <- convert to 0s and 1s
+linking
+```
 
+Finally we have "linking". Linking takes files that have already been compiled into binary and "links" them all together into one program file. 
 
-TODO
-- To stop the onslaught of click inside of the shell then click the `ctrl` + `C` keys. This "cancels" the program.
-- To clear the shell use `ctrl` + `L`
-- How the heck did this work?
+Sometimes code comes already compiled into 0s and 1s, and all we are given is a header with functions hints. This helps save time because rather than the compiler having to compile some code every time, it can just "link" the binary version at the end. This is also common when it comes to proprietary (patented) code. Often you are not allowed to see the actual code, so all you get is a binary version, that you have to "link" with your code.
+
+Now you know how a compiler works!
+
+Sometimes a program will stop working (or you find experimenting with an inifite for loop that prints "Hello world" forever) you can stop the program by first clicking inside of the shell (so that replit knows you are "focused on" the shell window) then click the `ctrl` + `C` keys. This "cancels" the program.

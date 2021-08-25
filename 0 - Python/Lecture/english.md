@@ -7,6 +7,7 @@ Lets write a search "algorithm" using instructions, or in programmer lingo *code
 
 Code actually looks a lot like english, although a bit more... robotic. Here is some fake code. In it we are searching for a baseball.
 
+(pseudo code (fake concept code))
 ```
 Look at current item
 If current item is baseball
@@ -24,6 +25,7 @@ We call this a "bug". "Bugs" in computer programming are surprisingly common.
 
 To fix this "bug" we have to change the code to expect the possibility of the item not being there.
 
+(pseudo code (fake concept code))
 ```
 Look at current item
 If all items searched
@@ -49,6 +51,7 @@ It turns out there's a way to search things WAY faster than using linear search.
 
 For the sake of simplicity we are now searching through a list of (sorted) contacts for a contact named "Johnny". We start at the center.
 
+(pseudo code (fake concept code))
 ```
 Open center contact
 ```
@@ -67,6 +70,7 @@ Now we know that Johnny is in the lower remaining half (between D and A). We go 
 
 This algorithm would finds our dearest Johnny really fast compared to the linear search algorithm! The code would look something like this.
 
+(pseudo code (fake concept code))
 ```
 Open center contact
 If no contacts left

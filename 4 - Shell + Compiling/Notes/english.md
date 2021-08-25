@@ -8,12 +8,12 @@ Compiler
 
 The history of Graphical User Interfaces https://www.youtube.com/watch?v=pQocN_c2uLI
 
-
 https://apple.stackexchange.com/questions/388622/zsh-zprofile-zshrc-zlogin-what-goes-where
 
 https://www.extremetech.com/computing/104661-how-steve-jobs-stole-the-mouse-and-gui-video
 
-# CLI
+CLI
+- Command Line Interface
 
 ## Common command
 Compile and run
@@ -29,9 +29,11 @@ Clear shell
 Cancel (Stop) program
 `ctrl` + `C`
 
-## How it works
-Information in a profile file gets loaded by the shell. Using the profile file it loads programs like `cd`.
+## How the Shell works
+A thorough and deep explanation of a Shell (kindof advanced)
+https://medium.com/@yuriquezada.dev/what-happens-when-you-type-ls-l-c-in-the-shell-ccd520a45eff
 
+How the "profile" of the shell works in Mac OSX.
 https://apple.stackexchange.com/questions/388622/zsh-zprofile-zshrc-zlogin-what-goes-where
 
 # Compilers
@@ -43,5 +45,6 @@ Compiling
 
 Clang
 > A compiler for the C family of programming languages C, C++, Objective-C, Objective-C++.
+
 > clang explained in detail https://www.joshwieder.net/2014/11/compiling-c-using-clang.html
 

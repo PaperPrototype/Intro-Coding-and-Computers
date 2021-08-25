@@ -1,55 +1,15 @@
-# Address
-Memory is really just a long line of swithes. Each switch is refered to as a bit. To make accessing memory faster we store bits in blocks of 8, called bytes.
-
-We can think of memory as a grid of bytes (aka blocks).
-
-![memory grid](/Assets/memory_grid.png)
-
-Each byte having 8 bits of data in it.
-
-It turns out variables are actually just a memory address. An "address" is just a number to a specific byte.
-
-![]
-
-
-
-
-
-
-TODO:
-Teach addresses, then arrays + `[]` as array offsets
-
-
-
-
-C doesn't have "lists". In C we have "arrays". 
-
-So an *array* is blocks of memory one after the other, each of the same size so that the offsets can work.
-
-![memory array](/Assets/memory_array.png)
-
-
-
-
-
-
-
-
-
-
-
-
-
+In C we don't have the idea of "lists" instead we have "arrays".
 
 Make a new repl. Call it "arrays". Select the C programming language. Make a new file called `array.c` using the `touch` command in the shell.
 
+(command)
 ```
 touch array.c
 ```
 
-(use `rm` to delete the file if you named it incorrectly).
+Remove the "main.c" file using `rm main.c` since we won't be using it.
 
-Open `array.c` using the files window and paste the following.
+Open `array.c` using Replits files window and write the following code.
 
 ```c
 int main(void) {
@@ -57,24 +17,29 @@ int main(void) {
 }
 ```
 
-We put square brackets `[]` next to the variables name to show that is is an array variable.
+We put square brackets `[]` next to the variables name to show that is is an "array" variable.
 
-When we set the array variables items we use curly brackets `{}` around each item.
+We then "fill" the array by putting curly brackets `{}` around all the items, and we separate each item using a comma `,`.
 
-In C, an array variable is an *address*. Addresses are a number telling us what block of memory something is in. 
+In C, an *array variable* is just an *address*. "Addresses" are a number telling us what block of memory something is in. 
 
 ![memory continous linear](/Assets/memory_continuous_linear.png)
 
-The `integers` variable in the aboove code is an *address* to the first item in the array.
+Memory is usually layed out in a grid of bytes. Each byte having 8 bits of data in it.
 
-TODO
-- currently the picture below is incorrect since an `int` uses 4 bytes, not 2.
+![memory grid](/Assets/memory_grid.png)
 
-![memory array address](/Assets/memory_array_address.png)
+You should still think of addresses being a number even though we are using a grid to represent memory, it is just a bunch of switches in sets of 8 bits (in our case a byte looks like a square block) on after the other, although we put them in rows since that is much more space efficient.
 
-To access an item in an array we "go to" the first element in the array + an offset. 
+![memory wrap around](/Assets/memory_wrap_around.png)
 
-Change your code to the below to print out the second item in the list by using an offset of 1 (Make sure to add a `\n`)
+The `integers` variable in the above code is an *address* to the first item in the array.
+
+![array ints](/Assets/array_ints.png)
+
+To access an item in an array we "go to" the first item in the array + an offset.
+
+Change your code to the below to print out the second item in the list by using an offset of 1 (Make sure to add a `\n` and `#include stdio.h>`)
 
 ```c
 #include <stdio.h>
@@ -88,10 +53,23 @@ int main(void) {
 
 The "offset" is what goes into the square brackets `[]`.
 
-When we offset using the square brackets `[]` the number of bytes (blocks) we offset depend on the *size of the type*. Currently we are using an `int` type which is 4 bytes (4 blocks) so we offset by `1 * 4` to get to the second item in the array. 
+When we offset using the square brackets `[]` the number of bytes (blocks) we offset depend on the *size of the type*. Currently we are using an `int` type which is 4 bytes (4 blocks) so in the above code we offset by `1 * 4` bytes to get to the second item in the array.
 
-TODO
-- show picture of offsetting
+![array ints offsetting](/Assets/array_ints_offsetting.png)
+
+Compile "array.c" using make.
+
+(command)
+```
+make array
+```
+
+Then run it using.
+
+(command)
+```
+./array
+```
 
 You can test the size of a type by using the builtin `sizeof` function.
 
@@ -110,7 +88,9 @@ int main(void) {
 }
 ```
 
-The size of a type is measured using a unsigned (non negative) `long` type, so when printing the size of a type we use an unsigned long specifier `%lu`. 
+The size of a type is measured using a unsigned (non negative, no "sign") `long` type, so when printing the size of a type we use an unsigned long specifier `%lu`.
+
+Compile the code with `make array`, then run it using `./array`
 
 To access the first element we don't need an offset so its just `[0]`
 
@@ -127,10 +107,16 @@ int main(void) {
 }
 ```
 
-C won't stop us from offsetting outside of the array! This is why some people prefer languages like Rust which guarantee "memory safety".
-
 # Strings
-It turns out that *strings* are an array of the type `char`. Edit the above code so that we have a `char` array that spells the word "Hello".
+It turns out that *strings* (words and phrases enclosed in double quotes `""`) are an array. More specifically an array of `char`'s. 
+
+Make a new file.
+
+```
+touch string.c
+```
+
+Write the following code into "string.c".
 
 ```c
 #include <stdio.h>
@@ -142,23 +128,29 @@ int main(void) {
 }
 ```
 
-Now run the make command to compile the "array.c" code
+The `char` type is litterally an ASCII type.
 
+In the array we enclose each individual letter with a single quote `'`. C requires that we use a single quote `'` and not a double quote `"` to represent a single char.
+
+Run make to compile the "string.c" code
+
+(command)
 ```
-make array
+make string
 ```
 
 Then run it using 
 
+(command)
 ```
-./array
+./string
 ```
 
 you will see "Hello" get printed.
 
-We use the string conversion specifier `%s`. Makings strings is so common that nobody writes strings this way. Instead we have special syntax for strings, which lets us use double quotes `"item item item"` rather than the clunky array syntax `{ item, item, item }`.
+We use the string conversion specifier `%s` since a string in C is actually an array of chars. Makings strings is so common that nobody writes strings as an array! Instead we have special syntax for strings, which lets us use double quotes `"Help"` rather than the clunky array syntax `{ 'H', 'e', 'l', 'p' }`.
 
-Change your code to use the double quotes `""`.
+Change your code to use the double quotes `""` syntax.
 
 ```c
 #include <stdio.h>
@@ -173,10 +165,12 @@ int main(void)
 
 Now compile and run the above code using the shell (see above commands).
 
-TODO `\0` symbol
+You may ask yourself "how does printf know when to stop offsetting in a char array (aka string)"? Every "string" in C by default ends with a special *null terminating character*, namely `\0`.
 
-# Pointers (aka address variables)
-In C, we call variables that hold an address number "pointers" (It turns out that using the square brackets `[]` after a variables name is also a shortcut).
+Even though we didn't add a `\0` to the end of our string, C added it for us (or C checked the the value was not a "null" value, we'll see what null is in a second).
+
+# Addresses
+We can make a variable that holds an address number to some piece of memory.
 
 Change your code to the following.
 
@@ -185,20 +179,46 @@ Change your code to the following.
 
 int main(void) 
 {
-    // pointer (address)
-	int* numbers = "Hello";
+	// array, address
+	char* hello = "Hello";
 
 	printf("%s \n", hello);
 }
 ```
 
-We change the "hello" variable to be a pointer (aka, address) of the type char by putting a star with the type -> `char*` in front of the variable. The star symbol `*` just signifies it is a "pointer" (aka address).
+We change the "hello" variable to be a pointer (aka, address) of the type "char" by putting a star symbol afterwards, namely `char*`. The star symbol `*` just signifies it is a "pointer" (aka address number) variable. An address variable is just a number telling us which "byte" is the beginning of the array (or what byte is the beginning of our data, sometime just a single item, and not an array).
 
-Since pointers are just address numbers we can just increase the address as if it was a number to do the offset instead of using the square brackets `[]`, since uing the square brackets `[]` is a shortcut for offsetting the address number by the size of the type.
+We don't have to use the square brackets to access stuff in an array. A "pointer" (address variable) just points to the first item in an array (or a singel item), so we can access the first item and ignore the rest in our array, by "going to" the address.
 
-![]
+To "go to" the address of our variable and access the first item we have to tell C to "go to" that address. We do this by putting a star symbol `*` in front of the variable.
 
-The we have to know the "type of an address" to know how much to offset when using the square brackets, hence `char*` is an address, with offsets as big as a char.
+Change your code to the following.
+
+```c
+#include <stdio.h>
+
+int main(void) 
+{
+    // array (using pointer (address variable))
+	int* hello = "Hello";
+
+	printf("%c \n", *hello);
+}
+```
+
+This is called "de-referencing" a pointer (address variable).
+
+The above code aslo changes to use the conversion specifier for `char` type in `printf`, rather than the string conversion specifer `%s`.
+
+This code will print out the letter "H". Compile the above code with make, then run it in the shell.
+
+Using the square brackets `[]` is a useful shortcut for offsetting from the address.
+
+We have to know the type in an array if we want to properly use offsetting shortcut. Hence `char*` is an address, which offsets by 1 byte when we use the square brackets iterator `[]`. (If we had an array of `int` we would offset by 4 byts to get the next item).
+
+C won't stop us from offsetting outside of the array though! If you do happen to offset outside of the array and access that memory you will get a `null` value.
+
+"null" means we are accessing memory that has not been set to anything. You can still read that memory in C, but we can't know what the 0s and 1s will be. Often this is called a "garbage value" when accessing unkown 0s and 1s.
 
 # Void
 Since a pointer (aka address) simply points to the first byte of an array (or type) we don't have to tell the type!
@@ -220,12 +240,9 @@ int main(void)
 
 Now compile and run the code using the shell.
 
-Void is an unkown type (but it also stands for "no input" in functions). By using `void` for the pointer type we can point to any array in memory! 
+Void is an unkown type (but it also stands for "no input" in functions). By using `void` for the pointer type we can point to any type of array!
 
-When we use the void pointer `void*`, we have to know the type though. Otherwise we wouldn't know how much to offset in memory to get the next element in an array! So we cast the type (aka convert the type) with this line of code `(char*)`.
-
-If we hold onto an `int` using a void pointer we will reference the first byte of the 4 bytes in an `int`.
-
+When we use the void pointer `void*` to an array, we do have to know the type to be able to print it, otherwise we wouldn't know how much to offset in memory to get the next element in the array! So we cast the type (aka convert the type) with this line of code `(char*)`, inside of `printf`.
 
 # Getting Input 
 The main function gets input from the shell. Except so far we haven't used this functionality. 
@@ -249,9 +266,10 @@ int main(int argc, const char * argv[])
 
 What is `const char * argv[]`? Well the first part `const` is a keyword, it is telling us that we are not allowed to change the variables values (stuff inside the variable) and they are "constant".
 
-The `char * argv[]` is weird. It is an array of addresses `char *` to an array of strings `argv[]`... Another way of writing this would be.
+The `char * argv[]` is weird. It is an array of addresses `char *` to an array of strings `argv[]`... Another way of writing this would be to use two stars `char ** argv`.
 
-(example, don't change your code)
+Change your code to use this method.
+
 ```c
 #include <stdio.h>
 
@@ -265,9 +283,9 @@ If we visualize an array of addresses to an array of strings, in memory it would
 
 ![argv in c](/Assets/argv.png)
 
-Not to complicated (it probably sounded complicated). The word `argv` stands for "argument vector".
+Not to complicated (it probably sounded complicated). The word `argv` stands for "argument vector" (honestly this name is jsut traditional).
 
-Lets use `argv`! Lets make a program that gets our name, then prints it out along with a "hello" message.
+Lets use `argv`! Lets make simple a program that gets our name, then prints it out along with a "hello" message.
 
 ```c
 #include <stdio.h>
