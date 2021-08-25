@@ -1,6 +1,8 @@
 In C we don't have the idea of "lists" instead we have "arrays".
 
-Make a new repl. Call it "arrays". Select the C programming language. Make a new file called `array.c` using the `touch` command in the shell.
+Make a new repl. Select the C programming language. Call the project "arrays".
+
+In the shell make a new file called `array.c` using the `touch`.
 
 (command)
 ```
