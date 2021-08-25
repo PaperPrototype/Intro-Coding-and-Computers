@@ -150,7 +150,7 @@ Then run it using
 
 you will see "Hello" get printed.
 
-We use the string conversion specifier `%s` since a string in C is actually an array of chars. Makings strings is so common that nobody writes strings as an array! Instead we have special syntax for strings, which lets us use double quotes `"Help"` rather than the clunky array syntax `{ 'H', 'e', 'l', 'p' }`.
+We use the string conversion specifier `%s` since a string in C is actually an array of chars. Making strings is so common that nobody writes strings using array syntax! Instead we have special syntax for strings, which lets us use double quotes `"Help"` rather than the clunky array syntax `{ 'H', 'e', 'l', 'p' }`.
 
 Change your code to use the double quotes `""` syntax.
 
