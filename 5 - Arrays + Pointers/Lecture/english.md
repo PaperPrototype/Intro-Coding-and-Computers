@@ -23,15 +23,15 @@ We put square brackets `[]` next to the variables name to show that is is an "ar
 
 We then "fill" the array by putting curly brackets `{}` around all the items, and we separate each item using a comma `,`.
 
-In C, an *array variable* is just an *address*. "Addresses" are a number telling us what block of memory something is in. 
+Our integers variable is an address to the first item in the array. You should think of addresses as being a ***number to a specific byte***. A "byte" is 8 bits (a `0` or `1`).
 
 ![memory continous linear](/Assets/memory_continuous_linear.png)
 
-Memory is usually layed out in a grid of bytes. Each byte having 8 bits of data in it. You should think of addresses being a ***number to a specific byte***. Although we often represent memory as a grid since that is more space efficient.
+Although we often represent memory as a grid since that is more space efficient.
 
 ![memory grid](/Assets/memory_grid.png)
 
-Even though we think of memory as a "grid", addresses are still a number to a specific byte.s
+Even though we think of memory as a "grid", addresses are still a number to a specific byte.
 
 ![memory wrap around](/Assets/memory_wrap_around.png)
 
