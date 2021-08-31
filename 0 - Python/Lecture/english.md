@@ -141,7 +141,7 @@ You can also resize everything in your browser by using the `ctrl` and `+` keys 
 
 ![replit resize](/Assets/replit_resize.gif)
 
-Now lets print a *famous* sentence using Python. Paste the following code into the code window.
+Now lets print a *famous* (ish) sentence using Python. Paste the following code into the code window.
 
 ```py
 print("Hello world! I am an idiot!")
