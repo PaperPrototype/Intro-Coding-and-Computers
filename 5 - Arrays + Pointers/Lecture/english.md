@@ -469,10 +469,10 @@ Now we can use `my_address` to access the same number that `my_number` holds.
 
 In memory this would look something like this.
 
-![]
+![] TODO
 
 # Getting Input
-We can get input much like python by using C's `scanf` function.
+We can get input much like Python by using C's `scanf` function.
 
 Make a new C file using touch.
 
@@ -543,6 +543,7 @@ Although if the user types just a word instead of a number, then `scanf` will pr
 Go ahead and try typing random things into your program to see what will happen.
 
 # Do while and Scope and Return?
+TODO
 - make program that asks for input from scanf until it is wanted input
 - getting input until it is correct (from Getting input section!)
 
