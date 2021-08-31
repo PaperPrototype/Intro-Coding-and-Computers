@@ -8,12 +8,11 @@ Variable
 - A code-word used to hold onto a *value* (a number or string)
 
 String
-- Words or phrases (not code)
+- Words or phrases enclosed in double quotes (not code)
 
 Loop
+- A way to do the same code over and over a certain number of times
 - A way to go over every item in a list and run some code on that item
-
-- A way to do the same thing over and over a certrain number of times
 
 Functions
 - Groups of fully reusable code
@@ -26,8 +25,5 @@ Arguments
 
 Calling a function?
 - When you refer to a function and have the code inside of it run
-
-Object (or Class)
-- A... uh... "thing" that holds functions and variables inside of it.
 
 Nice and simple notes :)

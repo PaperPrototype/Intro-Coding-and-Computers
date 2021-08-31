@@ -172,7 +172,7 @@ You may ask yourself "how does printf know when to stop offsetting in a char arr
 Even though we didn't add a `\0` to the end of our string, C added it for us (or C checked the the value was not a "null" value, we'll see what null is in a second).
 
 # Addresses
-We can make a variable that holds an address number to some piece of memory.
+We can make a variable that holds an "address number" to a block of memory. We call variables that hodl a memeory address "pointers" or address variables.
 
 Change your code to the following.
 
@@ -188,11 +188,11 @@ int main(void)
 }
 ```
 
-We change the "hello" variable to be a pointer (aka, address) of the type "char" by putting a star symbol afterwards, namely `char*`. The star symbol `*` just signifies it is a "pointer" (aka address number) variable. An address variable is just a number telling us which "byte" is the beginning of the array (or what byte is the beginning of our data, sometime just a single item, and not an array).
+We change the "hello" variable to be a *pointer* by putting a star after the type, namely `char*`. The star symbol `*` just signifies it is a "pointer" (aka *address* variable). An address variable is just a number telling us which "byte" some piece of data starts out at. Sometimes this is the beginning of an array, and sometimes it is just a single item.
 
-We don't have to use the square brackets to access stuff in an array. A "pointer" (address variable) just points to the first item in an array (or a singel item), so we can access the first item and ignore the rest in our array, by "going to" the address.
+We will use the `hello` pointer to access the first item in the word "Hello" (and ignore the rest) by "going to" the address in the `hello` pointer (since an address points to the beginning of some peice of data).
 
-To "go to" the address of our variable and access the first item we have to tell C to "go to" that address. We do this by putting a star symbol `*` in front of the variable.
+To "go to" the address of our `hello` pointer (and access the first item) we tell C to "go to" that address by putting a star symbol `*` in front of the `hello` variable, like this `*hello`.
 
 Change your code to the following.
 
@@ -201,29 +201,91 @@ Change your code to the following.
 
 int main(void) 
 {
-    // array (using pointer (address variable))
 	int* hello = "Hello";
 
+	// access what is at the address
 	printf("%c \n", *hello);
 }
 ```
 
-This is called "de-referencing" a pointer (address variable).
+This is called "de-referencing" a pointer ("accessing" what is at a pointers address (since "pointer" is just another name for a variable the holds an address and not the data itself)).
 
-The above code aslo changes to use the conversion specifier for `char` type in `printf`, rather than the string conversion specifer `%s`.
+The above code also changes to use the conversion specifier for `char` type `%c` (in `printf`), rather than the string conversion specifer `%s`.
 
-This code will print out the letter "H". Compile the above code with make, then run it in the shell.
+This code will print out the letter "H" (obviously). Compile the above code with make, then run it (using the shell).
 
-Using the square brackets `[]` is a useful shortcut for offsetting from the address.
+Using the square brackets `[]` is a useful shortcut for offsetting from an address or pointer. 
 
-We have to know the type in an array if we want to properly use offsetting shortcut. Hence `char*` is an address, which offsets by 1 byte when we use the square brackets iterator `[]`. (If we had an array of `int` we would offset by 4 byts to get the next item).
+When we make an array we have to know the type of the array for C to be able to offset correctly. Hence `char*` is an address, which offsets by 1 byte when we use the square brackets iterator `[]`. If we had an array of `int` we would offset by 4 bytes to get the next item.
 
-C won't stop us from offsetting outside of the array though! If you do happen to offset outside of the array and access that memory you will get a `null` value.
+![array ints offsetting](./Assets/array_ints_offsetting.png)
+
+C won't stop us from offsetting outside of the array though! If you do happen to offset outside of an array and access memory that is not part of the array then you will probably get a `null` value.
 
 "null" means we are accessing memory that has not been set to anything. You can still read that memory in C, but we can't know what the 0s and 1s will be. Often this is called a "garbage value" when accessing unkown 0s and 1s.
 
+Try offsetting outside of the "Hello" array. Change your code to the following.
+
+```c
+#include <stdio.h>
+
+int main(void) 
+{
+	int* hello = "Hello";
+
+	// access what is at the address
+	printf("%c \n", hello[6]);
+}
+```
+Compile this code with make. Then run it using the shell.
+
+This will print out `\0`, which as your remember, is something C adds to our string for us so that it can know when to stop offsetting in memory. Although we want to break things and get a null value!
+
+Change your code ot the following.
+
+```c
+#include <stdio.h>
+
+int main(void) 
+{
+	int* hello = "Hello";
+
+	// access what is at the address
+	printf("%c \n", hello[100]);
+}
+```
+
+This will definitally either lead to an error when we try to compile (since the compiler is trying to correct us), or, if you manage to get this code to run, you will see "null" get printed (or another type of error called a "segmentation fault", often shortened to "seg fault").
+
+# Loops + Arrays
+We can also use a `for` loop on an array. This is pretty cool. Lets iterate over the word hello and print out each character.
+
+Make a new file called 
+
+TODO (not in order presented)
+make sure to introduce gradually and explain the for loop
+- avarage a bunch of numbers
+
+- const keyword, protects to make sure no one is allowed to change the number (very useful to prevent people from making mistakes)
+    - prevents you from going through all your code and changing all the numbers you typed, just store the number in a variable and use the const variable!
+
+- then move everything into an "average" function
+
+TODO
+- `break` keyword
+- `return` keyword
+- `continue` keyword
+
+(example)
+```c
+TODO
+```
+
+TODO
+- average all the numbers together in an array? using a for loop?
+
 # Void
-Since a pointer (aka address) simply points to the first byte of an array (or type) we don't have to tell the type!
+Since a pointer (aka address) simply points to the first byte of an array (or just the first byte to an `int`) we don't have to tell the type!
 
 Change the code to the following.
 
@@ -240,14 +302,14 @@ int main(void)
 }
 ```
 
-Now compile and run the code using the shell.
+This code makes a pointer with an unknown type! Void is used as an unkown type, but it also stands for "no input" in a function. By using `void` for the pointer type we can point to any type of array!
 
-Void is an unkown type (but it also stands for "no input" in functions). By using `void` for the pointer type we can point to any type of array!
+To use the information in an array of unknown type (aka `void*`) we have to tell C how to treat the information, otherwise we wouldn't know how much to offset in memory to get the next item! As well as not knowing how many bytes after the address are part of the data (if say we had a singel `int` which takes up 4 bytes). So we cast the type (aka convert the type) in this line of code `(char*) hello` (inside of `printf`).
 
-When we use the void pointer `void*` to an array, we do have to know the type to be able to print it, otherwise we wouldn't know how much to offset in memory to get the next element in the array! So we cast the type (aka convert the type) with this line of code `(char*)`, inside of `printf`.
+Now compile and run the above code using the shell.
 
-# Getting Input 
-The main function gets input from the shell. Except so far we haven't used this functionality. 
+# Getting Input from Main
+The main function actually has parameters with input from the shell! So far we haven't used this functionality. 
 
 Make a new file using the touch command called "input.c"
 
@@ -255,7 +317,7 @@ Make a new file using the touch command called "input.c"
 touch input.c
 ```
 
-Write the following into "input.c".
+Write the following code into "input.c".
 
 ```c
 #include <stdio.h>
@@ -266,11 +328,11 @@ int main(int argc, const char * argv[])
 }
 ```
 
-What is `const char * argv[]`? Well the first part `const` is a keyword, it is telling us that we are not allowed to change the variables values (stuff inside the variable) and they are "constant".
+What is `const char * argv[]`? Well the first part `const` is a keyword, it is telling us that we are not allowed to change the variables values (stuff inside the variable) and that they are "constant" (you can add this to your own functions to).
 
-The `char * argv[]` is weird. It is an array of addresses `char *` to an array of strings `argv[]`... Another way of writing this would be to use two stars `char ** argv`.
+The `char * argv[]` is weird. It is an array of addresses `char *` to an array of strings `argv[]`... Another way of writing this would be to use two stars `char ** argv` without the square brackets (since the square brackets are the same as writing a star).
 
-Change your code to use this method.
+Change your code to use this syntax.
 
 ```c
 #include <stdio.h>
@@ -285,9 +347,11 @@ If we visualize an array of addresses to an array of strings, in memory it would
 
 ![argv in c](/Assets/argv.png)
 
-Not to complicated (it probably sounded complicated). The word `argv` stands for "argument vector" (honestly this name is jsut traditional).
+Not to complicated (it probably sounded complicated). The word `argv` stands for "argument vector" (honestly this name is just a tradition).
 
-Lets use `argv`! Lets make simple a program that gets our name, then prints it out along with a "hello" message.
+Lets use `argv` for a simple a program that gets our name, then prints it out along with a "hello" message.
+
+Change your code to the following.
 
 ```c
 #include <stdio.h>
@@ -298,7 +362,9 @@ int main(int argc, const char * argv[])
 }
 ```
 
-The above code gets the first string from the array of strings (in `argv`). Compile this code using `make` and run it using `./input` along with an argument, like the following command.
+The above code gets the first string from the array of strings (in `argv`). 
+
+Compile this code using `make` and run it using `./input` along with an argument, like the following command.
 
 ```
 ./input Mikey
@@ -314,7 +380,7 @@ Hello, ./input!
 
 What? So getting the first argument from `argv` (by using an offset of 0) gave us "./input", which was the command for running the input program! Instead lets access the second string in `argv` by using an offset of 1.
 
-(answer)
+(change your code to the following)
 ```c
 #include <stdio.h>
 
@@ -332,36 +398,52 @@ Run `make input` then run the input program using...
 
 Yay! You should see the phrase "Hello, Mikey!" get printed!
 
-If you happen to run the "input" program without giving it an argument (like the word Mikey) you will see the word "null" get printed instead! This is because we are offsetting in our array to a spot in memory that has not been set to anything (because we didn't type in "mikey" after "./input"). 
+If you happen to run the "input" program without any "arguments" afterward (like we did with "Mikey") you will see the word "null" get printed instead! This is because we are trying to access memory from our `argv` array that has not been set to anything (because we didn't type in "Mikey" after "./input"). 
+
+Go ahead and try running input without any arguments.
+
+(command)
+```
+./input
+```
 
 In C "null" usually means we are accessing memory that has not been set to anything.
 
-It is generally not a good idea to read memory that has not been set, as it proably has random 0s and 1s from something else. 
+It is generally not a good idea to read memory that has not been set, as it probably has random 0s and 1s from something else. 
 
 In C we have to manually check how long our array is so that we don't accidentally offset outside of the array. 
 
-One of the parameters (inputs) from main is called `argc` which stands for "argument count", `argc` is an int. You can use `argc` to prevent yourself from offsetting outside of the arrays bounds. Yiu can also use `argc` see how many arguments were given.
+Thankfully of the parameters (inputs) from main is called `argc` which stands for "argument count", `argc` is an int. You can use `argc` to prevent yourself from offsetting outside of the arrays bounds. You can also use `argc` see how many arguments were given.
 
 Change our program to detect if it was run with an argument by using `argc`'s number.
 
-(possible answer)
+(possible answer, DO NOT COPY PASTE)
 ```c
 #include <stdio.h>
 
 int main(int argc, const char * argv[])
 {
-	if (argc < 2) {
+	// if less than 2 arguments given
+	if (argc < 2) 
+	{
+		// print an error
 		printf("Error, expected input! `./input <argument>` \n");
+		// return an error code, and don't read any more code
 		return 1;
 	}
 
+	// else
+	// print a welcome message
 	printf("Hello, %s! \n", argv[1]);
 
+	// return no error (aka 0)
 	return 0;
+
+	// anything after "return" keyword will not get run
 }
 ```
 
-Just so you know, `argc` doesn't start counting at 0. If we put 2 arguments (including the command to run the program) then `argc` will be 2 (so if your using `argc` to stop yourself from offsetting outside of an array you will need to subtract 1 from `argc`, since offsets start counting from 0 and not 1).
+Just so you know, `argc` doesn't start counting at 0 (so if your using `argc` to stop yourself from offsetting outside of an array you will need to subtract 1 from `argc`, since offsets for arrays start counting from 0 and not 1). If we put 2 arguments (including the command to run the program) then `argc` will be 2 .
 
 In the above code we print an error message and "return" an error code of 1 if no argument was given. 
 
@@ -369,43 +451,100 @@ Any code after a `return` keyword won't get run (to an extend). This prevents us
 
 If we do put 2 arguments, then print the greeting message, and return an error code of 0 (0 meaning nothing went wrong).
 
-Run the above code (or your variation), and see if it prints an error message when you don't put "mikey" (or some other word) after "./input".
+Compile the above code (or your variation), and see if it prints the error message when you don't put "Mikey" (or some other word) after "./input".
 
-
-# Loops + Arrays
-Now we can use a `for` loop on an array. This is pretty cool.
-
-TODO (not in order presented)
-make sure to introduce gradually and explain the for loop
-- avarage a bunch of numbers
-
-- const keyword, protects to make sure no one is allowed to change the number (very useful to prevent people from making mistakes)
-    - prevents you from going through all your code and changing all the numbers you typed, just store the number in a variable and use the const variable!
-
-- then move everything into an "average" function
-
-
-TODO
-- `break` keyword
-- `return` keyword
-- `continue` keyword
-
+# Get Address
+A normal variable also has an address in memory. We can get the address of a non-pointer variable by using the ampersan symbol `&` in front.
 
 (example)
 ```c
-TODO
+int my_number = 12;
+
+void* my_address = &my_number;
 ```
 
-TODO (for pointer offsetting manually without the square brackets `[]`)
-- show example code?
-- find place to put this in lecture
+In the above code we make anormal variable called `my_number`. Then we make a pointer (aka address variable) called `my_address` and set it to the address of `my_number`.
 
+Now we can use `my_address` to access the same number that `my_number` holds.
 
-TODO
-- average all the numbers together in an array? using a for loop?
+In memory this would look something like this.
+
+![]
+
+# Getting Input
+We can get input much like python by using C's `scanf` function.
+
+Make a new C file using touch.
+
+(command)
+```
+touch input.c
+```
+
+Now open it and write the following code.
+
+```c
+#include <stdio.h>
+
+int main(void)
+{
+	int my_number;
+	printf("Type an integer: ");
+
+	scanf("%i", &my_number);
+}
+```
+
+The above code makes an empty variable called "my_number". We then print a prompt "Type a number: ", directly after the `printf` we run the `scanf` function. The `scanf` function waits for us to type something, except you'll notice it is expecting a `%i` which is an `int` conversion specifer!
+
+Once we type a number and click enter `scanf` saves the number we typed into an address! The address we give `scanf` is the address to our `my_number` variable!
+
+Finally we will print out `my_number`.
+
+Edit your code to the following.
+
+```c
+#include <stdio.h>
+
+int main(void)
+{
+	int my_number;
+	printf("Type an integer: ");
+
+	scanf("%i", &my_number);
+
+	// print out `muy_number`
+	printf("Number = %i \n", my_number);
+}
+```
+
+Compile this code with `make input`, then run it using `./input` , you should have the following.
+
+(shell)
+```
+~/arrays-2$ ./input
+Type an integer: 
+```
+
+Type in a number, then hit enter. Yous shoudl then see something like this.
+
+(shell)
+```
+~/arrays-2$ ./input
+Type an integer: 1678
+Number = 1678
+~/arrays-2$ 
+```
+
+You can use `scanf` to get input from other types to! If you use the conversion specifier for a `float` then `scanf` will store the result you put into the address you give it.
+
+Although if the user types just a word instead of a number, then `scanf` will probably not put anything into the address you gave it.
+
+Go ahead and try typing random things into your program to see what will happen.
 
 # Do while and Scope and Return?
-- getting input until it is correct (from Getting input section)
+- make program that asks for input from scanf until it is wanted input
+- getting input until it is correct (from Getting input section!)
 
 Any code after return will not get ran. SO if we did .... EXPLAIN
 

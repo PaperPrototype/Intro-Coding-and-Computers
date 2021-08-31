@@ -1,7 +1,43 @@
+Interpreted language
+- Text based code that gets "interpreted" by an interpreter program.
+
+Compiled language
+- Text based code that gets "compiled" into Assembly 0s and 1s instructions for a CPU.
 
 Program
-- A file of 0s and 1s
+- A file of 0s and 1s Assembly instructions for a CPU.
 
+ASCII
+- A mapping of numbers to latin characters and common symbols
+
+Unicode
+- A set of mappings extending the original ASCII mappings, that can represent any letter symbol or character, for any language. It also has the emoji mappings.
+
+Bit
+- A positive electric charge (can also be an on switch), or negative electric charge, representing a 0 or 1 (singular)
+
+Byte
+- 8 bits
+
+Binary
+- 0s and 1s (plural)
+
+Hexadecimal
+- Number system with 16 symbols `0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F`.
+
+RGB
+- Three numbers, each number representing a certain amount of Red Green or Blue.
+
+
+# Trivia 
+UTF-8
+- Unicode Transform Format 8. Uses 8 bits to represent the most common latin characters.
+
+UTF-16
+- Unicode Transform Format 16. Uses 16 bits. Represents 2x more symbols and characters as UTF-8.
+
+UTF-32
+- Unicode Transform Format 32. Uses 32 bits.
 
 RGB
 - bitmaps as they are used in computer graphics. A bitmap is a picture that uses an RGB value for every pixel. Best explanation of RGB.
@@ -9,11 +45,10 @@ http://paulbourke.net/dataformats/bitmaps/
 
 - https://stackoverflow.com/questions/33962331/sdl2-difference-between-rgb888-and-rgb24
 
-- RGB-32 is faster https://www.animemusicvideos.org/forum/viewtopic.php?t=45357
+- RGB-32 is faster than RGB-24 https://www.animemusicvideos.org/forum/viewtopic.php?t=45357
 
 Memory sizes
 http://www.athropolis.com/popup/c-comp2.htm#explanation
-
 
 ASCII
 - https://theasciicode.com.ar/ascii-codes.txt

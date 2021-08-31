@@ -3,9 +3,9 @@ Somehow we have been able to write text into a file, call that text "code", and 
 
 So how did all that work? All we were doing was writing words that followed some special rules.
 
-You may have hear that computers understand 0s and 1s. Really a 0 or a 1 just represents a switch or electric charge in your computer. 0 representing an off switch or a negative electric charge, and 1 representing an on switch or a positive electric charge. We call this "binary". "bi" meaning 2. Every positive or electriv charge is stored using a switch or electric charge. We call each charge (or switch) a "bit".
+You may have hear that computers understand 0s and 1s. Really a 0 or a 1 just represents a switch or electric charge in your computer. 0 representing an off switch or a negative electric charge, and 1 representing an on switch or a positive electric charge. We call this "binary". "bi" meaning 2. We call each electric charge (or switch) a "bit". So a 0 or 1, is called a *bit*.
 
-So how did our text based code translate to binary? It turns out that your computers central processor (called a CPU, or Central Processing Unit) only understands a few instructions like moving memory or adding some numbers together. Each of these instruction is represented by sequences of 0s and 1s! 
+So how did our text based code translate to binary? It turns out that your computers central processor (called a CPU, or Central Processing Unit) only understands a few instructions like moving memory or adding some numbers together. Each of these instruction is represented by sequences of 0s and 1s! We call these limited memory and math instructions "Assembly". Assembly code is specific for every CPU.
 
 What we called programs, or "apps", are files that contain binary (0 and 1) instructions for the CPU!
 
@@ -166,9 +166,9 @@ Now that its possible to count using only `0`s and `1` we can use those numbers 
 
 As an example of ASCII, the number 77 maps to the symbol "M", all we have to do is tell the computer *when* the number 77 is representing "M"
 
-Here is a short list of some ASCII symbols you might be familiar with. Do NOT try to memorize this whole list (I don't know any programmers who have). You will mainly need the ASCII mappings if you made a program that has to work with the ASCII standard.
+Here is a short list of some ASCII symbols you might be familiar with. Do NOT try to memorize this whole list (I don't know any programmers who have... I mean you could...). You will mainly need the ASCII mappings if you are making a program that has to work with individual letters and their "number".
 
-(For full list see the Notes)
+(For full list see the Notes, the below list was taken from the full list)
 
 ```
 ASCII ENCODING
