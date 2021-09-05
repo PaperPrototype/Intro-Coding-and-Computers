@@ -180,7 +180,7 @@ We make a code-word that holds onto the number 12. We can then use that code wor
 
 We call "code-words" that hold onto information *variables* (yes, there's a name for literally ***everything***).
 
-We can also change the number variable by re-setting it.
+We can also change the number inside of the variable by re-setting it.
 
 ```py
 number = 12
@@ -207,7 +207,7 @@ number = number + 4
 print(number)
 ```
 
-We set number to what is was *previously* plus 4. This will increaser the `number` variable by 4. Run this code. You will see 12 then 14 get printed.
+We set number to what is was *previously* plus 4. This will increase the `number` variable by 4. Run this code. You will see 12 then 14 get printed.
 
 # Input
 How can we "give" something to our code? There is a function called `input`. Delete all your old code then write the following code.
@@ -217,13 +217,13 @@ result = input("Type something:")
 print(result)
 ```
 
-The `input` function prints "Type something:" then waits for you to type something. 
+The `input` function will print out "Type something:" then wait for you to type something! 
 
 Once you type something (and click enter), the words you typed get stored in the variable called `result`.
 
 ![replit console input](/Assets/replit_console_input.gif)
 
-The `result` variable holds onto the *string* you typed, so when we print `result` we get the words you typed again.
+The `result` variable "holds onto" the *string* (words) you typed. After we get input from you, we print it back out using `print`.
 
 Now we can combine the `result` variable with another string "Hello".
 
@@ -235,7 +235,7 @@ result = input("Type something:")
 print("Hello", result)
 ```
 
-If you typed in "Bob", then "Hello Bob" will get printed. We give the `print` function 2 inputs and separate them using a comma `,`.
+If you typed in "Bob", then "Hello Bob" will get printed. We give the `print` function 2 "inputs" and separate them using a comma `,`
 
 # Comments
 You saw that we put a hash `#` in front of a comment. 
@@ -244,7 +244,7 @@ You saw that we put a hash `#` in front of a comment.
 # this is a comment
 ```
 
-Our comment gets ignored by the code. It is a good idea to use comments to tell other programmers what our code is doing.
+Programmer comments get ignored by the code. It is a good idea to use comments to tell other programmers what our code is doing.
 
 # Lists
 We can make a variable that holds onto a list of information. Delete your old code. You can hold `ctrl` and click `delete` (or `backspace`) to delete entire lines of code at once. Now write the following code.

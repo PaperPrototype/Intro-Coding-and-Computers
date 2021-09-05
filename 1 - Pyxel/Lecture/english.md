@@ -94,7 +94,7 @@ import pyxel
 pyxel.init(100, 80)
 
 def update():
-    # check if replit was paused
+    # check if Q was clicked
     if pyxel.btnp(pyxel.KEY_Q):
         # quit / exit
         pyxel.quit()
@@ -105,9 +105,9 @@ def draw():
 pyxel.run(update, draw)
 ```
 
-Pyxel gives us code for checking if someone pressed a button. The `btnp` function stands for "button pressed". It gives us back a True or False if the person clicked the key *just now* (AKA, holding down the key won't do anything).
+Pyxel gives us code for checking if someone pressed a button. The `btnp` function stands for "button pressed". It gives us back a True or False if the person clicked the key *just now* (AKA, holding down the key will only count as a single click).
 
-If you run the above code (make sure you click you mouse inside of the game window thingy to "focus" the browser in that area) and click the Q key you should see the game stop running! You can read the code for quitting as this.
+If you run the above code (make sure you click the mouse inside of the "game window thingy" to "focus" the browser in that area) and click the Q key you should see the game stop running! You can read the code for quitting as this.
 
 ```
 if pyxel.button pressed(Key Q) then 
@@ -155,7 +155,7 @@ To overcome this problem we will have to use a concept in programming where we w
 
 An "object" in programming is a weird idea that programmers got from biology and how cells work. Essentially an object "holds" variables and function *inside of it*.
 
-By using an object we will be able to modify x and y's values (the stuff inside the variable) in `update`, and then use the changed x and y values in the draw function.
+By using an "object" we will be able to modify the values of x and y in `update`, and then "use" the changed x and y values in `draw`.
 
 Change your code to look like the following.
 
@@ -180,7 +180,7 @@ class Game():
 
 (If you run this nothing will happen, don't worry we'll get to that in a second)
 
-We create a new object using the "class" keyword. Making an object is much like making a function (at least in Python). Highlight all the code that is supposed to be inside of the class (aka "object") and click `ctrl` + `tab`. Just like in functions we have to let Python know what code is inside of the object and what is outside of the object.
+We create a new object using the "`class`" keyword. Making an object is much like making a function (at least in Python). Highlight all the code that is supposed to be inside of the class (aka "object") and click `ctrl` + `tab`. Just like in functions we have to let Python know what code is inside of the object and what is outside of the object.
 
 We also deleted the `pyxel.run(update, draw)` function call.
 
@@ -207,7 +207,7 @@ class Game():
         pyxel.rect(self.x, self.y, self.x + 10, self.y + 10, 11)
 ```
 
-The whole point in the "self" parameter is to access variables that are "part of the object", and that is exactly what we do! We use `self` to access x and y through a period `.` like this `self.x` and `self.y`. Make sure you change your code to use "self" to access the x and y variables.
+The whole point in the "self" parameter (function variable) is to access variables that are "part of the object", and that is exactly what we do! We use `self` to access x and y through a period `.` like this `self.x` and `self.y`. Make sure you change your code to use "self" to access the x and y variables.
 
 Now we can finally work on simulating gravity by changing y's position. We are supposed to only put "rendering" code inside of `draw`, so we'll use `update` for the gravity code.
 
