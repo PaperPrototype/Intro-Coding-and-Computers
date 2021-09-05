@@ -159,10 +159,10 @@ If you get an error, then you probably didn't put and ending quotation `"` mark 
 
 (example, terrible code that gives and error)
 ```py
-print("Hello wonderful carbon people <- where is the ending quotation mark??? (Also, why is this sentance colored differently?)
+print("Hello wonderful carbon people <- where is the ending quotation mark??? and ending parenthesis?
 ```
 
-Obviously if you don't use quoation marks you will get an error because Python can't figure out where your "words" end.
+We have to know what is "inside of" the `print` function. SO we enclose stuff for `print` using parenthesis `(stuff for print)`.
 
 Words or phrases inside of quotation marks are called *strings* (don't ask me why).
 
