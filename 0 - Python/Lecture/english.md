@@ -172,7 +172,7 @@ print("Hello wonderful carbon people")
 Words or phrases inside of quotation marks are called *strings* (don't ask me why).
 
 # Comments
-You saw that we put a hash `#` in front of a comment. 
+We can put a comment by putting a hash `#` in front of the comment. 
 
 ```py
 # this is a comment
