@@ -171,6 +171,15 @@ print("Hello wonderful carbon people")
 
 Words or phrases inside of quotation marks are called *strings* (don't ask me why).
 
+# Comments
+You saw that we put a hash `#` in front of a comment. 
+
+```py
+# this is a comment
+```
+
+Programmer comments get ignored by the code. It is a good idea to use comments to tell other programmers what our code is doing.
+
 # Variables
 In coding you can use code-words to "hold onto" information. Delete all your code then write the following code (write the code yourself, **don't** copy paste, coding requires typing skill, and the only way to get that is to practice).
 
@@ -254,15 +263,6 @@ print("Hello", result)
 ```
 
 If you typed in "Bob", then "Hello Bob" will get printed. We give the `print` function 2 "inputs" and separate them using a comma `,`
-
-# Comments
-You saw that we put a hash `#` in front of a comment. 
-
-```py
-# this is a comment
-```
-
-Programmer comments get ignored by the code. It is a good idea to use comments to tell other programmers what our code is doing.
 
 # Lists
 We can make a variable that holds onto a list of information. Delete your old code. You can hold `ctrl` and click `delete` (or `backspace`) to delete entire lines of code at once. Now write the following code.
