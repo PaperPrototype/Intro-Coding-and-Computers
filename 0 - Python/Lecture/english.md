@@ -180,6 +180,8 @@ We can put a comment by putting a hash `#` in front of the comment.
 
 Programmer comments get ignored by the code. It is a good idea to use comments to tell other programmers what our code is doing.
 
+You will see comments in a lot of the code we make from now on.
+
 # Variables
 In coding you can use code-words to "hold onto" information. Delete all your code then write the following code (write the code yourself, **don't** copy paste, coding requires typing skill, and the only way to get that is to practice).
 
