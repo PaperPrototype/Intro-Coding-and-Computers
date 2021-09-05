@@ -249,11 +249,11 @@ If you don't hold `ctrl` while using the arrow keys you will move one character 
 How can we "give" something to our code? There is a function called `input`. Delete all your old code then write the following code.
 
 ```py
-result = input("Type something:")
+result = input("result: ")
 print(result)
 ```
 
-The `input` function will print out "Type something:" then wait for you to type something! 
+The `input` function will print out the *string* "result: " then wait for you to type something!
 
 Once you type something (and click enter), the words you typed get stored in the variable called `result`.
 
