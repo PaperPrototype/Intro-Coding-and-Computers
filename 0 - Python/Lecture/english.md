@@ -172,7 +172,7 @@ print("Hello wonderful carbon people")
 Words or phrases inside of quotation marks are called *strings* (don't ask me why).
 
 # Variables
-In coding you can use code-words to "hold onto" information. Delete all your code then write the following code.
+In coding you can use code-words to "hold onto" information. Delete all your code then write the following code (write the code yourself, **don't** copy paste, coding requires typing skill, and the only way to get that is to practice).
 
 ```py
 number = 12
@@ -181,6 +181,8 @@ print(number)
 print(number + 5)
 print(number * 12)
 ```
+
+(You can copy paste code you've already written though!)
 
 We make a code-word that holds onto the number 12. 
 
