@@ -362,3 +362,5 @@ if left_arrow pressed then
 I'll let you figure out how to translate this pseudo code (concept code) into real Python code, but this pseudo-code is pretty close to how it would look. (Make sure to put it in the `update` function).
 
 And now go and make a game! Make sure to check out the Tutorials! Or make a tutorial showing other people how to make what you made!
+
+You can also learn another python framework called "pyGame", here is a good tutorial https://docs.replit.com/tutorials/07-building-a-game-with-pygame

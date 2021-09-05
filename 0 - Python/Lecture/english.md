@@ -149,7 +149,7 @@ print("Hello world! I am an idiot!")
 
 Now click the play button at the top. You will see the words "Hello world! I am an idiot!" get printed to the console window (The last part "I am an Idiot" is not part of the famous phrase).
 
-We wrote "print" and then parenthesis? The word `print` is the name of a group of code that figures out how to print words onto the screen for us. The `print` word is a special *function* in Python (I know, another weird name). The parenthesis, like Big O Notation, are there to make reading the code easier. Then inside of the parenthesis we put the words we want to print.
+We wrote "print" and then parenthesis? The word `print` is the name of a group of code that figures out how to print words onto the screen for us. The `print` word is a special *function* in Python (I know, another weird name). The parenthesis `()` are there to make reading the code easier. Then inside of the parenthesis we put the words we want to print.
 
 Why the quotation `""` marks? We add those so that we can tell code apart from words. We can put ANYTHING between those quotation marks (except for another quotation mark) and it won't get treated as code!
 
