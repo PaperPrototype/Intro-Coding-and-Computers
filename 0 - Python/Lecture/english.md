@@ -162,7 +162,7 @@ If you get an error, then you probably didn't put and ending quotation `"` mark 
 print("Hello wonderful carbon people <- where is the ending quotation mark??? and ending parenthesis?
 ```
 
-We have to know what is "inside of" the `print` function. SO we enclose stuff for `print` using parenthesis `(stuff for print)`.
+We have to know what is "inside of" the `print` function. So we enclose stuff for `print` using parenthesis `(stuff for print)`.
 
 Words or phrases inside of quotation marks are called *strings* (don't ask me why).
 
