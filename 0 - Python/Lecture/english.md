@@ -131,12 +131,6 @@ You can also turn on dark mode.
 
 ![replit dark mode](/Assets/replit_dark_mode.gif)
 
-There is also a setting there for "code wrapping" (you'll have to scroll down a bit). Make sure to change this to "none".
-
-![replit code wrapping](/Assets/replit_code_wrapping.gif)
-
-It will prevent our code from getting "wrapped" weirdly as you can see in the gif.
-
 You can also resize everything in your browser by using the `ctrl` and `+` keys to zoom in (use the `ctrl` and `-` keys to zoom out).
 
 ![replit resize](/Assets/replit_resize.gif)
