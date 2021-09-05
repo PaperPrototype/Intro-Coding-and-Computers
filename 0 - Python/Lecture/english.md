@@ -177,7 +177,13 @@ print(number + 5)
 print(number * 12)
 ```
 
-We make a code-word that holds onto the number 12. We can then use that code word in place of just writing 12 every time. Use the play button to run this code.
+We make a code-word that holds onto the number 12. 
+
+We add `+` 5 to the stuff inside of `number`.
+
+We also multiply `*` (using a weird star symbol `*`) the *value* (stuff inside of `number`), and then print it.
+
+Run this code!
 
 We call "code-words" that hold onto information *variables* (yes, there's a name for literally ***everything***).
 
