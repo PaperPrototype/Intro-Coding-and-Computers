@@ -159,10 +159,15 @@ If you get an error, then you probably didn't put and ending quotation `"` mark 
 
 (example, terrible code that gives and error)
 ```py
-print("Hello wonderful carbon people <- where is the ending quotation mark??? and ending parenthesis?
+print("Hello wonderful carbon people <-- where is the ending quotation mark??? and ending parenthesis?
 ```
 
 We have to know what is "inside of" the `print` function. So we enclose stuff for `print` using parenthesis `(stuff for print)`.
+
+(example, correct version)
+```py
+print("Hello wonderful carbon people")
+```
 
 Words or phrases inside of quotation marks are called *strings* (don't ask me why).
 
