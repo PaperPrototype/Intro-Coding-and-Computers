@@ -184,7 +184,7 @@ print(number * 12)
 
 (You can copy paste code you've already written though!)
 
-We make a code-word that holds onto the number 12. 
+We make a code-word that holds onto the number 12.
 
 We add `+` 5 to the stuff inside of `number`.
 
@@ -208,20 +208,24 @@ print(number)
 
 Run this code. It prints 12 then 14.
 
-How can we increase the number without resetting it? 
+How can we add to a variable, without resetting its value (what the number currently is)?
 
 ```py
 number = 12
 
 print(number)
 
-# set number to number plus 1
+# set number to number plus 4
 number = number + 4
 
 print(number)
 ```
 
-We set number to what is was *previously* plus 4. This will increase the `number` variable by 4. Run this code. You will see 12 then 14 get printed.
+We set number to what is was *previously* plus 4. This will increase the `number` variable by 4. It seems weird, but this is how we increase numbers.
+
+Run this code. 
+
+You will see 12 then 14 get printed.
 
 # Input
 How can we "give" something to our code? There is a function called `input`. Delete all your old code then write the following code.
