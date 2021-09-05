@@ -238,6 +238,13 @@ Run this code.
 
 You will see 12 then 14 get printed.
 
+# keyboard shortcuts
+You can quickly move around your code without using the mouse. 
+
+Hold the `ctrl` key, then click the right or left arrow keys. THis will move your around by whole varaibels and functions! 
+
+If you don't hold `ctrl` while using the arrow keys you will move one character at a time.
+
 # Input
 How can we "give" something to our code? There is a function called `input`. Delete all your old code then write the following code.
 
@@ -250,9 +257,11 @@ The `input` function will print out "Type something:" then wait for you to type 
 
 Once you type something (and click enter), the words you typed get stored in the variable called `result`.
 
-![replit console input](/Assets/replit_console_input.gif)
+The `result` variable "holds onto" the *string* (aka, words) you typed. 
 
-The `result` variable "holds onto" the *string* (words) you typed. After we get input from you, we print it back out using `print`.
+After we get input from you (and store it in `result`), we print it back out using `print`.
+
+![replit console input](/Assets/replit_console_input.gif)
 
 Now we can combine the `result` variable with another string "Hello".
 
