@@ -147,17 +147,24 @@ We wrote "print" and then parenthesis? The word `print` is the name of a group o
 
 Why the quotation `""` marks? We add those so that we can tell code apart from words. We can put ANYTHING between those quotation marks (except for another quotation mark) and it won't get treated as code!
 
-Now print the most random thing you can think of inside of the quotation marks!
+Now print the most random thing you can think of inside of the quotation marks! 
 
 ```py
 print("I am an IDIOT!!!! 13413 bla, bla, print('Hello world') this is words not code!!!")
 ```
 
-And click the run button. You'll notice I put a single quotation marks `'` inside of double quotation marks `"` and Python (the coding language) didn't get confused. 
+Now click the run button!
 
-Obviously if you don't use quoation marks you will get an error because Python can't figure out what is words and what is code.
+If you get an error, then you probably didn't put and ending quotation `"` mark or ending parenthesis `)`! 
 
-We call words inside of quotation marks *strings* (don't ask me why).
+(example, terrible code that gives and error)
+```py
+print("Hello wonderful carbon people <- where is the ending quotation mark??? (Also, why is this sentance colored differently?)
+```
+
+Obviously if you don't use quoation marks you will get an error because Python can't figure out where your "words" end.
+
+Words or phrases inside of quotation marks are called *strings* (don't ask me why).
 
 # Variables
 In coding you can use code-words to "hold onto" information. Delete all your code then write the following code.
