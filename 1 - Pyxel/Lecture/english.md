@@ -107,12 +107,7 @@ pyxel.run(update, draw)
 
 Pyxel gives us code for checking if someone pressed a button. The `btnp` function stands for "button pressed". It gives us back a True or False if the person clicked the key *just now* (AKA, holding down the key will only count as a single click).
 
-If you run the above code (make sure you click the mouse inside of the "game window thingy" to "focus" the browser in that area) and click the Q key you should see the game stop running! You can read the code for quitting as this.
-
-```
-if pyxel.button pressed(Key Q) then 
-    pyxel.quit
-```
+If you run the above code (make sure you click the mouse inside of the "game window thingy" to "focus" the browser in that area) and click the Q key to see the game stop running!
 
 Now lets make our cube fall as if it had gravity! We'll make two variables called `x` and `y`, to control the position of the cube.
 
@@ -155,7 +150,7 @@ To overcome this problem we will have to use a concept in programming where we w
 
 An "object" in programming is a weird idea that programmers got from biology and how cells work. Essentially an object "holds" variables and function *inside of it*.
 
-By using an "object" we will be able to modify the values of x and y in `update`, and then "use" the changed x and y values in `draw`.
+By using an "object" we will be able to modify the values of x and y in `update`, and then "use" the changed x and y values in `draw` to move the cube.
 
 Change your code to look like the following.
 
@@ -180,9 +175,13 @@ class Game():
 
 (If you run this nothing will happen, don't worry we'll get to that in a second)
 
-We create a new object using the "`class`" keyword. Making an object is much like making a function (at least in Python). Highlight all the code that is supposed to be inside of the class (aka "object") and click `ctrl` + `tab`. Just like in functions we have to let Python know what code is inside of the object and what is outside of the object.
+We deleted the `pyxel.run(update, draw)` function call for now.
 
-We also deleted the `pyxel.run(update, draw)` function call.
+The word "`class`" is keyword for making objects.
+
+Just like in functions we have to let Python know what code is "inside of the object" by putting 2 or 4 spaces in front of them.
+
+Highlight all the code that is supposed to be inside of the class (aka "object") and click `ctrl` + `tab`. This will automatically put the correct amount of spaces in front of the highlighted code.
 
 Now to be able to access x and y in the `update` and `draw` functions we have to add a special parameter (function variable) to `update` and `draw` called "self".
 
@@ -207,11 +206,13 @@ class Game():
         pyxel.rect(self.x, self.y, self.x + 10, self.y + 10, 11)
 ```
 
-The whole point in the "self" parameter (function variable) is to access variables that are "part of the object", and that is exactly what we do! We use `self` to access x and y through a period `.` like this `self.x` and `self.y`. Make sure you change your code to use "self" to access the x and y variables.
+The whole point in the "self" parameter (function variable) is to access variables that are "part of the object", and that is exactly what we do! We use `self` to access x and y through a dot `.` like this `self.x` and `self.y`. Make sure you change your code to use "self" to access the x and y variables.
 
-Now we can finally work on simulating gravity by changing y's position. We are supposed to only put "rendering" code inside of `draw`, so we'll use `update` for the gravity code.
+Now we can finally work on simulating gravity by changing y's position. 
 
-Change the code in the update function to be the following.
+We'll use `update` for the gravity code, since we are supposed to only put "rendering" code inside of `draw`.
+
+Change the code in the `update` function to be the following.
 
 ```py
 # ...
@@ -236,9 +237,9 @@ Our gravity code is litterally one line of code `self.y = self.y + 0.5` although
 # ...
 ```
 
-We "increase" the y position to go down since y goes downwards (as you saw previously). We also increase y by 0.5 because otherwise it won't fall as fast.
+We "increase" the y position to move the cube down (since y goes downwards).
 
-Now, if you want this code to actually do something we need to "make" the object. To make a "new" `Game` object we use the following code.
+Now, if you want this code to actually do something we need to "make" the object. To "make" a new `Game` object we use the following code.
 
 ```py
 import pyxel
@@ -258,9 +259,9 @@ class Game():
 Game()
 ```
 
-"Making" an object looks like running a function. There is a funciton that gets called automatically when we "make" a new object. 
+"Making" an object looks like running a function. There is a function that gets called automatically when we "make" a new object called `__init__` (I don't know why they have the double underscore in the name, but hey, thats just how it is).
 
-Change your cade and add the `__init__` funtion (I don't know why they have the double underscore in the name, but hey, thats just how it is).
+Add the `__init__` function to our object.
 
 ```py
 import pyxel
@@ -312,7 +313,7 @@ class Game():
 Game()
 ```
 
-We made sure to add one extra line of code that clears the screen before drawing the cube `pyxel.cls(0)` <- this clears the screen to red before drawing a cube again.
+We made sure to add one extra line of code that clears the screen before drawing the cube `pyxel.cls(0)` <- this clears the screen to red before drawing the cube again.
 
 If you run this code you should see a yellow cube falling! Without the `cls` (clear screen) function, we would draw cobe after cube, without clearing the old ones (making a "smear" of yellow cubes).
 
@@ -343,23 +344,46 @@ Change the code inside of the `update` function to look like this.
 			self.y += 0.5
 ```
 
-We make the jumping coe faster than the falling code.
-
-Run thsi code, by clicking the space key you can make the player fall or "jump" (actually just move upwards).
+Run this code, by clicking the space key you can make the player fall or "jump" (make sure to click inside of the games window to "focus" on it).
 
 If clicking the space key doesn't do anyhting, make sure to click inside of the game's window, then try clicking the space key (this is because the browser doesn't know you want to send input to the pyxel game, so you have to click on it).
 
-Now what about making the player move side ot side? Ooooh
+We can prevent the player from falling forever and stop once it hits the bottom of the games window.
 
-(pseudo code)
-```
-if right_arrow pressed then
-    self.x += 1
-if left_arrow pressed then 
-    self.x -= 1
+(edit your code to look like the following)
+```py
+# ... snip
+
+    def update(self):
+        # ... snip
+
+        # jumping / falling
+		if pyxel.btn(pyxel.KEY_SPACE):
+			self.y -= 1 # jump
+		else:
+            # if position + size of cube < height of window...
+			if self.y + 10 < pyxel.height:
+				self.y += 1 # then fall
+
+# ... snip
 ```
 
-I'll let you figure out how to translate this pseudo code (concept code) into real Python code, but this pseudo-code is pretty close to how it would look. (Make sure to put it in the `update` function).
+Now what about making the player move side to side? Ooooh
+
+(example, optional)
+```py
+# ... snip
+
+    def update(self):
+		# ... snip
+
+		if pyxel.btn(pyxel.KEY_RIGHT):
+			self.x += 1
+		if pyxel.btn(pyxel.KEY_LEFT):
+			self.x -= 1
+
+# ... snip
+```
 
 Here are some useful functions for drawing other shapes in Pyxel.
 
@@ -385,7 +409,7 @@ Here are some useful functions for drawing other shapes in Pyxel.
 - Draw the outline of a circle of radius `r` and color `col` at (x, y)
 
 `text(x, y, s, col)`
-- Draw a string `s` of color `col` at (x, y)
+- Draw a string (words) `s` of color `col` at (x, y)
 
 
 (taken from https://pythonawesome.com/a-retro-game-development-environment-in-python/)
