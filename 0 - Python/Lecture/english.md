@@ -253,11 +253,11 @@ result = input("type something: ")
 print(result)
 ```
 
-The `input` function will print out the message *string* "type something: " then wait for you to type something!
+The `input` function will print out the message "type something: " then wait for you to type something!
 
 Once you type something (and click enter), the words you typed get stored in the variable called `result`.
 
-The `result` variable "holds onto" the *string* (aka, words) you typed. 
+The `result` variable "holds onto" the *string* (aka, words) you typed.
 
 After we get input from you (and store it in `result`), we print it back out using `print`.
 

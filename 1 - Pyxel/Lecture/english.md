@@ -361,6 +361,31 @@ if left_arrow pressed then
 
 I'll let you figure out how to translate this pseudo code (concept code) into real Python code, but this pseudo-code is pretty close to how it would look. (Make sure to put it in the `update` function).
 
-And now go and make a game! Make sure to check out the Tutorials! Or make a tutorial showing other people how to make what you made!
+Here are some useful functions for drawing other shapes in Pyxel.
 
-You can also learn another python framework called "pyGame", here is a good tutorial https://docs.replit.com/tutorials/07-building-a-game-with-pygame
+`cls(col)`
+- Clear screen with color `col`
+
+`pix(x, y, col)`
+- Draw a single pixel of color `col` at (x, y)
+
+`line(x1, y1, x2, y2, col)`
+- Draw a line of color `col` from (x1, y1) to (x2, y2)
+
+`rect(x1, y1, x2, y2, col)`
+- Draw a rectangle of color `col` from (x1, y1) to (x2, y2)
+
+`rectb(x1, y1, x2, y2, col)`
+- Draw the outline of a rectangle of color `col` from (x1, y1) to (x2, y2)
+
+`circ(x, y, r, col)`
+- Draw a circle of radius `r` and color `col` at (x, y)
+
+`circb(x, y, r, col)`
+- Draw the outline of a circle of radius `r` and color `col` at (x, y)
+
+`text(x, y, s, col)`
+- Draw a string `s` of color `col` at (x, y)
+
+
+(taken from https://pythonawesome.com/a-retro-game-development-environment-in-python/)
