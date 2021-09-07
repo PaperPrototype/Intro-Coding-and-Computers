@@ -12,7 +12,7 @@ noun = input("noun: ")
 adjective = input("adjective: ")
 ```
 
-Now we can print them out in a simple sentence.
+Now we can combine the words into a simple sentence!
 
 (change your code to look like the following)
 ```py
@@ -21,8 +21,8 @@ verb = input("verb: ")
 noun = input("noun: ")
 adjective = input("adjective: ")
 
-# print funny story
+# print simple sentence
 print("My dog ate my", adjective, noun, "so I had to go", verb, "and buy some food again.")
 ```
 
-Now run this program! It will ask you for a verb noun and adjective. Once you finish giving the program those words, it will print out out (funny'ish) story!
+Now run this program! It will ask you for a verb noun and adjective. Once you finish giving the program those words, it will print out a (funny'ish) story!
