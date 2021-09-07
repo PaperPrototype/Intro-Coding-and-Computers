@@ -464,7 +464,7 @@ print_hello_3_times()
 Click the play button to run this code. You will see "Hello" get printed 3 times. When writing code you don't want to write the same thing over and over, so we reuse code by making functions.
 
 ## Function inputs
-Although this function is pretty dumb. So lets make one that is slightly more useful.
+Although this function is pretty dumb. So lets make it more useful.
 
 ```py
 # defining a function
