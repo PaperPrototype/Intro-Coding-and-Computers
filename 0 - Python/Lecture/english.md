@@ -379,7 +379,9 @@ else:
 
 Run this the code. It will ask you if you agree to the "terms and conditions". Your answer gets stored in the `answer` variable.
 
-If your answer was `yes` then you (apparently) have agreed to eating boogers! Ew! You use a double equal sign `==` to check if two things are equal to eachother. We use a double equal sign `==` because the single equals sign `=` has already been used for setting a variables value (what the variable "holds onto").
+If your answer was `yes` then you (apparently) have agreed to eating boogers! Ew! 
+
+You use a double equal sign `==` to check if two things are equal to eachother. We use a double equal sign `==` because the single equals sign `=` has already been used for setting a variables value (what the variable "holds onto").
 
 Then we say "elif" (meaning "otherwise if") you typed `no` then you've just saved yourself.
 
@@ -428,6 +430,8 @@ if a >= b:
 else:
 	print("a is less than b")
 ```
+
+We use an `else` to just default to "a is less than b".
 
 # Functions
 Lets make our own function. Delete all our boring code and type in the exciting following code!
