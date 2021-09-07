@@ -299,18 +299,11 @@ for name in ["Mary", "John", "Jackson", "David"]:
 	print(name)
 ```
 
-Make sure to add the colon `:` at the end of `for name in list`. You can read this code as.
-
-```
-for every name_variable in ["Mary", "John", "Jackson", "David"]:
-    print(current name_variable)
-```
-
-The code goes through each item in the list and stores it in the `name` variable, then print the `name` variable every "loop".
+The `name` variable gets set to the first item (name) in the list. Then we print what `name` is currently set to. We do this until `name` has been set to every item in the list *and* the code inside to loop runs (aka print out what name is).
 
 You should notice the tab (2 or 4 spaces) in front of the code `print(name)`. This lets Python know what code is "inside of the loop", and what code is outside of the loop.
 
-We could also reference (aka "hold onto") the list using a variable and then "loop over" the list through the variable.
+We could also reference (aka "hold onto") the list using a variable.
 
 ```py
 names = ["Mary", "John", "Jackson", "David"]
@@ -318,6 +311,8 @@ names = ["Mary", "John", "Jackson", "David"]
 for name in names:
 	print(name)
 ```
+
+the `name` variable gets set to every item in the `names` list, and then we print out what `name` currently is.
 
 We call this a "for loop" because of the `for` keyword.
 
