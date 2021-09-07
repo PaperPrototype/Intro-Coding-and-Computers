@@ -534,8 +534,7 @@ def divide(a, b):
     return a / b
 
     # this code inside the function will never get run!
-    if a == 0 or b == 0:
-        print("Can't divide by zero!!!")
+    print("Can't divide by zero!!!")
 
 result = divide(2, 0)
 ```
