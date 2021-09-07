@@ -473,7 +473,7 @@ def say_hello(number):
         print("Hello")
 ```
 
-The loop uses the `range` function which is a shortcut for looping a certain number of times. We make a "variable function" called `number` that determines how many times to loop.
+The loop uses the `range` function which is a shortcut for looping a certain number of times. We make a "variable" for the function called `number` that determines how many times to loop.
 
 We can now use this function very usefully.
 
