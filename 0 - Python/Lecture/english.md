@@ -407,6 +407,7 @@ Obviously we could also provide a million different possible answers.
 # Equality
 We can also check if a number is greater or less than using the greater than ">", and less than "<" symbols. Delete our previous (stupid) code (we don't want anyone to see it).
 
+(write and run this code)
 ```py
 a = 4
 b = 5
@@ -418,6 +419,8 @@ elif a < b:
 ```
 
 The word that says "elif" is just stands for "else if".
+
+If you run this code it does the math for you! Hey, maybe you can make a calculator app that does your math for you!
 
 We can also check if something is greater than or equal to ">=", or if its less than or equal to "<=". Edit our beautiful code to look like the following.
 
@@ -434,7 +437,7 @@ else:
 We use an `else` to just default to "a is less than b".
 
 # Functions
-Lets make our own function. Delete all our boring code and type in the exciting following code!
+Lets make our own function. Delete all our boring code and type in this exciting code!
 
 ```py
 # defining a function that we can use later
@@ -444,7 +447,9 @@ def print_hello_3_times():
     print("Hello")
 ```
 
-We made a function (called `print_hello_3_times`) that just groups some code. Now we can print "Hello" 3 times by just using the function. Change the code to use the function.
+We make a function called `print_hello_3_times` that just groups some code for us. 
+
+To "use" the function we have to... well use it. Change the code to "use the function".
 
 ```py
 def print_hello_3_times():
