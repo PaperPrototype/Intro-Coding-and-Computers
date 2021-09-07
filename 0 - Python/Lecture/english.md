@@ -507,18 +507,17 @@ say("Hello everyone!", 3)
 This function will print "Hello everyone!" 3 times.
 
 # Return
-The `input` function gave us back a string that could hold onto using a variable. We say that the `input` function "returned" something (aka "gave us back" something). Function can give us back something using the `return` keyword.
+Remember how `input` gave us back something? Well we can make a "function" give something back.
 
-Delete all the code and write in the following.
-
+(Delete all your code and write in the following)
 ```py
 def add(a, b):
     return a + b
 ```
 
-This function adds 2 numbers (Lol, that is so lame XD).
+This function adds 2 numbers (Lol, that is so lame XD) and "returns" (aka gives back) the result of `a + b`.
 
-We can use this function with a variable.
+Now we can "get" something from the `add` function.
 
 ```py
 def add(a, b):
