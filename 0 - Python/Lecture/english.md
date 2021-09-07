@@ -475,14 +475,14 @@ def say_hello(number):
 
 The loop uses the `range` function which is a shortcut for looping a certain number of times. We make a "variable" for the function called `number` that determines how many times to loop.
 
-We can now use this function very usefully.
+Now we have to "use" the function!
 
 ```py
 def say_hello(number):
     for i in range(number):
         print("Hello")
 
-# using the function to print hello 3 times
+# using the function
 say_hello(3)
 ```
 
