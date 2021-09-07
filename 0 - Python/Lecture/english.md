@@ -326,7 +326,7 @@ for number in range(12):
 This prints the numbers from 0 to 11 (in total you loop 12 times). For reasons we'll see later computers start counting at 0.
 
 ## While
-Python also has a *while* loop. Delete all the code and write this.
+Python also has a *while* loop. We have a variable called `counter` that we increase every loop and then print it out.
 
 ```py
 counter = 0
@@ -336,14 +336,13 @@ while True:
     print(counter)
 ```
 
-Woh! 
-
-`while` is a loop that runs *while* something is "true". In this case its always `True` so it infinitely runs the code inside of it! Forever! 
+`while` is a "loop" that runs *while* something is "true". In this case its always `True` so it infinitely runs the code inside of it! Forever!
 
 `True` and `False` have to be uppercase in Python.
 
-We increase the variable `counter` every loop and then print its *value* (the number it holds). The `*` stands for multiply. So we set `counter` to what it was *previously* plus 1.
+The `*` stands for multiply. So we set `counter` to what it was *previously* times 2.
 
+Before we play this code
 Play this code. 
 
 The number will keep getting bigger and bigger forever! In Python there is no limit to how big a number can get! (at least I don't think).
