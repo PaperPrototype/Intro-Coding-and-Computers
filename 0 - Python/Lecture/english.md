@@ -486,7 +486,7 @@ def say_hello(number):
 say_hello(3)
 ```
 
-This prints hello 3 times! Pretty cool right? We can just calle the function and tell it how many times to say that thing.
+This prints hello 3 times! Pretty cool right? We can just "call" (use) the function and tell it how many times to say that thing.
 
 We also have a name for these "function variables". The variable called `number` is called a *parameter* (I honestly don't know who came up with that name).
 
