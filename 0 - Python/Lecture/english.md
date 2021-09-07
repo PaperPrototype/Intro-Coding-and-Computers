@@ -239,11 +239,11 @@ Run this code.
 You will see 12 then 14 get printed.
 
 # keyboard shortcuts
-You can quickly move around your code without using the mouse. 
+You can quickly move around your code (without the mouse) by using your arrow keys.
 
-Hold the `ctrl` key, then click the right or left arrow keys. THis will move your around by whole varaibels and functions! 
+Hold the `ctrl` key, then click the right or left arrow keys to move around by whole words!
 
-If you don't hold `ctrl` while using the arrow keys you will move one character at a time.
+To delete entire lines of code in one click, hold `ctrl` and click `delete` (or `backspace` on windows).
 
 # Input
 How can we "give" something to our code? There is a function called `input`. Delete all your old code then write the following code.

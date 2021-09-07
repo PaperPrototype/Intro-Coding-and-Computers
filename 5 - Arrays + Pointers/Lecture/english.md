@@ -635,14 +635,15 @@ int main(void)
 }
 ```
 
-The above code makes an empty variable called "my_number". We then print a prompt "Type a number: ", directly after the `printf` we run the `scanf` function. The `scanf` function waits for us to type something, except you'll notice it is expecting a `%i` which is an `int` conversion specifer!
+We make an empty variable called "my_number". We then print "Type a number: ". 
+
+Directly after the `printf` we run the `scanf` function. The `scanf` function will wait for us to type something (you'll notice that `scanf` is expecting a `%i` which is an `int` conversion specifer!).
 
 Once we type a number and click enter `scanf` saves the number we typed into an address! The address we give `scanf` is the address to our `my_number` variable!
 
 Finally we will print out `my_number`.
 
-Edit your code to the following.
-
+(Edit your code to the following to print out `my_number`)
 ```c
 #include <stdio.h>
 
@@ -653,22 +654,22 @@ int main(void)
 
 	scanf("%i", &my_number);
 
-	// prints out `my_number`
+	// print out `my_number`
 	printf("Number = %i \n", my_number);
 }
 ```
 
 Compile this code with `make input`, then run it using `./input` , you should have the following.
 
-(shell)
+(shell example)
 ```
 ~/arrays-2$ ./input
 Type an integer: 
 ```
 
-Type in a number, then hit enter. You shoudld then see something like this.
+Type in a number, then hit enter. You should then see something like this.
 
-(shell)
+(shell example)
 ```
 ~/arrays-2$ ./input
 Type an integer: 1678
@@ -676,9 +677,9 @@ Number = 1678
 ~/arrays-2$ 
 ```
 
-You can use `scanf` to get input from other types to! If you use the conversion specifier for a `float` then `scanf` will store the result you put into the address you give it.
+You can use `scanf` with other conversion specifiers, and even multiple conversion specifiers! You just have to make sure that the input you type in is consisitent with the conversion specifiers in the `scanf`.
 
-Although if the user types just a word instead of a number, then `scanf` will probably not put anything into the address you gave it.
+If the user (you) types just a word instead of a number, then `scanf` will probably not put anything into the address you gave it.
 
 Go ahead and try typing random things into your program to see what will happen.
 

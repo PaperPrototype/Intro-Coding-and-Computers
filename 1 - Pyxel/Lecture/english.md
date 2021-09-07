@@ -368,7 +368,7 @@ We can prevent the player from falling forever and stop once it hits the bottom 
 # ... snip
 ```
 
-Now what about making the player move side to side? Ooooh
+Now what about making the player (cube) move side to side? Ooooh
 
 (example, optional)
 ```py
@@ -412,4 +412,4 @@ Here are some useful functions for drawing other shapes in Pyxel.
 - Draw a string (words) `s` of color `col` at (x, y)
 
 
-(taken from https://pythonawesome.com/a-retro-game-development-environment-in-python/)
+(above list taken from https://pythonawesome.com/a-retro-game-development-environment-in-python/)
