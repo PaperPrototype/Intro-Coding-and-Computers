@@ -539,13 +539,12 @@ def divide(a, b):
 result = divide(2, 0)
 ```
 
-The `if` *statement* at the end of the function will never get run. TO fix this we have to put it before the `return` keyword.
+The `print` will never get run! TO fix this we have to put the `print` before the `return` keyword.
 
 (example)
 ```py
 def divide(a, b):
-    if a == 0 or b == 0:
-        print("Can't diivide by zero!!!")
+    print("Can't diivide by zero!!!")
 
     return a / b
 
