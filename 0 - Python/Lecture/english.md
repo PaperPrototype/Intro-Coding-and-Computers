@@ -302,11 +302,11 @@ for name in ["Mary", "John", "Jackson", "David"]:
 Make sure to add the colon `:` at the end of `for name in list`. You can read this code as.
 
 ```
-for every name variable in ["Mary", "John", "Jackson", "David"]:
-    print(current name variable)
+for every name_variable in ["Mary", "John", "Jackson", "David"]:
+    print(current name_variable)
 ```
 
-The code goes through each item in the list and stores it in the `name` variable. Every time we go through one of the names in the list the code after the colon `:` gets run. In this case we print the `name` variable every "loop".
+The code goes through each item in the list and stores it in the `name` variable, then print the `name` variable every "loop".
 
 You should notice the 2 or 4 spaces in front of the code `print(name)`. This lets Python know what code is inside of the loop, and what code is outside of the loop.
 
