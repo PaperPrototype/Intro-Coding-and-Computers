@@ -437,7 +437,7 @@ else:
 We use an `else` to just default to "a is less than b".
 
 # Functions
-Lets make a group of code that we can reuse. Delete all our boring code and type in this exciting code!
+Lets "define" a group of code that "does" something. Delete all our boring code and type in the following.
 
 ```py
 # defining a function that we can use later
@@ -447,7 +447,7 @@ def print_hello_3_times():
     print("Hello")
 ```
 
-We make a "function" called `print_hello_3_times` that just groups some code for us. 
+We make a "function" called `print_hello_3_times` that just groups some code for us. `print` is a "function".
 
 To "use" the function we have to... well use it. Change the code to "use the function".
 
