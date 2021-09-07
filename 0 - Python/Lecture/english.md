@@ -329,7 +329,7 @@ This prints the numbers from 0 to 11 (in total you loop 12 times). For reasons w
 Python also has a *while* loop. We have a variable called `counter` that we increase every loop and then print it out.
 
 ```py
-counter = 0
+counter = 1
 
 while True:
     counter = counter * 2
