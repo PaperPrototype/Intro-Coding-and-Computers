@@ -437,7 +437,7 @@ else:
 We use an `else` to just default to "a is less than b".
 
 # Functions
-Lets "define" a group of code that "does" something. Delete all our boring code and type in the following.
+Lets "define" a group of code that "does" something. Delete all our boring code and type in the following. ("def" is short for definition in Python).
 
 ```py
 # defining a function that we can use later
