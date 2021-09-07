@@ -308,9 +308,9 @@ for every name_variable in ["Mary", "John", "Jackson", "David"]:
 
 The code goes through each item in the list and stores it in the `name` variable, then print the `name` variable every "loop".
 
-You should notice the 2 or 4 spaces in front of the code `print(name)`. This lets Python know what code is inside of the loop, and what code is outside of the loop.
+You should notice the tab (2 or 4 spaces) in front of the code `print(name)`. This lets Python know what code is "inside of the loop", and what code is outside of the loop.
 
-We could also reference (aka "hold onto") the list using a variable and then "loop over" the variable.
+We could also reference (aka "hold onto") the list using a variable and then "loop over" the list through the variable.
 
 ```py
 names = ["Mary", "John", "Jackson", "David"]
@@ -343,9 +343,15 @@ while True:
 
 Woh! 
 
-`while` is a loop that runs *while* something is true. In this case its always true so it infinitely runs the code inside of it! Forever! `True` and `False` have to be uppercase in Python (again, I don't know why).
+`while` is a loop that runs *while* something is "true". In this case its always `True` so it infinitely runs the code inside of it! Forever! 
 
-We have a variable called a counter that we increase every loop and then print its *value* (the number it holds). Play this code. The number will keep getting bigger and bigger forever! In Python there is no limit to how big a number can get! (at least I don't think).
+`True` and `False` have to be uppercase in Python.
+
+We increase the variable `counter` every loop and then print its *value* (the number it holds). The `*` stands for multiply. So we set `counter` to what it was *previously* plus 1.
+
+Play this code. 
+
+The number will keep getting bigger and bigger forever! In Python there is no limit to how big a number can get! (at least I don't think).
 
 # Conditions
 Lets write one of those progrsams that asks you to agree some to "terms and conditions".
