@@ -517,7 +517,7 @@ def add(a, b):
 
 This function adds 2 numbers (Lol, that is so lame XD) and "returns" (aka gives back) the result of `a + b`.
 
-Now we can "get" something from the `add` function.
+Now we can "get" something from the `add` function when we use it.
 
 ```py
 def add(a, b):
@@ -528,7 +528,7 @@ result = add(2, 2)
 
 The `result` variable now has the number 4. One VERY important thing to know about `return` is that any code after it won't get run!
 
-(example)
+(this is an example, you don't need to write this code)
 ```py
 def divide(a, b):
     return a / b
@@ -541,10 +541,10 @@ result = divide(2, 0)
 
 The `print` will never get run! TO fix this we have to put the `print` before the `return` keyword.
 
-(example)
+(example (don't actually write this code))
 ```py
 def divide(a, b):
-    print("Can't diivide by zero!!!")
+    print("This will get printed")
 
     return a / b
 
