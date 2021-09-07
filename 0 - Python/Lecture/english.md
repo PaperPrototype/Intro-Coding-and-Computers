@@ -342,8 +342,22 @@ while True:
 
 The `*` stands for multiply. So we set `counter` to what it was *previously* times 2.
 
-Before we play this code
-Play this code. 
+This code will print out
+
+```
+2
+4
+8
+16
+32
+64
+128
+...
+```
+
+Although it will happen so fast you won't be able to see it!
+
+Play this code.
 
 The number will keep getting bigger and bigger forever! In Python there is no limit to how big a number can get! (at least I don't think).
 
