@@ -1,5 +1,3 @@
-This lecture is not a finished lecture (very unfinished) and is still a work in progress.
-
 Rather than continuing to dredge through the boring stuff we'll let ourselves have some fun with Python and make a game!
 
 Originally this was not part of the course as I wanted to make this course as short as possible by only covering the stuff you need to know and not "wasting" time on fun stuff, but hey, thats no fun! :P
