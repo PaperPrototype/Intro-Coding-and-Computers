@@ -101,9 +101,9 @@ It gets annoying to say "for 1000 contacts `O(log 1000)`" so we often replace th
 # Python
 Lets learn a real coding language now and put aside this (insert funny word) of fake code. 
 
-Click this link to go to the greatest coolest code editing tool https://replit.com/
+Right lick this link and select "open in new tab" to go to the greatest coolest code editing tool https://replit.com/
 
-We recommend you put this website in another tab, and split your screen so that you can read along while coding.
+We recommend you put this new website in another tab, and split your screen so that you can read along while coding.
 
 ![course workflow window layout](/Assets/course_workflow_window_layout.gif)
 
@@ -113,11 +113,11 @@ Once you've finished with that you will be presented with a screen like this.
 
 ![replit landing page](/Assets/replit_landing_page.png)
 
-Click the three lines to open a sidebar. In the sidebar there is a blue button that says "`+ New repl`", click it and you will see a popup like this.
+Click the plus button in the top right, and you will see a popup like this.
 
 ![replit new repl](/Assets/replit_new_repl.png)
 
-Select the Python programming language and click create repl. You will be welcomed by Replit's in browser code editor.
+Select "Python" for the programming language and click create repl. You will be welcomed by Replit's in browser code editor.
 
 ![replit ide](/Assets/replit_ide.png)
 
