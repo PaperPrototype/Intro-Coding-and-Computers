@@ -26,3 +26,8 @@ print("My dog ate my", adjective, noun, "so I had to go", verb, "and buy some fo
 ```
 
 Now run this program! It will ask you for a verb noun and adjective. Once you finish giving the program those words, it will print out a (funny'ish) story!
+
+Try putting in:
+- running (verb)
+- poop (noun)
+- massive (adjective)
