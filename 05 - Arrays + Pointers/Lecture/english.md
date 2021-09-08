@@ -434,7 +434,7 @@ int main(void)
 Now compile and run this code using the shell.
 
 # Void
-Since a pointer (aka variable with address) simply points to the first byte of an array (or just the first byte to an `int`) we don't have to tell C the type! We can jsut point to the first byte of data!
+Since a pointer (aka variable with address) simply points to the first byte of an array (or just the first byte to an `int`) we don't have to tell C the type! We can just make a plain old address to the first byte (of the data)!
 
 Change the code to the following.
 
@@ -451,11 +451,11 @@ int main(void)
 }
 ```
 
-This code makes a pointer with an unknown type! `void` is used as an unkown type, but it also stands for "no input" in a function. By using `void` for the pointer's type we can point to any array, without having to tell the type (this is also true of non-array values).
+This code makes a plain old pointer (address) without needing to know the type! C's "grammer" requires that we put `void` in front of the variables name.
 
-C has to know how to treat the 0s and 1s of a variable to "use" the value. In the code above we tell C the "type" by *casting* (treating the 0s and 1s as if it was that type) the pointer to a `char` pointer, hence `(char*)`. 
+C has to know how to treat the 0s and 1s of something at an address to "use" the value. In the code above we tell C the "type" at the address by *casting* (treating the 0s and 1s) to a `char` address, hence `(char*)`.
 
-If we skipped casting, C, by default, would offset by 1 byte to access items in the array (in this case a single `char` is 1 byte anyways, so it would still work).
+If we skipped *casting* the address then C would offset by 1 byte (by default) to access items in the array when we use the square brackets `[]` (in this case a single `char` is 1 byte anyways, so it would still work fine).
 
 Types also tell us how many bytes *after the first byte* are *part of* the value at the address. This is necessary since an address just points to the first byte. 
 

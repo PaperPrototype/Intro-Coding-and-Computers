@@ -3,7 +3,7 @@ In real life we give people instructions on how to do something. In computers we
 
 One of the hardest problems (and often most time consuming problems) is searching.
 
-Lets write a search "algorithm" using instructions, or in programmer lingo *code*. This algorithm can't accidentally miss enything though! So we have to tell it to look at each item one by one.
+Lets write a search "algorithm" using instructions, or in programmer lingo *code*. This algorithm can't accidentally miss anything though! So we have to tell it to look at each item one by one.
 
 Code actually looks a lot like english, although a bit more... robotic. Here is some fake code. In it we are searching for a baseball.
 

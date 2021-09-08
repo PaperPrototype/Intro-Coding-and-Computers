@@ -12,7 +12,7 @@ noun = input("noun: ")
 adjective = input("adjective: ")
 ```
 
-Now we can combine the words into a simple sentence!
+Now we can combine the words with a simple sentence!
 
 (change your code to look like the following)
 ```py

@@ -1,4 +1,4 @@
-TODO
+TODO loops
 - `break` keyword
 - `return` keyword
 - `continue` keyword
@@ -10,7 +10,6 @@ TODO
 
 TODO
 - average all the numbers together in an array? using a for loop?
-
 
 - Linear search
     - 

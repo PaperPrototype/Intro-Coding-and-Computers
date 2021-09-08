@@ -43,7 +43,7 @@ Don't run this code yet, as it won't do anything! (if replit did not give you th
 
 The word "int" in front of the function, tells C that `main` gives back an integer. This is different from Python where we use "def" for defining a function. Don't worry you'll get used to it.
 
-You will see the word "void" inside of the functions input (the parenthesis). In C we have to tell the computer that the function *doesn't* take any input, which is what the `void` keyword is for.
+You will see the word "void" inside of the functions input (in the parenthesis). In C we have to tell the computer that the function *doesn't* take any input, which is what the `void` keyword is for. `void` stands for "nothing" (literrally).
 
 When using we were using Python, the Python interpreter automatically assumed you didn't want input if you don't put anything in the parenthesis "()".
 
@@ -439,7 +439,7 @@ Here are some example of if statements in C.
 In C we don't use the "elif" keyword like Python does, we just write "else if".
 
 # Loops
-A loop in C runs *while* something is true. The for loop in Python loops over a list. The "for" loop in C doesn't do this, instead a C "for loop" is a shortcut version of a while loop.
+A loop in C runs *while* something is true. The "for" loop in C doesn't "loop over a list" like python. Instead a C `for` loop is a shortcut version of a while loop.
 
 ## While loop
 ```c
