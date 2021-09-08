@@ -292,18 +292,20 @@ numbers = [12, 2312, 123, 124, 21]
 ```
 
 # Loops
-We can go through each item in a list and print it out. Delete your code again and write the following code.
+We can go through each item in a list and print it out. Delete your code again and write the following code, whish "loops" over the names in the list and prints them out.
 
 ```py
 for name in ["Mary", "John", "Jackson", "David"]:
 	print(name)
 ```
 
-The `name` variable gets set to the first item (name) in the list. Then we print what `name` is currently set to. We do this until `name` has been set to every item in the list *and* the code inside to loop runs (aka print out what name is).
-
 You should notice the tab (2 or 4 spaces) in front of the code `print(name)`. This lets Python know what code is "inside of the loop", and what code is outside of the loop.
 
-We could also reference (aka "hold onto") the list using a variable.
+The `name` variable gets set to the first item in the list, then we print `name` (which would be set to "Mary").
+
+We do this until `name` has been set to every item in the list (every time we "set" name, the code `print(name)` also gets run).
+
+We could also hold onto the list using a variable.
 
 ```py
 names = ["Mary", "John", "Jackson", "David"]
