@@ -5,7 +5,7 @@ Big O Notation
 - A way of expressing how efficient an algorithm is
 
 Variable
-- A code-word used to hold onto a *value* (a number or string)
+- A code-word used to hold onto a *value* (a number or string or list)
 
 String
 - Words or phrases enclosed in double quotes (not code)
