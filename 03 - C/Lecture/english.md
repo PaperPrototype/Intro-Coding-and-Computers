@@ -40,7 +40,7 @@ int main(void) {
 
 Don't run this code yet, as it won't do anything! The above code is the "main" function, and is the program *starting point* that computers use.
 
-The word "int" in front of the function, tells C that `main` gives back an integer. This is different from Python where we use "def" for defining a function. Don't worry you'll get used to it.
+The word "int" in front of the function, tells C that `main` gives back an "integer" number (integers don't gave decimal places). This is different from Python where we use "def" for defining a function. Don't worry you'll get used to it.
 
 You will see the word "void" inside of the functions input (in the parenthesis). In C we have to tell the computer that the function *doesn't* take any input, which is what the `void` keyword is for. `void` stands for "nothing" (literrally).
 

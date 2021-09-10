@@ -3,7 +3,7 @@ In real life we give people instructions on how to do something. In computers we
 
 One of the hardest problems (and often most time consuming problems) is searching.
 
-Lets write a search "algorithm" using instructions (or in programmer lingo *code* instructions). This algorithm can't accidentally miss anything though! So we have to tell it to look at each item one by one.
+Lets write a searching "algorithm" using "instructions", or in programmer lingo "*code*". This algorithm can't accidentally miss anything though! So we have to tell it to look at each item one by one.
 
 Code actually looks a lot like english, although a bit more... robotic. Here is some fake code. In it we are searching for a baseball.
 
@@ -45,7 +45,7 @@ Its so common to calculate an algorithms "efficiency" that we have a "notation" 
 
 This algorithm of ours is actually pretty old. As such it has a name (like most old things) called "linear search". Linear meaning "straight line", cause we lined em up and searched em... one by one. 
 
-It also has to do with math and the fact that for every 1000 items, the code has to "start over" 1000 times (in the worst case scenario), so a "linear" math relationship.
+It also has to do with math and the fact that for every 1000 items, the code has to "start over" (and move to the next item) 1000 times (in the worst case scenario), so a "linear" math relationship.
 
 It turns out there's a way to search things WAY faster than using linear search. But first we have to sort each item alphabetically (yes that in itself is slow, so you could argue that it isn't really much faster). Once sorted we can start searching from the center item and move right or left depending on where the item was alphabetically (this is so much faster).
 
@@ -98,9 +98,8 @@ The more work binary search has the more efficient it is!
 
 It gets annoying to say "for 1000 contacts `O(log 1000)`" so we often replace the exact number with the letter `N` giving us `O(log N)`. This way we don't have to say the exact number of contacts every time and we just use the letter `N`.
 
-
 # Python
-Lets learn a coding language!
+Lets learn a real coding language!
 
 Right click this link and select "open in new tab" to go to the greatest coolest code editing tool https://replit.com/
 
