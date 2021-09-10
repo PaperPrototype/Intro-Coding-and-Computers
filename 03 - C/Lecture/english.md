@@ -5,18 +5,16 @@ We are now going to learn a new language called C. This language is a *compiled*
 Remember how functions work in Python?
 
 ```py
+# define "main"
 def main():
-	# put code here
 	print("hello world")
 
-main() # run the code
+main() # run "main"
 ```
 
-In C there is a function that gets called automatically, except here's the catch, it is the only function that gets called! Any code that we want to run, including our own functions, have to go inside of the "main" function. This gives all computers a unifide way to have a "starting point" for where to run your program.
+In C there is a function that gets called automatically, except it is the only function that gets called! Any code that we want to run, including our own functions, have to go inside of a "main" function. This gives all computers a unifide way to have a "starting point" for where to run your program.
 
 Lets write this "main" function. Go to https://replit.com/ and make a new replit.
-
-(if you don't see the "New replit" button, it is probably hidden. To find it, look in the top left corner of the website, you should see three lines, click those. Then you should see a blue button)
 
 This time select C as the programming language. Name the the project "hello c", then click "create repl".
 
