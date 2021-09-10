@@ -18,7 +18,7 @@ Lets write this "main" function. Go to https://replit.com/ and make a new replit
 
 This time select C as the programming language. Name the the project "hello c", then click "create repl".
 
-There should already be a file called "main.c". In it you should see the following.
+There should already be a file called "main.c". In it you should see the following code.
 
 ```c
 #include <stdio.h>
@@ -29,15 +29,16 @@ int main(void) {
 }
 ```
 
-Delete everything except for the function called "main" so that the code looks like this. 
+Change the code so that the it looks like this. 
 
 ```c
+// "main" function, only function that gets called
 int main(void) {
 	// code goes here
 }
 ```
 
-Don't run this code yet, as it won't do anything! (if replit did not give you this code automatically then just copy paste the above). The above code is the "main" function in C, and is the program *starting point* that most computers use.
+Don't run this code yet, as it won't do anything! The above code is the "main" function, and is the program *starting point* that computers use.
 
 The word "int" in front of the function, tells C that `main` gives back an integer. This is different from Python where we use "def" for defining a function. Don't worry you'll get used to it.
 
