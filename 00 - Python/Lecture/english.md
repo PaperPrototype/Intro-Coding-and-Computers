@@ -3,7 +3,7 @@ In real life we give people instructions on how to do something. In computers we
 
 One of the hardest problems (and often most time consuming problems) is searching.
 
-Lets write a search "algorithm" using instructions, or in programmer lingo *code*. This algorithm can't accidentally miss anything though! So we have to tell it to look at each item one by one.
+Lets write a search "algorithm" using instructions (or in programmer lingo *code* instructions). This algorithm can't accidentally miss anything though! So we have to tell it to look at each item one by one.
 
 Code actually looks a lot like english, although a bit more... robotic. Here is some fake code. In it we are searching for a baseball.
 
@@ -98,10 +98,11 @@ The more work binary search has the more efficient it is!
 
 It gets annoying to say "for 1000 contacts `O(log 1000)`" so we often replace the exact number with the letter `N` giving us `O(log N)`. This way we don't have to say the exact number of contacts every time and we just use the letter `N`.
 
-# Python
-Lets learn a real coding language now and put aside this (insert funny word) of fake code. 
 
-Right lick this link and select "open in new tab" to go to the greatest coolest code editing tool https://replit.com/
+# Python
+Lets learn a coding language!
+
+Right click this link and select "open in new tab" to go to the greatest coolest code editing tool https://replit.com/
 
 We recommend you put this new website in another tab, and split your screen so that you can read along while coding.
 
