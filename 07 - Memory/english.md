@@ -14,4 +14,4 @@ Call stack
 
 "swap.c"
 - function parameters are a **copy** of the variable
-- to get a reference we need to use an address to the data (a pointer)
+- to get a reference we need to use an address to the data (a pointer) <- will need to know for "sorting algorithms"
