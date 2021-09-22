@@ -2,7 +2,7 @@ Rather than continuing to dredge through the boring stuff we'll let ourselves ha
 
 Pyxel is a game engine that uses Python for scripting (Unreal Engine and Unity are examples of a game engine).
 
-The best part is that Pyxel runs inside of Replit!
+The best part is that Pyxel runs inside of Replit! (So you don't have to download anything!)
 
 # Pyxel Game Engine
 Create a new repl. Select "Pyxel" (a Python "framework" for making games). Name the project "hideous basic game" (you can honestly call it whatever you want).
