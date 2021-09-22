@@ -71,6 +71,24 @@ pyxel.run(update, draw)
 
 The `pyxel.run` will make the `update` function happen again, again, and again, preventing our game from stopping. Without `pyxel.run` you just end up making a window (using the `pyxel.init` function from before) and then immediately quit.
 
+Lets clear the background of our screen every time we draw the game.
+
+```py
+import pyxel
+
+pyxel.init(100, 80)
+
+def update():
+	# code that runs every few milliseconds
+	pass
+
+def draw():
+    # clear the backgrounds to a nice blue
+	pyxel.cls(12)
+
+pyxel.run(update, draw)
+```
+
 Lets add a simple cube by using pyxel's "rect" function (standing for the word "rectangle").
 
 (change your code to the following)
@@ -123,6 +141,10 @@ pyxel.run(update, draw)
 Using `pyxel.width` gives us the width of the window, and using `pyxel.height` gives us the height of the window.
 
 You can visualize this using the below picture
+
+![TODO I NEED TO AD THIS PICTURE]()
+
+Feel free to take your time and make a nice landscape.
 
 We can add some code to "quit" or exit the game.
 
