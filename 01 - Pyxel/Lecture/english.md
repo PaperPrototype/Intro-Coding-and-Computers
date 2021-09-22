@@ -30,8 +30,7 @@ Run this code (it might take a second to load). You will see something flicker f
 
 To prevent the code from finishing so quickly we need some code that will run every single "frame". Have you ever heard of "fps"? Video games are many (MANY) pictures being redrawn onto your screen every few seconds, each picture slightly different, making it look like a video.
 
-Change your code so that it looks like the following.
-
+(change your code to the following)
 ```py
 import pyxel
 
@@ -68,11 +67,13 @@ def draw():
     # code for drawing / rendering
     pass
 
+# pyxel's "run" function
 pyxel.run(update, draw)
 ```
 
-Lets add a simple cube using the "rect" function (standing for the word "rectangle").
+Lets add a simple cube by using pyxel's "rect" function (standing for the word "rectangle").
 
+(change your code to the following)
 ```py
 import pyxel
 
@@ -93,8 +94,9 @@ Now click the play button! You should see a yellow cube!
 
 ![replit pyxel](/Assets/replit_pyxel.png)
 
-We can add some code to "quit" or exit the game. Edit your code to look like the following.
+We can add some code to "quit" or exit the game.
 
+(change your code to the following)
 ```py
 import pyxel
 
