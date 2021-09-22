@@ -1,19 +1,10 @@
 Rather than continuing to dredge through the boring stuff we'll let ourselves have some fun with Python and make a game!
 
-Originally this was not part of the course as I wanted to make this course as short as possible by only covering the stuff you need to know and not "wasting" time on fun stuff, but hey, thats no fun! :P
+Pyxel is a game engine that uses Python for scripting (Unreal Engine and Unity are examples of a game engine).
 
-Pyxel is a game engine that uses Python for scripting (Unreal Engine and Unity are examples of a game engine). In Pyxel everything is in pixels! The best part is that Pyxel runs inside of Replit!
-
-Here are some useful references:
-- pyxel tutorial and documentation (aka, notes / guides on how to use pyxel) https://pypi.org/project/pyxel/
-- pyxel game engine code https://github.com/kitao/pyxel
-
+The best part is that Pyxel runs inside of Replit!
 
 # Pyxel Game Engine
-Now lets learn the basics of making a game with Python!
-
-Here we will teach you the basics of making a game with Pyxel, and then afterwards in the Tutorials there will be tutorials on how to make different types of games using what you learn from this! This way you can have different options depending on the type of game you want to make!
-
 Create a new repl. Select "Pyxel" (a Python "framework" for making games). Name the project "hideous basic game" (you can honestly call it whatever you want).
 
 Now add the following code.
@@ -24,17 +15,18 @@ import pyxel
 
 The "import" keyword gets us access to the code from pyxel.
 
-Now we need to make a "window" for our game. Make your code look like the following.
+Now we need to make a "window" for our game. 
 
+(change your code to the following)
 ```py
 import pyxel
 
 pyxel.init(100, 80)
 ```
 
-`pyxel.init(100, 80)` gives us a window that is 100 pixels wide by 80 pixels tall. 
-
 Run this code (it might take a second to load). You will see something flicker for a second then the code gets stopped!
+
+`pyxel.init(100, 80)` gives us a window that is 100 pixels wide by 80 pixels tall (although you barely saw it for a split second).
 
 To prevent the code from finishing so quickly we need some code that will run every single "frame". Have you ever heard of "fps"? Video games are many (MANY) pictures being redrawn onto your screen every few seconds, each picture slightly different, making it look like a video.
 
@@ -56,11 +48,13 @@ def draw():
 pyxel.run(update, draw)
 ```
 
-We make 2 functions. One is for "drawing" shapes and pictures to the screen. The other is the one that will have all the code for, say, moving the player around and checking if we clicked a certain key. 
+We make 2 functions. One is for "drawing" shapes and pictures to the screen. The other function called `update` is the one that will have all the code for, say, moving the player around and checking if we clicked a certain key.
 
-You will also notice the `pass` keyword inside of each function. The `pass` keyword is there (temporarily) for telling Python to ignore the function so we don't get any errors (because we are not allowed to make a function that does nothing!).
+You will also notice the `pass` "keyword" inside of each function. `pass` is a special keyword to (temporarily) tell Python to just "pass" the function (because we are not allowed to make a function that does nothing!).
 
-In order to tell Pyxel about our 2 new functions we call pyxel's `run` function. The `pyxel.run` function takes 2 arguments (inputs). The first is the name of our "update" function (conveniently called "update"), and the second is the "draw" function (also conveniently named "draw").
+In order to tell Pyxel about our 2 new functions (`update` and `draw`) we use or "call" pyxel's `run` function. 
+
+The `pyxel.run` function takes 2 arguments (inputs). The first is the name of our "update" function (conveniently called "update"), and the second is the "draw" function (also conveniently named "draw").
 
 Lets add a simple cube using the "rect" function (standing for the word "rectangle").
 
