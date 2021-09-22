@@ -1,5 +1,5 @@
 # Code?
-Somehow we have been able to write text into a file, call that text "code", and "run" the code, and somehow our computer understood it!
+Somehow we have been able to write text into a file, call that text "code", and "run" the code, and somehow our computer understood it, and "did" stuff with it.
 
 So how did all that work? All we were doing was writing words that followed some special rules.
 
