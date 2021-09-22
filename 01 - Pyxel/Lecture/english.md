@@ -44,8 +44,6 @@ def update():
 def draw():
     # code for drawing / rendering
     pass
-
-pyxel.run(update, draw)
 ```
 
 We make 2 functions. One is for "drawing" shapes and pictures to the screen. The other function called `update` is the one that will have all the code for, say, moving the player around and checking if we clicked a certain key.
@@ -55,6 +53,23 @@ You will also notice the `pass` "keyword" inside of each function. `pass` is a s
 In order to tell Pyxel about our 2 new functions (`update` and `draw`) we use (or "call") pyxel's `run` function. 
 
 The `pyxel.run` function takes 2 arguments (inputs). The first is the name of our "update" function (conveniently called "update"), and the second is the "draw" function (also conveniently named "draw").
+
+(change your code to use pyxel's "run" function)
+```py
+import pyxel
+
+pyxel.init(100, 80)
+
+def update():
+	# code that runs every few milliseconds
+	pass
+
+def draw():
+    # code for drawing / rendering
+    pass
+
+pyxel.run(update, draw)
+```
 
 Lets add a simple cube using the "rect" function (standing for the word "rectangle").
 
