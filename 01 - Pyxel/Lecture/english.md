@@ -219,7 +219,11 @@ We use the `x` and `y` variables for a position. We offset the bottom right corn
 
 We want to simulate physics so that the cube falls. We can do this by changing the y variable every "update".
 
-But... currently there's a problem. We can't access the `x` and `y` inside of `draw` (or `update`) since `x` and `y` are outside of the functions! The code may work *for now* but eventually python will not be able to tell if you are making a new variable, or trying to use the old `x` or `y` variables.
+But... currently there's a problem. We can't access the `x` and `y` inside of `draw` (or `update`) since `x` and `y` are outside of the functions! 
+
+The code may work *for now* but eventually python will not be able to tell if you are making a *new variable* inside of `draw`, or trying to use the old `x` and `y` variables. 
+
+We call this problem "scope" where a variable has a "scope" of where it can and can't be accessed, and (currently) our `x` and `y` variables are *outside of* the "scope" of `draw`.
 
 We could try to pass x and y as arguments (inputs) to the `draw` function...
 
@@ -233,7 +237,7 @@ def draw(x, y):
     pyxel.rect(x, y, x + 10, y + 10, 11)
 ```
 
-...but that actually just makes separate variables inside of `draw` that happen to be called `x` and `y`.
+...but that actually just makes separate variables inside of `draw` that happen to be called `x` and `y`. 
 
 To overcome this problem we will have to use a concept in programming where we wrap everything in an "object" (including the variables).
 
