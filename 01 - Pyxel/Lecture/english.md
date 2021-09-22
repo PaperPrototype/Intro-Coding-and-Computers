@@ -52,7 +52,7 @@ We make 2 functions. One is for "drawing" shapes and pictures to the screen. The
 
 You will also notice the `pass` "keyword" inside of each function. `pass` is a special keyword to (temporarily) tell Python to just "pass" the function (because we are not allowed to make a function that does nothing!).
 
-In order to tell Pyxel about our 2 new functions (`update` and `draw`) we use or "call" pyxel's `run` function. 
+In order to tell Pyxel about our 2 new functions (`update` and `draw`) we use (or "call") pyxel's `run` function. 
 
 The `pyxel.run` function takes 2 arguments (inputs). The first is the name of our "update" function (conveniently called "update"), and the second is the "draw" function (also conveniently named "draw").
 
