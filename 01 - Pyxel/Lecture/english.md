@@ -148,9 +148,9 @@ pyxel.run(update, draw)
 
 Using `pyxel.width` gives us the width of the window, and using `pyxel.height` gives us the height of the window.
 
-You can visualize this using the below picture
+You can visualize our drawing of the ground as this
 
-![TODO I NEED TO AD THIS PICTURE]()
+![TODO I NEED TO ADD THIS PICTURE]()
 
 Feel free to take your time and make a nice landscape.
 
