@@ -90,13 +90,13 @@ def draw():
 pyxel.run(update, draw)
 ```
 
-Now click the play button! You should see a yellow cube!
-
-![replit pyxel](/Assets/replit_pyxel.png)
-
 The format of the `rect` function looks like this
 
 ![pyxel rect](/Assets/pyxel_coordinates.png)
+
+Now click the play button! You should see a yellow cube!
+
+![replit pyxel](/Assets/replit_pyxel.png)
 
 We can add some code to "quit" or exit the game.
 
