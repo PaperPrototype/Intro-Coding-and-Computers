@@ -115,13 +115,13 @@ pyxel.run(update, draw)
 
 The format of the `rect` function looks like this
 
-![pyxel rect](/Assets/pyxel_coordinates.png)
+![pyxel rect](/Assets/pyxel_rect.png)
 
 Now click the play button! You should see a yellow cube!
 
 ![replit pyxel](/Assets/replit_pyxel.png)
 
-Now your challenge is to use additional "rect" function to add a sandy beach!
+Now we will use a `rect` function to add a sandy beach!
 
 (example code)
 ```py
@@ -150,11 +150,11 @@ Using `pyxel.width` gives us the width of the window, and using `pyxel.height` g
 
 You can visualize our drawing of the ground as this
 
-![TODO I NEED TO ADD THIS PICTURE]()
+![pyxel ground](/Assets/pyxel_ground.png)
 
 Feel free to take your time and make a nice landscape.
 
-We can add some code to "quit" or exit the game.
+Once your done decorating... we will add some code to "quit" or exit the game.
 
 (change your code to the following)
 ```py
@@ -169,9 +169,13 @@ def update():
         pyxel.quit()
 
 def draw():
-    pyxel.rect(10, 10, 20, 20, 11)
+    # clear the backgrounds to a nice blue
+	pyxel.cls(12)
 
-    # dirt ground
+	# draw a rectangle
+	pyxel.rect(10, 10, 20, 20, 11)
+	
+	# sandy ground
 	pyxel.rect(0, pyxel.height - 10, pyxel.width, pyxel.height, 40)
 
 pyxel.run(update, draw)
@@ -183,7 +187,7 @@ Run the above code (make sure you click the "game window" thingy to "focus" the 
 
 Now lets make our cube fall as if it had gravity! We'll make two variables called `x` and `y`, to control the position of the cube.
 
-(this code won't work!)
+(this code won't work though!)
 ```py
 import pyxel
 
@@ -193,67 +197,123 @@ x = 10
 y = 10
 
 def update():
-    # check if Q was clicked
-    if pyxel.btnp(pyxel.KEY_Q):
-        # quit / exit
-        pyxel.quit()
+	# check if Q was clicked
+	if pyxel.btnp(pyxel.KEY_Q):
+		# quit / exit
+		pyxel.quit()
 
 def draw():
-    pyxel.rect(x, y, x + 10, y + 10, 11)
+    # clear the backgrounds to a nice blue
+	pyxel.cls(12)
+
+	# draw a cube
+	pyxel.rect(x, y, x + 10, y + 10, 11)
+	
+	# sandy ground
+	pyxel.rect(0, pyxel.height - 10, pyxel.width, pyxel.height, 40)
 
 pyxel.run(update, draw)
 ```
 
-We use the variables instead of putting in the actual positions manually for the rect function.
-
-The positions for the rect are in a grid. X is horizontal (horizontal like the horizon), and Y is vertical (up and down).
-
-Here is a chart visualizing this.
-
-![pyxel coordinates](/Assets/pyxel_coordinates.png)
+We use the `x` and `y` variables for a position. We offset the bottom right corner of the cube using `+ 10` (otherwise the cube would be 0 width by 0 height).
 
 We want to simulate physics so that the cube falls. We can do this by changing the y variable every "update".
 
-But... currently there's a problem. We can't access the x and y variables inside of the `draw` function (or the `update` function) since x and y are outside of the functions!
+But... currently there's a problem. We can't access the `x` and `y` inside of `draw` (or `update`) since `x` and `y` are outside of the functions! The code may work *for now* but eventually python will not be able to tell if you are making a new variable, or trying to use the old `x` or `y` variables.
 
-We could pass x and y as arguments (inputs) to the `update` function, but the problem is that function arguments in most language are a **copy of the value** (copy of whatever was *inside of* the variable), so modifying x and y inside of update or draw, won't affect the x and y variables we originally made. 
+We could try to pass x and y as arguments (inputs) to the `draw` function...
 
-To overcome this problem we will have to use a concept in programming where we wrap everything in an "object" (including the variables). 
+(example)
+```py
 
-An "object" in programming is a weird idea that programmers got from biology and how cells work. Essentially an object "holds" variables and function *inside of it*.
+x = 10
+y = 10
 
-By using an "object" we will be able to modify the values of x and y in `update`, and then "use" the changed x and y values in `draw` to move the cube.
+def draw(x, y):
+    pyxel.rect(x, y, x + 10, y + 10, 11)
+```
 
-Change your code to look like the following.
+...but that actually just makes separate variables inside of `draw` that happen to be called `x` and `y`.
 
+To overcome this problem we will have to use a concept in programming where we wrap everything in an "object" (including the variables).
+
+An "object" in programming is a weird idea that programmers got from biology and how cells work. Essentially an object "holds" variables and function ***inside of it*** (Whaaaaaaaaaaaaaaaaaaaaaaaaat? Huh?).
+
+By using an "object" we will be able to acces `x` and `y` in `update` or `draw` *and change them.* (*changing* them is where we would have the problem)
+
+(use this for reference, instructions on easily editing code to match this are below)
 ```py
 import pyxel
-
-pyxel.init(100, 80)
 
 class Game():
     x = 10
     y = 10
 
-    def update():
-        # check if replit was paused
-        if pyxel.btnp(pyxel.KEY_Q):
-            # quit / exit
-            pyxel.quit()
+	def update():
+		# check if replit was paused
+		if pyxel.btnp(pyxel.KEY_Q):
+			# quit / exit
+			pyxel.quit()
 
     def draw():
         pyxel.rect(x, y, x + 10, y + 10, 11)
 ```
 
-(If you run this nothing will happen, don't worry we'll get to that in a second)
+First delete the `pyxel.run()` and the `pyxel.init()` functions (this is temporary).
 
-We deleted the `pyxel.run(update, draw)` function call for now.
+```py
+import pyxel
 
-The word "`class`" is keyword for making objects.
+x = 10
+y = 10
 
-Just like in functions we have to let Python know what code is "inside of the object" by putting 2 or 4 spaces in front of them.
+def update():
+  # check if Q was clicked
+  if pyxel.btnp(pyxel.KEY_Q):
+    # quit / exit
+    pyxel.quit()
 
-Highlight all the code that is supposed to be inside of the class (aka "object") and click `ctrl` + `tab`. This will automatically put the correct amount of spaces in front of the highlighted code.
+def draw():
+  # clear the backgrounds to a nice blue
+	pyxel.cls(12)
+
+	# draw a cube
+	pyxel.rect(x, y, x + 10, y + 10, 11)
+	
+	# sandy ground
+	pyxel.rect(0, pyxel.height - 10, pyxel.width, pyxel.height, 40)=
+```
+
+Now add `class Game():` right below `pyxel.import`
+
+```py
+import pyxel
+
+class Game():
+
+x = 10
+y = 10
+
+def update():
+  # check if Q was clicked
+  if pyxel.btnp(pyxel.KEY_Q):
+    # quit / exit
+    pyxel.quit()
+
+def draw():
+  # clear the backgrounds to a nice blue
+	pyxel.cls(12)
+
+	# draw a cube
+	pyxel.rect(x, y, x + 10, y + 10, 11)
+	
+	# sandy ground
+	pyxel.rect(0, pyxel.height - 10, pyxel.width, pyxel.height, 40)
+```
+
+Just like with functions we have to tell Python what code is "inside of the object" by putting a tab (2 or 4 spaces) in front of the code that is supposed to be inside of it.
+
+To "indent" the code to be *inside of* the `Game` class highlight all the code below `class Game():` and hold the `ctrl` key then click `tab`. This will indent all of the highlighted code.
 
 Now to be able to access x and y in the `update` and `draw` functions we have to add a special parameter (function variable) to `update` and `draw` called "self".
 
