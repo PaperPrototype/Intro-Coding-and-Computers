@@ -184,6 +184,8 @@ def draw():
 pyxel.run(update, draw)
 ```
 
+(Make sure you uppercase the `Key_Q`)
+
 Pyxel gives us code for checking if someone pressed a button. The `btnp` function stands for "button pressed". It gives us back a True or False if the person clicked the key *just now* (AKA, holding down the key will only count as a single click the exact moment you clicked it).
 
 Run the above code (make sure you click the "game window" thingy to "focus" the browser in that area) and click the Q key to see the game stop running!
