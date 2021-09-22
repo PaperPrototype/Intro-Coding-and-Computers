@@ -134,7 +134,7 @@ x = 10
 y = 10
 
 def update():
-    # check if replit was paused
+    # check if Q was clicked
     if pyxel.btnp(pyxel.KEY_Q):
         # quit / exit
         pyxel.quit()
