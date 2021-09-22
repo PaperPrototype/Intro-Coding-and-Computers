@@ -126,7 +126,7 @@ Now click the play button! You should see a yellow cube!
 
 Now we will use the `rect` function to add a sandy beach!
 
-(example code)
+(change your code to the following)
 ```py
 import pyxel
 
@@ -230,7 +230,7 @@ But... currently there's a problem. We can't access the `x` and `y` inside of `d
 
 The code may work *for now* but eventually python will not be able to tell if you are making a *new variable* inside of `draw`, or trying to change the old `x` and `y` variables.
 
-(example)
+(example, DON'T change your code to this!)
 ```py
 x = 10
 y = 10
@@ -246,7 +246,7 @@ We call this problem "scope" where a variable has a "scope" of where it can and 
 
 We could try to pass x and y as arguments (inputs) to the `draw` function...
 
-(example)
+(example, DON'T change your code to this!)
 ```py
 
 x = 10
