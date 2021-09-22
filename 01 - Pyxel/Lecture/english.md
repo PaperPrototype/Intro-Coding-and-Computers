@@ -313,32 +313,66 @@ def draw():
 
 Just like with functions we have to tell Python what code is "inside of the object" by putting a tab (2 or 4 spaces) in front of the code that is supposed to be inside of it.
 
-To "indent" the code to be *inside of* the `Game` class highlight all the code below `class Game():` and hold the `ctrl` key then click `tab`. This will indent all of the highlighted code.
-
-Now to be able to access x and y in the `update` and `draw` functions we have to add a special parameter (function variable) to `update` and `draw` called "self".
-
-Change your code to the following.
+To "indent" the code to be *inside of* the `Game` class highlight all the code below `class Game():` and click `tab`. This will indent all of the highlighted code.
 
 ```py
 import pyxel
 
-pyxel.init(100, 80)
-
 class Game():
-    x = 10
-    y = 10
 
-    def update(self):
-        # check if replit was paused
-        if pyxel.btnp(pyxel.KEY_Q):
-            # quit / exit
-            pyxel.quit()
+	x = 10
+	y = 10
 
-    def draw(self):
-        pyxel.rect(self.x, self.y, self.x + 10, self.y + 10, 11)
+	def update():
+		# check if Q was clicked
+		if pyxel.btnp(pyxel.KEY_Q):
+			# quit / exit
+			pyxel.quit()
+
+	def draw():
+		# clear the backgrounds to a nice blue
+		pyxel.cls(12)
+
+		# draw a cube
+		pyxel.rect(x, y, x + 10, y + 10, 11)
+
+		# sandy ground
+		pyxel.rect(0, pyxel.height - 10, pyxel.width, pyxel.height, 40)
+
 ```
 
-The whole point in the "self" parameter (function variable) is to access variables that are "part of the object", and that is exactly what we do! We use `self` to access x and y through a dot `.` like this `self.x` and `self.y`. Make sure you change your code to use "self" to access the x and y variables.
+Now to be able to access x and y in the `update` and `draw` functions we have to add a special parameter (function variable) to `update` and `draw` called "self".
+
+(change your code to the following)
+```py
+import pyxel
+
+class Game():
+
+	x = 10
+	y = 10
+
+	def update(self):
+		# check if Q was clicked
+		if pyxel.btnp(pyxel.KEY_Q):
+			# quit / exit
+			pyxel.quit()
+
+	def draw(self):
+		# clear the backgrounds to a nice blue
+		pyxel.cls(12)
+
+		# draw a cube
+		pyxel.rect(self.x, self.y, self.x + 10, self.y + 10, 11)
+
+		# sandy ground
+		pyxel.rect(0, pyxel.height - 10, pyxel.width, pyxel.height, 40)
+
+```
+
+The "self" parameter (function variable) gives us access to variables that are "part of the object", and that is exactly what we do! We use `self` to access x and y through a dot `.` like this `self.x` and `self.y` (make sure you change your code to use `self` to access the `x` and `y` variables)
+
+LEFT OFF HERE!
 
 Now we can finally work on simulating gravity by changing y's position. 
 
