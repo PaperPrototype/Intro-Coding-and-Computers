@@ -17,7 +17,7 @@ The "import" keyword gets us access to the code from pyxel.
 
 Now we need to make a "window" for our game. 
 
-(change your code to the following)
+(change your code to look like this)
 ```py
 import pyxel
 
@@ -30,7 +30,7 @@ Run this code (it might take a second to load). You will see something flicker f
 
 To prevent the code from finishing so quickly we need some code that will run every single "frame". Have you ever heard of "fps"? Video games are many (MANY) pictures being redrawn onto your screen every few seconds, each picture slightly different, making it look like a video.
 
-(change your code to the following)
+(change your code to look like following)
 ```py
 import pyxel
 
@@ -71,8 +71,11 @@ pyxel.run(update, draw)
 
 The `pyxel.run` will make the `update` function happen again, again, and again, preventing our game from stopping. Without `pyxel.run` you just end up making a window (using the `pyxel.init` function from before) and then immediately quit.
 
+Now run this code. You should see a "window thingy".
+
 Lets clear the background of our screen every time we draw the game.
 
+(change your code to look like this)
 ```py
 import pyxel
 
@@ -89,7 +92,7 @@ def draw():
 pyxel.run(update, draw)
 ```
 
-The `cls` function stands for "clear screen".
+The `cls` function stands for "clear screen". Run this code to see the background of our "window thingy" be colored blue.
 
 Now lets draw a cube on top of the background using the `rect` function (standing for the word "rectangle").
 
