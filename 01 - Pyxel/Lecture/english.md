@@ -37,8 +37,8 @@ import pyxel
 pyxel.init(100, 80)
 
 def update():
-	# code that runs every few milliseconds
-	pass
+    # code that runs every few milliseconds
+    pass
 
 def draw():
     # code for drawing / rendering
@@ -58,8 +58,8 @@ import pyxel
 pyxel.init(100, 80)
 
 def update():
-	# code that runs every few milliseconds
-	pass
+    # code that runs every few milliseconds
+    pass
 
 def draw():
     # code for drawing / rendering
@@ -80,8 +80,8 @@ import pyxel
 pyxel.init(100, 80)
 
 def update():
-	# code that runs every few milliseconds
-	pass
+    # code that runs every few milliseconds
+    pass
 
 def draw():
     # draw a rectangle
@@ -93,6 +93,10 @@ pyxel.run(update, draw)
 Now click the play button! You should see a yellow cube!
 
 ![replit pyxel](/Assets/replit_pyxel.png)
+
+The format of the `rect` function looks like this
+
+![pyxel rect](/Assets/pyxel_coordinates.png)
 
 We can add some code to "quit" or exit the game.
 
