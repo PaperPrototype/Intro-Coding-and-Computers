@@ -69,7 +69,7 @@ def draw():
 pyxel.run(update, draw)
 ```
 
-`pyxel.run` will make `update` happen again, again, and again, preventing our game from stopping. Without `pyxel.run` we end up just making a window (using `pyxel.init`) and then immediately quit.
+The `pyxel.run` will make the `update` function happen again, again, and again, preventing our game from stopping. Without `pyxel.run` we end up just making a window (using `pyxel.init`) and then immediately quit.
 
 Lets add a simple cube by using pyxel's "rect" function (standing for the word "rectangle").
 
