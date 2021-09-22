@@ -385,7 +385,7 @@ Now we can finally work on simulating gravity by changing y's position!
 
 We'll use `update` for the gravity code, since we are supposed to only put "rendering" code inside of `draw`.
 
-(If you see `# ...` that means there is some code we are (temporarily) ignoring)
+(If you see a `# ...` I'm just not showing you some code)
 
 (change your code to the following)
 ```py
@@ -397,7 +397,11 @@ We'll use `update` for the gravity code, since we are supposed to only put "rend
 # ...
 ```
 
-Our gravity code is litterally one line `self.y = self.y + 0.5` although we can use the shortcut for decreasing a number.
+(I am not showing any code except for `self.y = self.y + 0.5` to make it easier for you to see the new piece of code without being overwhelmed by the code around it)
+
+Our gravity code is litterally one line `self.y = self.y + 0.5` inside of `update`.
+
+Although we can use the shortcut for decreasing a number.
 
 (example)
 ```py
@@ -433,7 +437,7 @@ Game()
 
 "Making" an object looks like running a function. We could hold onto the object we made using a variable...
 
-(change your code to the following)
+(example, DON'T change your code to this)
 ```py
 mygame = Game()
 
