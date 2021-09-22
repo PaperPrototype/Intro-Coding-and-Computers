@@ -104,11 +104,11 @@ def update():
     pass
 
 def draw():
-    # clear the backgrounds to a nice blue
+	# clear the backgrounds to a nice blue
 	pyxel.cls(12)
 
-    # draw a rectangle
-    pyxel.rect(10, 10, 20, 20, 11)
+	# draw a rectangle
+	pyxel.rect(10, 10, 20, 20, 11)
 
 pyxel.run(update, draw)
 ```
@@ -121,7 +121,7 @@ Now click the play button! You should see a yellow cube!
 
 ![replit pyxel](/Assets/replit_pyxel.png)
 
-Now we will use a `rect` function to add a sandy beach!
+Now we will use the `rect` function to add a sandy beach!
 
 (example code)
 ```py
@@ -134,12 +134,12 @@ def update():
 	pass
 
 def draw():
-    # clear the backgrounds to a nice blue
+	# clear the backgrounds to a nice blue
 	pyxel.cls(12)
 
 	# draw a rectangle
 	pyxel.rect(10, 10, 20, 20, 11)
-	
+
 	# sandy ground
 	pyxel.rect(0, pyxel.height - 10, pyxel.width, pyxel.height, 40)
 
