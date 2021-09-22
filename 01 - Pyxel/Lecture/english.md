@@ -49,9 +49,7 @@ We make 2 functions. One is for "drawing" shapes and pictures to the screen. The
 
 You will also notice the `pass` "keyword" inside of each function. `pass` is a special keyword to (temporarily) tell Python to just "pass" the function (because we are not allowed to make a function that does nothing! (`update` and `draw` are a "function")).
 
-In order to tell Pyxel about our 2 new functions (`update` and `draw`) we use (or "call") pyxel's `run` function. 
-
-The `pyxel.run` function takes 2 arguments (inputs). The first is the name of our "update" function (conveniently called "update"), and the second is the "draw" function (also conveniently named "draw").
+In order to tell Pyxel about our 2 new functions (`update` and `draw`) we call (or "use") pyxel's `run` function.
 
 (change your code to use pyxel's "run" function)
 ```py
@@ -70,6 +68,8 @@ def draw():
 # pyxel's "run" function
 pyxel.run(update, draw)
 ```
+
+`pyxel.run` will make `update` happen again, again, and again, preventing our game from stopping. Without `pyxel.run` we end up just making a window (using `pyxel.init`) and then immediately quit.
 
 Lets add a simple cube by using pyxel's "rect" function (standing for the word "rectangle").
 
@@ -120,7 +120,7 @@ Run the above code (make sure you click the "game window thingy" to "focus" the 
 
 Now lets make our cube fall as if it had gravity! We'll make two variables called `x` and `y`, to control the position of the cube.
 
-(not working code)
+(this code won't work!)
 ```py
 import pyxel
 
