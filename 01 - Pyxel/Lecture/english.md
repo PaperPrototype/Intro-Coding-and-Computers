@@ -98,6 +98,30 @@ Now click the play button! You should see a yellow cube!
 
 ![replit pyxel](/Assets/replit_pyxel.png)
 
+Now your challenge is to use additional "rect" function to add a ground and some grass!
+
+(example code)
+```py
+import pyxel
+
+pyxel.init(100, 80)
+
+def update():
+	# code that runs every few milliseconds
+	pass
+
+def draw():
+	# draw a rectangle
+	pyxel.rect(10, 10, 20, 20, 11)
+	
+	# dirt ground
+	pyxel.rect(0, pyxel.height - 10, pyxel.width, pyxel.height, 40)
+
+pyxel.run(update, draw)
+```
+
+Using `pyxel.width` gives us the width of the window, and using `pyxel.height` gives us the height of the window.
+
 We can add some code to "quit" or exit the game.
 
 (change your code to the following)
