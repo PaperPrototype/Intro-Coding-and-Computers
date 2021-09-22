@@ -5,17 +5,19 @@ So how did all that work? All we were doing was writing words that followed some
 
 You may have hear that computers understand 0s and 1s. Really a 0 or a 1 just represents a switch or electric charge in your computer. 0 representing an off switch or a negative electric charge, and 1 representing an on switch or a positive electric charge. We call this "binary". "bi" meaning 2. We call each electric charge (or switch) a "bit". So a 0 or 1, is called a *bit*.
 
-So how did our text based code translate to binary? It turns out that your computers central processor (called a CPU, or Central Processing Unit) only understands a few instructions like moving memory or adding some numbers together. Each of these instruction is represented by sequences of 0s and 1s! We call these limited memory and math instructions "Assembly". Assembly code is specific for every CPU.
+So how did our text based code translate to binary? It turns out that your computers central processor (called a CPU, or Central Processing Unit) only understands a few instructions like moving memory or adding some numbers together. Each of these instruction is represented by sequences of 0s and 1s! We call these limited memory and math instructions "Assembly". Assembly code is specific for every type of CPU (Processor).
 
-What we called programs, or "apps", are files that contain binary (0 and 1) instructions for the CPU!
+What we called programs, or "apps", are files that contain sets of binary (0 and 1) assembly instructions for the CPU!
 
 When we "ran" our Python code, a program (called Python) read through our words of text and "interpreted" them into binary instructions (0s and 1s instructions) for the processor!
 
 We call the Python programming language an *interpreted* programming language because our code gets "interpreted" by the *Python program* (usually called an "interpreter" program).
 
-Don't worry the people who made the Python interpreter didn't have to make the Python interpreter using 0s and 1s! Instead they used a "compiled" programming language. A compiled programming language is text based code (like Python), that gets converted directly into a program file of 0s and 1s. Don;t worry you'll learn C in the next lecture which is a compiled programming language.
+Don't worry the people who made the Python interpreter didn't have to make the Python interpreter using 0s and 1s! Instead they used a "compiled" programming language.
 
-You may have noticed if you typed gibberish like "qnerkjq 1924uj1,.3 rj32m,5r)ajebqrkqm }  2}:q2" you would get an error and nothing would happen. Since someone had to write the Python interpreter program, they had to come up with a certain "syntax" (format for writing code) that be understood by the Python interpreter program. Without this syntax it would be pretty horribly difficult to decipher the code us programmers wrote!
+A compiled programming language is text based code (like Python), that gets converted directly into a program file of 0s and 1s. You'll learn C in the next lecture.
+
+You may have noticed if you typed gibberish like "qnerkjq 1924uj1,.3 rj32m,5r)ajebqrkqm }  2}:q2" you would get an error and nothing would happen. Since someone had to write the Python interpreter program, they had to come up with a certain "syntax" (format for writing code) that could be understood by the Python interpreter program. Without this syntax it would be pretty horribly difficult to write a program to decipher the code we wrote!
 
 This syntax made us put a colon `:` at the end of functions (or if statements) as well as "indent" our code to show that is it "inside" of the function. We did this using a tab (putting 2 or 4 spaces in front of code). Now you know why.
 

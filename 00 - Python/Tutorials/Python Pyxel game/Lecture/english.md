@@ -602,6 +602,53 @@ Now what about making the player (cube) move side to side? Ooooh!
 # ...
 ```
 
+The final code will be this.
+
+(final code)
+```py
+import pyxel
+
+class Game():
+
+	x = 10
+	y = 10
+
+	def __init__(self):
+		pyxel.init(100, 80)
+		pyxel.run(self.update, self.draw)
+
+	def update(self):
+		# check if Q was clicked
+		if pyxel.btnp(pyxel.KEY_Q):
+			# quit / exit
+			pyxel.quit()
+
+		# jumping / falling
+		if pyxel.btn(pyxel.KEY_SPACE):
+			self.y -= 1 # jump
+		# else if below window
+		elif self.y + 20 < pyxel.height:
+			self.y += 1 # fall
+
+		# move side to side
+		if pyxel.btn(pyxel.KEY_RIGHT):
+			self.x += 1
+		if pyxel.btn(pyxel.KEY_LEFT):
+			self.x -= 1
+
+	def draw(self):
+		# clear the backgrounds to a nice blue
+		pyxel.cls(12)
+
+		# draw a cube
+		pyxel.rect(self.x, self.y, self.x + 10, self.y + 10, 11)
+
+		# sandy ground
+		pyxel.rect(0, pyxel.height - 10, pyxel.width, pyxel.height, 40)
+
+Game()
+```
+
 Now go ahead and try this code out and have fun with it!
 
 Here are some useful functions for drawing other shapes in Pyxel.
@@ -624,4 +671,4 @@ Here are some useful functions for drawing other shapes in Pyxel.
 `text(x, y, s, col)`
 - Draw a string (words) `s` of color `col` at (x, y)
 
-(above list taken from https://pythonawesome.com/a-retro-game-development-environment-in-python/)
+(above list is taken from https://pythonawesome.com/a-retro-game-development-environment-in-python/)
