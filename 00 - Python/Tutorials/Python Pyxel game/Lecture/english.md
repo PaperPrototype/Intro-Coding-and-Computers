@@ -536,14 +536,14 @@ Change the code inside of the `update` function have "jumping"
 			# quit / exit
 			pyxel.quit()
 
-        # jumping / falling
+		# jumping / falling
 		if pyxel.btn(pyxel.KEY_SPACE):
-            # jumping
+			# jumping
 			self.y -= 1
-		else
+		else:
             # falling
 			self.y += 0.5
-```
+```cvbiol;
 
 Run this code, by clicking the space key you can make the player fall or "jump" (make sure to click inside of the games window to "focus" the browser on it).
 
