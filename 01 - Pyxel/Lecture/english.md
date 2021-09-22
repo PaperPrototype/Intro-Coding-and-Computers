@@ -50,7 +50,7 @@ pyxel.run(update, draw)
 
 We make 2 functions. One is for "drawing" shapes and pictures to the screen. The other function called `update` is the one that will have all the code for, say, moving the player around and checking if we clicked a certain key.
 
-You will also notice the `pass` "keyword" inside of each function. `pass` is a special keyword to (temporarily) tell Python to just "pass" the function (because we are not allowed to make a function that does nothing!).
+You will also notice the `pass` "keyword" inside of each function. `pass` is a special keyword to (temporarily) tell Python to just "pass" the function (because we are not allowed to make a function that does nothing! (`update` and `draw` are a "function")).
 
 In order to tell Pyxel about our 2 new functions (`update` and `draw`) we use (or "call") pyxel's `run` function. 
 
