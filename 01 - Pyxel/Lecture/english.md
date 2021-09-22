@@ -83,7 +83,7 @@ def update():
 	pass
 
 def draw():
-    # clear the backgrounds to a nice blue
+	# clear the backgrounds to a nice blue
 	pyxel.cls(12)
 
 pyxel.run(update, draw)
@@ -91,7 +91,7 @@ pyxel.run(update, draw)
 
 The `cls` function stands for "clear screen".
 
-Lets also add a simple cube by using pyxel's "rect" function (standing for the word "rectangle").
+Now lets draw a cube on top of the background using the `rect` function (standing for the word "rectangle").
 
 (change your code to the following)
 ```py
