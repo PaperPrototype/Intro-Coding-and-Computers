@@ -122,6 +122,8 @@ pyxel.run(update, draw)
 
 Using `pyxel.width` gives us the width of the window, and using `pyxel.height` gives us the height of the window.
 
+You can visualize this using the below picture
+
 We can add some code to "quit" or exit the game.
 
 (change your code to the following)
@@ -138,6 +140,9 @@ def update():
 
 def draw():
     pyxel.rect(10, 10, 20, 20, 11)
+
+    # dirt ground
+	pyxel.rect(0, pyxel.height - 10, pyxel.width, pyxel.height, 40)
 
 pyxel.run(update, draw)
 ```
