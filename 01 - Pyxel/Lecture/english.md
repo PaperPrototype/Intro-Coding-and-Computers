@@ -89,7 +89,9 @@ def draw():
 pyxel.run(update, draw)
 ```
 
-Lets add a simple cube by using pyxel's "rect" function (standing for the word "rectangle").
+The `cls` function stands for "clear screen".
+
+Lets also add a simple cube by using pyxel's "rect" function (standing for the word "rectangle").
 
 (change your code to the following)
 ```py
