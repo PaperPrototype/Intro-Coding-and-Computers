@@ -1,3 +1,21 @@
+# Get Address
+A normal variable also has an address in memory. We can get the address of a non-pointer variable by using the ampersan symbol `&` in front.
+
+(example)
+```c
+int my_number = 12;
+
+void* my_address = &my_number;
+```
+
+In the above code we make a normal variable called `my_number`. Then we make a pointer (aka address variable) called `my_address` and set it to the address of `my_number`.
+
+Now we can use `my_address` to access the same number that `my_number` holds.
+
+In memory this would look something like this.
+
+![memory address from variable](/Assets/memory_address_from_variable.png)
+
 # Getting Input using Scanf
 We can get input much like Python by using C's `scanf` function.
 
