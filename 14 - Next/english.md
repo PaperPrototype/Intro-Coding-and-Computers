@@ -1,14 +1,14 @@
-Now you know how to code, the possibilities of what you can learn and do now are endless!!!
+Now you know how to code, the possibilities of what you can learn and ***do*** are now endless!!!
 
 Some cool languages you might want to check out are:
+- Go
 - Rust
 - Zig
-- Volt
 - Java
 - C# (like Java, except more modern)
 - Lua
 
-There are many, many, programming languages.
+There are many, many, programming languages. Java was very big, and it is still used for the Java edition of Minecraft.
 
 Most likely you'll want to learn how your favorite game was made. 
 
@@ -23,7 +23,7 @@ And sometimes even a custom made engine! Companies have been made simply from a 
 
 Maybe your super hyped and you want to make your own game engine (like me)!
 
-I plan on making a course on making a simple game engine. Mainly getting 3D "stuff" on a screen, and how you can "rotate" stuff.
+I plan on making a course on making a simple game engine. Mainly getting 3D "stuff" on a screen, and how you can "rotate" stuff + some physics.
 
 For now I recommend the following courses
 

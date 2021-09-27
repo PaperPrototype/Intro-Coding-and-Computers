@@ -21,3 +21,45 @@ THIS COURSE IS STILL A WORK IN PROGRESS. I will remove this message once it is f
     - Tutorials show you how to use the knowledge you learned in a cool project of your choice.
 
 This process is the same for every week.
+
+0 - Python
+	- Select and drag to CP/Paste gif
+1 - Fundamentals
+2 - C
+3 Shell + Compiling
+4 Arrays + Addresses
+5 Input
+6 Searching + Algorithms
+	tutorials: binary search
+7 Memory
+	- structs
+	- custom types
+	- Stack vs heap
+	- malloc
+	- free
+	- valgrind
+8 Lists
+	- queue list (linked list)
+	- Linked list (explantion only, don't make them do it, only have them do queue Linked List)
+	- if statements + branch prediction (use pictures so don't fall asleep + make explanation short)
+	- Array list (vec)
+9 Sort
+	- swap.c
+	- recursion
+	- simplest sort method
+10 Setup
+	- download vs code
+	- download C extension
+	- download package manager
+		- use brew install "clang"
+		- use brew install "make"
+	- Make hello world program
+11 GitHub
+	- publish hello world program to github
+12 Spellchecker
+	- file handling
+	- dict/hash table
+	- benchmark using timed
+13 Fastest spellchecker
+	- tree (using array)
+	- memory locality
