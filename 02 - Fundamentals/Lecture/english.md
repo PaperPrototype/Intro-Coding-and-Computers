@@ -255,6 +255,8 @@ ASCII ENCODING
 
 Every ASCII symbol uses 8 bits. This lets gives us 256 possible symbols since with 8 bits we can only count from 0 to 255.
 
+To represent an ASCII character in memory its just a number. If we put a bunch of numbers one after the other we can represent a word or phrase made up of many ASCII caharacters.
+
 # Unicode
 ASCII only supports latin characters (latin symbols cover spanish, english, french and others). If we want more rare characters then we are out of luck when it comes to ASCII. As a result a new standard was made called Unicode.
 
