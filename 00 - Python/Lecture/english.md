@@ -117,7 +117,11 @@ Click the plus button in the top right, and you will see a popup like this.
 
 ![replit new repl](/Assets/replit_new_repl.png)
 
-Select "Python" for the programming language and click create repl. You will be welcomed by Replit's in browser code editor.
+Select "Python" for the programming language and click create repl. No, I’m not talking about a big snake! :]
+
+Python is a computer programming language. We chose Python because it’s a simple language to start out with, and is fun and easy to learn.
+
+You should now see Replit's in browser code editor.
 
 ![replit ide](/Assets/replit_ide.png)
 
@@ -140,6 +144,7 @@ Now lets print a *famous* (ish) sentence using Python. Paste the following code 
 ```py
 print("Hello world! I am an idiot!")
 ```
+This is an example of a the "print" instruction.
 
 Now click the play button at the top. You will see the words "Hello world! I am an idiot!" get printed to the console window (The last part "I am an Idiot" is not part of the famous phrase).
 
