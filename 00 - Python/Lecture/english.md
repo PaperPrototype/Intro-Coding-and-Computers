@@ -559,3 +559,7 @@ result = divide(2, 0)
 ```
 
 Now this code will work! Now you know the basics of coding!
+
+Make sure to pace yourself! We recommend 1 day per lecture, as well 1 extra day to explore the tutorials after a lecture (to test out what you learned), so in total we recommend 2 days per section.
+ 
+Have fun! Now onto making a game with code!
