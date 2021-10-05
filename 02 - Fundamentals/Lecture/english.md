@@ -2,9 +2,9 @@ You may have heard that everything in a computer is just some 0s and 1s. Really 
 
 Sets of 0s or 1s in your computer can represent an instruction, like `00010101000101` might represent an "addition" instruction (as in adding 2 numbers together) or `00010101000101` might represent the letter "H".
 
-How do we go from written text "Code" to binary for our Processor? Its actually quite simple, but we first need to know how our "Code" (made of english letters) can even be stored on a computer as 0s and 1s!
+How do we go from written text "Code" to binary for our Processor? Its actually quite simple (you just use a program (a file of 0s and 1s instructions) to "convert" our text code into 0s nd 1s instructions), but we first need to know how our "Code" (made of english letters) can even be stored on a computer as 0s and 1s!
 
-The truth is that every "symbols character and letter" has been mapped to a specific number. That takes us to the qeustion of "how do we represent numbers using only 0s and 1s (binary)?". 
+The truth is that every "symbols character and letter" has been mapped to a specific number. That takes us to the question of "how do we represent numbers using only 0s and 1s (called "binary")?". 
 
 # The binary number system
 Our number system uses ten symbols, 0 to 9, but it could have used seven symbols (0 to 6)! 
@@ -249,7 +249,7 @@ ASCII ENCODING
 	125	}	(curly brackets or braces)			
 	126	~	(Tilde ; swung dash)			
 	127	DEL	(Delete)			
-	...
+	...xw
 ```
 (taken from https://theasciicode.com.ar/ascii-codes.txt)
 
