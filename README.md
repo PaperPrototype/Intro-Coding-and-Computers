@@ -17,15 +17,17 @@ THIS COURSE IS STILL A WORK IN PROGRESS. I will remove this message once it is f
 3. Then you will see a file named "english.md" click that to read the lecture.
 
 - Notes can be found in a folder called "Notes" under the section folder (eg. "00 - Python" is a section folder)
-- Tutorials can be found in a folder called "Tutorials" under the section folder (eg. "01 - Pyxel" is a section folder).
+- Tutorials can be found in a folder called "Tutorials" under the section folder (eg. "01 - Jumpy Game" is a section folder).
     - Tutorials show you how to use the knowledge you learned in a cool project of your choice.
 
-This process is the same for every week.
+This process is the same for every section.
 
-0 - Python
+
+Layout IDEAS: (ignore this)
+0 Python
 	- Select and drag to CP/Paste gif
-1 - Fundamentals
-2 - C
+1 Fundamentals
+2 C
 3 Shell + Compiling
 4 Arrays + Addresses
 5 Input
@@ -60,6 +62,6 @@ This process is the same for every week.
 	- file handling
 	- dict/hash table
 	- benchmark using timed
-13 Fastest spellchecker
+13 Fastest Spellchecker
 	- tree (using array)
 	- memory locality
