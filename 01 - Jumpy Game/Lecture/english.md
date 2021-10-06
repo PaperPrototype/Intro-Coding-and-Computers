@@ -1,6 +1,3 @@
-TODO:
-	- what is `window` variable?!
-
 You just finished learning about the basics of coding. Now you get to actually *do* something with that coding!
 
 We are going to use a "framework" or "library" of code that was made for making games using Python.
