@@ -2,7 +2,7 @@ You just finished learning about the basics of coding. Now you get to actually *
 
 We are going to use a "framework" or "library" of code that was made for making games using Python.
 
-"framework" and "library"  are just fancy words for code written by someone else that does the boring code stuff (like getting access to your Operating System's "Windowing", or interpreting key presses from files), so we can focus on making our game.
+"framework" and "library"  are just fancy words for code written by someone else that does the boring code stuff (like getting access to a Windows "Window", or interpreting key presses from files) so we can focus on making our game.
 
 Make a new Repl and select "PyGame". Name it "Pygame".
 
