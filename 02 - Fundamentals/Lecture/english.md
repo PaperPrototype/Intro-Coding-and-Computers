@@ -249,11 +249,11 @@ ASCII ENCODING
 	125	}	(curly brackets or braces)			
 	126	~	(Tilde ; swung dash)			
 	127	DEL	(Delete)			
-	...xw
+	...there are 256 total characters
 ```
 (taken from https://theasciicode.com.ar/ascii-codes.txt)
 
-Every ASCII symbol uses 8 bits. This lets gives us 256 possible symbols since with 8 bits we can only count from 0 to 255.
+Every ASCII symbol uses 8 bits. This lets gives us 256 possible symbols since with 8 bits we can only count from 0 to 255. Although I only am showing a few of the symbols (not all 256). You can find the full list in the notes.
 
 To represent an ASCII character in memory its just a number. If we put a bunch of numbers one after the other we can represent a word or phrase made up of many ASCII caharacters.
 
