@@ -1,3 +1,6 @@
+TODO:
+	- what is `window` variable?!
+
 You just finished learning about the basics of coding. Now you get to actually *do* something with that coding!
 
 We are going to use a "framework" or "library" of code that was made for making games using Python.
@@ -44,7 +47,20 @@ Inside of the `pygame.display.set_mode` function we give it a list of two number
 
 Inside of the `pygame.display.set_caption` function we put the string `"Jumpy Game"`(remember "string" means words or phrases enclosed in double quotes).
 
-Now we can "fill" the entire screenwith the color black.
+When we make a new window using `pygame.display.set_mode([400, 200])` it gives us back something that we can store in a variable.
+
+(change your code to the following)
+
+```py
+# ... irrelevant code
+
+# save into "window" variable
+window = pygame.display.set_mode([400, 200])
+
+pygame.display.set_caption("Jumpy Game")
+```
+
+Now we can "fill" the entire window with the color black!
 
 (add the following to your code)
 ```py
