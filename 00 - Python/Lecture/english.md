@@ -1,3 +1,6 @@
+TODO:
+- gif of selecting/highliting code (with the mouse) and "indenting" using the tab key
+
 # Instructions
 In real life we give people instructions on how to do something. In computers we do the same thing using "code".
 
@@ -297,7 +300,7 @@ numbers = [12, 2312, 123, 124, 21]
 ```
 
 # Loops
-We can go through each item in a list and print it out. Delete your code again and write the following code, whish "loops" over the names in the list and prints them out.
+We can go through each item in a list and print it out. Delete your code again and write the following code, which "loops" over the names in the list and prints them out.
 
 ```py
 for name in ["Mary", "John", "Jackson", "David"]:
