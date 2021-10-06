@@ -140,7 +140,7 @@ The symbols hexadecimal uses are `0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F
 ```
 
 # ASCII
-Now that its possible to count using only `0`s and `1` we can use those numbers and map them to specific symbols and characters! There is a mapping system called ASCII (American Standard Code for Information Interchange). The ASCII standard is very old but is still used today by computers.
+Now that its possible to count using only `0`s and `1`s we can use those numbers and map them to specific symbols and characters! There is a mapping system called ASCII (American Standard Code for Information Interchange). The ASCII standard is very old but is still used today by computers.
 
 As an example of ASCII, the number 77 maps to the symbol "M", all we have to do is tell the computer *when* the number 77 is representing "M"
 
