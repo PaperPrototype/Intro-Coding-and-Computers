@@ -1,6 +1,12 @@
 Last week we talked about how computers represent data and instructions using only two symbols 0 and 1, representing the millions and millions of bits in our computer.
 
-We are now going to learn a new language called C. This language is a *compiled* language (whereas Python was *interpreted*). This just means our code is written as text that gets "compiled" into a program file of 0 and 1 instructions for the CPU.
+We are now going to learn a new language called C. This language is a *compiled* language (whereas Python was *interpreted*). 
+
+Previously in Python our text based code was getting read by a program called an "interpreter", that interpreter "interprets" our text written code and runs it as instructions for your computers processor. So Python doesn't have to directly deal with memory addresses (the interpreter takes care of that for us), instead it's more like a scripting language.
+
+We call Python an "interpreted" language because Python code gets "interpreted" by a program, whereas C code will actually get converted to 0s and 1s instructions for our processor (by a program called a "compiler"), which makes C VERY fast.
+
+C is actually what the Python "interpreter" program was made with!
 
 Remember how functions work in Python?
 
@@ -13,9 +19,11 @@ def main():
 main() # run code inside of "main"
 ```
 
-In C there is a function that gets called automatically, except it is the only function that gets called! Any code that we want to run (including our own functions) have to go inside of a "main" function. This gives all computers a unifide way to have a "starting point" for where to start running your programs code.
+In C there is a function that gets run automatically, but it is the only function that will get called ("called" means "the code was *called upon* so it **did** its instructions)! This function is called the "main" function.
 
-Lets write this "main" function. Go to https://replit.com/ and make a new replit.
+Any code that we want to run (including our own functions) have to happen inside of the "main" function. This gives all computers a unifide way to have a "starting point" for programs.
+
+Lets write a real program in C, that will run directly on a processor! Go to https://replit.com/ and make a new replit.
 
 This time select C as the programming language and name the the project "hello c", then click "create repl".
 
@@ -38,54 +46,45 @@ int main(void) {
 }
 ```
 
-Don't run this code yet, as it won't do anything! The above code is the "main" function, and is the program *starting point* that almost all computers use.
+Don't run this code yet, as it won't do anything! The above code is the "main" function (in C), and is the program *starting point* that almost all computers will use.
 
 The word `int` in front of the function, tells C that `main` gives back an "integer" number (integers don't have decimal places). This is different from Python where we use "def" for defining a function. Don't worry you'll get used to it.
 
-You will see the word `void` in the functions input (in the parenthesis). In C we have to tell the computer that the function *doesn't* take any input, which is what the `void` keyword is for. `void` stands for "nothing" (literrally! Newer languages don't have the `void` keyword).
+You will see the word `void` in the functions input (in the parenthesis). In C we have to tell the computer that the function *doesn't* take any input, which is what the `void` keyword is for. `void` stands for "nothing". From what I can tell the word `void` exists because C has weird grammer or "syntax" (literrally! New languages (especially interpreted ones) don't need the `void` keyword).
 
 Python automatically assumed you didn't want input if you don't put anything in the parenthesis "()".
 
 You will notice the curly brackets "{}". This is what C uses instead of Python's colon ":" symbol.
 
+(example)
 ```c
 int main(void) {
 	// code goes here
 }
 ```
+The brackets tell us what is "inside of" a function. In Python we had to use TAB to move code over, telling us what code was inside of a function or loop, or if statement.
 
-We can change the position of the curly brackets too.
-
-(example)
-```c
-int main(void)
-{
-	// code goes here
-}
-```
-
-C doesn't care where you put the curly brackets. You can even write all your code in one line!
+C doesn't care C doesn't care where you put the curly brackets. You can even write all your code in one line! (As long as our code is inside of the curly brackets)
 
 (example)
 ```c
-int main(void) { /* code goes here*/ }
+int main(void) { /* code goes here (comment) */ }
 ```
 
-Comments in C use 2 slashes `//`. Although to make a comment with a start and end we use `/*` to start the comment and we use `*/` to end the comment.
+Programmer comments in C use 2 slashes `//`. Although to make a comment with a start and end we use `/*` to start the comment and we use `*/` to end the comment (as you see in the above code).
 
-Now lets make our own function, it will add 2 numbers together. Make a function under `main` so that the code looks like this.
+Now lets make our own function in C. It will add 2 numbers together. Make the following function under `main`.
 
+(add your code to the following)
 ```c
-int main(void) {
-
-}
+// ... main function (excluded for shortness of reading)
 
 int add(int a, int b) {
 	return a + b
 }
 ```
 
-We take as input two "integers". In C we have to always know the *type*. A *type* tells C how to treat the 0s and 1s. "Is this a number? Is this a Unicode character?". A type also tells C how many bytes of memory the type uses, for example the `int` type takes 4 bytes (32 bits) of memory.
+We take as input two "integers". In C we have to always know the *type*. A *type* tells C how to treat the 0s and 1s. "Is this a number? Is this a Unicode character?". A type also tells C how many bytes of memory the "type" uses. For example the `int` type takes exactly 4 bytes (32 bits) of memory.
 
 We tell the computer this is an integer (aka number) by putting the `int` *type* in front of the function's parameters ("parameter" means a variable for a function).
 
@@ -94,6 +93,7 @@ We tell C that the `add` function *returns* (aka gives back) an `int` by putting
 ### Variables
 Inside of `main` we will use the `add` function and store what `add` returns (gives back) in a variable called "result".
 
+(edit your code to the following)
 ```c
 int main(void) {
 	int result = add(12, 12)
@@ -104,14 +104,13 @@ int add(int a, int b) {
 }
 ```
 
-The `result` variable has to have a type of `int` as well. C (annoyingly) won't automatically figure out that the `result` variable should be an `int`.
+The `result` variable has to have a type of `int` as well. C (annoyingly) won't automatically figure out that the `result` variable should be an `int` (making it so that we don't have to tell the `type` (since the `add` function gives back an `int` C could figure this out, and most modern languages will actually do this)).
 
 There is one last thing we have to do before we can run this code.
 
-In C, whenever we type a line of code we have to end it with a semicolon ";". This is how C tells one line of code apart from another.
+In C, whenever we type a line of code we have to end it with a semicolon `;` <- This is how C tells one line of code apart from another.
 
-Change your code to the following.
-
+(edit your code to the following)
 ```c
 int main(void) {
 	int result = add(12, 12);
@@ -126,11 +125,11 @@ You can't just say "get the next line of code". This is because "the next line o
 
 `int main(void) {\n  int result = add(12, 12);\n  int result2 = add(12, 12);\n}\n\nint add(int a, int b) {\n  return a + b;\n}`
 
-(Most "text editors" (Microsoft Word) don't show you the newline symbol "\n", they just make a newline)
+Most "text editors" (Microsoft Word) don't show you the newline symbol `\n`, they just make a newline.
 
-So yeah, C makes us use a semicolon ";" so it can tell lines of code apart.
+So yeah, C makes us use a semicolon `;` so it can tell lines of code apart.
 
-Although when making a function we don't have to add a semicolon at the end
+Although for functions we don't have to add a semicolon at the end
 
 (example)
 ```c
@@ -146,16 +145,17 @@ Sadly, our code (still!) won't work because C reads code from top to bottom. So 
 (example)
 ```c
 int main(void) {
-	int result = add(12, 12); // where did `add` come from?
+	int result = add(12, 12); // what is `add`?
 }
 ```
 
-and honestly we wouldn't know where `add` was unless we kept scrolling down to find it.
+...and honestly we wouldn't know where or what `add` was unless we kept scrolling down to find it.
 
 Python took care of this for us, while C won't.
 
 So we just have to put the `add` function above `main`. Change the code so that `add` is above `main`.
 
+(change your code to the following)
 ```c
 int add(int a, int b) {
 	return a + b;
@@ -170,6 +170,7 @@ Now you can run this code! (Although it won't print anything to the console... y
 
 There is a way to put a function below main. You just have to put a function "hint" above main.
 
+(example)
 ```c
 int add(int a, int b); // function hint
 
@@ -182,9 +183,9 @@ int add(int a, int b) {
 }
 ```
 
-"function hints" are called "prototypes". 
+"function hints" are called "prototypes" (don't ask me who came up with that name)
 
-We have to put a semicolon ";" at the end of the function *prototype* because there are no curly brackets in a prototype, just its name and parameters (function variables).
+We have to put a semicolon `;` at the end of the function *prototype* because there are no curly brackets in a prototype, just a function name and parameters (function variables).
 
 # Main returns an int?
 Main returns (gives back) a number right?
@@ -212,7 +213,7 @@ Nothing gets printed to the console! Lets work on that.
 # Printing + including
 The `print` function doesn't come builtin in C. So we have to "include" code written by someone else that figures out the specific 0 and 1 instructions to get our computer to print something.
 
-(change your code to the following)
+(edit your code to include `stdio.h`)
 ```c
 #include <stdio.h>
 
@@ -233,42 +234,41 @@ Compiler directives after the hash "#" are things the compiler "pre-processes", 
 
 "std" is short for "standard", and "io" is short for "input output", so we get "include standard input output code".
 
-The ".h" means it is a C "header" file. Headers files are normal C code except the code has already been turned into 0s and 1s! (This way the compiler doesn't have to convert all the *headers* we include and can just "link" them all to together in a stage called "linking"). The code in a header file is just a bunch of "function hints" to functions that are in a binary (0s and 1s) code file.
+The ".h" means it is a C "header" file. Headers files are normal C code except the code has already been turned into 0s and 1s! (This way the compiler doesn't have to also compile all the *headers* we include into 0s and 1s, and can just "link" the already compiled code with ours in the end). The code in a "header" file is just a bunch of "function hints" to functions that are in the binary (already compiled/converted to 0s and 1s) code file.
 
-Where is the "stdio.h" code in the computer? The "stdio.h" code is used so often it comes builtin with the compiler (aka when you download a compiler it also downloads the stdio.h file).
+Where is the "stdio.h" code in the computer? The "stdio.h" code is used so often it comes builtin with most computers's. The compiler for your computer will ususally set itself up to find the stdio.h file. By default Replit already has a compiler set up for us for converting our C code into 0s and 1s instructions.
 
 (You can also include `.c` files by using double quotes around the name of the file like this `#include "mycode.c"`)
 
 Now that we've included the standard input output *header* code, we can send output to the console using its `printf` function (`printf` meaning "print formatted").
 
+(edit your code to use `printf`)
 ```c
-#include <stdio.h>
-
-int add(int a, int b) {
-	return a + b;
-}
+// ... irrelevant code (not showing code for "include" or add function to make this snippet faster to read)
 
 int main(void) {
 	int result = add(12, 12);
+
+	// print something
 	printf("Hello, world");
 }
 ```
 
-Now run this code. You will see "Hello world" get printed.
+You notice we put a comment above the `main` function `// ... irrelevant code` <- this does not mena you should delete the add function that we put above main (or the `#include <stdio.h>` code)! Instead we are just showing you the code that has changed so you can edit your code (rahter than shoing you all the code again, and you having to figure what parts of the code have changed).
+
+Now run your edited code. You will see "Hello world" get printed.
 
 ![replit print hello world](/Assets/replit_print_hello_world.png)
 
 But the console didn't make a newline after "Hello world"! So we have to add this manually ourselves. (Again, Python added "\n" for us in its `print` function).
 
+(edit your `printf` to have a `\n` symbol at the end)
 ```c
-#include <stdio.h>
-
-int add(int a, int b) {
-	return a + b;
-}
+// ... irrelevant code
 
 int main(void) {
 	int variable = add(12, 12);
+
 	printf("Hello, world\n");
 }
 ```
@@ -283,24 +283,19 @@ If you get a whole bunch of errors when running some code... Just scroll up to t
 # Printing variables
 How can we print a variable? In Python it was easy.
 
-(example)
+(python example)
 ```py
 name = "Jafly"
 print(name)
 ```
 
-To print variables using `printf` we have to tell it the *type* of the variable to print.
+To print variables in C using `printf` we have to tell it the *type* of the variable to print.
 
 In `printf` you use the percent symbol `%` followed by a letter for the type. In this case our variable is an `int`, so in `printf` we write `%i`. "%i" stands for the `int` type.
 
-Change the code to the following.
-
+(edit your `printf` to look like the following)
 ```c
-#include <stdio.h>
-
-int add(int a, int b) {
-	return a + b;
-}
+// ... irrelevant code
 
 int main(void) {
 	int result = add(12, 12);
@@ -320,16 +315,17 @@ Here is a list of *conversion specifiers*.
 ```
 commonly used conversion specifiers:
 
-  %d    int (signed decimal integer) 
-  %u    unsigned decimal integer 
+  %d    int (signed (positive and negative) decimal integer) 
+  %u    unsigned (only positive) decimal integer 
   %f    floating point values (fixed notation) - float, double 
   %e    floating point values ("exponential notation" (aka 11.4e+10)) 
   %s    string 
-  %c    character  
+  %c    single ASCII character  
 ```
 
-We can use the "%c" conversion specifier to tell `printf` to treat 24 like an ASCII character. Delete the add function and change the code to this.
+We can use the "%c" conversion specifier to tell `printf` to treat 24 like an ASCII character. 
 
+(delete the add function and change the code to this)
 ```c
 #include <stdio.h>
 
@@ -342,10 +338,9 @@ int main(void) {
 
 Run this code.
 
-It will print out "Hello " with nothing afterwards. This is because the number 24 maps to a character that is apparently invisible? (Go back to Week 0's notes to see what 24 maps to).
+It will print out "Hello " with nothing afterwards! This is because the number 24 maps to a character that represent the "Cancel" key! The Cancel key on your keyboard doesn't really have a symbol! (Go back to Fundamentals Notes to see what 24 maps to in the ASCII mappings).
 
-Change `variable` to hold 77 instead.
-
+(change `variable` to hold 77 instead)
 ```c
 #include <stdio.h>
 
@@ -362,7 +357,7 @@ The "f" in `printf` just means print a "formatted" string. standing for the fact
 
 We can also have multiple *conversion specifiers*. 
 
-(edit your code to have a new variable called "character", and `printf` both our variables)
+(edit your code to have a new variable called "character", then also print the "character" variable)
 ```c
 #include <stdio.h>
 
@@ -375,11 +370,9 @@ int main(void) {
 }
 ```
 
-The `character` variable has a type of `char`. We use single quotes `''` around ASCII characters, and double quotes `""` around *strings* of characters (aka words / phrases).
+The `character` variable has a type of `char` which is the ASCII type. We use single quotes `''` around ASCII characters (whereas we use double quotes `""` around *strings* of ASCII characters).
 
-The type for ASCII characters is `char`.
-
-Make sure to run this code to see what it prints.
+Run this code to see what it prints.
 
 # Conditions
 Delete all your previous code (or if you don't want to then make a new repl). Now write this code.
@@ -398,9 +391,11 @@ int main(void) {
 }
 ```
 
-The condition for an if statement in C goes inside of parenthesis "()". I think you can figure out what this code is doing by now.
+The condition for an if statement in C goes inside of parenthesis "()". Here we are saying `if a < b then { /* code */ }`. 
 
-Here are some example of if statements in C.
+We then print the a and b variables inside of a phrase using conversion specifiers.
+
+Here are some example of "if logic" in C.
 
 (example)
 ```c
@@ -409,22 +404,24 @@ Here are some example of if statements in C.
 	{
 		printf("2 is less than or equal to 3 \n");
 	}
+	// false
 	else if (2 > 3)
 	{
 		printf ("2 is greater than 3? Really?! \n");
 	}
+	// default to this if nothing else worked
 	else
 	{
 		printf("At this point... I don't know what your thinking. \n");
 	}
 ```
 
-In C we don't use the "elif" keyword like Python does, we just write "else if".
+In C we don't use the "elif" keyword like Python does, we just write "else if" <- which makes much more sense to me.
 
 # Loops
 A loop in C runs *while* something is true. The "for" loop in C doesn't "loop over a list" like python. Instead a C `for` loop is a shortcut version of a while loop.
 
-## While loop
+# While loop
 
 (delete everything inside of main, and change your code to the following)
 ```c
@@ -439,11 +436,11 @@ int main(void)
 }
 ```
 
-The `true` and `false` types are lowercase in C, whereas in Python they are uppercase, `True` and `False`.
+The `true` and `false` types are lowercase in C, whereas in Python they are uppercase like `True` and `False`.
 
 This code won't actually work though! Because C doesn't come with *booleans* (`true` or `false` types) by default! We have to include them! This is because "false" in C is treated as the number zero, while true is any number above zero. The `true` and `false` types in C are actually an "alias" for the number 0 (false), and the number 1 (true).
 
-Include the `stdbool.h` file at the top so we can use the `true` type.
+Include the `stdbool.h` file at the top so we can use the `true` type (bool is short for "boolean". The name came from the man who invented the idea (apprently someone had to come up with the idea of "true" or "false). His name was "George Bool").
 
 ```c
 #include <stdio.h>
@@ -462,12 +459,23 @@ This will infinitely print the phrase "Hello. Yes, its me again... No, I did not
 
 Code written in C runs directly on the processor so it is waaaaay faster than Python. Python code runs inside of an "interpreter" so its much more flexible than C.
 
+If you looked at the code from `stdbool.h` then you would find something like this...
+
+(example)
+```c
+#define true 1
+
+#define false 0
+```
+
+`#define` is a compiler directive as well, so it literally will replace our use of the word `true` with the number value of 1.
+
 Now lets prevent the above loop from running forever and limit it to 10 rounds of annoying jabber. We will make a variable called counter and increase it every loop.
 
+(edit your code to the following)
 ```c
 #include <stdio.h>
 #include <stdbool.h>
-#include <unistd.h>
 
 int main(void) 
 {
@@ -485,26 +493,26 @@ int main(void)
 }
 ```
 
-...then check each loop if counter is less than 10. If `counter` becomes bigger than 10 then the loop will stop running.
+...then check each loop if counter is less than 10. If `counter` becomes bigger than 10 (since we increase it each loop) then the loop will stop running.
 
-Run this code. 
+Run this code you should see the phrase "Hello. Yes, its me again... No I did not bring pizza." get printed 10 times.
 
 # Syntax sugar
-It turns out that increasing a number is so common we have "syntax sugar" (aka a shortcut) for doing this!
+It turns out that increasing a number is so common we have "syntax sugar" (AKA a shortcut) for doing this!
 
 (example)
 ```c
-counter += 1;
+counter += 2;
 ```
 
-The above will increase the counter variable by 1. The above code is identical to our previous method of increasing a variable.
+The above will increase the counter variable by 2. The above code is identical to our previous method of increasing a variable.
 
 (previous method)
 ```c
 counter = counter + 1;
 ```
 
-Increasing a number by 1 is soooooo common that we have an even sugarier method.
+Although just wanting to increase a number by 1, is soooooo common that we have an even sugarier method.
 
 (sugariest method to increase a number by 1)
 ```c
@@ -517,7 +525,6 @@ Change your code to use the super sugary way of increasing a variable by 1.
 ```c
 #include <stdio.h>
 #include <stdbool.h>
-#include <unistd.h>
 
 int main(void) 
 {
@@ -571,7 +578,6 @@ Change our pizza begging program to use a for loop.
 ```c
 #include <stdio.h>
 #include <stdbool.h>
-#include <unistd.h>
 
 int main(void) 
 {
@@ -582,6 +588,8 @@ int main(void)
 }
 ```
 
+Now make sure to run our super sugary for loop!
+
 # Casting
 Delete all of our old code. Or if you don't like that, you can make a new repl called "casting" (select the C language) and continue by using the new repl.
 
@@ -589,7 +597,7 @@ What will happen if we divide to `int`'s? Since an `int` doesn't support decimal
 
 The only types (`int` and `char` are "types") that support decimal places are the `float` and `double` types. A float uses 32 bits, while a double uses 64 bits (obviously with a double we get twice as big numbers).
 
-Lets learn how to deal with dividing two `int`s. Paste in the following code.
+Lets learn how to deal with dividing two `int`s. Write in the following code.
 
 ```c
 #include <stdio.h>
@@ -609,12 +617,11 @@ We use the `%f` conversion specifier for printing a float (`float` supports deci
 
 Run this code.
 
-Even though the `result` variable is a float it will get a `0.0` from the ints `a` and `b`. This is because when we divide `a` and `b` they give an `int` (and `int`'s don't support decimals!). 
+Even though the `result` variable is a float it will get a `0` from the ints `a` and `b`. This is because when we divide `a` and `b` they gave us an `int` (and `int`'s don't support decimals!). The Rust programming language (a new "safer" programming language, would have wraned us, and prevented us from making this simple mistake).
 
 The solution is to convert `a` and `b` to a `float` before we divide them.
 
-Change the code to the following.
-
+(edit the `result` variable code to the following)
 ```c
 #include <stdio.h>
 
@@ -629,7 +636,7 @@ int main(void)
 }
 ```
 
-We use two parenthesis around the `float` type in front of the variables `(float) a`. This converts the `a` variable to float. We call this "casting". Again I don't know why they called it "casting" because its just "converting" one type to another.
+We use two parenthesis around the `float` type in front of the variables -> `(float) a` <- This converts the `a` variable to the `float` type. We call this "casting". Again I don't know why they called it "casting" because its just "converting" one type to another. Although in C, when we "cast" one type to another, we literally just treat the 0s and 1s as if they were the type we wanted (so it can be kinda dangerous, cause we can ignore some parts of the 0s and 1s, if say the types were different sizes, giving us wild numbers).
 
 If you run the new code it will print out.
 
@@ -642,8 +649,7 @@ If you run the new code it will print out.
 ## Imprecision
 You will also notice that our number gets rounded to the 6th place (or 6th column). We can tell `printf` to print out even more numbers after the decimal place to see how "precise" a float can be (eg. how many numbers after the decimal place it can represent using only 32 bits).
 
-Change your code to the following.
-
+(edit the `printf` conversion specifier)
 ```c
 #include <stdio.h>
 
@@ -660,7 +666,7 @@ int main(void)
 
 Inside of `printf` we change the conversion specifer syntax to `%.15f`. The `.15` tells `printf` to print out 15 places after the decimal point, then we put the `f` at the end to tell `printf` it is a `float`.
 
-Run this code. It will print out `0.666666686534882`! "86534882" is definitely not part of `2 / 3`! This is actually a very common problem, and is why games have trouble simulating massive worlds! After a certain point using only 32 bits we can't represent super precise numbers like `0.66666666666666666666666...`! So you'll start having precision problems and things... start breaking, or physics don't work.
+Run this code. It will print out `0.666666686534882`! "...86534882" is definitely not part of `2 / 3`! This is actually a very common problem, and is why games have trouble simulating massive worlds! After a certain point using only 32 bits we can't represent super precise numbers like `0.66666666666666666666666...`! So you'll start having precision problems and things... start breaking, or physics don't work.
 
 With only 32 bits we can have about 7 (??? is this correct?) columns of numbers. The decimal point slides around between these 7 columns of numbers. 
 
@@ -687,11 +693,12 @@ We cast our `int` variables to a double, as well as change the `result` variable
 
 The conversion specifier in `printf` for a `double` is the same as a floats.
 
-Now run this code!
+Now run this code! You should see a much larger (and more "precise") number.
 
 # Overflow
 Now that we've seen the limitations of a float what will happen if we try to make a number that is really big using an `int`?...
 
+(example)
 ```c
 #include <stdio.h>
 
@@ -704,16 +711,18 @@ int main(void)
 }
 ```
 
-If we run this we won't see 4 billion (which is the correct answer)! We hold 2 billion in our `int` variables, but once we add them together we get -294967296!
+We hold 2 billion in our `int` variables, but once we add them together we should get 4 billion, but instead we get -294967296!
 
-An `int` can hold negative numbers. We use the first bit of the 32 bits to represent a negative or positive sign, 0 = negative, 1 = positive. So if we have `0001` since the first bit is zero we get `-1`, but if we had `1001` we would get `+1`.
+THis reason for this madness is that an `int` can hold negative numbers. We use the first bit of the 32 bits to represent a negative or positive sign (0 = negative, 1 = positive). So if we have `0001` since the first bit is zero we get `-1`, but if we had `1001` we would get `+1` since the first bit (a 0 or 1) is 1 which represents positive.
 
-When we made the number grow past its max (the max is 2147483648 or 2^31, which is 2 to the 31st power), we make the number grow so big it overrides the first bit that is being used for the sign (positive or negative). We also (some how) manage to distord the number!
+When we made the number grow past its max (the max is 2147483648 or 2^31, which is 2 to the 31st power), we make the number grow so big it overrides the first bit that is being used for the sign (positive or negative). So that is why the number we got is negative. 
 
-So, yeah an `int` has limits. We can bypass those limits (to an extent) by using a `long` type which uses 64 bits (whereas an `int` uses 32 bits).
+As to why the number became `294967296`, that is the part of our resulting number that was able to fit into the 32 bits of our integer.
+
+So, yeah an `int` has limits. We can bypass those limits (to an extent) by using a `long` type which uses 64 bits giving us twice as large of a number.
 
 # Debugger!
-If you have a really complex program that is having problems you can use a Debugger, to *de-bug* the code. (get it? *de-bug*? Oh, right you don't get it... The term was coined by a person who found a bug in one of Harvards computers. The bug was short-circuiting the computers electircity causing the computer to not work properly!).
+If you have a really complex program that is having problems you can use a Debugger, to *de-bug* the code. (get it? *de-bug*? Oh, right you don't get it... The term was coined by a person who found an actual bug in one of Harvards computers! The bug was short-circuiting the computers electircity causing the computer to not work properly!).
 
 Replit has a "Debugger". Open replits debugger.
 
@@ -755,7 +764,7 @@ Now click the run button that is INSIDE of the debugger tab.
 
 ![replit run debugger](/Assets/replit_run_debugger.png)
 
-Now you can step through your code to see what each variable is at each step / breakpoint! 
+Now you can step through your code to see what each variable is at each step!
 
 ![replit debugger step through](/Assets/replit_debugger_step_through.gif)
 
@@ -763,7 +772,7 @@ Use the "next step" arrow to step through each line of code.
 
 ![replit debugger next step](/Assets/replit_debugger_next_step.png)
 
-Go directly to one of the breakpoints that you highlighted by using the "next breakpoint" button.
+Go directly to one of the breakpoints that you set by using the "next breakpoint" button.
 
 ![replit debugger next breakpoint](/Assets/replit_debugger_next_breakpoint.png)
 
@@ -771,13 +780,13 @@ And, at each step you can see what the variables are!
 
 ![replit debugger variables](/Assets/replit_debugger_variables.png)
 
-This will help you a LOT when trying to find bugs in your code. "bug" is a logic error in our code. A bug is ***not*** something that keeps us from running the code (Oh yes, bugs are very evil) they are hidden inside of code that runs when we click the run button, but the code isn't doing what we *intended* it to do.
+This will help you a LOT when trying to find bugs in your code because you will be able to see what your code is doing at each step, and what the variables are at each step. A "bug" is a logic error in our code. A bug is ***not*** something that keeps us from running the code (Oh yes, bugs are very evil) they are hidden inside of code that runs when we click the run button, but the code isn't doing what we *intended* it to do.
 
 De-buggers let us *de-bug* the logic in our code by stepping through each line of code, one at a time, and telling us what each variable is at each step.
 
 Although... you won't even be able to click the play button if your code has a syntax error! An example of a syntax error is when you forget to put the ending curly bracket `}` after some code. 
 
-Lets fix some fake syntax errors (in an example), to help you become more familair with C. The following code has 3 syntax errors.
+Lets fix some fake syntax errors (in an example), to help you become more familiar with C. The following code has 3 syntax errors.
 
 (example, 3 syntax errors)
 ```c
@@ -831,17 +840,21 @@ int add(int a, int b) {
 
 And now there are no syntax errors!
 
+"The more you understand a problem, the more obvious the solutions becomes... Lol, I spend so much time analyzing everything." -- Me (Abdiel Lopez)
+
 # The rubber duck debugger
 A funny thing that apparently is very common (and I used to use it too when I first started) is called Rubber Duck debugging! (lol)
 
 The (quite funny) idea is that you explain your code to a rubber duck (XD). And this really works! By sitting there explaining what your code is doing to someone (the joke is that you use a rubber duck) that you will find your own mistakes! It really works and even Harvard teaches their students to use it!
 
-If you encounter any errors and can't figure them out feel free to join our discord to get help from me or other students! https://discord.gg/QhqTE4t2tR <- here is the invite link.
+If you encounter any errors and can't figure them out, take some time to explain your code and what it is doing to a rubber duck (or a teddy bear). Feel free to join our discord to get help from me or other students! https://discord.gg/QhqTE4t2tR <- here is the invite link.
 
 # Printf
 We can also temporarily use the `printf` function to print out the values of variables (to find out what they are at each step). 
 
-I found myself doing this a lot when trying to understand why my code wasn't working right. We can insert a `printf` in some code to find out why it isn't working right.
+I found myself doing this a lot when trying to understand why my code wasn't working right (and I don't have access to a debugger to help me).
+
+ We can insert a `printf` in some code to find out why it isn't working right.
 
 (example)
 ```c
@@ -883,7 +896,7 @@ If you run the above code you will see the `hash` variables number get printed n
 5#4#3#2#1#
 ```
 
-If we manually remove the numbers that have no corresponding hash we would see the following.
+If we manually remove the numbers that have no corresponding hash, we could find what the hash variable is when we print the hash symbol `#`.
 
 ```
 1#
@@ -895,4 +908,4 @@ If we manually remove the numbers that have no corresponding hash we would see t
 
 This could prove to be very useful in understanding how the code works. You could then remove the extra `printf` once you understand what is happening.
 
-And thats it! Have fun!
+And thats it! Have fun! Now go make Marios Pyramid!

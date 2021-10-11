@@ -20,6 +20,10 @@ THIS COURSE IS STILL A WORK IN PROGRESS. I will remove this message once it is f
 - Tutorials can be found in a folder called "Tutorials" under the section folder (eg. "01 - Pyxel" is a section folder).
     - Tutorials show you how to use the knowledge you learned in a cool project of your choice.
 
+TODO:
+interpreter vs compiler - in fundamentals section
+dynamically linked vs statically linked (at compile time) - 
+
 This process is the same for every week.
 
 0 - Python

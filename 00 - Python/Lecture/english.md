@@ -167,14 +167,14 @@ If you get an error, then you probably didn't put and ending quotation `"` mark 
 
 (example, terrible code that gives and error)
 ```py
-print("Hello wonderful carbon people <-- where is the ending quotation mark??? and ending parenthesis?
+print("Hello wonderful carbon people # Is this also inside of print?
 ```
 
 We have to know what is "inside of" the `print` function. So we enclose stuff for `print` using parenthesis `(stuff for print)`.
 
 (example, correct version)
 ```py
-print("Hello wonderful carbon people")
+print("Hello wonderful carbon people") # Is this also inside of print?
 ```
 
 Words or phrases inside of quotation marks are called *strings* (don't ask me why).
@@ -203,9 +203,11 @@ print(number * 12)
 
 (You can copy paste code you've already written though!)
 
-We make a code-word that holds onto the number 12.
+We make a code-word called "number". The equal sign means after the "code-word" means "hold onto a copy of the number 12".
 
-We add `+` 5 to the stuff inside of `number`.
+We then print out the number `print(number)`.
+
+We add `+` 5 to the number inside of the variable called `number` and then print the result of that addition using `print(number + 5)`.
 
 We also multiply `*` (using a weird star symbol `*`) the *value* (stuff inside of `number`), and then print it.
 

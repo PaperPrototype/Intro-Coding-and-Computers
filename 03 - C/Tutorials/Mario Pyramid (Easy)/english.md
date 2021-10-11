@@ -14,7 +14,7 @@ First watch this walkthrough (click on the link) https://www.youtube.com/watch?v
 
 The video is a walkthrough of the concepts our code uses to print a pyramid. By the end of the video you should ba able to understand the below code with ease.
 
-Now lets do it! Make a new replit called "mario". Select the C programming language.
+Make a new replit called "mario". Select the C programming language.
 
 Now we could can print out the hashes manually using the below code. (write the below code).
 

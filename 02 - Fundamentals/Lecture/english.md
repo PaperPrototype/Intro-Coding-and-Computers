@@ -2,9 +2,9 @@ You may have heard that everything in a computer is just some 0s and 1s. Really 
 
 Sets of 0s or 1s in your computer can represent an instruction, like `00010101000101` might represent an "addition" instruction (as in adding 2 numbers together) or `00010101000101` might represent the letter "H".
 
-How do we go from written text "Code" to binary for our Processor? Its actually quite simple (you just use a program (a file of 0s and 1s instructions) to "convert" our text code into 0s nd 1s instructions), but we first need to know how our "Code" (made of english letters) can even be stored on a computer as 0s and 1s!
+How do we go from written text "Code" to binary instructions for our Processor? Its actually quite simple, you just use a program (a file of 0s and 1s instructions) to "convert" our text code into 0s and 1s instructions!... but, that leads us to the question of how our "Code" (made of english letters) can even be stored on a computer as 0s and 1s!
 
-The truth is that every "symbols character and letter" has been mapped to a specific number. That takes us to the question of "how do we represent numbers using only 0s and 1s (called "binary")?". 
+The truth is that every "symbols character and letter" has been mapped to a specific "number". That takes us to the question of "how do we represent numbers using only 0s and 1s?". 
 
 # The binary number system
 Our number system uses ten symbols, 0 to 9, but it could have used seven symbols (0 to 6)! 
@@ -286,8 +286,6 @@ In memory the RGB values for 249, 255, 0 would look like this
 
 # Sizes
 Why are all the smallest numbers using 8 bits? To make making accessing memory faster, modern computers store memory in *blocks of 8 bits*. Since this is ubiquitous (so common that it is seen everywhere) we call these blocks of memory a "byte". Thus a byte can also refer to 8 bits (like 1 dollar refers to 100 pennies).
-
-Although we as a programmer usually don't have to worry about this small detail, it turns out this may be slightly incorrect depending on your computer, and I think some computers store information in 32 bits or even blocks of 86 bits... standards in computers these days are... all over the place.
 
 There are different words we use to talk about memory sizes (much like the word "dollar" refers to 100 pennies).
 
