@@ -5,7 +5,7 @@ You just finished learning about the basics of coding. Now you get to actually *
 
 We are going to use a "framework" or "library" of code that was made for making games using Python.
 
-"framework" and "library"  are just fancy words for code written by someone else that does the boring code stuff (like getting access to your Operating System's "Windowing", or interpreting key presses from files), so we can focus on making our game.
+"framework" and "library"  are just fancy words for code written by someone else that does the boring code stuff (like getting access to a Windows "Window", or interpreting key presses from files) so we can focus on making our game.
 
 Make a new Repl and select "PyGame". Name it "Pygame".
 
@@ -55,15 +55,12 @@ The `pygame.display.set_mode([400, 200])` will give us back a "display" (AKA acc
 
 (change your code to have a window variable)
 ```py
-# ... irrelevant code
-
-# save into window variable
 window = pygame.display.set_mode([400, 200])
 
 pygame.display.set_caption("Jumpy Game")
 ```
 
-Now we can "fill" the entire screenwith the color black.
+Now we can "fill" the entire window with the color black!
 
 (add the following to your code, below the previous code)
 ```py
