@@ -32,7 +32,7 @@ void ask(char* question, char answer[20])
 }
 ```
 
-Ask literally `printf`'s the `question` you provide, then `scanf` stores it in an `asnwer` address variable (although we have to make sure the asnwer variable already has at least enough room for 20 char's).
+Ask literally `printf`'s the `question` you provide, then `scanf` stores it in an `answer` variable (although we have to make sure the asnwer variable already has at least enough room for 20 char's).
 
 Now we can use `ask` in main to get a verb and store it an array/address to an array.
 

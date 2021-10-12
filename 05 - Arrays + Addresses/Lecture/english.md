@@ -172,7 +172,7 @@ You may ask yourself "how does printf know when to stop offsetting in a char arr
 Even though we didn't add a `\0` to the end of our string, C added it for us (or C checked the the value was not a "null" value, we'll see what null is in a second).
 
 # Addresses
-We can make a variable that holds an "address number" to a block of memory. We call variables that hodl a memeory address "pointers" or address variables.
+We can make a variable that holds an "address number" to a block of memory. We call variables that hold a memory address "pointers". An address in C is actually an "unsigned" `long` type. ("unsigned" means the first bit is NOT used for a positive or negative sign, so the number can only be positive).
 
 Change your code to the following.
 
@@ -190,7 +190,7 @@ int main(void)
 
 We change the "hello" variable to be a *pointer* by putting a star after the type, namely `char*`. The star symbol `*` just signifies it is a "pointer" (aka *address* variable). An address variable is just a number telling us which "byte" some piece of data starts out at. Sometimes this is the beginning of an array, and sometimes it is just a single item.
 
-We will use the `hello` pointer to access the first item in the word "Hello" (and ignore the rest) by "going to" the address in the `hello` pointer (since an address points to the beginning of some peice of data).
+We will use the `hello` pointer to access the first character in the word "Hello" (and ignore the rest) by "going to" the address in the `hello` pointer/address (since an address points to the beginning of an array).
 
 To "go to" the address of our `hello` pointer (and access the first item) we tell C to "go to" that address by putting a star symbol `*` in front of the `hello` variable, like this `*hello`.
 
@@ -214,7 +214,7 @@ The above code also changes to use the conversion specifier for `char` type `%c`
 
 This code will print out the letter "H" (obviously). Compile the above code with make, then run it (using the shell).
 
-Using the square brackets `[]` is a useful shortcut for offsetting from an address or pointer. 
+Using the square brackets `[]` is a useful shortcut for offsetting from an address/pointer. 
 
 When we make an array we have to know the type of the array for C to be able to offset correctly. Hence `char*` is an address, which offsets by 1 byte when we use the square brackets iterator `[]`. If we had an array of `int` we would offset by 4 bytes to get the next item.
 
@@ -241,8 +241,7 @@ Compile this code with make. Then run it using the shell.
 
 This will print out `\0`, which as your remember, is something C adds to our string for us so that it can know when to stop offsetting in memory. Although we want to break things and get a null value!
 
-Change your code ot the following.
-
+(edit your code to the following)
 ```c
 #include <stdio.h>
 
@@ -255,7 +254,7 @@ int main(void)
 }
 ```
 
-Compile this code with `make string` then run it using `./string`. You will see "null" get printed (or another type of error called a "segmentation fault", often shortened to "seg fault").
+Compile this code with `make string` then run it using `./string`. You will see "null" get printed (or possibly another type of error called a "segmentation fault", often shortened to "seg fault").
 
 # Loops + Arrays
 We can also use a `for` loop on an array. This is pretty cool. Lets iterate over the word hello and print out each character, one by one.
@@ -485,7 +484,7 @@ What is `const char * argv[]`?
 
 Well the first part `const` is a keyword, it is telling us that we are not allowed to change the variable's value (stuff inside the variable) and that it is "constant".
 
-The rest of it `char * argv[]` is weird. It is an array of addresses `char *` to an array of strings `argv[]`... Another way of writing this would be to use two stars `char ** argv` without the square brackets (since the square brackets are the same as writing a star).
+The rest of it `char * argv[]` is a bit weird. It is an array of addresses `char *` to an array of strings `argv[]`... Another way of writing this could be to use two stars `char ** argv` without the square brackets, but this would be like making an array of addresses to an array of addresses! Which is not what we want.
 
 (change your code to use two stars)
 ```c

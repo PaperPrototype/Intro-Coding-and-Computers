@@ -1,16 +1,16 @@
 # Terminology
 
 Interpreted Language
-> A text based programming language that an *interpreter* interprets into binary instructions as it reads them.
+> A text based programming language that an *interpreter* interprets as instructions.
 
 Interpreter
 > A program that reads Unicode characters (aka text), and figures out the instructions (aka code) we are writing as it reads them.
 
 Compiled Language
-> A text based programming language that gets compiled (through a process called "compiling") into the binary instructions as a program or app.
+> A text based programming language that gets compiled (through a process called "compiling") into binary machine code instructions (sequences of 0s and 1s) as a program or app.
 
 Syntax
-> A specific way of writing code so that the compiler can correctly process convert it to binary instructions (0s and 1s).
+> A set of rules governing how to write code + keywords, so that an interpreter or compiler can process the code.
 
 Syntax "Sugar"
 > A way of coding something using a shortcut.
@@ -99,11 +99,11 @@ int main(void)
 
 # conditions
 
-`if` checks if the condition is true, if it is then runs the code in the curly brackets.
+`if` checks if the condition is true, (if the conditions *is* true) then it runs the code in the curly brackets.
 
 `else if` must go after an `if` statement. Checks if the condition is true, if it is then runs the code in the brackets
 
-`else` must go after an `if` or `else if` statement. There is no condition, runs if the previous if statement was false.
+`else` must go after an `if` or `else if` statement. There is no condition, runs if the previous condtions were false.
 
 Less than
 `<`
@@ -115,7 +115,7 @@ Greater than
 - `2 > 3` = `false`
 - `3 > 2` = `true`
 
-> You (usually) use your right hand to write words so you can remember the greater than symbol using this pun "your right hand opens towards the left hand and eats it! because it is greater than your left hand".
+> Most people (usually) use their right hand to write words, so you can remember the greater than symbol using this pun, "your right hand opens towards the left hand and eats it! because it is greater than your left hand".
 > 
 > If you open your right hand towards your left you make a *greater than* symbol `>`.
 
@@ -158,8 +158,7 @@ Greater than
 - `float` is 32 bits
 - `double` is 64 bits
 
-- For a detailed explanation see
-- IEEE Standard 754 Floating Point Numbers http://steve.hollasch.net/cgindex/coding/ieeefloat.html
+- For a detailed explanation of floating point numbers see IEEE Standard 754 Floating Point Numbers http://steve.hollasch.net/cgindex/coding/ieeefloat.html
 
 ### Integers
 `int` and `long`
@@ -169,7 +168,7 @@ Greater than
 
 ### Characters
 `char`
-- ASCII "number" type (under the hood `char`s are is just a number).
+- ASCII "number" type (under the hood `char`'s are is just a number).
 - numbers up to 256
 
 ### Booleans

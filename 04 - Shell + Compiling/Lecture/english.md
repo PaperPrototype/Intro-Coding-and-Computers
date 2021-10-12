@@ -13,18 +13,18 @@ Open the window called Shell.
 
 ![replit ide shell](/Assets/replit_ide_shell.png)
 
-The shell window is a Command Line Interface. The console window is also a CLI, but the shell is usually more helpful because it tells us what folder we are currently in.
+The shell window is a Command Line Interface. The console window is also a CLI (CLI is short for Command Line Interface), but a shell is usually more helpful because it tells us what folder we are currently in.
 
-You'll notice the word "cli" in the shell.
+You'll notice the word "cli" in the shell window.
 
 (shell)
 ```
 ~/cli$
 ```
 
-"cli" is the name of the folder we are in. A shell basivcally lets you do stuff through the files and folders of a computer.
+"cli" is the name of the folder we are in. A "shell" basically lets you do stuff through the files and folders of a computer.
 
-You will also notice the tilde symbol `~`. The tilde symbol `~` represents the "home" folder. Usually a home folder has your documents, downloads, and pictures folders. It is also sometimes called your "user folder".
+You will also notice the tilde symbol `~`. The tilde symbol `~` represents the "home" folder. Usually a home folder has your documents, downloads, and pictures folders. It is also sometimes called a "user folder".
 
 The most basic command you can run is the list command.
 
@@ -33,11 +33,11 @@ The most basic command you can run is the list command.
 ls
 ```
 
-Write the `ls` command into the shell. To run the `ls` command click the enter (or return) key on your keyboard (similar to clicking enter when you send a message to someone). 
+Write `ls` into the shell. To run the `ls` command click the enter (or return) key on your keyboard (similar to clicking enter when you send a message to someone).
 
-The `ls` command lists all the files and folders *who are in the same folder as us*.
+The `ls` command "lists" all the files and folders *who are in the same folder as you*.
 
-You should see the following in the shell.
+You should see the following in the shell after running the `ls` command
 
 (shell)
 ```
@@ -50,18 +50,18 @@ The "main.c" file will probably get listed. It is the file that is holding the c
 
 You will also notice the dollar sign `$`. We write our commands after the dollar sign... thats... actually the only thing the dollar sign is there for, as a visual indicator for where to write our commands!
 
-Use the shortcut keys `ctrl` + `L` to clear the shell of all yuour old commands. 
+Click the `ctrl` + `L` keys to clear the shell (if your on mac it will be the `control` + `L` keys) <- go ahead and click those keys to clear the shell.
 
 When your shell starts to fill up with all kinds of commands you can use `ctrl` + `L` to clear them. Make sure you do this after your done reading the output of a command, otherwise your shell will fill up with all kinds of info and it becomes hard to read.
 
-So how do we "move into" another folder? We can use the *change directory* command. The "cd" (change directory) command is formatted like this.
+So how do we "move into" another folder? We can use the "change directory" command. The "cd" (change directory) command is formatted like this.
 
 (placeholder example command)
 ```
-cd (replace with name of folder to move to)
+cd (replace with name of folder to move into)
 ```  
 
-After you type `cd` you can type the name of any neighboring folders... but there are no folders to move into! Lets make one!
+After you type `cd` you can type the name of any folder that are in the same folder as you. Currently there are no folders to move into! Lets make one!
 
 Use the make directory "mkdir" command to make a new folder.
 
@@ -90,14 +90,14 @@ You can see our folder as well as our "main.c" file gets listed.
 
 Now move into your new folder by using the `cd` command.
 
-(command)
+(command, answer)
 ```
 cd myNewFolder
 ```
 
 After your run this command you will see that the current folder has changed!
 
-(shell)
+(shell window)
 ```
 ~/cli$ cd myNewFolder
 ~/cli/myNewFolder$ 
@@ -120,6 +120,8 @@ myNewFile
 ~/cli/myNewFolder$
 ```
 
+We just made a new file called "myNewFile", pretty cool! Now clear the shell using the `ctrl` + `L` keys.
+
 Now how do we get back to our parent folder (the "cli" folder)? Run the below command. It will move us into our parent folder!
 
 (command)
@@ -127,7 +129,9 @@ Now how do we get back to our parent folder (the "cli" folder)? Run the below co
 cd ..
 ```
 
-A double period `..` in computers usually refers to the parent folder (from the current folder). So by running `cd ..` you move into the parent folder (which is `cli`). The shell should now look like this.
+A double period `..` in computers usually refers to the parent folder (from the current folder). So by running `cd ..` you move into the parent folder (which is `cli`). 
+
+The shell window should now look like the following.
 
 (shell)
 ```
@@ -135,7 +139,7 @@ A double period `..` in computers usually refers to the parent folder (from the 
 ~/cli$ 
 ```
 
-Make sure your shell looks like this! And that you are in the "cli" folder before continuing!
+Make sure your shell looks like this! Also make sure you are are in the "cli" folder before continuing!
 
 Now we can delete files using the remove command.
 
@@ -153,14 +157,23 @@ rm -r (name of folder)
 
 This above command uses the *recursive remove* feature `-r`, which goes through any sub-folders and files inside of a folder and deletes them. 
 
-Lets delete our useless "myNewFolder" folder.
+Lets delete our useless "myNewFolder" folder (which has our "myNewFile" file in it).
 
 (run this command)
 ```
 rm -r myNewFolder
 ```
 
-The "myNewFolder" (in the command) is called an "argument" for the `rm` program.
+Now run `ls` to see that the folder "myNewFolder" has been deleted (and is gone).
+
+(command)
+```
+ls
+```
+
+When we ran this command -> `rm -r myNewFolder` the word "myNewFolder" is called an "argument" for the `rm` *program*. 
+
+`rm` is actually the name of a program, that we run, so is `touch` and `mkdir` and `ls` <- they are all "Command Line Programs" or "CLI Programs".
 
 The `-r` in the remove command is called a feature "flag" (Theres a name for everything!). Although sometimes flags use two minus signs `--feature` instead of one `-feature`.
 
@@ -198,25 +211,21 @@ use one of these commands:
 ~/cli$
 ```
 
-# CLI explained
-So how did this all work? When we type `cd` (and some arguments) and hit enter, the *shell* looks for a program called `cd`.
-
-There is a file called a "profile" that the shell uses to find the different programs. You can add your own programs to the profile and then run them using their name, so that you can skip having to type `./cd` before the name of make and just type its name `cd`.
-
-Once the shell finds a program, for example `cd`, it sends the *arguments* (aka input) we typed after the word `cd` and passes them to the `cd` program (that the shell ran for us). `cd` then figures out what to do based on the arguments (aka input) we typed.
-
-How does the shell, the "command line interface", know what the arguments were? Like if we typed `cd /` how does it know that `/` is for `cd` and not part of its name?
-
-The Shell checks for a space after the name of the program `cd /` (<- notice the space). So, if you didn't put a space and just typed `cd/` you might get an error because the Shell uses a space to find the program name and then search the "profile" file for any programs with that name and runs them.
-
 # Compiling
 Your computers processor, often called the Central Processing Unit ("CPU" for short), understands sets of binary (0s and 1s) instructions.
 
 "programs" in your computer are a file containing binary instructions (called "Machine Code"), that get loaded into the processor!
 
-So how has our code we have written so far gone from written text to binary instructions in a "program file" for the Processor?
+(machine code)
+```
+010001010100010100000001000101011010101000101010000000010001010100010100000001000110000000100010101100001000000010000000100010101100000100010101101000101010001010000000100010101101010100010101000000001000101010001010000000100011000000010001010110000100000001000000010001010110000010001010110100010101000101000000010001010110101010001010100000000100010101000101000000010001100000001000101011000010000000100000001000101011000001000101011
+```
 
-Coding using 0s and 1s would be pretty terrible so humans made a "program" that took word based instructions called "Assembly Instructions" and converted them into binary (0s and 1s) machine code instructions for your CPU. Assembly instructions for a processor might look like this.
+So how has our code, that we have been writing in C, gone from written ASCII text to binary instructions in a "program file" for the Processor?
+
+Coding using 0s and 1s would be pretty terrible so humans made a "program" that took word based instructions called "Assembly Instructions" and converted them into binary (0s and 1s) Machine Code instructions for your CPU. 
+
+Assembly instructions for a processor might look like this.
 
 ```x86_64 gcc 11.2
 .LC0:
@@ -246,13 +255,15 @@ int main(void)
 }
 ```
 
-...and those "higher level" programming languages then get converted into assembly, depending on the type of processor!
+...and those "middle level" programming languages then get converted into assembly (by a compiler), depending on the type of processor!
 
-The process of converting our C code into Assembly Instruction, and then Assembly Instructions into Machine Code is called a "compiling". 
+We then have "higher level" scripting languages like Python, which get interpreted by machine code programs.
 
-Programs called "Compilers" are what does this "compiling" process.
+The process of converting our C code into Assembly Instruction, and then converting Assembly Instructions into Machine Code is called "compiling". 
 
-Using the shell window we will use a compiler called "clang" to compile our code inside of the "main.c" file.
+Programs called "Compilers" are what do this "compiling" process.
+
+Using the shell window we will use a compiler called "clang" to compile our C code inside of the "main.c" file.
 
 (run the following command)
 ```
@@ -266,9 +277,7 @@ Now run `ls`.
 ls
 ```
 
-You should see a new file called "a.out" this is an assembly file containing machine code (0s and 1s instructions). "clang" is a compiler program! and we used it to convert our C code into machine code that the processor can understand.
-
-("a.out" stands for "assembly output")
+You should see a new file called "a.out" this is an "assembly output" file containing machine code (0s and 1s instructions)! "clang" is a compiler program! and we used it to convert our C code into machine code that the processor can understand.
 
 The name "a.out" is kinda weird. We can tell clang to name the outputted file differently by using a feature flag.
 
@@ -277,39 +286,57 @@ The name "a.out" is kinda weird. We can tell clang to name the outputted file di
 clang main.c -o app
 ```
 
-The `-o` flag stands for "output", and it lets us name the outputted program file (whihc we chose to name "app").
+The `-o` flag stands for "output", and it lets us name the outputted program file.
 
-If you run `ls` you will see a new file called "app".
+If you run `ls` you will see a new program file called "app".
 
 (command)
 ```
 ls
 ```
 
-Using the "clang" compiler is kinda annoying cause it makes us do everything manually. Instead we can just use the "make" program (which runs clang for us).
+Using the "clang" compiler is kinda annoying cause it makes us do everything manually. Instead we can just use the "make" program (which runs clang (or a different `cc` compiler) commands for us).
 
-(make program)
+(command)
 ```
 make main
 ```
 
-Run the above command. We put "main" (without the ".c") after the make program because `make` takes the name of the file without the ".c", and then gives us a program file with the name "main". If you run `ls` you will see a new file called "main".
+Run the above command. We put "main" (without the ".c") because `make` takes the name of the file without the ".c", and then gives us a program file with the name "main". If you run `ls` you will see a new program file called "main" (now we have 3 identical program files "a.out" and "app" and "main").
 
-So how do we run all these program files!? 
+Run the `ls` command to see all these programs.
+
+(command)
+```
+ls
+```
+
+So how do we run all these program files!?
 
 To run a program using a CLI we have to *refer* to the program directly. The CLI then runs the program for us. 
 
-Run the following command to run the "main" program.
+Run the following command to run the "main" program (or you could change the name to "app" or "a.out")
 
 (command)
 ```
 ./main
 ```
 
-The "." refers to our current folder. The "/main" refers to the "main" program file.
+The "." refers to the current folder we are in. The "/main" refers to the "main" program file.
 
 There is something that the `make` program takes care of for us called "linking" where you take two machine code files and "link" them together into one program. 
 
 At some point you might "include" some file where the code is not available and all you have access to is a compiled machine code version. In this case `make` will automatically use the link feature `-l` to "link" that machine code with your program code.
+
+# CLI explained
+So how did this all work? When we type `cd` (and some arguments) and hit enter, the *shell* looks for a program called `cd`.
+
+There is a file called a "profile" that the shell uses to find the different programs. You can add your own programs to the profile and then run them using their name, so that you can skip having to type `./app` before the name of "app" and just type its name `app` to run it.
+
+Once the shell finds a program, for example `cd`, it sends the *arguments* (aka input) we typed after the word `cd` and passes them to the `cd` program (that the shell ran for us). `cd` then figures out what to do based on the arguments (aka input) we typed.
+
+How does the shell, the "command line interface", know what the arguments were? Like if we typed `cd /` how does it know that `/` is for `cd` and not part of its name?
+
+The Shell checks for a space after the name of the program `cd /` (<- notice the space). So, if you didn't put a space and just typed `cd/` you might get an error because the shell tried to run a program called "/cd".
 
 And thats pretty much it! See you next section!

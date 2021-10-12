@@ -17,18 +17,18 @@ In memory this would look something like this.
 ![memory address from variable](/Assets/memory_address_from_variable.png)
 
 # Getting Input using Scanf
-We can get input much like Python by using C's `scanf` function.
+We can get input much like Python's builtin `input` function by using C's `scanf` function.
 
 Make a new repl. Select the C programming language. Name the repl "input".
 
-Make a new C file using touch using the shell.
+Make a new C file using touch in the shell.
 
 (command)
 ```
 touch input.c
 ```
 
-Now open it and write the following code.
+Now open "input.c" file using the files window in Replit and write the following code.
 
 ```c
 #include <stdio.h>
@@ -88,7 +88,7 @@ You can use `scanf` with other conversion specifiers, and even multiple conversi
 
 If the user (you) types just a word instead of a number, then `scanf` will probably not put anything into the address you gave it.
 
-Go ahead and try typing random things into your program to see what will happen.
+Go ahead and try typing random things into your program to see what `scanf` will do!
 
 # Do while and Scope and Return?
 There may be an instance where you want the user to type something specific, like a "yes" or "no", but they type gibberish instead. How can we solve that?
@@ -100,7 +100,7 @@ Make a new file using touch.
 touch do_while.c
 ```
 
-This makes a new fiel called "do_while.c".
+This makes a new file called "do_while.c".
 
 In the code we will first ask the user to type "yes" or "no".
 
@@ -135,7 +135,7 @@ Since the `answer` variable is already an address (aka pointer), we don't have t
 
 Also, we use the string conversion specifier (`%s`) in `scanf`.
 
-Now, how can we check if the person typed "yes" or "no" and not some gibberish? There is a special funciton that can compare if a string matches another string called `strcmp`, standing for "string compare". To get access to `strcmp` we need to include "string.h".
+Now, how can we check if the person typed "yes" or "no" and not some gibberish? There is a special function that can compare if a string matches another string called `strcmp`, standing for "string compare". To get access to `strcmp` we need to include "string.h".
 
 (change your code to the following)
 ```c
@@ -172,17 +172,17 @@ int main(void)
 }
 ```
 
-`strcmp` returns (gives back) a number. If the words were equal it gives back `0`, so in the if statement we check if the result is `0`.
+`strcmp` takes in two strings, compares them and returns (gives back) a number. If the words were equal it gives back `0`, so in the if statement we check if the result is `0` (meaning that the strings matched).
 
 Compile this code using `make do_while`, then run it using `./do_while`
 
 If you typed "yes" then the response will have been "yes!"
 
-Now what we want is to prompt the user and ask them to give us "yes", but if the user doesn't give us "yes" then the code should repeat.
+Now what we want is to prompt the user and ask them to give us "yes", but if the user doesn't give us "yes" then the code should repeat (and ask the user again).
 
 Delete the code for "if strcmp(answer is "yes")"
 
-(change your code ot the following)
+(change your code to the following)
 ```c
 #include <stdio.h>
 #include <string.h>
@@ -215,7 +215,7 @@ int main(void)
 }
 ```
 
-Make sure to use the tab key to put space in front of the code that is inside of the "do" block (aka, make sure your code looks pretty).
+Make sure to use the tab key to put space in front of the code in the "do" block, so that it is inside of the "do" block (AKA, make sure your code looks pretty).
 
 Now at the end of the do block, add a "while" condition.
 
@@ -338,6 +338,8 @@ Now compile this using `make do_while` and run it using `./do_while`.
 
 Our program behaves perfectly! Lets put all this code into a function we can use whenever we want.
 
+![] TODO gif of editing the code by turng main into a "yes" function that returns a bool, then making a new main function above the yes function.
+
 (change your code to the following)
 ```c
 #include <stdio.h>
@@ -364,9 +366,7 @@ bool yes()
 
 We move all the code into a function called "yes".
 
-(I recommend you rename "main" to "yes", then make a new "main" function again (rather than starting over)).
-
-The function returns (aka gives back) a `bool` type ("true" or "false"), so we put `bool` in front of the functions name.
+The `yes` function returns (aka gives back) a `bool` type ("true" or "false"), so we put `bool` in front of the functions name.
 
 The function will return `true` if the user put "yes" and it will return `false` if the user typed "no", so we need to include the true and false variables which are in `stdbool.h`.
 
@@ -398,7 +398,7 @@ bool yes()
 	{
 		return true;
 	}
-	else
+	else // the user typed "no"
 	{
 		return false;
 	}
@@ -434,7 +434,7 @@ int main(void)
 
 I used `// ... snip ...` to show that I am focusing on the `main` function, I did NOT delete `yes()`! I am simply focusing on the relevant parts of the code, without having to show you everything (plus you already know what the `yes` function looks like/does, so theres no need to repeat myself!)
 
-This is often called "abstraction", which is where we write some code once and then don't worry about how it works, but just use it later.
+This is often called "abstraction", which is where we write some code to do something for us once, and then don't have to worry about how it works, but just use it later.
 
 You'll notice that I forgot to add a function hint above main! Go ahead and add a function hint for `ask` above main.
 

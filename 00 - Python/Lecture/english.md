@@ -22,7 +22,7 @@ Else if current item not baseball
 
 This code assumes we have every item in one long line. It goes through each item until it finds a baseball.
 
-But what if the item we are looking for isn't in our "one long line" of items! If this was real computer code, then the computer would probably crash! Or the computer would endlessly keep searching. I'm not entirely sure.
+But what if the item we are looking for isn't in our "one long line" of items! If this was real computer code, then the computer would probably crash! Or the computer would endlessly keep searching.
 
 We call this a "bug". "Bugs" in computer programming are surprisingly common.
 
@@ -40,11 +40,11 @@ Else if current item not baseball
     start over
 ```
 
-Now we can expect this possibility and avoid this dumb problem. At this point one thing is obvious, *computers are dumb*. They are not intuitive like humans. They do EXACTLY what we tell them, they'll just keep going until something breaks. This is often what happens when you get an "error" on your computer.
+Now we can expect this possibility and avoid this dumb problem. At this point one thing is obvious, *computers are dumb*. They are not intuitive like humans. They do EXACTLY what we tell them, they'll just keep going until something breaks. This is often what happens when you get an "error" on your computer (and unless the programmer programmed a possibility then it will actually stop working).
 
 We call a method of solving a problem an "algorithm". This algorithm is pretty inefficient though. Say we had 1000 items to search through. In the worst case scenario it will take us 999 steps before we find what we are looking for!
 
-Its so common to calculate an algorithms "efficiency" that we have a "notation" (way of expressing something) called "Big O Notation". For Big O Notation you write an O rather than say the whole darn sentence "in the worst case scenario". So for our search algorithm we can write "O999". But its kinda hard to tell where the O is so we usually put the number of steps inside of parenthesis, lik this "O(999)". Ahhhh, much better.
+Its so common to calculate an algorithms "efficiency" that we have a "notation" (way of expressing something) called "Big O Notation". For Big O Notation you write an O rather than say the whole darn sentence "in the worst case scenario". So for our search algorithm we can write "O999". But its kinda hard to tell where the O is so we usually put the number of steps inside of parenthesis, like this "O(999)". Ahhhh, much better.
 
 This algorithm of ours is actually pretty old. As such it has a name (like most old things) called "linear search". Linear meaning "straight line", cause we lined em up and searched em... one by one. 
 
@@ -88,9 +88,11 @@ Else if current contact before Johnny
     start over
 ```
 
-This algorithm is called "binary search", which is honestly just as weird of a name as the last one. It turns out this what your phone uses when searching your contacts! Although there are algorithms that are faster, they require other fancy sorting algorithms.
+This algorithm is called "binary search", which is honestly just as weird of a name as the last one. It turns out this what your phone uses when searching your contacts! Although there are algorithms that are faster, they require that we "categorize" things.
 
-Phew, that is a lot of code! And... yes, is hard at first, but don't give up! Eventually you'll get used to thinking this way. Later in this course we will make an algorithm that is even faster than binary search.
+Imagine Google search using a linear search algorithm! With millions of websites on the World Wide Web it has become more important that searching is faster.
+
+Phew, that is a lot of code! And... yes, is hard at first, but don't give up! Eventually you'll get used to thinking this way.
 
 ## Big O Notation
 How much more efficient is binary search than linear search? For 1000 contacts it is O(log 1000). "log" stands for the fact that every time we "start over" we've removed half of the contacts. If we chart each algorithm at different numbers of contacts you would see this.

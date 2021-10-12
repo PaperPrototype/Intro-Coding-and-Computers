@@ -12,6 +12,10 @@ Stack vs Heap
 Variables that are an address
 	- Pointers (already covered in week 2)
 
-Defining custom types and structures
+Defining custom types and structures (grouping two types together "Person{name, age}")
+- heap allocate
+- pass copies of an address around
+- memcpy is the same a `=`
+- memcpy a struct (or anything)
 
 Dynamic memory allocation
