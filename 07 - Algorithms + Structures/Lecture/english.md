@@ -11,7 +11,7 @@ Then imagine a "head" that move along the tape, and can read and write symbols (
 
 ![head reading memory tape](/Assets/head_reading_memory_tape.png)
 
-Then there is a "state register" which you can think of as a number telling us "where" we are at in our code (what line of code we are at). Then there is some instructions for this "head" that specify what instruction to move to next, based on the symbol in the tape the head is currently looking at.
+Then there is a "state register" which you can think of as a number telling us "where" we are at in our code (what line of code we are at). Then there the code (some instructions) for this "head" that specify "what instruction to move to next, based on current symbol the head is currently looking at."
 
 ![head state register](/Assets/head_state_register.png)
 
