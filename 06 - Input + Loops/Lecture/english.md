@@ -135,9 +135,34 @@ Since the `answer` variable is already an address (aka pointer), we don't have t
 
 Also, we use the string conversion specifier (`%s`) in `scanf`.
 
-Now, how can we check if the person typed "yes" or "no" and not some gibberish? There is a special function that can compare if a string matches another string called `strcmp`, standing for "string compare". To get access to `strcmp` we need to include "string.h".
+Now, how can we check if the person typed "yes" or "no" and not some gibberish? 
 
-(change your code to the following)
+Well we could try to compare the two words!
+
+(example)
+```c
+#include <stdio.h>
+#include <string.h>
+
+int main(void)
+{
+	printf("Type 'yes' or 'no': ");
+
+	char answer[10];
+	scanf("%s", answer);
+
+	if (answer == "yes")
+	{
+		printf("yes!");
+	}
+}
+```
+
+But since a "string" is just an array of ASCII numbers (which map to characters) we can't compare two arrays! So instead we would have to go through every single ASCII character, and check if they match eachother!
+
+There is actually a special function that does just that! It can compare if a string matches another string. It is called `strcmp`, standing for "string compare". To get access to `strcmp` we need to include "string.h".
+
+(add `#include <string.h>` to your code)
 ```c
 #include <stdio.h>
 #include <string.h>
@@ -165,6 +190,7 @@ int main(void)
 	char answer[10];
 	scanf("%s", answer);
 
+	// (1)
 	if (strcmp(answer, "yes") == 0)
 	{
 		printf("yes!");
@@ -172,7 +198,7 @@ int main(void)
 }
 ```
 
-`strcmp` takes in two strings, compares them and returns (gives back) a number. If the words were equal it gives back `0`, so in the if statement we check if the result is `0` (meaning that the strings matched).
+(1) `strcmp` takes in two strings, compares them and returns (gives back) a number. If the words were equal it gives back `0`, so in the if statement we check if the result is `0` (meaning that the strings matched).
 
 Compile this code using `make do_while`, then run it using `./do_while`
 
