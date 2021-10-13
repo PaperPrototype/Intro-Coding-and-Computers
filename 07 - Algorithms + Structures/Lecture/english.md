@@ -59,7 +59,7 @@ int main(void) {
 }
 ```
 
-The "names" variable is an array of addresses, each to a name (a "name" is also an address to an array).
+The "names" variable is an array of addresses, each to a name (a `char` array or "string").
 
 You can visualize this with the following picture ("pointer" means address in C).
 
