@@ -59,13 +59,15 @@ int main(void) {
 }
 ```
 
-The "names" variable is an array of addresses, each to a name (a `char` array or "string").
+`names[]` is an array of `char*` addresses. Each address, leads to a name.
 
-You can visualize this with the following picture ("pointer" means address in C).
+You can visualize this with the following diagram.
 
 ![array of addresses to array of strings](/Assets/addresses_array_to_array_names.png)
 
-If you haven't noticed already, the names in the array are have been sorted alphabetically! This way we could use binary search (which was explained in week 0) to search for a name we are wanting (since binary search requires that we sort the list first).
+If you haven't noticed already, the names in the array have been sorted alphabetically! Although, it is really "ASCII-betically", because we use the ASCII number for that letter to decide the order. 
+
+This way we could use binary search (which was explained in week 0) to compare a name's letters (as if they were numbers) to search for a nmae in the list (since binary search requires that we sort first).
 
 Now add a `for` loop to go over the addresses in the names array, and access each name.
 
@@ -176,7 +178,7 @@ Select the C language, and name the project "phonebook".
 
 Now C uses what is called a "structure" to combine 2 types together into 1 compound type.
 
-Delete all the code and write the following.
+Delete all the code and write the following code.
 
 ```c
 struct contact {
@@ -185,7 +187,7 @@ struct contact {
 };
 ```
 
-Now add the "main" function and lets make an "contact" variable.
+Now add the "main" function and lets make a "contact" variable.
 
 ```c
 struct contact {
@@ -218,7 +220,7 @@ int main(void) {
 }
 ```
 
-(1) We are taking the struct "struct contact" and making a type "contact_t". We put the underscore t `_t` at the end, to distinguish our new type from the struct name.
+(1) We are taking the struct "struct contact" and making a type "contact_t". We put `_t` (underscore T) at the end, to distinguish our new type from the struct's name.
 
 Now lets use the new "type" in our variable.
 
@@ -236,7 +238,7 @@ int main(void) {
 }
 ```
 
-Ahh, much better. Although there is a shortcut, and we can just put the whole darn definition of our struct inside of the `typedef`.
+Ahh, much better. Although there is a shortcut, and we can just put the curly brackets for the struct in the `typedef`.
 
 (edit your code to the following)
 ```c
@@ -250,19 +252,28 @@ int main(void) {
 }
 ```
 
-(New languages just make any `struct` a "type", rather than you havning to go through all this...)
+(New languages just make a `struct` a "type", rather than you havning to go through all this...)
+
+Now, with that aside, what is `contact_t myPerson = {"Bob", "545-843-6454"};`? In the struct we grouped 2 strings (an address to an array of `char`acters).
+
+```
+{
+	char* name;
+	char* phone;
+}
+```
+
+When we put `{"Bob", "545-843-6454"};` we "set" the `myPerson` variable, which was a struct "combining" 2 strings.
 
 # Searching a Phonebook
 Now lets make an array of "contacts".
 
 (edit your code to the following)
 ```c
-struct contact {
+typedef struct contact {
 	char* name;
 	char* phone;
-};
-
-typedef struct contact contact_t;
+} contact_t;
 
 int main(void) {
 	// (1) array of 5 contacts
@@ -277,21 +288,19 @@ int main(void) {
 
 (2) We set the first person (by "going to" the first address with an offset of 0). Although C is so clueless it won't realize that `{"Bob", "999-999-9999"}` is in the format of the `contact_t` type!
 
-So we have to "cast" (AKA "casting is a way of "converting one type to another") and tell C "hey, idiot, this here is a `contact_t` type".
+So we have to "cast" (AKA "casting" is a way of "converting one type to another") and tell C "hey, idiot, this is a `contact_t` type".
 
-(edit your code to the following)
+(edit your code to help C understand)
 ```c
-struct contact {
+typedef struct contact {
 	char* name;
 	char* phone;
-};
-
-typedef struct contact contact_t;
+} contact_t;
 
 int main(void) {
 	contact_t myPeople[5];
 
-	//            tell the the "type" by casting
+	//            tell the the type by casting
 	myPeople[0] = (contact_t){"Bob", "999-999-9999"};
 }
 ```
@@ -299,12 +308,10 @@ int main(void) {
 Now lets go ahead and set the remaining 4 people in the `myPoeple` array.
 
 ```c
-struct contact {
+typedef struct contact {
 	char* name;
 	char* phone;
-};
-
-typedef struct contact contact_t;
+} contact_t;
 
 int main(void) {
 	contact_t myPeople[5];
@@ -313,10 +320,12 @@ int main(void) {
 	myPeople[1] = (contact_t){"Dylan", "888-888-8888"};
 	myPeople[2] = (contact_t){"Smyth", "777-777-7777"};
 	myPeople[3] = (contact_t){"Bill", "666-666-6666"};
-	myPeople[4] = (contact_t){"Charlie", "666-666-6666"};
+	myPeople[4] = (contact_t){"Charlie", "555-555-5555"};
 }
 ```
 
-You'll notice Bill and Charlie both have the same phone number (its cause they are homeschooled and share the same phone).
+Make sure to increase the offset in the square brackets `[]` for each person!
 
 Now, we can search through the contacts!
+
+

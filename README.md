@@ -24,7 +24,7 @@ This process is the same for every week.
 
 TODO:
 interpreter vs compiler - in fundamentals section
-dynamically linked vs statically linked (at compile time) - 
+dynamically linked vs statically linked (at compile time) - in compiling + shell section
 
 Layout IDEAS: (ignore this)
 0 Python

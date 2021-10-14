@@ -1,6 +1,3 @@
-TODO:
-- gif of selecting/highliting code (with the mouse) and "indenting" using the tab key
-
 # Instructions
 In real life we give people instructions on how to do something. In computers we do the same thing using "code".
 
@@ -306,12 +303,16 @@ numbers = [12, 2312, 123, 124, 21]
 # Loops
 We can go through each item in a list and print it out. Delete your code again and write the following code, which "loops" over the names in the list and prints them out.
 
+(write the fllowing code and run it (Don't copy paste this particular code))
 ```py
 for name in ["Mary", "John", "Jackson", "David"]:
 	print(name)
 ```
 
-You should notice the tab (2 or 4 spaces) in front of the code `print(name)`. This lets Python know what code is "inside of the loop", and what code is outside of the loop.
+You should notice the tab (2 or 4 spaces) in front of the code `print(name)`. This lets Python know that `print(name)` is "inside of" the `for name in ...`. If you *don't* want it inside of the loop then you shouldn't "indent" it.
+
+You can "indent" the `print(name)` (like I have) by selecting the `print(name)` code then clicking the "tab" key to "indent" it.
+![replit indent tab](/Assets/replit_indent_tab.gif)
 
 The `name` variable gets set to the first item in the list, then we print `name` (which would be set to "Mary").
 

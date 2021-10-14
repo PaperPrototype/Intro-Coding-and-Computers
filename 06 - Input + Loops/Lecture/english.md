@@ -362,9 +362,10 @@ int main(void)
 
 Now compile this using `make do_while` and run it using `./do_while`.
 
-Our program behaves perfectly! Lets put all this code into a function we can use whenever we want.
+Our program behaves perfectly!
 
-![] TODO gif of editing the code by turng main into a "yes" function that returns a bool, then making a new main function above the yes function.
+Lets turn the "main" function into a function called "yes", then re-make the "main" function again.
+![main into yes function](/Assets/main_into_yes_function.gif)
 
 (change your code to the following)
 ```c
@@ -390,24 +391,19 @@ bool yes()
 }
 ```
 
-We move all the code into a function called "yes".
+We aslo delete the `printf` at the end of the "yes" function.
 
 The `yes` function returns (aka gives back) a `bool` type ("true" or "false"), so we put `bool` in front of the functions name.
 
-The function will return `true` if the user put "yes" and it will return `false` if the user typed "no", so we need to include the true and false variables which are in `stdbool.h`.
+Since we are using the "boolean" types `true` and `false` we add `#include <stdbool.h>` at the top, to get access to them.
 
-Now at the end of the function (once the user cooperates and puts "yes" or "no") we can return true or false.
+The `yes` function needs to return (give back) `true` if the user put "yes" and return `false` if the user typed "no".
 
-(change your code to the following)
+At the end of the `yes` function (after the user cooperates and puts "yes" or "no") we can return `true` or `false` based on the the answer variable.
+
+(add the following to your code)
 ```c
-#include <stdio.h>
-#include <stdbool.h>
-#include <string.h>
-
-int main(void)
-{
-	
-}
+// ... irrelevant code (main function)...
 
 bool yes()
 {
@@ -420,22 +416,25 @@ bool yes()
 	} 
 	while (strcmp(answer, "yes") != 0 && strcmp(answer, "no") != 0);
 	
+	// answer is yes
 	if (strcmp(answer, "yes") == 0)
 	{
 		return true;
 	}
-	else // the user typed "no"
+	else // answer was "no"
 	{
 		return false;
 	}
 }
 ```
 
-Now we can use the `yes` function whenever we want! 
+I put the comment `// ... irrelevant code (main function)...`, to show that I am focusing on the `yes` function, that does NOT mean you should delete the "main" function! Instead you should just edit what is already inside of the `yes` function!
+
+Now we can use the `yes` function whenever we want, and ask the user for a `yes` or `no`!
 
 Lets use `yes` to ask the user a question! (inside of `main`)
 
-(change your code to the following)
+(edit your code)
 ```c
 #include <stdio.h>
 #include <stdbool.h>
@@ -455,14 +454,14 @@ int main(void)
 	}
 }
 
-// ... snip ...
+// ... irrelevant code (yes function)...
 ```
 
-I used `// ... snip ...` to show that I am focusing on the `main` function, I did NOT delete `yes()`! I am simply focusing on the relevant parts of the code, without having to show you everything (plus you already know what the `yes` function looks like/does, so theres no need to repeat myself!)
+Again you'll see I used `// ... irrelevant code (yes function)...` to show that I am focusing on the `main` function, I did NOT delete `yes()`! I am simply focusing on the relevant parts of the code, without having to show you everything (plus you already know what the `yes` function looks like/does, so theres no need to repeat myself!)
 
 This is often called "abstraction", which is where we write some code to do something for us once, and then don't have to worry about how it works, but just use it later.
 
-You'll notice that I forgot to add a function hint above main! Go ahead and add a function hint for `ask` above main.
+You'll notice that I forgot to add a function hint above main! Go ahead and add a function hint for `yes` above main.
 
 (answer)
 ```c
@@ -490,9 +489,9 @@ int main(void)
 // ... snip ...
 ```
 
-I also left one tiny error for you to solve! (^_^)
+I also left one tiny error for you to solve in the "main" function!
 
-Now compile this code with make
+Try to compile this code with make (you should see an error, go ahead and fix it)
 
 (command)
 ```

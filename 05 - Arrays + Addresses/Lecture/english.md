@@ -9,7 +9,7 @@ In the shell make a new file called `array.c` using the `touch`.
 touch array.c
 ```
 
-Remove the "main.c" file using `rm main.c` since we won't be using it.
+Remove the "main.c" file using the `rm main.c` command (in the shell) since we won't be using `main.c`.
 
 Open `array.c` using Replits files window and write the following code.
 
@@ -19,7 +19,7 @@ int main(void) {
 }
 ```
 
-We put square brackets `[]` next to the variables name to show that is is an "array" variable.
+We put square brackets `[]` next to the variables name to show that it is an "array" variable.
 
 We then "fill" the array by putting curly brackets `{}` around all the items, and we separate each item using a comma `,`.
 
@@ -167,9 +167,9 @@ int main(void)
 
 Now compile and run the above code using the shell (see above commands).
 
-You may ask yourself "how does printf know when to stop offsetting in a char array (aka string)"? Every "string" in C by default ends with a special *null terminating character*, namely `\0`.
+You may ask yourself "how does printf know when to stop offsetting in a char array (aka string)"? Every "string" in C by default ends with a special *null terminating character*, which look like this `\0`.
 
-Even though we didn't add a `\0` to the end of our string, C added it for us (or C checked the the value was not a "null" value, we'll see what null is in a second).
+Even though we didn't add a `\0` to the end of our string, C added it for us.
 
 # Addresses
 We can make a variable that holds an "address number" to a block of memory. We call variables that hold a memory address "pointers". An address in C is actually an "unsigned" `long` type. ("unsigned" means the first bit is NOT used for a positive or negative sign, so the number can only be positive).
@@ -280,9 +280,9 @@ int main(void)
 
 The `index` variable is the number that gets increased each loop. We loop a total of 5 times since there is only 5 letters. Its very useful to start counting at zero since the memory offsets start at the first item.
 
-Inside the loop we use the `index` variable to access each item in the array, and print it as a character `%c`.
+Inside the loop we use the `index` variable to access each item in the array, and print it (we use the `%c` conversion specifier).
 
-Although having to manually set the number of times the loop loops is kind of bad. 
+Having to manually set the number of times to loop (which we will currently "loop" 5 times) is kind of bad.
 
 So instead we can check "while the current character isn't `\0`" since C automatically puts a null character at the end. The sentence translates to the following example code.
 
@@ -293,7 +293,7 @@ while hello[index] != '\0`
 
 Which will stop the loop once it finds the null character `\0`.
 
-Translated to a for loop in our code it would look like the following.
+If we convert this to a "for loop" (which is the same as a `while` loop) in our code it would look like the following.
 
 (change your code to the following)
 ```c
@@ -312,7 +312,7 @@ int main(void)
 }
 ```
 
-We coudl also "count" the number of characters in our string and then use the number we get from that to loop a certain number of times.
+We could also "count" the number of characters in our string and then use the number we get from that to loop a certain number of times.
 
 It turns out there is a function that does this for us called `strlen`, which stands for "string length" (aka the number of characters in the array/string).
 
@@ -320,6 +320,7 @@ To get access to `strlen` we have to include `string.h`.
 
 (change your code to the following)
 ```c
+// include string.h
 #include <string.h>
 #include <stdio.h>
 
@@ -356,9 +357,11 @@ int main(void)
 }
 ```
 
-Although this code is NOT efficient. Every single loop we count all the characters in `hello` using the `strlen` function!
+Which says `while index number < length of(hello)`.
 
-We can quickly fix the terrible design by making a variable to hold the result from `strlen`, then use the variable each loop.
+Counting all the stuff inside of the `hello` variable, every single loop, when we ask `while index number < length of(hello)`, is note very efficient!
+
+We can quickly fix the terrible design of this by making a variable that will hold onto the "length" number from `strlen`, then use that variable each loop.
 
 (change your code to the following)
 ```c
@@ -369,6 +372,7 @@ int main(void)
 {
 	char* hello = "Hello";
 
+	// create length variable
 	int length = strlen(hello);
 
 	for (int index = 0; index < length; index++)
@@ -380,9 +384,11 @@ int main(void)
 }
 ```
 
+Tada! Now we can replace the word "Hello" (from the `hello` variable) with anything we want! And the loop will "loop" the correct number of times!
+
 Compile and run this code using the shell.
 
-Since the `length` variable shouldn't ever change (since there will only ever be 5 letters in the word "Hello") we can make sure other programmers don't accidentally change the `length` variable by making it a "constant".
+We can make sure other programmers don't accidentally change the `length` variable (once we "set" it) by making it a "constant".
 
 (change your code to the following)
 ```c
@@ -405,9 +411,9 @@ int main(void)
 }
 ```
 
-We put the `const` keyword in front of the length variable. If someone makes some code to try to change `length`, then C won't even let the code compile! It will through an error message.
+We put the `const` keyword in front of the length variable. If someone makes some code to try to change `length`, then C won't even let the code compile! It will through an error message saying "hey, you can't change that, the other programmer made it a constant."
 
-Also it is a tradition to uppercase a `const` variable to help programmers know it is a `const` (without having to go and look at the code that made the variable).
+Also it is a tradition to uppercase a `const` variable to help programmers know it is a `const` (without having to go and look at the code that "made" the variable).
 
 (change your code to be more traditional)
 ```c
@@ -430,10 +436,12 @@ int main(void)
 }
 ```
 
-Now compile and run this code using the shell.
+Compile and run this code using the shell.
+
+Now stare at this marvelous beautiful... pointless, program.
 
 # Void
-Since a pointer (aka variable with address) simply points to the first byte of an array (or just the first byte to an `int`) we don't have to tell C the type! We can just make a plain old address to the first byte (of the data)!
+Since a pointer (aka variable with an address) simply points to the first byte of an array (or just the first byte to an `int`) we don't have to tell C the type! We can just make a plain old address to the first byte (of the data)!
 
 Change the code to the following.
 
@@ -484,7 +492,7 @@ What is `const char * argv[]`?
 
 Well the first part `const` is a keyword, it is telling us that we are not allowed to change the variable's value (stuff inside the variable) and that it is "constant".
 
-The rest of it `char * argv[]` is a bit weird. It is an array of addresses `char *` to an array of strings `argv[]`... Another way of writing this could be to use two stars `char ** argv` without the square brackets, but this would be like making an array of addresses to an array of addresses! Which is not what we want.
+The rest of it `char * argv[]` is an array `argv[]` of addresses `char *`. Another way we could write it could be to use two stars `char ** argv` without the square brackets.
 
 (change your code to use two stars)
 ```c
@@ -496,11 +504,11 @@ int main(int argc, const char ** argv)
 }
 ```
 
-If we visualize an array of addresses to an array of strings, in memory it would look something like this.
+If we visualize an array of addresses (the addresses each going to a separate string/word/phrase), in memory it would look something like this.
 
 ![argv in c](/Assets/argv.png)
 
-Not to complicated (it probably sounded complicated). The word `argv` stands for "argument vector" (honestly this name is just a tradition).
+The word `argv` stands for "argument vector" (honestly this name is just a tradition).
 
 Lets use `argv` for a simple a program that gets our name, then prints it out along with a "hello" message.
 
@@ -515,7 +523,7 @@ int main(int argc, const char * argv[])
 }
 ```
 
-The above code gets the second string from the array of strings (in `argv`).
+The above code gets the second string from the array of addresses (in `argv`).
 
 Compile this code using `make` and run it using `./input` along with an argument, like the following command.
 
@@ -551,9 +559,9 @@ You might ask "what is the string at `argv[0]`"? Well if you change your code to
 # Out of bounds
 In C we have to manually check how long our array is so that we don't accidentally offset outside of the array. We call this the "bounds" of an array.
 
-![bounds of an array] TODO
+Thankfully one of the parameters (inputs) from main is called `argc` which stands for "argument count", `argc` is an int, which tells us how many "arguemnts" the program got (includeing the command to run the program). Individual "arguements" are determined by a space separating each ("./hello how are you" would equal 4 arguments).
 
-Thankfully one of the parameters (inputs) from main is called `argc` which stands for "argument count", `argc` is an int. You can use `argc` to prevent yourself from offsetting outside of the arrays bounds. You can also use `argc` see how many arguments were given.
+You can use `argc` to prevent yourself from offsetting outside of the `argv` arrays bounds.
 
 Change our program to detect if it was run with an argument by using `argc`'s number.
 
@@ -569,7 +577,7 @@ int main(int argc, const char * argv[])
 		// print an error
 		printf("Error, expected input! `./input <argument>` \n");
 
-		// return an error code of 1
+		// return an error code of 1 and don't run any of the code after this
 		return 1;
 	}
 
@@ -585,9 +593,7 @@ int main(int argc, const char * argv[])
 }
 ```
 
-Just so you know, `argc` doesn't start counting at 0. If we put 2 arguments (including the *command to run* the program) then `argc` will be 2.
-
-In the above code we print an error message and "return" an error code of 1, if no argument was given (the command to run the program "./input" counts as an argument).
+In the above code we print an error message and "return" an error code of 1, if no argument was given (the command to run the program "./input" counts as an argument, so we check `if argument_count less than 2`).
 
 Any code after a `return` keyword won't get run. So we use "return" inside of the `if (argc < 2)` to prevent us from running the code afterwards (the greating message "Hello, Mikey", since "Mikey" woudln't exist).
 

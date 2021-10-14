@@ -1,4 +1,3 @@
-
 TODO
 - sokol headers for windowing
 - sokol header for input
