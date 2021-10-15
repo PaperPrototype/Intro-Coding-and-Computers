@@ -65,9 +65,11 @@ You can visualize this with the following diagram.
 
 ![array of addresses to array of strings](/Assets/addresses_array_to_array_names.png)
 
-If you haven't noticed already, the names in the array have been sorted alphabetically! Although, it is really "ASCII-betically", because we use the ASCII number for that letter to decide the order. 
+If you haven't noticed already, the names in the array have been sorted alphabetically! 
 
-This way we could use binary search (which was explained in week 0) to compare a name's letters (as if they were numbers) to search for a nmae in the list (since binary search requires that we sort first).
+Although, it is really "ASCII-betically", because we use the ASCII number for that letter to decide the order (smaller number = first, larger number = last).
+
+This way we could use binary search (which was explained in week 0) to compare a name's letters (as if they were numbers) to search for a name in the list (since binary search requires that we sort first).
 
 Now add a `for` loop to go over the addresses in the names array, and access each name.
 
@@ -139,7 +141,7 @@ Now remember, the "main" function gives back an error code. returning 0 means "n
 
 If our code did not find the desired name, then it will proceed to run any code after the loop (since the `return 0` (which would have caused us to exit) didn't happen).
 
-If we manage to not find the name, then after the loop we will print out "Name not found!".
+If we manage to NOT find the name, then after the loop we will print out "Name not found!".
 
 (print out "Name not found!" after the loop)
 ```c
@@ -160,8 +162,11 @@ int main(void) {
 	}
 
 	printf("Name not found! \n");
+	return 1;
 }
 ```
+
+We `return 1` if we didn't find the name (make sure it is after `printf("Name not found! \n");`, or we could cause `printf("Name not found! \n");` to never get run!).
 
 Compile this program in the Shell (or Console) using `make main`, and run it using `./main` (or you can use the run button).
 
@@ -196,12 +201,14 @@ struct contact {
 };
 
 int main(void) {
-	// make a person with a totally real phonenumber
+	// make a person with a totally real phone number
 	struct contact myPerson = {"Bob", "999-999-9999"};
 }
 ```
 
-Why did we do "struct contact myPerson"? Well the part "struct contact" is the *type*. A struct doesn't count as a type by default, in C, so we have to put "struct contact" in front as the type. 
+Why did we do `struct contact myPerson`? Well the part `struct contact` is the *type*. 
+
+A `struct` doesn't count as a type by default (at least in C) so we have to put `struct contact` rather than just `contact` in front of the variable `myPerson`.
 
 We can make our struct become a "type" by using `typedef`.
 
@@ -220,9 +227,9 @@ int main(void) {
 }
 ```
 
-(1) We are taking the struct "struct contact" and making a type "contact_t". We put `_t` (underscore T) at the end, to distinguish our new type from the struct's name.
+(1) We are taking the struct `struct contact` and making a type `contact_t`. We put `_t` (underscore T) at the end, to distinguish it from the struct's name (`_t` isn't anything special, it's just a custom for some pople to use `_t` since "t" can mean "type").
 
-Now lets use the new "type" in our variable.
+Now lets use the new type `contact_t` in our variable.
 
 (edit your code to the following)
 ```c
@@ -238,46 +245,107 @@ int main(void) {
 }
 ```
 
-Ahh, much better. Although there is a shortcut, and we can just put the curly brackets for the struct in the `typedef`.
-
-(edit your code to the following)
+Ahh, much cleaner to read. Although there is a shortcut for using typedef...
 ```c
-typedef struct contact {
-	char* name;
-	char* phone;
-} contact_t;
-
-int main(void) {
-	contact_t myPerson = {"Bob", "545-843-6454"};
-}
+typedef struct contact contact_t;
 ```
+...where we can just put the curly brackets (for the struct)...
 
-(New languages just make a `struct` a "type", rather than you havning to go through all this...)
-
-Now, with that aside, what is `contact_t myPerson = {"Bob", "545-843-6454"};`? In the struct we grouped 2 strings (an address to an array of `char`acters).
-
-```
+```c
 {
 	char* name;
 	char* phone;
 }
 ```
 
-When we put `{"Bob", "545-843-6454"};` we "set" the `myPerson` variable, which was a struct "combining" 2 strings.
+...in the `typedef`...
+
+```c
+typedef struct contact { char* name; char* phone; } contact_t;
+```
+
+...which looks like this if we move the curly brackets around...
+
+```c
+typedef struct contact { 
+	char* name; 
+	char* phone; 
+} contact_t;
+```
+...and we can even remove the the `contact` word at the top...
+
+```c
+typedef struct { 
+	char* name; 
+	char* phone; 
+} contact_t;
+```
+...which would mean we also don't need to put `_t` at the end to tell the "type" name apart form the struct name...
+
+```c
+typedef struct { 
+	char* name; 
+	char* phone; 
+} contact;
+```
+
+Tada! Even better! This is how I recommend you make a `struct` in C.
+
+(edit your struct to the following)
+```c
+// (1)
+typedef struct {
+	char* name;
+	char* phone;
+} contact;
+
+int main(void) {
+	// (2)
+	contact myPerson = {"Bob", "545-843-6454"};
+}
+```
+
+(1) Modern languages treat all `struct`'s as a type, rather than you having to go through all this nonsense.
+
+(2) The ` = {"Bob", "545-843-6454"};` is just setting the 2 strings in our variable `myPerson` (since the `contact` struct groups 2 strings ("string" = `char` array)).
+
+We can now access the name and phone number in the contact struct!
+
+(edit your code to print out the name and phone number)
+```c
+// include stdio.h (standard input output)
+#include <stdio.h>
+
+typedef struct {
+	char* name;
+	char* phone;
+} contact;
+
+int main(void) {
+	contact myPerson = {"Bob", "545-843-6454"};
+
+	// (1)
+	printf("name %s, phone number %s \n", myPerson.name, myPerson.phone);
+}
+```
+
+(1) Doing `myPerson.name` lets us access the `name` variable in the `contact` struct!
+
+Now run your code, to see what it will print!
 
 # Searching a Phonebook
 Now lets make an array of "contacts".
 
 (edit your code to the following)
 ```c
-typedef struct contact {
+typedef struct {
 	char* name;
 	char* phone;
-} contact_t;
+} contact;
 
 int main(void) {
 	// (1) array of 5 contacts
-	contact_t myPeople[5];
+	contact myPeople[5];
 
 	// (2) set first person in array
 	myPeople[0] = {"Bob", "999-999-9999"};
@@ -286,41 +354,41 @@ int main(void) {
 
 (1) We make an array of 5 contacts.
 
-(2) We set the first person (by "going to" the first address with an offset of 0). Although C is so clueless it won't realize that `{"Bob", "999-999-9999"}` is in the format of the `contact_t` type!
+(2) We set the first person (by "going to" the first address with an offset of 0). Although C is so clueless it won't realize that `{"Bob", "999-999-9999"}` is in the format of the `contact` struct type!
 
-So we have to "cast" (AKA "casting" is a way of "converting one type to another") and tell C "hey, idiot, this is a `contact_t` type".
+So we have to "cast" (hint) and tell C "hey, idiot, this is a `contact` struct type".
 
 (edit your code to help C understand)
 ```c
-typedef struct contact {
+typedef struct {
 	char* name;
 	char* phone;
-} contact_t;
+} contact;
 
 int main(void) {
-	contact_t myPeople[5];
+	contact myPeople[5];
 
-	//            tell the the type by casting
-	myPeople[0] = (contact_t){"Bob", "999-999-9999"};
+	//            tell C the the type by casting
+	myPeople[0] = (contact){"Bob", "999-999-9999"};
 }
 ```
 
 Now lets go ahead and set the remaining 4 people in the `myPoeple` array.
 
 ```c
-typedef struct contact {
+typedef struct {
 	char* name;
 	char* phone;
-} contact_t;
+} contact;
 
 int main(void) {
-	contact_t myPeople[5];
+	contact myPeople[5];
 
-	myPeople[0] = (contact_t){"Bob", "999-999-9999"};
-	myPeople[1] = (contact_t){"Dylan", "888-888-8888"};
-	myPeople[2] = (contact_t){"Smyth", "777-777-7777"};
-	myPeople[3] = (contact_t){"Bill", "666-666-6666"};
-	myPeople[4] = (contact_t){"Charlie", "555-555-5555"};
+	myPeople[0] = (contact){"Bob", "999-999-9999"};
+	myPeople[1] = (contact){"Dylan", "888-888-8888"};
+	myPeople[2] = (contact){"Smyth", "777-777-7777"};
+	myPeople[3] = (contact){"Bill", "666-666-6666"};
+	myPeople[4] = (contact){"Charlie", "555-555-5555"};
 }
 ```
 
@@ -328,4 +396,52 @@ Make sure to increase the offset in the square brackets `[]` for each person!
 
 Now, we can search through the contacts!
 
+```c
+#include <stdio.h>
 
+// (1) include string.h to get access to `strcmp`
+#include <string.h>
+
+typedef struct {
+	char* name;
+	char* phone;
+} contact;
+
+int main(void) {
+	contact myPeople[5];
+
+	myPeople[0] = (contact){"Bob", "999-999-9999"};
+	myPeople[1] = (contact){"Dylan", "888-888-8888"};
+	myPeople[2] = (contact){"Smyth", "777-777-7777"};
+	myPeople[3] = (contact){"Bill", "666-666-6666"};
+	myPeople[4] = (contact){"Charlie", "555-555-5555"};
+
+	// (2) search through contacts
+	for (int i = 0; i < 5; i++)
+	{
+		// if name is "Bill"
+		if (strcmp(myPeople[i].name, "Bill") == 0)
+		{
+			// print out phone number
+			printf("Found Bill, his number is: %s \n", myPeople[i].phone);
+
+			// (3) exit the loop without stopping the program
+			break;
+		}
+	}
+}
+```
+
+(1) We include `string.h` to get access to `strcmp`. 
+
+(2) We check if `strcmp` returns 0 (meaning the names matched), and then print out Bob's phone number if the name did match.
+
+(3) The `break` keyword is new. The `break` keyword will "break out" of any loops it is in. This way if we find the name we want, we stop looping and any code after the loops gets to run!
+
+Obviously this algorithm has `O(N)` efficiency, but for such few contacts it would be overkill to do binary search.
+
+In case if you forgot, `O` (the letter O) stands for "in the worst case scenario" and we put the number of steps for thqat worst case scenario inside of the parenthesis `()`. 
+
+`N` stands for the number of contacts. All put together it means "in the worst case scenario it will take 5 (the number of contacts) steps to find Bill".
+
+And that's it for this week!

@@ -23,12 +23,19 @@ THIS COURSE IS STILL A WORK IN PROGRESS. I will remove this message once it is f
 This process is the same for every week.
 
 TODO:
-interpreter vs compiler - in fundamentals section
-dynamically linked vs statically linked (at compile time) - in compiling + shell section
+- undo with `ctrl` + `z` keys
+- undo with `cmd` + `z` keys
+
+python section
+- Select and drag to Copy/Paste gif
+
+compiling + shell section:
+- dynamically linked vs statically linked (at compile time)
+
 
 Layout IDEAS: (ignore this)
+
 0 Python
-	- Select and drag to CP/Paste gif
 1 Fundamentals
 2 C
 3 Shell + Compiling
