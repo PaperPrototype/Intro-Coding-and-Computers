@@ -84,7 +84,7 @@ int main(void) {
 	// (1) create offsetting variable
 	for (int i = 0; i < 7; i++)
 	{
-		// do something with current name
+		// (2) do something with current name
 		names[i];
 	}
 }
@@ -92,11 +92,13 @@ int main(void) {
 
 (1) The variable called `i` will increase every loop until it has looped seven times (remember, we started counting *at zero*, so in total we will count 7 times).
 
-Now we need to compare the current name with the name we want, if they match then we have found the name we want!
+(2) Now we need to compare the current name with the name we want, if they match then we have found what we searched for!
 
 (edit your code to the following)
 ```c
 #include <stdio.h>
+
+// (1)
 #include <string.h>
 
 int main(void) {
@@ -104,18 +106,20 @@ int main(void) {
 
 	for (int i = 0; i < 7; i++)
 	{
-		// use `strcmp` to compare curretn name with `Ron`
+		// (2) use `strcmp` to compare current name with `Ron`
 		if (strcmp(names[i], "Ron") == 0) 
 		{
-			// found name!
+			// (3) found name!
 		}
 	}
 }
 ```
 
-We use the `strcmp` function to compare our current name with the desired name, which means we have to include "string.h" to get access to it.
+(1) We have to include "string.h" to get access to `strcmp` for comparing 2 strings (eg names).
 
-Now we can print out the current name if we have found it, and "exit" or quit the program by adding `return`. Remember, andy code after the `return` keyword, will not get run!
+(2) We use the `strcmp` function to compare our current name (in the loop) with the desired name.
+
+(3) Now we can print out the current name if we have found it, and "exit" or quit the program by adding `return` (Remember, any code after the `return` keyword, will not get run! Unless `return` is inside of a function, in which case, only the code inside of that function will not get run).
 
 (edit your code to the following)
 ```c
@@ -141,7 +145,7 @@ Now remember, the "main" function gives back an error code. returning 0 means "n
 
 If our code did not find the desired name, then it will proceed to run any code after the loop (since the `return 0` (which would have caused us to exit) didn't happen).
 
-If we manage to NOT find the name, then after the loop we will print out "Name not found!".
+If we manage to NOT find the name (and `return` didn't cause us to exit), then after the loop we print out "Name not found!".
 
 (print out "Name not found!" after the loop)
 ```c
@@ -166,13 +170,24 @@ int main(void) {
 }
 ```
 
-We `return 1` if we didn't find the name (make sure it is after `printf("Name not found! \n");`, or we could cause `printf("Name not found! \n");` to never get run!).
+We `return 1` if we didn't find the name (make sure it is after `printf("Name not found! \n");` or we could "return" before running `printf("Name not found! \n");` to never get run!).
 
 Compile this program in the Shell (or Console) using `make main`, and run it using `./main` (or you can use the run button).
 
-Now searching through a list of names, isn't that cool, or realistic. Instead it would actually be useful if each name also had a phone number grouped with it! THen if we searched a name, we could also get that persons phone number!
+Now searching through a list of names, isn't that cool, or realistic. Instead it would actually be useful if each name also had a phone number grouped with it!
 
-We could just make another list to hold a list of corresponding phone numbers, but in C there is a way to "group" 2 variables together into 1 "type"! (Remember a "type" tells a size in memory (whihc cna be found by using `sizeof()`), as well as "how to treat the 0s and 1s").
+We could just make another list of corresponding phone numbers.
+
+(example)
+```c
+char* names[] = {"Bill", "Charlie", "Fred"};
+
+char* numbers[] = {"121-121-1212", "123-456-7890", "098-765-4321"};
+```
+
+...but we might mix up the order of those 2 lists.
+
+And besides, in C there is a way to "group" 2 types together into 1 type! (Remember a "type" tells a size in memory (which can be found by using `sizeof()`), as well as "how to treat the 0s and 1s").
 
 # Structs
 Make a new replit. 
@@ -183,7 +198,7 @@ Select the C language, and name the project "phonebook".
 
 Now C uses what is called a "structure" to combine 2 types together into 1 compound type.
 
-Delete all the code and write the following code.
+Delete all the code and write the following "structure".
 
 ```c
 struct contact {
@@ -206,7 +221,7 @@ int main(void) {
 }
 ```
 
-Why did we do `struct contact myPerson`? Well the part `struct contact` is the *type*. 
+The part `struct contact` is the *type*. 
 
 A `struct` doesn't count as a type by default (at least in C) so we have to put `struct contact` rather than just `contact` in front of the variable `myPerson`.
 
@@ -227,7 +242,7 @@ int main(void) {
 }
 ```
 
-(1) We are taking the struct `struct contact` and making a type `contact_t`. We put `_t` (underscore T) at the end, to distinguish it from the struct's name (`_t` isn't anything special, it's just a custom for some pople to use `_t` since "t" can mean "type").
+(1) We are taking the struct `struct contact` and making a type `contact_t`. We put `_t` (underscore T) at the end, to distinguish it from the struct's name, which is "contact" (`_t` isn't anything special, it's just a custom for some poeple to use `_t` since "t" can mean "type").
 
 Now lets use the new type `contact_t` in our variable.
 
@@ -241,11 +256,14 @@ struct contact {
 typedef struct contact contact_t;
 
 int main(void) {
+	// use `contact_t` type
 	contact_t myPerson = {"Bob", "545-843-6454"};
 }
 ```
 
 Ahh, much cleaner to read. Although there is a shortcut for using typedef...
+
+(example)
 ```c
 typedef struct contact contact_t;
 ```
@@ -329,12 +347,12 @@ int main(void) {
 }
 ```
 
-(1) Doing `myPerson.name` lets us access the `name` variable in the `contact` struct!
+(1) Doing `.name` lets us access the `name` variable in the `myPerson` struct variable!
 
-Now run your code, to see what it will print!
+Now run your edited code, to see what it will print!
 
 # Searching a Phonebook
-Now lets make an array of "contacts".
+Now lets make an array of "contacts". Delete the code inside of the `main` function.
 
 (edit your code to the following)
 ```c
@@ -418,7 +436,7 @@ int main(void) {
 	myPeople[3] = (contact){"Bill", "666-666-6666"};
 	myPeople[4] = (contact){"Charlie", "555-555-5555"};
 
-	// (2) search through contacts
+	// (2) search through 5 contacts
 	for (int i = 0; i < 5; i++)
 	{
 		// (3) if name is "Bill"
@@ -436,7 +454,7 @@ int main(void) {
 
 (1) We include `string.h` to get access to `strcmp`. 
 
-(2) We create a loop, with sn offset number we can use to access each contact, in the contacts array.
+(2) We create a loop, with an offset number we can use to access each contact, in the contacts array.
 
 (3) We check if `strcmp` returns 0 (meaning the names matched), and then print out Bill's phone number if the names matched.
 
@@ -455,6 +473,9 @@ If we *don't* find the person we were looking for then, we will need to rpint ou
 #include <stdio.h>
 #include <string.h>
 
+// (1)
+#include <stdbool.h>
+
 typedef struct {
 	char* name;
 	char* phone;
@@ -469,7 +490,7 @@ int main(void) {
 	myPeople[3] = (contact){"Bill", "666-666-6666"};
 	myPeople[4] = (contact){"Charlie", "555-555-5555"};
 
-	// (1)
+	// (2)
 	bool found = false;
 
 	for (int i = 0; i < 5; i++)
@@ -479,29 +500,33 @@ int main(void) {
 		{
 			printf("Found Bill, his number is: %s \n", myPeople[i].phone);
 
-			// (2)
+			// (3)
 			found = true;
 
 			break;
 		}
 	}
 
-	// (3) never set `found = true`
+	// (4) never set `found = true`
 	if (found != true) {
 		printf("not found");
 	}
 }
 ```
 
-(1) We make a variable called `found` and set it to `false`.
+(1) We include `stdbool.h` to get access to the boolean types `true` and `false`.
 
-(2) If we happen to find th ename we were looking for, then `found` will be set to `true`...
+(2) We make a variable called `found` and set it to `false`.
 
-(3) We check if `found` was never set to `true` (or we could say `if (found == false)`) then that means we didn't find what we were looking for an we print "not found".
+(3) If we happen to find the name we were looking for, then `found` is set to `true`...
+
+(4) We check if `found` was never set to `true` (or we could say `if (found == false)`) then that means we didn't find what we were looking for (`found` stayed false) an we print "not found".
 
 This program is kinda lame, we can only ever search for "Bill". Lets get you to type the name of a contact that you want, and then have the program search for it.
 
-We could use `scanf` to get input, or we could use the input parameters that "main" gets when we run the program.
+We could use `scanf` to get input.
+
+Or we could use the input parameters that "main" gets when we run the program.
 
 We will use the input from "main".
 
@@ -554,11 +579,11 @@ int main(int argc, char* argv[]) {
 }
 ```
 
-(1) We change main to take in its parameters, `argc` argument count, and `argv` argument array ("v" stands for vector, which can be another name for arrays).
+(1) We change main to take in its parameters, `argc` = argument count, and `argv` = argument array ("v" stands for vector, which can be another name for array).
 
 (2) We make sure that the user (us) has typed a name after running the program, by doing "if argument count is less than 2" if the number of arguments is less than 2 ("./main Bobby" is 2 arguments) then we print out a message, and stop any other code from running (after the `if`) by using `return`. We also return an error code.
 
-(3) Finally we compare the name supplied in `argv[1]` (to get Bobby if we ran "./main Bobby") and if the name we supplied matches any of the names in the phonebook, then we print out the phone number for that person.
+(3) Finally we compare the name supplied in `argv[1]` (we wiil get "Bobby" from `argv[1]` if we ran "./main Bobby") and if the name we supplied matches any of the names in the phonebook, then we print out the phone number for that person.
 
 Now compile this program using make
 
@@ -574,6 +599,21 @@ and run the resulting program using
 ./main Bill
 ```
 
-(if you run the program using the play button, nothing will get put after `./main`)
+Run the program using the play button (nothing will get put after `./main`) so we get...
+
+```
+Not enough arguments!exit status 1
+```
+
+...in the shell! Its our our error message, and the error code we `return`ed.
+
+
+```c
+if (argc < 2)
+{
+	printf("Not enough arguments!");
+	return 1;
+}
+```
 
 And thats it for this week!
