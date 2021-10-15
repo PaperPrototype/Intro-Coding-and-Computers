@@ -119,7 +119,7 @@ Make sure the `pygame.display.update()` code is "indented" using the "tab" key (
 
 ![replit jumpy game black window](/Assets/replit_jumpy_game_black_window.png)
 
-Now lets draw a cube
+Lets draw a cube.
 
 ```py
 # ... irrelevant code
@@ -133,7 +133,7 @@ window.fill(black)
 Stop = False
 while Stop == False:
 
-	# (2) draw a recrangle
+	# (2) draw a rectangle
 	pygame.draw.rect(window, white, [10, 10, 20, 20])
 
 	for myEvent in pygame.event.get():
@@ -145,7 +145,90 @@ while Stop == False:
 
 (1) We add a white color.
 
-(2) We draw a rectangle. We tell it what window to draw to, as well as give it a color. We give it a alist of numbers. The first two numbers are an `x` and `y` position.
+(2) We draw a rectangle. We tell it what window to draw to, as well as give it a color. We give it a list of numbers. The first two numbers are an `x` and `y` position.
+
+Run this code, you should see the following.
+
+![replit pygame cube](/Assets/pygame_cube.png)
+
+The position `10, 10` and size `20, 20` of our rect works like this.
+
+![replit pyagem rect](/Assets/pygame_rect.png)
+
+Now to control our cube, we will use `x` and `y` variables for the cubes position.
+
+(edit your code to the following)
+```py
+
+# ... irrelevant code
+
+# (1)
+x = 10
+y = 10
+
+Stop = False
+while Stop == False:
+
+	# (2) use x and y variables
+	pygame.draw.rect(window, white, [x, y, 20, 20])
+
+	for myEvent in pygame.event.get():
+		if myEvent.type == pygame.QUIT:
+			Stop = True
+
+	pygame.display.update()
+```
+
+(1) We make 2 variables `x` and `y`.
+
+(2) We use the variables in the `rect` function.
+
+Now lets make our cube fall by changing the `y` position to move it down, as long as the `y` position is inside of the window!
+
+```py
+# ... irrelevant code
+
+Stop = False
+while Stop == False:
+
+	pygame.draw.rect(window, white, [x, y, 20, 20])
+
+	# (1) if inside of window
+	if y < window.get_height():
+		# move downwards
+		y += 1
+
+	for myEvent in pygame.event.get():
+		if myEvent.type == pygame.QUIT:
+			Stop = True
+
+	pygame.display.update()
+```
+
+(1) if `y` position is less than the height of the window, then move the `y` position downwards (increasing `y` moves us downwards).
+
+Run this code. Woh! That cube *smeeeears* down the window. To prevent "smearing" we have to re-color the entire window black again before drawing another cube (when you draw a cube it just "paints" it on top of everything else).
+
+(re-color by using `fill` at the beginning)
+```py
+# ... irrelevant code
+
+Stop = False
+while Stop == False:
+
+	# (1)
+	window.fill(black)
+
+	pygame.draw.rect(window, white, [x, y, 20, 20])
+
+	# ... irrelevant code
+```
+
+(1) Before painting another cube onto the window, we first clear/fill the entire window with `black` (`black` is a variable we made earlier).
+
+If you make a mistake when editing your code, you can always "undo" the last thingyou did by clicking the `ctrl` + `Z` keys (if your on a Mac computer, the its `command` + `Z`). Go ahead and click `ctrl` + `Z`. Then to "redo" click the `ctrl` + `shift` + `Z` keys.
+
+![todo] gif of someone clicking ctrl + Z on keyboard
 
 STILL WRITING THIS LECTURE...
 
