@@ -172,7 +172,7 @@ Compile this program in the Shell (or Console) using `make main`, and run it usi
 
 Now searching through a list of names, isn't that cool, or realistic. Instead it would actually be useful if each name also had a phone number grouped with it! THen if we searched a name, we could also get that persons phone number!
 
-We could just make another list to hold a list of corresponding phone numbers, but in C there is a way to "group" 2 variables together into 1 "type"!
+We could just make another list to hold a list of corresponding phone numbers, but in C there is a way to "group" 2 variables together into 1 "type"! (Remember a "type" tells a size in memory (whihc cna be found by using `sizeof()`), as well as "how to treat the 0s and 1s").
 
 # Structs
 Make a new replit. 
@@ -375,6 +375,7 @@ int main(void) {
 
 Now lets go ahead and set the remaining 4 people in the `myPoeple` array.
 
+(edit your code to the following)
 ```c
 typedef struct {
 	char* name;
@@ -396,6 +397,7 @@ Make sure to increase the offset in the square brackets `[]` for each person!
 
 Now, we can search through the contacts!
 
+(edit your code to the following)
 ```c
 #include <stdio.h>
 
@@ -419,13 +421,13 @@ int main(void) {
 	// (2) search through contacts
 	for (int i = 0; i < 5; i++)
 	{
-		// if name is "Bill"
+		// (3) if name is "Bill"
 		if (strcmp(myPeople[i].name, "Bill") == 0)
 		{
 			// print out phone number
 			printf("Found Bill, his number is: %s \n", myPeople[i].phone);
 
-			// (3) exit the loop without stopping the program
+			// (4) exit the loop without stopping the program
 			break;
 		}
 	}
@@ -434,14 +436,144 @@ int main(void) {
 
 (1) We include `string.h` to get access to `strcmp`. 
 
-(2) We check if `strcmp` returns 0 (meaning the names matched), and then print out Bob's phone number if the name did match.
+(2) We create a loop, with sn offset number we can use to access each contact, in the contacts array.
 
-(3) The `break` keyword is new. The `break` keyword will "break out" of any loops it is in. This way if we find the name we want, we stop looping and any code after the loops gets to run!
+(3) We check if `strcmp` returns 0 (meaning the names matched), and then print out Bill's phone number if the names matched.
+
+(4) The `break` keyword is new. The `break` keyword will "break out" of any loops it is in. This way if we find the name we want, we print out its corresponding phone number, and "break out" of the loop (rather than continuing to loop and search, since we've already found the phone number we wanted).
 
 Obviously this algorithm has `O(N)` efficiency, but for such few contacts it would be overkill to do binary search.
 
-In case if you forgot, `O` (the letter O) stands for "in the worst case scenario" and we put the number of steps for thqat worst case scenario inside of the parenthesis `()`. 
+In case if you forgot, `O` (the letter O) stands for "in the worst case scenario" and we put the number of steps for that worst case scenario inside of the parenthesis `()`. 
 
-`N` stands for the number of contacts. All put together it means "in the worst case scenario it will take 5 (the number of contacts) steps to find Bill".
+`N` stands for the number of contacts. All put together `O(N)` means "in the worst case scenario it will take 5 (the number of contacts) steps to find Bill".
 
-And that's it for this week!
+If we *don't* find the person we were looking for then, we will need to rpint out "not found".
+
+(edit your code to the following)
+```c
+#include <stdio.h>
+#include <string.h>
+
+typedef struct {
+	char* name;
+	char* phone;
+} contact;
+
+int main(void) {
+	contact myPeople[5];
+
+	myPeople[0] = (contact){"Bob", "999-999-9999"};
+	myPeople[1] = (contact){"Dylan", "888-888-8888"};
+	myPeople[2] = (contact){"Smyth", "777-777-7777"};
+	myPeople[3] = (contact){"Bill", "666-666-6666"};
+	myPeople[4] = (contact){"Charlie", "555-555-5555"};
+
+	// (1)
+	bool found = false;
+
+	for (int i = 0; i < 5; i++)
+	{
+		// if name is "Bill"
+		if (strcmp(myPeople[i].name, "Bill") == 0)
+		{
+			printf("Found Bill, his number is: %s \n", myPeople[i].phone);
+
+			// (2)
+			found = true;
+
+			break;
+		}
+	}
+
+	// (3) never set `found = true`
+	if (found != true) {
+		printf("not found");
+	}
+}
+```
+
+(1) We make a variable called `found` and set it to `false`.
+
+(2) If we happen to find th ename we were looking for, then `found` will be set to `true`...
+
+(3) We check if `found` was never set to `true` (or we could say `if (found == false)`) then that means we didn't find what we were looking for an we print "not found".
+
+This program is kinda lame, we can only ever search for "Bill". Lets get you to type the name of a contact that you want, and then have the program search for it.
+
+We could use `scanf` to get input, or we could use the input parameters that "main" gets when we run the program.
+
+We will use the input from "main".
+
+(edit your code to the following)
+```c
+#include <stdio.h>
+#include <string.h>
+
+typedef struct {
+	char* name;
+	char* phone;
+} contact;
+
+// (1)
+int main(int argc, char* argv[]) {
+
+	// (2)
+	if (argc < 2)
+	{
+		printf("Not enough arguments!");
+		return 1;
+	}
+
+	contact myPeople[5];
+
+	myPeople[0] = (contact){"Bob", "999-999-9999"};
+	myPeople[1] = (contact){"Dylan", "888-888-8888"};
+	myPeople[2] = (contact){"Smyth", "777-777-7777"};
+	myPeople[3] = (contact){"Bill", "666-666-6666"};
+	myPeople[4] = (contact){"Charlie", "555-555-5555"};
+
+	bool found = false;
+
+	for (int i = 0; i < 5; i++)
+	{
+		// (3)
+		if (strcmp(myPeople[i].name, argv[1]) == 0)
+		{
+			printf("Found Bill, his number is: %s \n", myPeople[i].phone);
+
+			found = true;
+
+			break;
+		}
+	}
+
+	if (found != true) {
+		printf("not found");
+	}
+}
+```
+
+(1) We change main to take in its parameters, `argc` argument count, and `argv` argument array ("v" stands for vector, which can be another name for arrays).
+
+(2) We make sure that the user (us) has typed a name after running the program, by doing "if argument count is less than 2" if the number of arguments is less than 2 ("./main Bobby" is 2 arguments) then we print out a message, and stop any other code from running (after the `if`) by using `return`. We also return an error code.
+
+(3) Finally we compare the name supplied in `argv[1]` (to get Bobby if we ran "./main Bobby") and if the name we supplied matches any of the names in the phonebook, then we print out the phone number for that person.
+
+Now compile this program using make
+
+(shell command)
+```
+make main
+```
+
+and run the resulting program using
+
+(shell command)
+```
+./main Bill
+```
+
+(if you run the program using the play button, nothing will get put after `./main`)
+
+And thats it for this week!

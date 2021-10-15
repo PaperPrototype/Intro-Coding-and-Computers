@@ -25,6 +25,7 @@ This process is the same for every week.
 TODO:
 - undo with `ctrl` + `z` keys
 - undo with `cmd` + `z` keys
+- explain lowercase, PascalCase, camelCase, UPPERCASE, and underscore_case.
 
 python section
 - Select and drag to Copy/Paste gif
