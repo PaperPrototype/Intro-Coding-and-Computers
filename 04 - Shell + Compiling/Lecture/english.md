@@ -225,7 +225,7 @@ So how has our code, that we have been writing in C, gone from written ASCII tex
 
 Coding using 0s and 1s would be pretty terrible so humans made a "program" that took word based instructions called "Assembly Instructions" and converted them into binary (0s and 1s) Machine Code instructions for your CPU. 
 
-Assembly instructions for a processor might look like this.
+Assembly processor instructions for a program that prints "Hello world" might look like this.
 
 ```x86_64 gcc 11.2
 .LC0:
@@ -243,7 +243,7 @@ main:
 
 "assembly" isn't exactly easy to code with. Also assembly instructions tend to be specific for each type of CPU, so an app written for one processor wouldn't work on another processor.
 
-To solve this problem we made even easier programming languages that look like this 
+To solve this problem we made even easier programming languages that look like this.
 
 (the C programming language)
 ```c
@@ -257,11 +257,11 @@ int main(void)
 
 ...and those "middle level" programming languages then get converted into assembly (by a compiler), depending on the type of processor!
 
-We then have "higher level" scripting languages like Python, which get interpreted by machine code programs.
+We then have "higher level" scripting languages like Python, which get interpreted by programs.
 
 The process of converting our C code into Assembly Instruction, and then converting Assembly Instructions into Machine Code is called "compiling". 
 
-Programs called "Compilers" are what do this "compiling" process.
+Programs called "Compilers" convert these ASCII test instructions into assembly instructions (this process is refered to as "compiling").
 
 Using the shell window we will use a compiler called "clang" to compile our C code inside of the "main.c" file.
 
@@ -286,7 +286,7 @@ The name "a.out" is kinda weird. We can tell clang to name the outputted file di
 clang main.c -o app
 ```
 
-The `-o` flag stands for "output", and it lets us name the outputted program file.
+The `-o` flag stands for "output", and it lets us name the outputted program file to "app".
 
 If you run `ls` you will see a new program file called "app".
 
@@ -324,16 +324,39 @@ Run the following command to run the "main" program (or you could change the nam
 
 The "." refers to the current folder we are in. The "/main" refers to the "main" program file.
 
-There is something that the `make` program takes care of for us called "linking" where you take two machine code files and "link" them together into one program. 
+There is something that the `make` program takes care of for us called "linking" where you take two machine code (0s and 1s) files and "link" them together into one program file.
 
-At some point you might "include" some file where the code is not available and all you have access to is a compiled machine code version. In this case `make` will automatically use the link feature `-l` to "link" that machine code with your program code.
+At some point you might "include" some file where the code is not available and all you have access to is a compiled machine code (0s and 1s) version! Then what do you do?
+
+In this case `make` will automatically use the link feature `-l` to "link" that machine code with your program code.
+
+Remember the assembly code we showed?
+
+(assembly)
+```x86_64 gcc 11.2
+.LC0:
+        .string "Hello world"
+main:
+        push    rbp
+        mov     rbp, rsp
+        mov     edi, OFFSET FLAT:.LC0
+        mov     eax, 0
+        call    printf
+        mov     eax, 0
+        pop     rbp
+        ret
+```
+
+You'll notice the assembly code `call printf`, this literally "calls" (AKA "uses") the `printf` function... but where is `printf`?!
+
+`printf` is inside of the `stdio` machine code code! So the "linker" (which is part of the "compiler"), will combine the `stdio` code with our (compiled) `main.c` machine code, and give us a runnable program file.
 
 # CLI explained
-So how did this all work? When we type `cd` (and some arguments) and hit enter, the *shell* looks for a program called `cd`.
+So how did this all work? When we type `cd` (and some arguments, like the name of a folder to move into) and hit enter, the *shell* looks for a program called `cd`.
 
-There is a file called a "profile" that the shell uses to find the different programs. You can add your own programs to the profile and then run them using their name, so that you can skip having to type `./app` before the name of "app" and just type its name `app` to run it.
+There is a file called the ".profile" that the shell automatically loads and uses to find different programs. You can add your own programs to the profile and then run them using their name, so that you can skip having to type `./app` before the name of "app" and just type its name `app` to run it.
 
-Once the shell finds a program, for example `cd`, it sends the *arguments* (aka input) we typed after the word `cd` and passes them to the `cd` program (that the shell ran for us). `cd` then figures out what to do based on the arguments (aka input) we typed.
+Once the shell finds a program (using the information in the ".profile" file), for example `cd`, it sends the *arguments* (aka input) we typed after the word `cd` and passes them to the `cd` program (that the shell ran for us). `cd` then figures out what to do based on the arguments (aka input) we typed.
 
 How does the shell, the "command line interface", know what the arguments were? Like if we typed `cd /` how does it know that `/` is for `cd` and not part of its name?
 
