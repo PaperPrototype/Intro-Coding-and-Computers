@@ -204,7 +204,9 @@ while Stop == False:
 	pygame.display.update()
 ```
 
-(1) if `y` position is less than the height of the window, then move the `y` position downwards (increasing `y` moves us downwards).
+(1) if `y` is less than the height of the window, then move the `y` position downwards (increasing `y` moves us downwards).
+
+Although really we are just comparing 2 numbers to see if one is bigger than the other.
 
 Run this code. Woh! That cube *smeeeears* down the window. To prevent "smearing" we have to re-color the entire window black again before drawing another cube (when you draw a cube it just "paints" it on top of everything else).
 
@@ -233,8 +235,75 @@ If your on a Mac/Apple computer its `command` + `Z`.
 
 ![macos undo](/Assets/mac_undo.png)
 
+Now, the cube fell really fast! This is because our "loop" was running at like 1000 frames per second! ("frames" is the number of times we "update" the window with `pygame.display.update()`). Basically running the code inside of the `while Stop == false:` loop 1000 times per second, which is moving our cube by 1 pixel down 1000 times per second.
 
+Rather than looping 1000 times per second, we will tell pygame to "delay" and make sure we wait at least 100 milliseconds (which is 0.1 seconds).
 
+(add delay)
+```py
+# irrelevant code
+
+# Endless loop
+Stop = False
+while Stop == False:
+
+	# delay
+	pygame.time.delay(100)
+
+	# ... irrelevant code
+```
+
+Now click play and the cube falls at more.. predicable (yet slow) speed. "Predictable" because the amount of time between each loop will be the same, which will help us when doing some physics (if you speed up (or slow down) "time" then the physcis will move faster (or slower), and we want the physics to move at a certian "rate" (AKA speed)).
+
+Lets add some realistic physics for gravity (AKA falling) and jumping by using some math and a few basic laws of physics such as acceleration and velocity.
+
+Every second we are moving 10 pixels down (at least we should be).
+
+Here's why:
+
+We have 0.1 seconds each loop, and move 1 pixel per loop... So `0.1 seconds = 1 pixel (of movement)` If we multiply both sides of the equal sign `=` then nothing will break (mathematically). So multiply both sides by 10, and you get `1 second = 10 pixels`.
+
+Now, every second we want to *increase* the number of pixel's we move by to fall faster as time passes (AKA "accelerate" from the force of gravity pulling us down).
+
+![pygame gravity velocity](/Assets/pygame_gravity_velocity.png)
+
+Basically every loop we will fall faster.
+
+Make a variable called `y_velocity` and we will use it as the number to increase each loop (then we will move our cubes position based on this ever increasing "velocity" number).
+
+(edit your code to the following)
+```py
+x = 10
+y = 10
+
+# (1)
+y_velocity = 0
+
+Stop = False
+while Stop == False:
+
+	pygame.time.delay(100)
+
+	window.fill(black)
+
+	pygame.draw.rect(window, white, [x, y, 20, 20])
+
+	# (2) if inside of window
+	if y < window.get_height():
+		# increase movement amount 
+		y_velocity += 2
+
+	
+	# (3) move y based on y_velocity every loop
+	y += y_velocity
+
+```
+
+(1) We make a y_velocity variable for our ever increasing falling amount physcis number (in ohysics terms this is "velocity")
+
+(2) If the `y` position is inside of the window, then "increase" the falling velocity.
+
+(3) Move the `y` position based on whatever the `y_velocity` currently is.
 
 STILL WRITING THIS LECTURE...
 
