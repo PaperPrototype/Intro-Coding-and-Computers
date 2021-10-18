@@ -11,7 +11,7 @@ Make a new Repl and select "PyGame". Name it "Pygame".
 
 Now we recommend you change your codes layout to be "stacked", so that it looks like the following.
 
-
+![] TODO
 
 We need to get access to the "PyGame" framework in our code. 
 
@@ -70,7 +70,7 @@ black = [20, 20, 40]
 window.fill(black)
 ```
 
-We make a new variale called "black". It is a list of 3 numbers. Each number corresponds with the colors Red Green and Blue (AKA "RGB"). By mixing different amounts of Red Green and Blue light you can get any color of the rainbow (but you probably already know that).
+We make a new variable called "black". It is a list of 3 numbers. Each number corresponds with the colors Red Green and Blue (AKA "RGB"). By mixing different amounts of Red Green and Blue light you can get any color of the rainbow (but you probably already know that).
 
 If you click play now, the game will start and then stop, after only a second. We need some code that will run over and over, an endless loop!
 
@@ -159,7 +159,6 @@ Now to control our cube, we will use `x` and `y` variables for the cubes positio
 
 (edit your code to the following)
 ```py
-
 # ... irrelevant code
 
 # (1)
@@ -226,9 +225,16 @@ while Stop == False:
 
 (1) Before painting another cube onto the window, we first clear/fill the entire window with `black` (`black` is a variable we made earlier).
 
-If you make a mistake when editing your code, you can always "undo" the last thingyou did by clicking the `ctrl` + `Z` keys (if your on a Mac computer, the its `command` + `Z`). Go ahead and click `ctrl` + `Z`. Then to "redo" click the `ctrl` + `shift` + `Z` keys.
+Remember, you can always "undo" the last edit you did by clicking the `ctrl` + `Z` keys.
 
-![todo] gif of someone clicking ctrl + Z on keyboard
+![windows undo](/Assets/win_undo.png)
+
+If your on a Mac/Apple computer its `command` + `Z`.
+
+![macos undo](/Assets/mac_undo.png)
+
+
+
 
 STILL WRITING THIS LECTURE...
 

@@ -178,6 +178,19 @@ print("Hello wonderful carbon people") # Is this also inside of print?
 
 Words or phrases inside of quotation marks are called *strings* (don't ask me why).
 
+
+# The mighty pwoer of UNDO
+If you make a mistake when editing your code, you can always "undo" the last edit you made by clicking the `ctrl` + `Z` keys.
+
+![windows undo](/Assets/win_undo.png)
+
+If your on a Mac/Apple computer its `command` + `Z`.
+
+![macos undo](/Assets/mac_undo.png)
+
+Go ahead and try out this "undo" power by typing something random like "nwjebr23kjrn 13" and then clicking the correct keys to undo it.
+
+
 # Comments
 We can put a comment by putting a hash `#` in front of the comment. 
 
