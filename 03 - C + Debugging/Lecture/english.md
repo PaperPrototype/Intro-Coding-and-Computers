@@ -2,9 +2,9 @@ Last week we talked about how computers represent data and instructions using on
 
 We are now going to learn a new language called C. This language is a *compiled* language (whereas Python was *interpreted*). 
 
-Previously in Python our text based code was getting read by a program called an "interpreter", that interpreter "interprets" our text written code and runs it as instructions for your computers processor. So Python doesn't have to directly deal with memory addresses (the interpreter takes care of that for us), instead it's more like a scripting language.
+Previously, in Python, our text based code was getting read by a program called an "interpreter", that interpreter "interprets" our text written code and runs it as instructions for your computers processor. So Python doesn't have to directly deal with memory addresses (the interpreter takes care of that for us), instead it's more like a "scripting language", which means it is much easier and simpler to code in.
 
-We call Python an "interpreted" language because Python code gets "interpreted" by a program, whereas C code will actually get converted to 0s and 1s instructions for our processor (by a program called a "compiler"), which makes C VERY fast.
+C is still an ASCII text based programming language, but C code gets converted into 0s and 1s instructions (into a "program file") for our processor (by a program called a "compiler"), which makes C VERY fast.
 
 C is actually what the Python "interpreter" program was made with!
 
@@ -19,7 +19,7 @@ def main():
 main() # run code inside of "main"
 ```
 
-In C there is a function that gets run automatically, but it is the only function that will get called ("called" means "the code was *called upon* so it **did** its instructions)! This function is called the "main" function.
+In C there is a function that gets run automatically, but it is the only function that will get called ("called" means "the code was *called upon* so it **did** its instructions). This function is called the "main" function.
 
 Any code that we want to run (including our own functions) have to happen inside of the "main" function. This gives all computers a unifide way to have a "starting point" for programs.
 
@@ -29,6 +29,7 @@ This time select C as the programming language and name the the project "hello c
 
 There should already be a file called "main.c" with the following code.
 
+(example)
 ```c
 #include <stdio.h>
 
@@ -40,6 +41,7 @@ int main(void) {
 
 Delete some of the code so that the it looks like this. 
 
+(answer)
 ```c
 int main(void) {
 	
@@ -48,9 +50,9 @@ int main(void) {
 
 Don't run this code yet, as it won't do anything! The above code is the "main" function (in C), and is the program *starting point* that almost all computers will use.
 
-The word `int` in front of the function, tells C that `main` gives back an "integer" number (integers don't have decimal places). This is different from Python where we use "def" for defining a function. Don't worry you'll get used to it.
+The word `int` in front of the function, tells C that `main` gives back an "integer" number ("integers" don't have decimal places). This is different from Python where we use "def" for defining a function. You'll get used to it.
 
-You will see the word `void` in the functions input (in the parenthesis). In C we have to tell the computer that the function *doesn't* take any input, which is what the `void` keyword is for. `void` stands for "nothing". From what I can tell the word `void` exists because C has weird grammer or "syntax" (literrally! New languages (especially interpreted ones) don't need the `void` keyword).
+You will see the word `void` in the functions input (in the parenthesis). In C we have to tell the computer that the function *doesn't* take any input, which is what the `void` keyword is for. `void` stands for "nothing". From what I can tell the word `void` exists thanks to C's weird grammer/syntax (literrally! New languages (especially interpreted ones) don't even have the `void` keyword).
 
 Python automatically assumed you didn't want input if you don't put anything in the parenthesis "()".
 
@@ -64,18 +66,18 @@ int main(void) {
 ```
 The brackets tell us what is "inside of" a function. In Python we had to use TAB to move code over, telling us what code was inside of a function or loop, or if statement.
 
-C doesn't care C doesn't care where you put the curly brackets. You can even write all your code in one line! (As long as our code is inside of the curly brackets)
+C doesn't care where you put the curly brackets. You can even write all your code in one line! (As long the code is inside of the curly brackets)
 
 (example)
 ```c
-int main(void) { /* code goes here (comment) */ }
+int main(void) { /* code goes here */ }
 ```
 
 Programmer comments in C use 2 slashes `//`. Although to make a comment with a start and end we use `/*` to start the comment and we use `*/` to end the comment (as you see in the above code).
 
 Now lets make our own function in C. It will add 2 numbers together. Make the following function under `main`.
 
-(add your code to the following)
+(add the following code)
 ```c
 // ... main function (excluded for shortness of reading)
 
@@ -84,14 +86,28 @@ int add(int a, int b) {
 }
 ```
 
-We take as input two "integers". In C we have to always know the *type*. A *type* tells C how to treat the 0s and 1s. "Is this a number? Is this a Unicode character?". A type also tells C how many bytes of memory the "type" uses. For example the `int` type takes exactly 4 bytes (32 bits) of memory.
+We make a function called `add`. We tell C that the `add` function *returns* (aka gives back) an `int` (integer) by putting `int` in front of `add` (the functions name). We take as input two `int` variables, `a` and `b`.
 
-We tell the computer this is an integer (aka number) by putting the `int` *type* in front of the function's parameters ("parameter" means a variable for a function).
+In C we have to always know the *type*. A *type* tells C how to treat the 0s and 1s. "Is this a number? Is this a Unicode or ASCII character?". A type also tells C how many bytes of memory the "type" uses. For example the `int` type takes exactly 4 bytes (32 bits) of memory.
 
-We tell C that the `add` function *returns* (aka gives back) an `int` by putting `int` in front of the functions name.
+We tell the computer this is an integer (aka number) by putting the `int` *type* in front of the function's `a` and `b` parameters ("parameter" means "variable for a function").
 
 ### Variables
-Inside of `main` we will use the `add` function and store what `add` returns (gives back) in a variable called "result".
+Inside of `main` we will use the `add` function to add 2 numbers together.
+
+(edit your code to the following)
+```c
+int main(void) {
+	// add 2 umbers together
+	add(12, 12)
+}
+
+int add(int a, int b) {
+	return a + b
+}
+```
+
+... and store what `add` returns (gives back) in a variable called "result"...
 
 (edit your code to the following)
 ```c
@@ -104,11 +120,11 @@ int add(int a, int b) {
 }
 ```
 
-The `result` variable has to have a type of `int` as well. C (annoyingly) won't automatically figure out that the `result` variable should be an `int` (making it so that we don't have to tell the `type` (since the `add` function gives back an `int` C could figure this out, and most modern languages will actually do this)).
+You'll notice the `result` variable has a "type" of `int` as well. C won't automatically figure out that the `result` variable should be an `int` (since the `add` function gives back an `int`, C *could* figure it out).
 
 There is one last thing we have to do before we can run this code.
 
-In C, whenever we type a line of code we have to end it with a semicolon `;` <- This is how C tells one line of code apart from another.
+In C, whenever we write a line of code we have to end it with a semicolon `;` <- This is how C tells one line of code apart from another.
 
 (edit your code to the following)
 ```c
@@ -125,20 +141,20 @@ You can't just say "get the next line of code". This is because "the next line o
 
 `int main(void) {\n  int result = add(12, 12);\n  int result2 = add(12, 12);\n}\n\nint add(int a, int b) {\n  return a + b;\n}`
 
-Most "text editors" (Microsoft Word) don't show you the newline symbol `\n`, they just make a newline.
+Most "text editors" (Microsoft Word, Google Docs) don't show you the newline symbol `\n`, they just make a newline.
 
 So yeah, C makes us use a semicolon `;` so it can tell lines of code apart.
 
 Although for functions we don't have to add a semicolon at the end
 
-(example)
+(example, uneccessary semicolon)
 ```c
 int add(int a, int b) {
 	return a + b;
 }; // semicolon not needed!
 ```
 
-...since it is easy to tell when the function ends by just using the ending curly bracket "}". 
+...since it is easy to tell when the function ends by just looking at the ending curly bracket "}". 
 
 Sadly, our code (still!) won't work because C reads code from top to bottom. So when C reads the code inside of the `main` function it doesn't know that the `add` function exists!
 
@@ -178,6 +194,7 @@ int main(void) {
 	int variable = add(12, 12);
 }
 
+// actual function
 int add(int a, int b) {
 	return a + b;
 }
@@ -185,7 +202,7 @@ int add(int a, int b) {
 
 "function hints" are called "prototypes" (don't ask me who came up with that name)
 
-We have to put a semicolon `;` at the end of the function *prototype* because there are no curly brackets in a prototype, just a function name and parameters (function variables).
+We have to put a semicolon `;` at the end of the functions *prototype* because there are no curly brackets in a prototype, just a function name and its parameters (function variables).
 
 # Main returns an int?
 Main returns (gives back) a number right?
@@ -206,12 +223,14 @@ int add(int a, int b) {
 }
 ```
 
-The number `main` returns is an integer `int` (obviously). It represents an "error code". returning `0` means success (aka no error). Returning `1` means there was an error! But since we don't *have to* return an error code we won't bother with it.
+The number `main` returns is an integer `int` (you already know this). The number represents an "error code". Returning `0` means success (aka no error). Returning `1` (or any number besides `0`) means there was an error! But since we don't *have to* return an error code we won't bother with it.
+
+Why does `0` represent no error? Well there are a million things that things could go wrong in a program, but there is only 1 way that the program will succeed, so we just designated `0` as the number for success.
 
 Nothing gets printed to the console! Lets work on that.
 
 # Printing + including
-The `print` function doesn't come builtin in C. So we have to "include" code written by someone else that figures out the specific 0 and 1 instructions to get our computer to print something.
+The `print` function doesn't come builtin in C. So we have to "include" code written by someone else that figures out the specific Operating SYstem instructions to get our computer to print something (an Operating System is a Filesystem program, and a bunch of other code for managing apps (eg. Windows, Android, iOS, Linux)).
 
 (edit your code to include `stdio.h`)
 ```c
@@ -228,17 +247,17 @@ int main(void) {
 
 We use a hash symbol "#" followed by "include". "include" is called a "compiler directive".
 
-Compiler directives after the hash "#" are things the compiler "pre-processes", which means when we *include* this file, the compiler literally replaces `#include <stdio.h>` with the code from the "stdio.h" file.
+Compiler directives after the hash "#" are things the compiler "pre-processes", which means when we *include* this file, the "compiler" program (which will convert our C code into 0s and 1s instructions for the processor) somehow will "include" the code from the "stdio.h" file.
 
-(We will get to what a compiler is later, just know it converts text based written code into `0`s and `1`s instructions for the computers processor)
+We surround the `stdio.h` file with greater than symbol `>` and the less than symbol `<`, because... well the father/original maker of C just designed C that way.
 
 "std" is short for "standard", and "io" is short for "input output", so we get "include standard input output code".
 
-The ".h" means it is a C "header" file. Headers files are normal C code except the code has already been turned into 0s and 1s! (This way the compiler doesn't have to also compile all the *headers* we include into 0s and 1s, and can just "link" the already compiled code with ours in the end). The code in a "header" file is just a bunch of "function hints" to functions that are in the binary (already compiled/converted to 0s and 1s) code file.
+The ".h" means it is a C "header" file. Headers files are normal C code except the code has already been turned into 0s and 1s! (This way the compiler doesn't have to also compile/convert all the *headers* we include into 0s and 1s, and can just "link" the already compiled code with ours in the end). The code in a "header" file is just a bunch of "function hints" to functions that are in the binary (already compiled/converted to 0s and 1s) code file.
 
-Where is the "stdio.h" code in the computer? The "stdio.h" code is used so often it comes builtin with most computers's. The compiler for your computer will ususally set itself up to find the stdio.h file. By default Replit already has a compiler set up for us for converting our C code into 0s and 1s instructions.
+Where is the "stdio.h" code in the computer? The "stdio.h" code is used so often it comes builtin with most computers's. The compiler for your computer will usually set itself up to find the "stdio.h" file. By default Replit already has a compiler set up for us for converting our C code into 0s and 1s instructions.
 
-(You can also include `.c` files by using double quotes around the name of the file like this `#include "mycode.c"`)
+(You can also include regular `.c` files by using double quotes around the name of the file like this `#include "mycode.c"`)
 
 Now that we've included the standard input output *header* code, we can send output to the console using its `printf` function (`printf` meaning "print formatted").
 
@@ -254,7 +273,7 @@ int main(void) {
 }
 ```
 
-You notice we put a comment above the `main` function `// ... irrelevant code` <- this does not mena you should delete the add function that we put above main (or the `#include <stdio.h>` code)! Instead we are just showing you the code that has changed so you can edit your code (rahter than shoing you all the code again, and you having to figure what parts of the code have changed).
+You notice we put a comment above the `main` function `// ... irrelevant code` <- this does not mean you should delete the `add` function that we put above main (or the `#include <stdio.h>` code)! Instead we are just showing you the code that has changed so you can edit your code (rather than showing you all the code again, and you having to figure what parts of the code have changed).
 
 Now run your edited code. You will see "Hello world" get printed.
 
@@ -283,7 +302,7 @@ If you get a whole bunch of errors when running some code... Just scroll up to t
 # Printing variables
 How can we print a variable? In Python it was easy.
 
-(python example)
+(example, python)
 ```py
 name = "Jafly"
 print(name)
@@ -291,16 +310,16 @@ print(name)
 
 To print variables in C using `printf` we have to tell it the *type* of the variable to print.
 
-In `printf` you use the percent symbol `%` followed by a letter for the type. In this case our variable is an `int`, so in `printf` we write `%i`. "%i" stands for the `int` type.
+In a `printf` you use the percent symbol `%` followed by a letter for the type. In this case our variable is an `int`, so in `printf` we write `%i`. "%i" stands for the `int` type.
 
 (edit your `printf` to look like the following)
 ```c
-// ... irrelevant code
+// ... irrelevant code (DON'T delete the add function!)
 
 int main(void) {
 	int result = add(12, 12);
 
-	printf("%i \n", result);
+	printf("the number is: %i \n", result);
 }
 ```
 
@@ -391,9 +410,9 @@ int main(void) {
 }
 ```
 
-The condition for an if statement in C goes inside of parenthesis "()". Here we are saying `if a < b then { /* code */ }`. 
+The condition for an if statement in C goes inside of parenthesis "()". Here we are saying `if a < b then { /* do code */ }`. 
 
-We then print the a and b variables inside of a phrase using conversion specifiers.
+We then print the `a` and `b` variables inside of a phrase using conversion specifiers.
 
 Here are some example of "if logic" in C.
 
@@ -457,8 +476,6 @@ int main(void)
 
 This will infinitely print the phrase "Hello. Yes, its me again... No, I did not bring pizza."
 
-Code written in C runs directly on the processor so it is waaaaay faster than Python. Python code runs inside of an "interpreter" so its much more flexible than C.
-
 If you looked at the code from `stdbool.h` then you would find something like this...
 
 (example)
@@ -469,6 +486,8 @@ If you looked at the code from `stdbool.h` then you would find something like th
 ```
 
 `#define` is a compiler directive as well, so it literally will replace our use of the word `true` with the number value of 1.
+
+Code written in C runs directly on the processor so it is waaaaay faster than Python. Python code runs on an "interpreter" program so its much more flexible, yet slower, than C.
 
 Now lets prevent the above loop from running forever and limit it to 10 rounds of annoying jabber. We will make a variable called counter and increase it every loop.
 
@@ -482,7 +501,7 @@ int main(void)
 	// counter variable
 	int counter = 0;
 
-	// loop only if counter is less than 10
+	// (1) loop only if counter is less than 10
 	while (counter < 10) 
 	{
 		printf("Hello. Yes, its me again... No I did not bring pizza. \n \n");
@@ -493,9 +512,9 @@ int main(void)
 }
 ```
 
-...then check each loop if counter is less than 10. If `counter` becomes bigger than 10 (since we increase it each loop) then the loop will stop running.
+(1) ...then check each loop if counter is less than 10. If `counter` becomes bigger than 10 (since we increase it each loop) then the loop will stop running, and our program will finish running.
 
-Run this code you should see the phrase "Hello. Yes, its me again... No I did not bring pizza." get printed 10 times.
+Run this code. You should see the phrase "Hello. Yes, its me again... No I did not bring pizza." get printed 10 times.
 
 # Syntax sugar
 It turns out that increasing a number is so common we have "syntax sugar" (AKA a shortcut) for doing this!

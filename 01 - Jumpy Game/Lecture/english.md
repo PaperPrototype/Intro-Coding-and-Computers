@@ -9,10 +9,6 @@ We are going to use a "framework" or "library" of code that was made for making 
 
 Make a new Repl and select "PyGame". Name it "Pygame".
 
-Now we recommend you change your codes layout to be "stacked", so that it looks like the following.
-
-![] TODO
-
 We need to get access to the "PyGame" framework in our code. 
 
 (add the following code)
@@ -195,7 +191,7 @@ while Stop == False:
 	# (1) if inside of window
 	if y < window.get_height():
 		# move downwards
-		y += 1
+		y = y + 1
 
 	for myEvent in pygame.event.get():
 		if myEvent.type == pygame.QUIT:
@@ -271,10 +267,9 @@ Basically every loop we will fall faster.
 
 Make a variable called `y_velocity` and we will use it as the number to increase each loop (then we will move our cubes position based on this ever increasing "velocity" number).
 
-(edit your code to the following)
+(edit the code to the following)
 ```py
-x = 10
-y = 10
+# ... irrelevant code
 
 # (1)
 y_velocity = 0
@@ -291,11 +286,13 @@ while Stop == False:
 	# (2) if inside of window
 	if y < window.get_height():
 		# increase movement amount 
-		y_velocity += 2
+		y_velocity = y_velocity + 2
 
 	
 	# (3) move y based on y_velocity every loop
-	y += y_velocity
+	y = y + y_velocity
+
+	# ... irrelevant code
 
 ```
 
@@ -303,7 +300,75 @@ while Stop == False:
 
 (2) If the `y` position is inside of the window, then "increase" the falling velocity.
 
-(3) Move the `y` position based on whatever the `y_velocity` currently is.
+(3) Increase the `y` position based on whatever the `y_velocity` currently is.
+
+Now you should have simple gravity working! And the cube should speed up as it falls, giving the illusion of gravity physics!!
+
+![pygame falling gravity](/Assets/pygame_falling_gravity.gif)
+
+You can make this more obvious by increasing the `y_velocity` at a faster rate.
+
+(example)
+```py
+# ... irrelevant code
+
+	# if inside of window
+	if y < window.get_height():
+		y_velocity = y_velocity + 10 # increasing by 10 (rather then 2) each loop
+
+# ... irrelevant code
+```
+
+... which would look like this.
+
+![pygame falling gravity faster](/Assets/pygame_falling_gravity_faster.gif)
+
+Now, the player will keep falling past the bottom of the window, because even though we stop "increasing the y_velocity" if we the `y` position leaves the window...
+
+```py
+	if y < window.get_height():
+		y_velocity = y_velocity + 10
+```
+
+... we still keep increasing the `y` position by the `y_velocity`...
+
+```py
+	y = y + y_velocity
+```
+
+So we need to add an `else y_velocity = 0` if we have hit the bottom of the window (to stop the y position from increasing thanks to a big y_velocity number)...
+
+(edit your code to the following)
+```py
+	# if above bottom of window
+	if y < window.get_height() - 20:
+		# increase movement amount 
+		y_velocity = y_velocity + 2
+	else:
+		# (1) reset the y_velocity
+		y_velocity = 0
+	
+	# (2) move y based on y_velocity every loop
+	y = y + y_velocity
+```
+
+(1) If we ARE outside of the window, then we reset the y_velocity.
+
+(2) (This code stays the same) Since the `y_velocity` has been reset to `0`, when we apply the `y_velocity` to the `y` position it won't keep moving the cube when we hit th ebottom of the window!
+
+Now run this code using the play button!
+
+Now we can prevent our player from falling past our sight of the window, by adding an offset to the `if inside of window` code. 
+
+(edit your code to the following)
+```py
+# ... irrelevant code
+
+	# if above bottom of window
+	if y < window.get_height() - 20:
+
+# ... irrelevant code
+```
 
 STILL WRITING THIS LECTURE...
 
