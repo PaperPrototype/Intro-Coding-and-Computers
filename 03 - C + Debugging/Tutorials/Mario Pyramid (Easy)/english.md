@@ -136,4 +136,9 @@ Running this code will yield the following.
 ####
 ```
 
-And we made a half pyramid! Yay! If your still unsure of how the code worked at each step of the program you can use Replits debugger! Just add breakspoints (by clicking next to the line of code number), and then open Replits debug tab and click play (make sure you click the play button in the debugger, and not the main play button at the top center).
+And we made a half pyramid! Now, by simply changing the the `size` variable we can make different sized pyramids!
+
+Go ahead and change the `size` variable, then clikc play again, and see the change in your pyramid!
+
+If your still unsure of how the code worked at each step of the program you can use Replits debugger! Just add breakspoints (by clicking next to the line of code number), and then open Replits debug tab and click play (make sure you click the play button in the debugger, and not the main play button at the top center).
+

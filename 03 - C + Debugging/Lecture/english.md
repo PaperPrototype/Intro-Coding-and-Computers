@@ -734,11 +734,11 @@ We hold 2 billion in our `int` variables, but once we add them together we shoul
 
 THis reason for this madness is that an `int` can hold negative numbers. We use the first bit of the 32 bits to represent a negative or positive sign (0 = negative, 1 = positive). So if we have `0001` since the first bit is zero we get `-1`, but if we had `1001` we would get `+1` since the first bit (a 0 or 1) is 1 which represents positive.
 
-When we made the number grow past its max (the max is 2147483648 or 2^31, which is 2 to the 31st power), we make the number grow so big it overrides the first bit that is being used for the sign (positive or negative). So that is why the number we got is negative. 
+When we made the number grow past its max (the max is 2147483648 or 2^31, which is 2 to the 31st power), we make the number grow so big it overrides the first bit that is being used for the sign (positive `+` or negative `-`). So that is why the number we got is negative. 
 
-As to why the number became `294967296`, that is the part of our resulting number that was able to fit into the 32 bits of our integer.
+The reason the number became `294967296` is because 4 billion can't't fit into 31 bits (remember the first bit is used for the sign, so we are left with 31 bits for the number). So `294967296` is the part of 4 billion that managed to fit into our 31 bits.
 
-So, yeah an `int` has limits. We can bypass those limits (to an extent) by using a `long` type which uses 64 bits giving us twice as large of a number.
+So, yeah an `int` has limits. We can bypass those limits (to an extent) by using a `long` type which uses 64 bits (rather than 32 bits) giving us twice as large of a number.
 
 # Debugger!
 If you have a really complex program that is having problems you can use a Debugger, to *de-bug* the code. (get it? *de-bug*? Oh, right you don't get it... The term was coined by a person who found an actual bug in one of Harvards computers! The bug was short-circuiting the computers electircity causing the computer to not work properly!).
