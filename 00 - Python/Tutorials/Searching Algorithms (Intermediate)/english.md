@@ -59,7 +59,7 @@ if found is False:
   print("Item not found")
 ```
 
-Its also important to know that `A` will not be equal to `a`
+Its also important to know that UPPERCASE`A` will not be equal to lowercase `a`
 
 Binary search in Python
 
@@ -73,6 +73,7 @@ itemWeWant = "A"
 # use this to tell if the item has been found
 found = False
 
+# find center item in list
 center = round(len(myList) / 2)
 currentListLen = len(myList)
 
@@ -94,12 +95,14 @@ while found is False:
   elif itemWeWant > currentItem:
     center += round(currentListLen / 2) - 1
     currentListLen = round(currentListLen / 2)
+	# start the loop over AKA "continue"
     continue
 
   # if lesser alphabetically
   elif itemWeWant < currentItem:
     center -= round(currentListLen / 2) - 1
     currentListLen = round(currentListLen / 2)
+	# start the loop over AKA "continue"
     continue
 
 # if nothing was found

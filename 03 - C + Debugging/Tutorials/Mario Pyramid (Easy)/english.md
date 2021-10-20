@@ -97,7 +97,7 @@ To slowly make hashes increase as we move down we need an offset number. We will
 
 int main(void) 
 {
-	iint size = 4;
+	int size = 4;
 	int offset = 0;
 
 	for (int stack = 0; stack < size; stack++)

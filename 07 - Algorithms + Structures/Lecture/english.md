@@ -581,9 +581,9 @@ int main(int argc, char* argv[]) {
 
 (1) We change main to take in its parameters, `argc` = argument count, and `argv` = argument array ("v" stands for vector, which can be another name for array).
 
-(2) We make sure that the user (us) has typed a name after running the program, by doing "if argument count is less than 2" if the number of arguments is less than 2 ("./main Bobby" is 2 arguments) then we print out a message, and stop any other code from running (after the `if`) by using `return`. We also return an error code.
+(2) We make sure that the user (us) has typed a name after running the program, by doing "if argument count is less than 2" (`./main Bobby` is 2 arguments). If we didn't type something after `./main` then we print out a message, and stop any other code from running by `return`ing.
 
-(3) Finally we compare the name supplied in `argv[1]` (we wiil get "Bobby" from `argv[1]` if we ran "./main Bobby") and if the name we supplied matches any of the names in the phonebook, then we print out the phone number for that person.
+(3) Finally we compare the name supplied in `argv[1]` (we will get "Bobby" from `argv[1]` if we ran "./main Bobby") and if the name we supplied matches any of the names in the phonebook, then we print out the phone number for that person.
 
 Now compile this program using make
 
@@ -602,7 +602,7 @@ and run the resulting program using
 Run the program using the play button (nothing will get put after `./main`) so we get...
 
 ```
-Not enough arguments!exit status 1
+Not enough arguments! Exit status 1
 ```
 
 ...in the shell! Its our our error message, and the error code we `return`ed.

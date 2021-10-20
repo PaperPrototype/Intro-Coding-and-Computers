@@ -754,7 +754,7 @@ Now, Replace your code with the following (or make a new repl if you don't want 
 
 int main(void) 
 {
-	iint size = 4;
+	int size = 4;
 	int offset = 0;
 
 	for (int stack = 0; stack < size; stack++)

@@ -267,8 +267,6 @@ There exists many "allocators" that have different algorithms and methods of "bo
 We are going to use `malloc` which is a standard allocator that all Operatring System's have (Windows, MacOS, iOS, Android, and Linux are operating systems).
 
 You can make your own allocator! But we're not gonna do that (at least not in this course).
-
-
  
 
 # Globals
