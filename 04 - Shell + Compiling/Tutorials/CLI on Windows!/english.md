@@ -9,7 +9,7 @@ To "list" the files in your current folder use the `dir` command
 dir
 ```
 
-To display the current directory you are in use the `cd` command (different from Unix `cd`)
+To display the current directory you are in use the `cd` command (different from `cd` on Replit (Replit uses Linux in the background))
 
 (command)
 ```
