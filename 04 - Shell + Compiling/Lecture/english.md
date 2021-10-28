@@ -223,9 +223,9 @@ Your computers processor, often called the Central Processing Unit ("CPU" for sh
 
 So how has our code, that we have been writing in C, gone from written ASCII text to binary instructions in a "program file" for the Processor?
 
-Coding using 0s and 1s would be pretty terrible so humans made a "program" that took word based instructions called "Assembly Instructions" and converted them into binary (0s and 1s) Machine Code instructions for your CPU. 
+Coding using 0s and 1s would be pretty terrible so humans made a "program" that took word based instructions called "Assembly Instructions" and converted them into binary (0s and 1s) Machine Code instructions!
 
-Assembly processor instructions for a program that prints "Hello world" might look like this.
+Assembly instructions for a program that prints "Hello world" might look like this.
 
 ```x86_64 gcc 11.2
 .LC0:
@@ -241,7 +241,7 @@ main:
         ret
 ```
 
-"assembly" isn't exactly easy to code with. Also assembly instructions tend to be specific for each type of CPU, so an app written for one processor wouldn't work on another processor.
+"assembly" isn't exactly easy to code with either! Also assembly instructions tend to be specific for each type of CPU, so x86_64 assembly instructions (Intel and AMD processors) wouldn't work for a processor that uses ARM assembly instructions (the iPhone uses an ARM based processor).
 
 To solve this problem we made even easier programming languages that look like this.
 
@@ -255,13 +255,13 @@ int main(void)
 }
 ```
 
-...and those "middle level" programming languages then get converted into assembly (by a compiler), depending on the type of processor!
+...and those "middle level" programming languages then get converted into assembly (by a compiler) depending on the type of processor you are targeting/wanting.
 
-We then have "higher level" scripting languages like Python, which get interpreted by programs.
+We then have "high level" scripting languages like Python, which get interpreted by interpreter programs written in C.
 
 The process of converting our C code into Assembly Instruction, and then converting Assembly Instructions into Machine Code is called "compiling". 
 
-Programs called "Compilers" convert these ASCII test instructions into assembly instructions (this process is refered to as "compiling").
+Programs called "Compilers" convert C ASCII code into assembly instructions. Assemblers take assembly instructions, and convert them into 0s and 1s. A "linker" takes all the 0s and 1s files from our C code, and combines/links them into a single program file.
 
 Using the shell window we will use a compiler called "clang" to compile our C code inside of the "main.c" file.
 
@@ -324,11 +324,11 @@ Run the following command to run the "main" program (or you could change the nam
 
 The "." refers to the current folder we are in. The "/main" refers to the "main" program file.
 
-There is something that the `make` program takes care of for us called "linking" where you take two machine code (0s and 1s) files and "link" them together into one program file.
+The `make` program takes care of "linking" for us. In linking you take two machine code (0s and 1s) files and "link" them together into one program file.
 
-At some point you might "include" some file where the code is not available and all you have access to is a compiled machine code (0s and 1s) version! Then what do you do?
+At some point you might "include" a header file where the code is not available and all you have access to is a compiled machine code (0s and 1s) version! Then what do you do?
 
-In this case `make` will automatically use the link feature `-l` to "link" that machine code with your program code.
+In this case `make` will automatically use the link feature `-l` to "link" that machine code with your programs resulting machine code (0s and 1s).
 
 Remember the assembly code we showed?
 
@@ -347,9 +347,9 @@ main:
         ret
 ```
 
-You'll notice the assembly code `call printf`, this literally "calls" (AKA "uses") the `printf` function... but where is `printf`?!
+You'll notice the assembly code `call printf`, this literally calls (AKA "uses") the `printf` function... but where is `printf`?!
 
-`printf` is inside of the `stdio` machine code code! So the "linker" (which is part of the "compiler"), will combine the `stdio` code with our (compiled) `main.c` machine code, and give us a runnable program file.
+`printf` is inside of the `stdio` machine code file! So the "linker" (which usually comes with the compiler program), will combine the `stdio` code with our (compiled) `main.c` machine code, and give us a runnable program file, that has access to the code from `stdio.h`.
 
 # CLI explained
 So how did this all work? When we type `cd` (and some arguments, like the name of a folder to move into) and hit enter, the *shell* looks for a program called `cd`.

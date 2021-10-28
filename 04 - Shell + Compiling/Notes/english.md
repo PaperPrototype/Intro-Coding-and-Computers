@@ -5,17 +5,23 @@ Compiler
 - a program that converts text-based-code into assembly instructions.
 - compilers explained well https://www.calleluks.com/the-four-stages-of-compiling-a-c-program/
 
+Assembler
+- a program that takes ASCII text assembly instructions and converts it into 0s and 1s assembly, called "machine code".
+
+Linker
+- a program that takes our written machine code (0s and 1s assembly) and combines it with some other persons machine code.
+
 Assembly
-- text based versio  of machine code (0s and 1s) instructions
+- text based version of machine code (0s and 1s) instructions
 
 Machine Code
-- 0s and 1s CPU instructions + data
+- 0s and 1s CPU instructions + data (variables, functions)
 
 CLI
 - Command Line Interface
 
 Argument
-- Any words/input typed into a CLI after the name of a program like `./main`
+- Any words/input typed into a CLI after the name of a program `./main`
 
 ## CLI stuff
 Compile: `make myProgram`
