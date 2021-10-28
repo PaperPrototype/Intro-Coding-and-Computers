@@ -8,7 +8,7 @@ Some cool languages you might want to check out are:
 - C# (like Java, except more modern)
 - Lua
 
-There are many, many, programming languages. Java was very big, and it is still used for the Java edition of Minecraft.
+There are many, many, programming languages. Java (was) very big, and it is still used for the Java edition of Minecraft!
 
 Most likely you'll want to learn how your favorite game was made. 
 
@@ -25,7 +25,7 @@ Maybe your super hyped and you want to make your own game engine (like me)!
 
 I plan on making a course on making a simple game engine. Mainly getting 3D "stuff" on a screen, and how you can "rotate" stuff + some physics.
 
-For now I recommend the following courses
+For now I recommend the following courses made by GameDev.tv
 
 - Unity
 	- make 2D games https://www.udemy.com/course/unitycourse/
@@ -39,4 +39,4 @@ I own all the above recommended courses. Although I have only finished part of t
 
 Since you already have strong foundation in C, a simple intruduction to Unity is all you need to make some games. C# is considerable easier than C, and Unity is not that difficult to learn. Although the above Unity courses will teach you "how to use Unity", and not *how Unity works*, which I found frustrating cause Unity is actually pretty simple to use once you know how it works.
 
-On a side note, Unreal Engine is probably harder to learn since you have to use C++ for programming.
+On a side note, Unreal Engine is probably harder to learn since you have to use C++ for programming, but you know C and C++ is just C with more features.

@@ -3,9 +3,9 @@ So far (without) realizing it all the code we have written and all the variables
 # The Stack
 There is a section of memory called the "stack". 
 
-![] stack memory
+![memory stack](/Assets/memory_stack.png)
 
-Whenever we make a variable, we have "stacked" it onto this piece of memory.
+Whenever we make a variable, we stack it onto this piece of memory.
 
 (example)
 ```c
@@ -15,9 +15,9 @@ int main(void)
 }
 ```
 
-![] my_variable "stacked"
+![memory stack 1](/Assets/memory_stack_1.png)
 
-And when we make another variable it also gets "pushed onto" the stack.
+And when we make another variable it also gets "pushed" (stacked) onto the stack.
 
 (example, 2 variables)
 ```c
@@ -29,9 +29,17 @@ int main(void)
 }
 ```
 
-![] 2 variables on the stack
+![memory stack 2](/Assets/memory_stack_2.png)
 
-When we are done with our variables they get "popped off" the stack.
+Although what is really being held in memory are the *values* (numbers) in the 2 variables...
+
+![memory stack values](/Assets/memory_stack_values.png)
+
+And we are just using the word `variable` and `random_number` to refer to those values/0s and 1s.
+
+The stack "grows upwards". The stack is not infinite! You can get a "stack overflow" error if you use up to much memory!... Although it would take a lot of memory to actually achieve a stack overflow error.
+
+When we are done with our variables they get removed or "popped off" the stack.
 
 (example)
 ```c
@@ -42,25 +50,29 @@ int main(void)
 } // pop `12` and `34` off of the stack
 ```
 
-When our code enters a curly bracket `{` we "push" some variables onto the stack. When we find the ending curly bracket `}` we "pop" those variables off the stack. This is called a variables "scope", and it is important to know when a variable exists and when it doesn't (which is what the curly brackets are for).
+![memory stack cricket noises](/Assets/memory_stack_cricket_noises.png) 
 
-When you call a function, its variables will get added to the stack, but once the function is done, the variables get poppped off again.
+When our code enters a curly bracket `{` we "push" variables onto the stack. 
 
-```c
-int add(int a, int b) {
-	return a + b;
-}
-
-int main(void) {
+(example)
+```
+int main(void) 
+{ 	// push variables onto the stack
 	int variable = 12;
-	int random_number = 34;
-
-	// push `add` and its variables onto the stack
-	int result = add(12, 34);
-}	// pop `add` off the stack
+}
 ```
 
-![]
+When we find the ending curly bracket `}` we "pop" those variables off the stack. 
+
+(example)
+```
+int main(void) 
+{
+	int variable = 12;
+} 	// pop variables off the stack
+```
+
+This is called a variables "scope". "scope" tells us when a variable exists (on the stack)and when it doesn't (which is what the curly brackets are for!).
 
 You can even see evidence of the "stack" in assembly as "pop" and "push" instructions!
 
@@ -69,42 +81,63 @@ You can even see evidence of the "stack" in assembly as "pop" and "push" instruc
 .LC0:
         .string "Hello world"
 main:
-        push    rbp
+        push    rbp    <- here
         mov     rbp, rsp
         mov     edi, OFFSET FLAT:.LC0
         mov     eax, 0
         call    printf
         mov     eax, 0
-        pop     rbp
+        pop     rbp    <- here 
         ret
 ```
 
-# Stack variables
-The size of something on the stack must always be known, at compile time (when we compile the code) and before the program runs.
+When you call/use a function, it's variables and instructions get pushed to the stack, and once the function is done, it's instructions and variables get taken off of the stack!
 
-Remember this code?
 ```c
-char* names[] = {"Charlie", "Bill"};
+int add(int a, int b) {
+	return a + b;
+}
+
+int main(void) 
+{
+	// push `add` onto the stack
+	add(12, 34);
+	// pop `add` off the stack
+}
 ```
-The reason we couldn't do `char**`...
+
+# Stack variables + Array confusion
+The size of a variable on the stack must always be known, at compile time (when we compile the code into a program file of 0s and 1s) and before the program ever runs.
+
+When making an array you may get confused as to the difference between using the curly brackets `[]` and using an address `char*`
+
+(example)
 ```c
-char** names = {"Charlie", "Bill"};
+char name[] = "Billy";
+char* name = "Billy";
 ```
-...is because the size of an array that will be on the stack, must be known when we compile! And when we do...
+
+The size of an array that will be on the stack, must be known when we compile! And when we do...
+
 ```c
-char* names[] = {"Charlie", "Bill"};
+char name[] = "Billy";
+// or
+char* name = "Billy";
 ```
+
 ...C automatically changes this to...
+
 ```c
-char* names[2] = {"Charlie", "Bill"};
+char name[5] = "Billy";
 ```
-...which is an array where the exact size is known, at compile time. We also know the size of each array of char's, since we literrally wrote out each name (and C can figure out the size).
+
+...which is an array of char's where the exact size is known, at compile time!
+
+You'll notice there are only 4 letters in "Billy" but remember that C automatically adds the null terminating character `\0` for us!
 
 This would look something like this on the stack.
 
-TODO ![] names address array on the stack, also each name array
-
-So we had to do `char* names[]` which makes an array `names[]` of addresses `char*`. The square brackets allow C to automatically fill in the size to be 3 `names[3]`.
+TODO ![] name array on the stack
 
 # Recursion
 Imagine the following code.
@@ -117,19 +150,19 @@ int add_until_3(int number)
 }
 ```
 
-Whenever we use this function, our code will say "hey, get me a copy of the `add_until_3` function,put it on the stack, then "execute" (AKA "do") the function". 
+Whenever we use this function, our code will say "hey, get me a copy of the `add_until_3` function, put it on the stack, then "execute" (AKA "do") the function.
 
 When we start "doing" the function, we find "oh, hey, get me another copy of the `add_until_3` function, put it on the stack, then execute it".
 
-![]
+![memory stack recursion](/Assets/memory_stack_recursion.png)
 
-Each new copy of this function will get a larger `number` variable, since we increase the number variable `add_until_3(number + 1)` of the next `add_until_3` function.
+Each new copy of this function will get a larger `number` variable, since we increase the number `(number + 1)` that we give the next `add_until_3` function.
 
-But this function will endlessly make us stack copies of it! And we would get what is called a "stack overflow" error! Because we literrally used up all the memory on the stack!
+This will endlessly stack copies of the `add_until_3` function! Over and over! And we would get a "stack overflow" error! Because we literrally used up all the memory on the stack!
 
-A newer (and really cool programming language called "go" will automatically make a new larger stack, copy everything onto the new stack, and continue with that new stack, thus preventing a stck overflow!
+A side note: A newer (and really cool) programming language called "go" will automatically make a new (larger) stack, copy everything onto the new stack, (remove the old stack) and continue with that new stack! Thus preventing a stack overflow!
 
-We can put a simple `if` at the beginning of the function to stop it from making more copies of itself once its `number` variable reaches a certain point.
+To prevent a stack overflow, we can put a simple `if` condition, before making a new `add_until_3` function, to stop us from making more copies of `add_until_3`.
 
 (example)
 ```c
@@ -144,9 +177,11 @@ int add_until_3(int number)
 }
 ```
 
-We basically are saying "if, this copy of the function, the number 3 has been increased to be larger than or equal to 3, return and give back whatever the `number` variable is currently". By `return`ing we stop ourselves from putting another copy of the `add_until_3` function on the stack.
+We basically are saying "if, this copy of the function, the `number` variable is larger than or equal to 3, return (exit) and give back whatever the `number` variable is currently".
 
-We need to "pass" the result from the final `add_until_3` function back through all of the copies of `add_until_3`!
+Remember that anything after a `return` will not run, so we we stop ourselves from calling/pushing a new `add_until_3` function onto the stack.
+
+There is one problem still. We need to get access to whatever the next `add_until_3` function will give back!
 
 (example)
 ```c
@@ -162,7 +197,9 @@ int add_until_3(int number)
 }
 ```
 
-(1) We "pass" the resulting value "back through" all the copies of `add_until_3` by `return`ing the number that the next `add_until_3` function will give us back (since the the function returns an `int` as you can see `int add_until_3`).
+(1) We "pass" the resulting value "back through" all the copies of `add_until_3` as they get removed from the stack we pass the number it gives back, by `return`ing the number.
+
+TODO LEFT OFF HERE:...
 
 Make a new repl. Select the C language. Name the repl "recursion".
 
@@ -264,14 +301,13 @@ Heap memory has to be kept track of, like where memory is available, and where t
 
 There exists many "allocators" that have different algorithms and methods of "book keeping", which means keeping track of where memory is available and where it isn't.
 
-We are going to use `malloc` which is a standard allocator that all Operatring System's have (Windows, MacOS, iOS, Android, and Linux are operating systems).
+We are going to use `malloc` which is a standard allocator that all Operating System's have (Windows, MacOS, iOS, Android, and Linux are operating systems).
 
-You can make your own allocator! But we're not gonna do that (at least not in this course).
- 
+You can even make your own allocator! But we are NOT gonna do that.
 
 # Globals
 
-# where are the Global's + Functions? in our progrAM?
+# where are the Global's + Functions? in our program?
 
 STILL WRITING THIS LECTURE...
 
@@ -289,10 +325,11 @@ Stack vs Heap
 Variables that are an address
 	- Pointers (already covered in week 2)
 
-Defining custom types and structures (grouping two types together "Person{name, age}")
-- heap allocate
+- structures + addresses
+- heap allocate, dynamic memory allocation
+
 - pass copies of an address around
+
 - memcpy is the same a `=`
 - memcpy a struct (or anything)
 
-Dynamic memory allocation

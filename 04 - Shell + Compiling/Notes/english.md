@@ -1,36 +1,34 @@
 Interpreter
-- a program that reads through text based code and interprets the code, translating the code into actual work
+- a program that reads through text-based-code and interprets it and translates the code into actual work.
 
 Compiler
-- a program that 
+- a program that converts text-based-code into assembly instructions.
 - compilers explained well https://www.calleluks.com/the-four-stages-of-compiling-a-c-program/
 
+Assembly
+- text based versio  of machine code (0s and 1s) instructions
 
-The history of Graphical User Interfaces https://www.youtube.com/watch?v=pQocN_c2uLI
-
-https://apple.stackexchange.com/questions/388622/zsh-zprofile-zshrc-zlogin-what-goes-where
-
-https://www.extremetech.com/computing/104661-how-steve-jobs-stole-the-mouse-and-gui-video
+Machine Code
+- 0s and 1s CPU instructions + data
 
 CLI
 - Command Line Interface
 
-## Common command
-Compile and run
-`make myProgram`
-`./myProgram`
+Argument
+- Any words/input typed into a CLI after the name of a program like `./main`
 
-Change Directory
-`cd`
+## CLI stuff
+Compile: `make myProgram`
+Run: `./myProgram`
 
-Clear shell
-`ctrl` + `L`
+Change Directory: `cd`
 
-Cancel (Stop) program
-`ctrl` + `C`
+Clear shell: `ctrl` + `L`
+
+Cancel (Stop) program: `ctrl` + `C`
 
 ## How the Shell works
-A thorough and deep explanation of a Shell (kindof advanced)
+A thorough and deep explanation of a Shell (kind of advanced)
 https://medium.com/@yuriquezada.dev/what-happens-when-you-type-ls-l-c-in-the-shell-ccd520a45eff
 
 How the "profile" of the shell works in Mac OSX.
