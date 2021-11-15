@@ -1,12 +1,12 @@
 Interpreter
-- a program that reads through text-based-code and interprets it and translates the code into actual work.
+- a program that reads through text-based-code and interprets it and "does" what the code says.
 
 Compiler
-- a program that converts text-based-code into assembly instructions.
+- a program that converts text-based-code into assembly instructions for a processor.
 - compilers explained well https://www.calleluks.com/the-four-stages-of-compiling-a-c-program/
 
 Assembler
-- a program that takes ASCII text assembly instructions and converts it into 0s and 1s assembly, called "machine code".
+- a program that takes text readable assembly instructions and converts it into 0s and 1s assembly, called "machine code".
 
 Linker
 - a program that takes our written machine code (0s and 1s assembly) and combines it with some other persons machine code.
@@ -20,12 +20,13 @@ Machine Code
 CLI
 - Command Line Interface
 
-Argument
+Command Line Argument
 - Any words/input typed into a CLI after the name of a program `./main`
+- Example: `./main hello world!`  ”hello” and “world” are arguments
 
 ## CLI stuff
-Compile: `make myProgram`
-Run: `./myProgram`
+Compile command: `make myProgram`
+Run command: `./myProgram`
 
 Change Directory: `cd`
 

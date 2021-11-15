@@ -15,7 +15,7 @@ Open `array.c` using Replits files window and write the following code.
 
 ```c
 int main(void) {
-  int integers[] = { 2, 3, 6, 1 };
+	int integers[] = { 2, 3, 6, 1 };
 }
 ```
 
@@ -47,9 +47,8 @@ Change your code to the below to print out the second item in the list by using 
 #include <stdio.h>
 
 int main(void) {
-  int integers[] = { 2, 3, 6, 1 };
-
-  printf("%i\n", integers[1]);
+	int integers[] = { 2, 3, 6, 1 };
+	printf("%i\n", integers[1]);
 }
 ```
 
@@ -81,12 +80,12 @@ Change the code to print out the size of the `int` type. (Make sure to add a `\n
 #include <stdio.h>
 
 int main(void) {
-  int integers[] = { 2, 3, 6, 1 };
+	int integers[] = { 2, 3, 6, 1 };
 
-  // printing size of an int
-  printf("sizeof int: %lu\n", sizeof(int));
+	// printing size of an int
+	printf("sizeof int: %lu\n", sizeof(int));
 
-  printf("%i\n", integers[1]);
+	printf("%i\n", integers[1]);
 }
 ```
 
@@ -101,11 +100,11 @@ To access the first element we don't need an offset so its just `[0]`
 #include <stdio.h>
 
 int main(void) {
-  int integers[] = { 2, 3, 6, 1 };
+	int integers[] = { 2, 3, 6, 1 };
 
-  printf("sizeof int: %lu\n", sizeof(int));
+	printf("sizeof int: %lu\n", sizeof(int));
 
-  printf("%i", integers[0]);
+	printf("%i", integers[0]);
 }
 ```
 
@@ -450,10 +449,10 @@ Change the code to the following.
 
 int main(void) 
 {
-    // void pointer
+	// void pointer
 	void* hello = "Hello";
 
-    //             convert to a char pointer "char*"
+	//             convert to a char pointer "char*"
 	printf("%s \n", (char*) hello);
 }
 ```
@@ -616,3 +615,8 @@ Now we can use `my_address` to access the same number that `my_number` holds.
 In memory this would look something like this.
 
 ![memory address from variable](/Assets/memory_address_from_variable.png)
+
+See you next section!
+
+Ideas TODO
+- When iterating over the word "hello" consider making a "compare" function that compares each character in 2 words, and returns (gives back) false if a chracter doesn't match
