@@ -25,8 +25,9 @@ Command Line Argument
 - Example: `./main hello world!`  ”hello” and “world” are arguments
 
 ## CLI stuff
-Compile command: `make myProgram`
-Run command: `./myProgram`
+Compile: `make myProgram`
+
+Run: `./myProgram`
 
 Change Directory: `cd`
 
