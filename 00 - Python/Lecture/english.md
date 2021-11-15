@@ -204,7 +204,7 @@ Make sure to always put comments in your code so that you can remember what it i
 
 It also a good idea to use comments so that other programmers can understand the code we've written! Imagie trying to read code that someone else wrote, but it has no comments! The funny part is, most likely, this will happen while trying to read some *you* wrote!
 
-From now on in this course, there will be plenty of comments to help you understand certain pieces of code (on top of the botched explainations surrounding them!).
+From now on in this course, there will be plenty of comments to help you understand certain pieces of code (on top of the botched explanations surrounding them!).
 
 # Variables
 In coding you can use code-words to "hold onto" information. Delete all your code then write the following code (write the code yourself, **don't** copy paste, coding requires typing skill, and the only way to get that is to practice).
