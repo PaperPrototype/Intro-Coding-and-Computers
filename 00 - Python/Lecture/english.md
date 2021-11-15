@@ -198,9 +198,13 @@ We can put a comment by putting a hash `#` in front of the comment.
 # this is a comment
 ```
 
-Programmer comments get ignored by the code. It is a good idea to use comments to tell other programmers what our code is doing.
+Programmer comments get ignored by the code (so they won't *do* anything). 
 
-You will see comments in a lot of the code we make from now on.
+Make sure to always put comments in your code so that you can remember what it is doing! Once you figure out what your code is doing, write it down! Otherwise you'll fiund that code later on, and have to try and remember what it was that the code did!
+
+It also a good idea to use comments so that other programmers can understand the code we've written! Imagie trying to read code that someone else wrote, but it has no comments! The funny part is, most likely, this will happen while trying to read some *you* wrote!
+
+From now on in this course, there will be plenty of comments to help you understand certain pieces of code (on top of the botched explainations surrounding them!).
 
 # Variables
 In coding you can use code-words to "hold onto" information. Delete all your code then write the following code (write the code yourself, **don't** copy paste, coding requires typing skill, and the only way to get that is to practice).
