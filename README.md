@@ -1,4 +1,6 @@
 # Intro to Coding and Computers
+The course is available on our prototype courses website here https://thawing-brook-50577.herokuapp.com/course/2
+
 An intro to coding and how computers work
 
 For beginners and intermediate programmers seeking a deeper understanding of how computers work as well as how to code, AKA Computer Science!
