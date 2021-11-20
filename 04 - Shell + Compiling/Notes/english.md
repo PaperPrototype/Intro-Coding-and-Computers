@@ -1,6 +1,3 @@
-Interpreter
-- a program that reads through text-based-code and interprets it and "does" what the code says.
-
 Compiler
 - a program that converts text-based-code into assembly instructions for a processor.
 - compilers explained well https://www.calleluks.com/the-four-stages-of-compiling-a-c-program/

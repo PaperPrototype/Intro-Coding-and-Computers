@@ -90,7 +90,7 @@ If the user (you) types just a word instead of a number, then `scanf` will proba
 
 Go ahead and try typing random things into your program to see what `scanf` will do!
 
-# Do while and Scope and Return?
+# Do while, Scope, and Return?
 There may be an instance where you want the user to type something specific, like a "yes" or "no", but they type gibberish instead. How can we solve that?
 
 Make a new file using touch.
@@ -245,7 +245,7 @@ Make sure to use the tab key to put space in front of the code in the "do" block
 
 Now at the end of the do block, add a "while" condition.
 
-(change your code ot the following)
+(change your code to the following)
 ```c
 #include <stdio.h>
 #include <string.h>
@@ -401,9 +401,9 @@ The `yes` function needs to return (give back) `true` if the user put "yes" and 
 
 At the end of the `yes` function (after the user cooperates and puts "yes" or "no") we can return `true` or `false` based on the the answer variable.
 
-(add the following to your code)
+(edit the `yes` function)
 ```c
-// ... irrelevant code (main function)...
+// ... snip ...
 
 bool yes()
 {
@@ -428,7 +428,7 @@ bool yes()
 }
 ```
 
-I put the comment `// ... irrelevant code (main function)...`, to show that I am focusing on the `yes` function, that does NOT mean you should delete the "main" function! Instead you should just edit what is already inside of the `yes` function!
+I put the comment `// ... snip ...`, to show that I am focusing on the `yes` function, that does NOT mean you should delete the "main" function! Instead you should just edit what is already inside of the `yes` function!
 
 Now we can use the `yes` function whenever we want, and ask the user for a `yes` or `no`!
 
@@ -454,10 +454,10 @@ int main(void)
 	}
 }
 
-// ... irrelevant code (yes function)...
+// ... snip ...
 ```
 
-Again you'll see I used `// ... irrelevant code (yes function)...` to show that I am focusing on the `main` function, I did NOT delete `yes()`! I am simply focusing on the relevant parts of the code, without having to show you everything (plus you already know what the `yes` function looks like/does, so theres no need to repeat myself!)
+Again you'll see I used `// ... snip ...` to show that I am focusing on the `main` function, I did NOT delete `yes()`! I am simply focusing on the relevant parts of the code, without having to show you everything (plus you already know what the `yes` function looks like/does, so there is no need to repeat myself!)
 
 This is often called "abstraction", which is where we write some code to do something for us once, and then don't have to worry about how it works, but just use it later.
 
@@ -478,11 +478,11 @@ int main(void)
 
 	if (yes())
 	{
-		printf("Thank goodness!")
+		printf("That's kinda... weird");
 	}
 	else
 	{
-		printf("That's kinda... weird");
+		printf("Thank goodness!")
 	}
 }
 
@@ -506,3 +506,5 @@ and run it using
 ```
 
 And thats it for today!
+
+PS: the error I left for you to solve is that I didn't add a semicolon `;` at the end of `printf("Thank goodness!")`

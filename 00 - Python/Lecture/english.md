@@ -1,11 +1,15 @@
 # Instructions
-In real life we give people instructions on how to do something. In computers we do the same thing using "code".
+In real life we might write a recipe for someone to make a cake. We give people instructions on how to do something. In computers its pretty much the same thing just with something called "code". 
 
-One of the hardest problems (and often most time consuming problems) is searching.
+We are going to explain some concepts about coding, and then for the rest of the lecture we are going to write real coding, in a real programming language!
 
-Lets write a searching "algorithm" using "instructions", or in programmer lingo "*code*". This algorithm can't accidentally miss anything though! So we have to tell it to look at each item one by one.
+One of the hardest problems (and often most time consuming problems) is searching. 
 
-Code actually looks a lot like english, although a bit more... robotic. Here is some fake code. In it we are searching for a baseball.
+We are going to make a searching "algorithm" using "instructions", or in programmer lingo *code*. This *algorithm* can't accidentally miss anything though!
+
+Code actually looks a lot like english, although a bit more... robotic. Here is some english pseudo code (writing pseudo code is a popular way to think through how to write real life code!). 
+
+In this pseudo code we are searching for a baseball.
 
 (pseudo code (fake concept code))
 ```
@@ -17,11 +21,9 @@ Else if current item not baseball
     start over
 ```
 
-This code assumes we have every item in one long line. It goes through each item until it finds a baseball.
+This code assumes we have every item in one long line. It goes through each item until it finds the baseball.
 
-But what if the item we are looking for isn't in our "one long line" of items! If this was real computer code, then the computer would probably crash! Or the computer would endlessly keep searching.
-
-We call this a "bug". "Bugs" in computer programming are surprisingly common.
+But what if the item we are looking for isn't there! If this was real computer code, then the code might cause our computer to crash! Or the code might would endlessly keep searching more (non-existent) stuff, until something broke. This is what we call a "bug". The infamous "BUG". "Bugs" in computer programming are surprisingly common, and can be very frustrating.
 
 To fix this "bug" we have to change the code to expect the possibility of the item not being there.
 
@@ -37,17 +39,23 @@ Else if current item not baseball
     start over
 ```
 
-Now we can expect this possibility and avoid this dumb problem. At this point one thing is obvious, *computers are dumb*. They are not intuitive like humans. They do EXACTLY what we tell them, they'll just keep going until something breaks. This is often what happens when you get an "error" on your computer (and unless the programmer programmed a possibility then it will actually stop working).
+*Now* we expect this possibility.
 
-We call a method of solving a problem an "algorithm". This algorithm is pretty inefficient though. Say we had 1000 items to search through. In the worst case scenario it will take us 999 steps before we find what we are looking for!
+One thing is obvious *computers are dumb*. They are not intuitive like humans. They do EXACTLY what we tell them, they'll just keep going stupidly until they melt themselves, or something breaks. As "coders" and "programmers" we have to think about these possibilities, and this is often what happens when you get an "error" on your computer! Unless the programmer of say Windows or MacOS expeccted a possibily then... well you get an error.
 
-Its so common to calculate an algorithms "efficiency" that we have a "notation" (way of expressing something) called "Big O Notation". For Big O Notation you write an O rather than say the whole darn sentence "in the worst case scenario". So for our search algorithm we can write "O999". But its kinda hard to tell where the O is so we usually put the number of steps inside of parenthesis, like this "O(999)". Ahhhh, much better.
+We call a method of solving a problem an "algorithm". This searching *algorithm* is pretty inefficient though. 
 
-This algorithm of ours is actually pretty old. As such it has a name (like most old things) called "linear search". Linear meaning "straight line", cause we lined em up and searched em... one by one. 
+Say we had 1000 items to search through. In the worst case scenario it will take us 999 steps before we find what we are looking for!
 
-It also has to do with math and the fact that for every 1000 items, the code has to "start over" (and move to the next item) 1000 times (in the worst case scenario), so a "linear" math relationship.
+In fact it is so common to calculate an algorithms "efficiency" that we have a "notation" (way of expressing something) called "Big O Notation". For Big O Notation you write an O rather than say the whole darn sentence "in the worst case scenario". So for our search algorithm we can write "O999". But its kinda hard to tell where the O is so we usually put the number of steps inside of parenthesis, like this "O(999)"... *satisfied sigh* thats better.
 
-It turns out there's a way to search things WAY faster than using linear search. But first we have to sort each item alphabetically (yes that in itself is slow, so you could argue that it isn't really much faster). Once sorted we can start searching from the center item and move right or left depending on where the item was alphabetically (this is so much faster).
+This algorithm of ours is actually pretty old (someone else a long time ago came up with it). As such it has a name (like most old things) called "linear search". Linear meaning "straight line", cause we lined em up and searched em... one by one. 
+
+It also has to do with Math and the fact that for every 1000 items, the code has to "start over" (and move to the next item) about 1000 times (in the worst case scenario), so a "linear" math relationship.
+
+It turns out there's a way to search things WAY faster than using "linear search".
+
+Although for it to work we have to first sort each item alphabetically (yes that in itself is slow, so you could argue that it isn't really much faster). Once sorted we can start searching from the center item and move right or left depending on where the item was alphabetically (this is so much faster).
 
 For the sake of simplicity we are now searching through a list of (sorted) contacts for a contact named "Johnny". We start at the center.
 

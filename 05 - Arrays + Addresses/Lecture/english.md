@@ -1,15 +1,17 @@
-In C we don't have the idea of "lists" instead we have "arrays".
+In C we don't have the idea of "lists" instead we have "arrays". 
+
+Arrays are different than Python lists because once we set their size, we can't change that size!
 
 Make a new repl. Select the C programming language. Call the project "arrays".
 
-In the shell make a new file called `array.c` using the `touch`.
+In the shell make a new file called `array.c` using `touch`.
 
 (command)
 ```
 touch array.c
 ```
 
-Remove the "main.c" file using the `rm main.c` command (in the shell) since we won't be using `main.c`.
+Remove the "main.c" file using the `rm main.c` command (since we won't be using `main.c`).
 
 Open `array.c` using Replits files window and write the following code.
 
@@ -19,15 +21,17 @@ int main(void) {
 }
 ```
 
-We put square brackets `[]` next to the variables name to show that it is an "array" variable.
+When making a variable that holds onto an array we put square brackets `[]` next to the variables name to show that it is an "array" variable.
 
 We then "fill" the array by putting curly brackets `{}` around all the items, and we separate each item using a comma `,`.
 
-Our integers variable is an address to the first item in the array. You should think of addresses as being a ***number to a specific byte***. A "byte" is 8 bits (a `0` or `1`).
+Any variable is really an address to the first byte of the `0`s and `1`s (A "byte" is 8 bits (a bit is a single `0` or `1`)). You should think of addresses as being a ***number to a specific byte*** in memory.
+
+You can visualize addresses and bytes like this.
 
 ![memory continous linear](/Assets/memory_continuous_linear.png)
 
-Although we often represent memory as a grid since that is more space efficient.
+Although we often represent memory as a grid since that helps it is more space efficient in your computer (and helps it fit on the page).
 
 ![memory grid](/Assets/memory_grid.png)
 
@@ -35,44 +39,61 @@ Even though we think of memory as a "grid", addresses are still a number to a sp
 
 ![memory wrap around](/Assets/memory_wrap_around.png)
 
-The `integers` variable in the above code is an *address* to the first item in our array.
+Now the only reason we have to have "types" (like `int` and `char`) is that we have to know how many bytes after the first byte are part of the variable!
+
+An array is no different, you hold an address to the first byte of memory!
+
+The `integers` variable in the above code is an *address* to the first byte in our array. This looks like the following in memory.
 
 ![array ints](/Assets/array_ints.png)
 
-To access an item in an array we "go to" the first item in the array + an offset.
+To access an item in an array we "go to" the first item in the array + an offset. THe "type" tells us how many bytes to move per offset to access sequential items.
 
-Change your code to the below to print out the second item in the list by using an offset of 1 (Make sure to add a `\n` and `#include stdio.h>`)
+Change your code to the below code to print out the second item in the list by using an offset of 1 (Make sure to add a `\n` and `#include stdio.h>`)
 
+(change your code to the following)
 ```c
 #include <stdio.h>
 
 int main(void) {
 	int integers[] = { 2, 3, 6, 1 };
+
 	printf("%i\n", integers[1]);
 }
 ```
 
-The "offset" is what goes into the square brackets `[]`.
-
-When we offset using the square brackets `[]` the number of bytes (blocks) we offset depend on the *size of the type*. Currently we are using an `int` type which is 4 bytes (4 blocks) so the above code offsets by `1 * 4` bytes to get the second item in the array.
+The "offset" is what goes into the square brackets `[]`. Using the square brackets makes us "go to" the address with an offset, plus the size of the "type". Currently we are using an `int` type which is 4 bytes (4 blocks) so the above code offsets by `1 * 4` bytes to get the second item in the array.
 
 ![array ints offsetting](/Assets/array_ints_offsetting.png)
 
-Compile "array.c" using make.
+To get the first item we can simply "go to" the address with an offset of `0`.
+
+(example)
+```c
+#include <stdio.h>
+
+int main(void) {
+	int integers[] = { 2, 3, 6, 1 };
+
+	printf("%i", integers[0]);
+}
+```
+
+Compile "array.c" using make in the shell window.
 
 (command)
 ```
 make array
 ```
 
-Then run it using.
+Then run it using the shell.
 
 (command)
 ```
 ./array
 ```
 
-You can test the size of a type by using the builtin `sizeof` function.
+You can test the size of a type in C by using the builtin `sizeof` function.
 
 Change the code to print out the size of the `int` type. (Make sure to add a `\n`)
 
@@ -89,36 +110,30 @@ int main(void) {
 }
 ```
 
-The size of a type is measured using a unsigned (non negative, no "sign") `long` type, so when printing the size of a type we use an unsigned long specifier `%lu`.
+The size of a type is measured using a unsigned (non negative, no "sign") `long` type, so when printing the size of a type we use the unsigned long specifier `%lu`.
 
-Compile the code with `make array`, then run it using `./array`
-
-To access the first element we don't need an offset so its just `[0]`
-
-(example)
-```c
-#include <stdio.h>
-
-int main(void) {
-	int integers[] = { 2, 3, 6, 1 };
-
-	printf("sizeof int: %lu\n", sizeof(int));
-
-	printf("%i", integers[0]);
-}
-```
+Compile the code with `make array`, then run it again using `./array`
 
 # Strings
-It turns out that *strings* (words and phrases enclosed in double quotes `""`) are an array. More specifically an array of `char`'s. 
+It turns out that *strings* (words and phrases enclosed in double quotes `"like this"`) are an array! More specifically an array of `char` types. 
 
-Make a new file.
+Make a new file uisng `touch`.
 
+(command)
 ```
 touch string.c
 ```
 
-Write the following code into "string.c".
+Use `ls` to see the new file.
 
+(command)
+```
+ls
+```
+
+Write the following code into "string.c" (open string.c using the files window).
+
+(change the code to the following)
 ```c
 #include <stdio.h>
 
@@ -131,7 +146,7 @@ int main(void) {
 
 The `char` type is litterally an ASCII type.
 
-In the array we enclose each individual letter with a single quote `'`. C requires that we use a single quote `'` and not a double quote `"` to represent a single char.
+In the array we enclose each individual letter with a single quote `'`. C requires that we use a single quote `'` and not a double quote `"` to represent a single `char` type.
 
 Run make to compile the "string.c" code
 
@@ -140,16 +155,16 @@ Run make to compile the "string.c" code
 make string
 ```
 
-Then run it using 
+Then run it using the shell.
 
 (command)
 ```
 ./string
 ```
 
-you will see "Hello" get printed.
+You will see "Hello" get printed.
 
-We use the string conversion specifier `%s` since a string in C is actually an array of chars. Making strings is so common that nobody writes strings using array syntax! Instead we have special syntax for strings, which lets us use double quotes `"Help"` rather than the clunky array syntax `{ 'H', 'e', 'l', 'p' }`.
+We use the string conversion specifier `%s` since a string in C is actually an array of `char`acters. Making a string (an array of `char`s) is so common that nobody writes strings using array syntax! Instead we have been using the special syntax for strings,double quotes `"like this"` rather than the clunky array syntax `{ 't', 'h', 'i', 's' }`.
 
 Change your code to use the double quotes `""` syntax.
 
@@ -166,158 +181,128 @@ int main(void)
 
 Now compile and run the above code using the shell (see above commands).
 
-You may ask yourself "how does printf know when to stop offsetting in a char array (aka string)"? Every "string" in C by default ends with a special *null terminating character*, which look like this `\0`.
+You may ask yourself "how does printf know when to stop offsetting in a char array (string)"? Every "string" in C by default ends with a special *null terminating character*, which look like this `\0`.
 
-Even though we didn't add a `\0` to the end of our string, C added it for us.
-
-# Addresses
-We can make a variable that holds an "address number" to a block of memory. We call variables that hold a memory address "pointers". An address in C is actually an "unsigned" `long` type. ("unsigned" means the first bit is NOT used for a positive or negative sign, so the number can only be positive).
-
-Change your code to the following.
-
-```c
-#include <stdio.h>
-
-int main(void) 
-{
-	// array, address
-	char* hello = "Hello";
-
-	printf("%s \n", hello);
-}
-```
-
-We change the "hello" variable to be a *pointer* by putting a star after the type, namely `char*`. The star symbol `*` just signifies it is a "pointer" (aka *address* variable). An address variable is just a number telling us which "byte" some piece of data starts out at. Sometimes this is the beginning of an array, and sometimes it is just a single item.
-
-We will use the `hello` pointer to access the first character in the word "Hello" (and ignore the rest) by "going to" the address in the `hello` pointer/address (since an address points to the beginning of an array).
-
-To "go to" the address of our `hello` pointer (and access the first item) we tell C to "go to" that address by putting a star symbol `*` in front of the `hello` variable, like this `*hello`.
-
-Change your code to the following.
-
-```c
-#include <stdio.h>
-
-int main(void) 
-{
-	char* hello = "Hello";
-
-	// access what is at the address
-	printf("%c \n", *hello);
-}
-```
-
-This is called "de-referencing" a pointer ("accessing" what is at a pointers address (since "pointer" is just another name for a variable the holds an address and not the data itself)).
-
-The above code also changes to use the conversion specifier for `char` type `%c` (in `printf`), rather than the string conversion specifer `%s`.
-
-This code will print out the letter "H" (obviously). Compile the above code with make, then run it (using the shell).
-
-Using the square brackets `[]` is a useful shortcut for offsetting from an address/pointer. 
-
-When we make an array we have to know the type of the array for C to be able to offset correctly. Hence `char*` is an address, which offsets by 1 byte when we use the square brackets iterator `[]`. If we had an array of `int` we would offset by 4 bytes to get the next item.
-
-![array ints offsetting](/Assets/array_ints_offsetting.png)
-
-C won't stop us from offsetting outside of the array though! If you do happen to offset outside of an array and access memory that is not part of the array then you will probably get a `null` value.
-
-"null" means we are accessing memory that has not been set to anything. You can still read that memory in C, but we can't know what the 0s and 1s will be. Often this is called a "garbage value" when accessing unkown 0s and 1s.
-
-Try offsetting outside of the "Hello" array. Change your code to the following.
-
-```c
-#include <stdio.h>
-
-int main(void) 
-{
-	char* hello = "Hello";
-
-	// access what is at the address
-	printf("%c \n", hello[6]);
-}
-```
-Compile this code with make. Then run it using the shell.
-
-This will print out `\0`, which as your remember, is something C adds to our string for us so that it can know when to stop offsetting in memory. Although we want to break things and get a null value!
-
-(edit your code to the following)
-```c
-#include <stdio.h>
-
-int main(void) 
-{
-	char* hello = "Hello";
-
-	// access what is at the address
-	printf("%c \n", hello[100]);
-}
-```
-
-Compile this code with `make string` then run it using `./string`. You will see "null" get printed (or possibly another type of error called a "segmentation fault", often shortened to "seg fault").
+Even though we didn't add a (backslash zero) `\0` to the end of our string, C added it for us.
 
 # Loops + Arrays
-We can also use a `for` loop on an array. This is pretty cool. Lets iterate over the word hello and print out each character, one by one.
+Now we finally get to know *why* a `for` loop is useful!
 
-We use a simple for loop to go over each item.
+(for loop, example)
+```c
+// loop 5 times
+for (int num = 0; num < 5; num++) {
 
-(change your code to the following)
+	printf("%i", num);
+}
+```
+
+We can use a `for` loop to offset in an array and print all the items!
+
+The above for loop is equivalent to the following `while` loop.
+
+```c
+// make "num" variable
+int num = 0;
+
+// loop 5 times
+while (num < 5) {
+
+	printf("%i", num);
+
+	// increase "num" variable by 1
+	num++;
+}
+```
+
+The `for` loop does the same thing as the `while` loop, it just puts it all in one line `for (int num = 0; num < 5; num++)`.
+
+(change your string.c code to the following)
 ```c
 #include <stdio.h>
 
 int main(void) 
 {
-	char* hello = "Hello";
+	char hello[] = "Hello";
 
-	for (int index = 0; index < 5; index++)
+	// loop 5 times
+	for (int num = 0; num < 5; num++)
 	{
-		printf("%c", hello[index]);
+		// print single item in hello array at offset
+		printf("%c", hello[num]);
 	}
 
 	printf("\n");
 }
 ```
 
-The `index` variable is the number that gets increased each loop. We loop a total of 5 times since there is only 5 letters. Its very useful to start counting at zero since the memory offsets start at the first item.
+The above code prints out each character (one by one) in the hello array.
 
-Inside the loop we use the `index` variable to access each item in the array, and print it (we use the `%c` conversion specifier).
+The `num` variable is the number that gets increased each loop. We loop a total of 5 times, and print each item in the `hello` array. Its very useful that a `for` loop starts counting at zero, since doing so will make the memory offsets start at the first item!
 
-Having to manually set the number of times to loop (which we will currently "loop" 5 times) is kind of bad.
+Compile the above code using `make string`, and run it using `./string`.
 
-So instead we can check "while the current character isn't `\0`" since C automatically puts a null character at the end. The sentence translates to the following example code.
+# Design
+Having to manually set the number of times to loop (which is currently 5) is kind of a bad design. Say we accidentally set the number to 10 instead of 5! At some point you might start getting "buffer overflow" errors. Basically we have "overflowed" and accessed memory outside of the "buffer"/chunk of memeory we are allowed to access.
+
+Instead of manually setting the loop to loop 5 times we can check "while the current character isn't `\0`" (since C automatically puts a null termintating character `\0` at the end).
 
 (example)
 ```c
-while hello[index] != '\0`
+// while current character isn't '\0'
+while hello[num] != '\0'
 ```
 
 Which will stop the loop once it finds the null character `\0`.
 
-If we convert this to a "for loop" (which is the same as a `while` loop) in our code it would look like the following.
-
 (change your code to the following)
 ```c
 #include <stdio.h>
 
 int main(void) 
 {
-	char* hello = "Hello";
+	char hello[] = "Hello";
 
-	for (int index = 0; hello[index] != '\0'; index++)
+	int num = 0;
+	while (hello[num] != '\0')
 	{
-		printf("%c", hello[index]);
+		printf("%c", hello[num]);
+
+		// increase number
+		num++;
 	}
 
 	printf("\n");
 }
 ```
 
+Challenge time! Try to change the above `while` loop to a `for` loop! The answer is below if you get stuck, but try and do it without looking at the answer!
+
+(answer)
+```c
+#include <stdio.h>
+
+int main(void) 
+{
+	char hello[] = "Hello";
+
+	for (int num = 0; hello[num] != '\0'; num++)
+	{
+		printf("%c", hello[num]);
+	}
+
+	printf("\n");
+}
+```
+
+# Design 2
 We could also "count" the number of characters in our string and then use the number we get from that to loop a certain number of times.
 
-It turns out there is a function that does this for us called `strlen`, which stands for "string length" (aka the number of characters in the array/string).
+It turns out there is a function that does this for us called `strlen`, which stands for "string length" (aka the number of characters in an array/string).
 
 To get access to `strlen` we have to include `string.h`.
 
-(change your code to the following)
+(edit your code accordingly)
 ```c
 // include string.h
 #include <string.h>
@@ -325,18 +310,18 @@ To get access to `strlen` we have to include `string.h`.
 
 int main(void) 
 {
-	char* hello = "Hello";
+	char hello[] = "Hello";
 
-	for (int index = 0; hello[index] != '\0'; index++)
+	for (int num = 0; hello[num] != '\0'; num++)
 	{
-		printf("%c", hello[index]);
+		printf("%c", hello[num]);
 	}
 
 	printf("\n");
 }
 ```
 
-Now we can replace the condition (aka check for true or false) in the loop with `index < strlen(hello)`.
+Now we can replace the condition (aka check for true or false) in the loop with `while num < strlen(hello)`.
 
 (change your code to the following)
 ```c
@@ -345,22 +330,23 @@ Now we can replace the condition (aka check for true or false) in the loop with 
 
 int main(void) 
 {
-	char* hello = "Hello";
+	char hello[] = "Hello";
 
-	for (int index = 0; index < strlen(hello); index++)
+	// loop "strlen" times
+	for (int num = 0; num < strlen(hello); num++)
 	{
-		printf("%c", hello[index]);
+		printf("%c", hello[num]);
 	}
 
 	printf("\n");
 }
 ```
 
-Which says `while index number < length of(hello)`.
+Which says "loop string length amount of times".
 
-Counting all the stuff inside of the `hello` variable, every single loop, when we ask `while index number < length of(hello)`, is note very efficient!
+Every time we loop we use the `strlen` function to check "if num is less than length of the string"...but, the strlen function has to count all the stuff inside of the `hello` variable, every single loop, just to do that check! This is not efficient!
 
-We can quickly fix the terrible design of this by making a variable that will hold onto the "length" number from `strlen`, then use that variable each loop.
+We can quickly fix the terrible design of this by making a variable that will hold onto the "length" number from `strlen`, then use that variable in the check each loop.
 
 (change your code to the following)
 ```c
@@ -369,23 +355,44 @@ We can quickly fix the terrible design of this by making a variable that will ho
 
 int main(void) 
 {
-	char* hello = "Hello";
+	char hello[] = "Hello";
 
 	// create length variable
 	int length = strlen(hello);
 
-	for (int index = 0; index < length; index++)
+	for (int num = 0; num < length; num++)
 	{
-		printf("%c", hello[index]);
+		printf("%c", hello[num]);
 	}
 
 	printf("\n");
 }
 ```
 
-Tada! Now we can replace the word "Hello" (from the `hello` variable) with anything we want! And the loop will "loop" the correct number of times!
+Tada! Now go ahead an change the word inside of the `hello` array! And the loop will automatically loop the correct number of times!
 
-Compile and run this code using the shell.
+(change your code to the following (or wrtie a sentence of your own))
+```c
+#include <string.h>
+#include <stdio.h>
+
+int main(void) 
+{
+	char hello[] = "Helloooo everyyybody! I ammmm soooo smart, running with these massive golden scissors in my hands!";
+
+	// create length variable
+	int length = strlen(hello);
+
+	for (int num = 0; num < length; num++)
+	{
+		printf("%c", hello[num]);
+	}
+
+	printf("\n");
+}
+```
+
+Compile and run this code using the shell!
 
 We can make sure other programmers don't accidentally change the `length` variable (once we "set" it) by making it a "constant".
 
@@ -396,7 +403,7 @@ We can make sure other programmers don't accidentally change the `length` variab
 
 int main(void) 
 {
-	char* hello = "Hello";
+	char hello[] = "Hello";
 
 	// make variable a "const"
 	const int length = strlen(hello);
@@ -421,9 +428,9 @@ Also it is a tradition to uppercase a `const` variable to help programmers know 
 
 int main(void) 
 {
-	char* hello = "Hello";
+	char hello[] = "Hello";
 
-	// make variable a "const"
+	// traditional const uppercasing
 	const int LENGTH = strlen(hello);
 
 	for (int index = 0; index < LENGTH; index++)
@@ -435,9 +442,46 @@ int main(void)
 }
 ```
 
-Compile and run this code using the shell.
+Compile this code usign `make string` and run it using `./string` using the shell.
 
 Now stare at this marvelous beautiful... pointless, program.
+
+# Addresses
+Array variables are an address to the first byte of memory in the array. But what if we only want an address to a single item? In that case we can use a star symbol `*` in front of the variable.
+
+(example)
+```c
+#include <stdio.h>
+
+int main(void) {
+	int *my_address = 12;
+}
+```
+
+In this case we have made a variable that holds an address to 12.
+
+# Swap
+TODO
+- swap the numbers in 2 variables
+
+# Get Address (TODO combine knowledge form thsi into "swap" code)
+A normal variable also has an address in memory. We can get the address of a non-pointer variable by using the ampersan symbol `&` in front.
+
+(example)
+```c
+int my_number = 12;
+
+void* my_address = &my_number;
+```
+
+In the above code we make a normal variable called `my_number`. Then we make a pointer (aka address variable) called `my_address` and set it to the address of `my_number`.
+
+Now we can use `my_address` to access the same number that `my_number` holds.
+
+In memory this would look something like this.
+
+![memory address from variable](/Assets/memory_address_from_variable.png)
+
 
 # Void
 Since a pointer (aka variable with an address) simply points to the first byte of an array (or just the first byte to an `int`) we don't have to tell C the type! We can just make a plain old address to the first byte (of the data)!
@@ -598,25 +642,4 @@ Any code after a `return` keyword won't get run. So we use "return" inside of th
 
 Compile the above code (or your variation), and see if it prints the error message when you don't put "Mikey".
 
-# Get Address
-A normal variable also has an address in memory. We can get the address of a non-pointer variable by using the ampersan symbol `&` in front.
-
-(example)
-```c
-int my_number = 12;
-
-void* my_address = &my_number;
-```
-
-In the above code we make a normal variable called `my_number`. Then we make a pointer (aka address variable) called `my_address` and set it to the address of `my_number`.
-
-Now we can use `my_address` to access the same number that `my_number` holds.
-
-In memory this would look something like this.
-
-![memory address from variable](/Assets/memory_address_from_variable.png)
-
 See you next section!
-
-Ideas TODO
-- When iterating over the word "hello" consider making a "compare" function that compares each character in 2 words, and returns (gives back) false if a chracter doesn't match
