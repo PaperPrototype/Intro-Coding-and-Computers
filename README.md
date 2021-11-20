@@ -1,6 +1,13 @@
 # Intro to Coding and Computers
-An intro to coding and how computers work
+THIS COURSE IS STILL A WORK IN PROGRESS. I will remove this message once it is finished. Feel free to contribute to the tutorials sections.
 
+Every other wednesday I am teaching it (in person) to a group of 4 students, to find typos, and improve explanations from their feedback.
+
+This course is expected to be finished by May/June 2022.
+
+A temprorary prototype website for our courses can be foound here https://thawing-brook-50577.herokuapp.com/course/2
+
+# Who is this course for?
 For beginners and intermediate programmers seeking a deeper understanding of how computers work as well as how to code, AKA Computer Science!
 
 If you have ANY issues or something doesn't make sense we would LOVE IT if you told us here -> https://github.com/PaperPrototype/Intro-to-Coding/issues/new
@@ -8,8 +15,6 @@ If you have ANY issues or something doesn't make sense we would LOVE IT if you t
 Link to Discord (chat) for getting help -> https://discord.gg/QhqTE4t2tR
 
 To download Discord -> https://discord.com/download
-
-THIS COURSE IS STILL A WORK IN PROGRESS. I will remove this message once it is finished. Feel free to add to the tutorials. 
 
 # Navigation
 1. Open the folder called "00 - Python" (On mobile you have to click "view code").
