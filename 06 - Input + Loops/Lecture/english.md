@@ -1,3 +1,138 @@
+TODO LEFT OFF HERE
+
+# Getting Input from Main
+The "main" function actually gets special input parameters (function variables) from the shell! So far we haven't used this functionality!
+
+Make a new file using the touch command called "input.c"
+
+```
+touch input.c
+```
+
+Write the following code into "input.c".
+
+```c
+#include <stdio.h>
+
+int main(int argc, const char * argv[])
+{
+	
+}
+```
+
+What is `const char * argv[]`? 
+
+Well the first part `const` is a keyword, it is telling us that we are not allowed to change the variable's value (stuff inside the variable) and that it is "constant".
+
+The rest of it `char * argv[]` is an array `argv[]` of addresses `char *`. Another way we could write it could be to use two stars `char ** argv` without the square brackets.
+
+(change your code to use two stars)
+```c
+#include <stdio.h>
+
+int main(int argc, const char ** argv)
+{
+	
+}
+```
+
+If we visualize an array of addresses (the addresses each going to a separate string/word/phrase), in memory it would look something like this.
+
+![argv in c](/Assets/argv.png)
+
+The word `argv` stands for "argument vector" (honestly this name is just a tradition).
+
+Lets use `argv` for a simple a program that gets our name, then prints it out along with a "hello" message.
+
+Change your code to the following.
+
+```c
+#include <stdio.h>
+
+int main(int argc, const char * argv[])
+{
+	printf("Hello, %s! \n", argv[1]);
+}
+```
+
+The above code gets the second string from the array of addresses (in `argv`).
+
+Compile this code using `make` and run it using `./input` along with an argument, like the following command.
+
+(command)
+```
+./input Mikey
+```
+
+It runs the input program with an argument (the word "Mikey"). You should see the following get printed.
+
+(shell)
+```
+~/arrays$ ./input Mikey
+Hello, Mikey!
+~/arrays$ 
+```
+
+If you happen to run the "input" program without any "arguments" afterward you will see the word "null" get printed instead! 
+
+Go ahead and try running input without any arguments.
+
+(command)
+```
+./input
+```
+
+We are trying to access memory from our `argv` array that has not been set to anything (because we didn't type in "Mikey" after "./input"). 
+
+In C "null" usually means we are accessing memory that has not been set to anything.
+
+You might ask "what is the string at `argv[0]`"? Well if you change your code to access the first string in `argv[0]` then you will get "./input", which was litterally the command for running the `input` program!
+
+# Out of bounds
+In C we have to manually check how long our array is so that we don't accidentally offset outside of the array. We call this the "bounds" of an array.
+
+Thankfully one of the parameters (inputs) from main is called `argc` which stands for "argument count", `argc` is an int, which tells us how many "arguemnts" the program got (includeing the command to run the program). Individual "arguements" are determined by a space separating each ("./hello how are you" would equal 4 arguments).
+
+You can use `argc` to prevent yourself from offsetting outside of the `argv` arrays bounds.
+
+Change our program to detect if it was run with an argument by using `argc`'s number.
+
+(possible answer, DO NOT COPY PASTE)
+```c
+#include <stdio.h>
+
+int main(int argc, const char * argv[])
+{
+	// if argument count is less than 2
+	if (argc < 2) 
+	{
+		// print an error
+		printf("Error, expected input! `./input <argument>` \n");
+
+		// return an error code of 1 and don't run any of the code after this
+		return 1;
+	}
+
+	// else
+	// print a great message
+	printf("Hello, %s!", argv[1]);
+
+	// return no error (0 means no error)
+	return 0;
+
+	// anything after "return" will not get run
+	printf("This code will never run!");
+}
+```
+
+In the above code we print an error message and "return" an error code of 1, if no argument was given (the command to run the program "./input" counts as an argument, so we check `if argument_count less than 2`).
+
+Any code after a `return` keyword won't get run. So we use "return" inside of the `if (argc < 2)` to prevent us from running the code afterwards (the greating message "Hello, Mikey", since "Mikey" woudln't exist).
+
+Compile the above code (or your variation), and see if it prints the error message when you don't put "Mikey".
+
+TODO PASTED ABOVE FROM PREVIOUS LECTURES
+
 # Get Address
 A normal variable also has an address in memory. We can get the address of a non-pointer variable by using the ampersan symbol `&` in front.
 
@@ -391,7 +526,7 @@ bool yes()
 }
 ```
 
-We aslo delete the `printf` at the end of the "yes" function.
+We also delete the `printf` at the end of the "yes" function.
 
 The `yes` function returns (aka gives back) a `bool` type ("true" or "false"), so we put `bool` in front of the functions name.
 

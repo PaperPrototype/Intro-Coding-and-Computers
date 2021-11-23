@@ -371,7 +371,7 @@ int main(void)
 
 Tada! Now go ahead an change the word inside of the `hello` array! And the loop will automatically loop the correct number of times!
 
-(change your code to the following (or wrtie a sentence of your own))
+(change your code to the following (or write a sentence of your own in the `hello` array))
 ```c
 #include <string.h>
 #include <stdio.h>
@@ -447,199 +447,315 @@ Compile this code usign `make string` and run it using `./string` using the shel
 Now stare at this marvelous beautiful... pointless, program.
 
 # Addresses
-Array variables are an address to the first byte of memory in the array. But what if we only want an address to a single item? In that case we can use a star symbol `*` in front of the variable.
+Array variables are an address to the first byte of memory in an array. But what if we only want an address to a single item? In that case we can use a star symbol `*` after the type.
 
 (example)
 ```c
 #include <stdio.h>
 
 int main(void) {
-	int *my_address = 12;
+	int* my_address = 12;
 }
 ```
 
-In this case we have made a variable that holds an address to 12.
+In this case we have made a variable of the type `int*` that holds an *address* to 12.
 
 # Swap
-TODO
-- swap the numbers in 2 variables
+Make a new file using touch called "swap.c".
 
-# Get Address (TODO combine knowledge form thsi into "swap" code)
-A normal variable also has an address in memory. We can get the address of a non-pointer variable by using the ampersan symbol `&` in front.
-
-(example)
-```c
-int my_number = 12;
-
-void* my_address = &my_number;
+(command)
+```
+touch swap.c
 ```
 
-In the above code we make a normal variable called `my_number`. Then we make a pointer (aka address variable) called `my_address` and set it to the address of `my_number`.
+Open it using the files window.
 
-Now we can use `my_address` to access the same number that `my_number` holds.
+Lets say we have to variables `a` and `b`. We want to swap the numbers they hold.
 
-In memory this would look something like this.
+(change your code to the following)
+```c
+#include <stdio.h>
 
-![memory address from variable](/Assets/memory_address_from_variable.png)
+int main(void) {
+	int a = 100;
+	int b = 3;
 
+	printf("a is: %i, b is: %i \n", a, b);
+}
+```
+
+Ok, so we have 2 variables, and we print them out. Lets imagine each variable is a cup holding its contents.
+
+![swap cups](/Assets/swap_cups.png)
+
+To be able to swap the "water" (stuff inside `a` and `b`) we need a second cup called "c".
+
+![swap cups need c](/Assets/swap_cups_need_c.png)
+
+Then we can put the stuff from `a` into `c`.
+
+![swap cups a into c](/Assets/swap_cups_a_into_c.png)
+
+Then we can pour `b` into `a`.
+
+![swap cups b into a](/Assets/swap_cups_b_into_a.png)
+
+And finally we can put `c` into `b`.
+
+![swap cups final](/Assets/swap_cups_c_into_b.png)
+
+Yay! We hav e now successfully swapped the contents of `a` and `b`.
+
+Lets turn this into real code.
+
+(make a `void` function under main called "swap" (`void` means it doesn't give anything back))
+```c
+#include <stdio.h>
+
+int main(void) {
+	int a = 100;
+	int b = 3;
+
+	printf("a is: %i, b is: %i \n", a, b);
+}
+
+// swap function
+void swap(int* swap1, int* swap2) {
+	// code for swapping
+}
+```
+
+`swap` takes in 2 addresses (of the type `int`) code named `swap1` and `swap2`. We haven't filled in the code for `swap` just yet. But lets pretend to use it in the "main" function.
+
+(change your code to the following)
+```c
+#include <stdio.h>
+
+int main(void) {
+	int a = 100;
+	int b = 3;
+
+	printf("a is: %i, b is: %i \n", a, b);
+
+	// use swap
+	swap(a, b);
+
+	// print out "a" and "b" after swap
+	printf("a is: %i, b is: %i \n", a, b);
+}
+
+void swap(int* swap1, int* swap2) {
+	// code for swapping
+}
+```
+
+We use `swap` in main, and give it our two variables `a` and `b`, then print out `a` and `b` after calling (using) the `swap` function... except there is a problem. `a` and `b` are *NOT* address variables (the type `int*` is an address to an integer), and the `swap` function is expecting 2 `int*`.
+
+To get an address out of a normal variable we have to put the ampersan symbol `&` in front of it. This changes our code to the following.
+
+(edit your code to the following)
+```c
+#include <stdio.h>
+
+int main(void) {
+	int a = 100;
+	int b = 3;
+
+	printf("a is: %i, b is: %i \n", a, b);
+
+	// get addresses of "a" and "b"
+	swap(&a, &b);
+
+	printf("a is: %i, b is: %i \n", a, b);
+}
+
+// ... snip ...
+```
+
+(I put the comment `// ... snip ...` this does NOT mean you should delete the `swap` function, I am just showing the relevant parts of the code that actually need to change)
+
+Now we are giving `swap` what it is expecting, 2 addresses to 2 numbers.
+
+One last thing is that we need to put a function hint for `swap` above `main`.
+
+(add a function hint above main)
+```c
+#include <stdio.h>
+
+void swap(int* swap1, int* swap2);
+
+int main(void) {
+	int a = 100;
+	int b = 3;
+
+	printf("a is: %i, b is: %i \n", a, b);
+
+	// get addresses of "a" and "b"
+	swap(&a, &b);
+
+	printf("a is: %i, b is: %i \n", a, b);
+}
+
+// ... snip ...
+```
+
+Now lets focus on the `swap` function.
+
+(the currently empty swap function)
+```c
+// ... snip ...
+
+void swap(int* swap1, int* swap2) {
+	// code for swapping
+}
+```
+
+`swap` has 2 address variables to 2 numbers. You can visualize the addresses like this.
+
+![swap function](/Assets/swap_function.png)
+
+You'll notice how the adea of an address is like an arrow "pointing" to something in memory. In C we call a "address variables" "pointers". 
+
+I have neglected using the correct terminology so far to make it easier on you, but if you start talking to a C developer and say "I have this address variable..." he might laugh at you (or worse have no idea what you are talking about). From now on we're going to use the word "pointer" instead of "address variable".
+
+(remember an address is really just a number representing a memory offset to the first byte (8 bits) of something)
+
+Now we need a 3rd variable that can act as the 3rd cup. We will call it "c" (you see where I'm going with this?).
+
+(edit the code inside of swap)
+```c
+// ... snip ...
+
+void swap(int* swap1, int* swap2) {
+	int c;
+}
+```
+
+You can visualize this as the following.
+
+![swap function need c](/Assets/swap_function_need_c.png)
+
+Currently the variable `c` is not set to anything so it is `null` (null means the 0s and 1s are probably some random 0s and 1s "garbage value").
+
+From the cups example we need to set `c` to a copy of what is at the `swap1` variable (which is the `a` variables *value*).
+
+![swap function c copy a](/Assets/swap_function_c_copy_a.png)
+
+To "go to" the address of `swap1` (a "pointer") we put a star symbol `*` in front of it.
+
+(edit swap to the following)
+```c
+// ... snip ...
+
+void swap(int* swap1, int* swap2) {
+	int c = *swap1;
+}
+```
+
+This puts a copy of `a` into `c` (much like the cups example).
+
+"Going to" the address of a pointer is called "de-referencing" because a pointer gives us a "reference" to something, rather than a copy (a normal variable always gets a copy of it and NOT a reference).
+
+From the cups example the next step is to set `a` (which is at `swap1`) to a copy of what is at the `swap2` variable (which is the `b` variables *value*).
+
+![](/Assets/swap_function_a_copy_b.png)
+
+(edit swap to the following)
+```c
+// ... snip ...
+
+void swap(int* swap1, int* swap2) {
+	int c = *swap1;
+	*swap1 = *swap2;
+}
+```
+
+And now we can set `b` to a copy of `c`.
+
+![swap function b copy c](/Assets/swap_function_b_copy_c.png)
+
+And we have successfully swapped `a` and `b` in the `main` function!
+
+```c
+// .. snip ..
+
+int main(void) {
+	int a = 100;
+	int b = 3;
+	
+	printf("a is: %i, b is: %i \n", a, b);
+
+	swap(&a, &b);
+	
+	printf("a is: %i, b is: %i \n", a, b);
+}
+
+// .. snip ..
+```
+
+Here is the final code.
+
+```c
+#include <stdio.h>
+
+// function hint (prototype)
+void swap(int* swap1, int* swap2);
+
+int main(void) {
+	int a = 100;
+	int b = 3;
+	
+	printf("a is: %i, b is: %i \n", a, b);
+
+	swap(&a, &b);
+	
+	printf("a is: %i, b is: %i \n", a, b);
+}
+
+// swap 2 numbers
+void swap(int* swap1, int* swap2) {
+	int c = *swap1;
+	*swap1 = *swap2;
+	*swap2 = c;
+}
+```
+
+Run this code using `make swap`, and run it using `./swap`.
 
 # Void
-Since a pointer (aka variable with an address) simply points to the first byte of an array (or just the first byte to an `int`) we don't have to tell C the type! We can just make a plain old address to the first byte (of the data)!
+Since a pointer simply points to the first byte of memory we don't have to tell C the type! We can just make a plain old address to the first byte of the value!
 
-Change the code to the following.
+Make a new file using touch called "pointer.c".
 
+(command)
+```
+touch pointer.c
+```
+
+Open pointer.c using the files window.
+
+(change the code in pointer.c to the following)
 ```c
 #include <stdio.h>
 
 int main(void) 
 {
-	// void pointer
+	// "void" pointer
 	void* hello = "Hello";
 
-	//             convert to a char pointer "char*"
+	//             convert to a char array using "char*"
 	printf("%s \n", (char*) hello);
 }
 ```
 
-This code makes a plain old pointer (address) without needing to know the type! C's "grammer" requires that we put `void` in front of the variables name.
+This code makes a plain old pointer (address) without needing to know the type! You will also notice that making an array variable using two brackets `myArray[] = "Hello"` is (in some ways) no different than just using a pointer `void* myArray = "Hello"` since internally both are just pointers (address variables) to the first byte of the array.
 
-C has to know how to treat the 0s and 1s of something at an address to "use" the value. In the code above we tell C the "type" at the address by *casting* (treating the 0s and 1s) to a `char` address, hence `(char*)`.
+If your thinking just doing `* myAddress = "Hello"` to make a pointer (address variable) then your intuition is right. Even if that makes sense it wouldn't be valid C code, since C's "grammer" requires that we put `void` to represent "no type".
 
-If we skipped *casting* the address then C would offset by 1 byte (by default) to access items in the array when we use the square brackets `[]` (in this case a single `char` is 1 byte anyways, so it would still work fine).
+C has to know how to treat the 0s and 1s of something at an address to "use" the value. In the code above we tell C the "type" at the address by *casting* (hinting / converting) the pointer to a `char*` pointer, hence `(char*)`.
 
-Types also tell us how many bytes *after the first byte* are *part of* the value at the address. This is necessary since an address just points to the first byte. 
+If we skipped *casting* pointer to a `char*` then C would offset by 1 byte (by default) when we use the square brackets `[]` (by default C offsets by 1 byte (8 bits) since that is the smallest individual piece of memory we can access. In this case a `char` uses 1 byte anyways, so it would still work fine).
 
-Types also help later when compiling to Assembly code, since there are special `add` instructions for int's and float's (as well as other "special" math instructions specialized for speed).
+Types also tell us how many bytes *after the first byte* are part of the value. This is necessary since an address just points to the first byte, and we don't want to access bytes outside of the type.
 
-# Getting Input from Main
-The "main" function actually gets special input parameters (function variables) from the shell! So far we haven't used this functionality!
-
-Make a new file using the touch command called "input.c"
-
-```
-touch input.c
-```
-
-Write the following code into "input.c".
-
-```c
-#include <stdio.h>
-
-int main(int argc, const char * argv[])
-{
-	
-}
-```
-
-What is `const char * argv[]`? 
-
-Well the first part `const` is a keyword, it is telling us that we are not allowed to change the variable's value (stuff inside the variable) and that it is "constant".
-
-The rest of it `char * argv[]` is an array `argv[]` of addresses `char *`. Another way we could write it could be to use two stars `char ** argv` without the square brackets.
-
-(change your code to use two stars)
-```c
-#include <stdio.h>
-
-int main(int argc, const char ** argv)
-{
-	
-}
-```
-
-If we visualize an array of addresses (the addresses each going to a separate string/word/phrase), in memory it would look something like this.
-
-![argv in c](/Assets/argv.png)
-
-The word `argv` stands for "argument vector" (honestly this name is just a tradition).
-
-Lets use `argv` for a simple a program that gets our name, then prints it out along with a "hello" message.
-
-Change your code to the following.
-
-```c
-#include <stdio.h>
-
-int main(int argc, const char * argv[])
-{
-	printf("Hello, %s! \n", argv[1]);
-}
-```
-
-The above code gets the second string from the array of addresses (in `argv`).
-
-Compile this code using `make` and run it using `./input` along with an argument, like the following command.
-
-(command)
-```
-./input Mikey
-```
-
-It runs the input program with an argument (the word "Mikey"). You should see the following get printed.
-
-(shell)
-```
-~/arrays$ ./input Mikey
-Hello, Mikey!
-~/arrays$ 
-```
-
-If you happen to run the "input" program without any "arguments" afterward you will see the word "null" get printed instead! 
-
-Go ahead and try running input without any arguments.
-
-(command)
-```
-./input
-```
-
-We are trying to access memory from our `argv` array that has not been set to anything (because we didn't type in "Mikey" after "./input"). 
-
-In C "null" usually means we are accessing memory that has not been set to anything.
-
-You might ask "what is the string at `argv[0]`"? Well if you change your code to access the first string in `argv[0]` then you will get "./input", which was litterally the command for running the `input` program!
-
-# Out of bounds
-In C we have to manually check how long our array is so that we don't accidentally offset outside of the array. We call this the "bounds" of an array.
-
-Thankfully one of the parameters (inputs) from main is called `argc` which stands for "argument count", `argc` is an int, which tells us how many "arguemnts" the program got (includeing the command to run the program). Individual "arguements" are determined by a space separating each ("./hello how are you" would equal 4 arguments).
-
-You can use `argc` to prevent yourself from offsetting outside of the `argv` arrays bounds.
-
-Change our program to detect if it was run with an argument by using `argc`'s number.
-
-(possible answer, DO NOT COPY PASTE)
-```c
-#include <stdio.h>
-
-int main(int argc, const char * argv[])
-{
-	// if argument count is less than 2
-	if (argc < 2) 
-	{
-		// print an error
-		printf("Error, expected input! `./input <argument>` \n");
-
-		// return an error code of 1 and don't run any of the code after this
-		return 1;
-	}
-
-	// else
-	// print a great message
-	printf("Hello, %s!", argv[1]);
-
-	// return no error (0 means no error)
-	return 0;
-
-	// anything after "return" will not get run
-	printf("This code will never run!");
-}
-```
-
-In the above code we print an error message and "return" an error code of 1, if no argument was given (the command to run the program "./input" counts as an argument, so we check `if argument_count less than 2`).
-
-Any code after a `return` keyword won't get run. So we use "return" inside of the `if (argc < 2)` to prevent us from running the code afterwards (the greating message "Hello, Mikey", since "Mikey" woudln't exist).
-
-Compile the above code (or your variation), and see if it prints the error message when you don't put "Mikey".
-
-See you next section!
+Types also help later when compiling to Assembly, since there are special `add` instructions for int's and float's (not to mention SIMD (Single Instruction Multiple Data) which can add up to 8 numbers (of a particular type) in one single instruction, giving us up to 8x speed ups!).
