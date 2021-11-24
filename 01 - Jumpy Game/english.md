@@ -363,7 +363,37 @@ So we need to add an `else y_velocity = 0` if we have hit the bottom of the wind
 
 Now run this code using the play button!
 
-Now we can prevent our player from falling past our sight of the window, by adding an offset to the `if inside of window` code. 
+# Accuracy
+You might notice that the player gets stuck halfway at the bottom of the window.
+
+![](/Assets/)
+
+This is because when we do the check...
+
+```py
+	# if above bottom of window
+	if y < window.get_height() - 20:
+		# increase movement amount 
+		y_velocity = y_velocity + 2
+	else:
+		# (1) reset the y_velocity
+		y_velocity = 0
+	
+```
+
+The players `y` position might just barely be above the bottom of the window. So we don't reset `y_velocity`, causing the next piece of code...
+
+```py
+	# (2) move y based on y_velocity every loop
+	y = y + y_velocity
+```
+
+To still move the `y` positon! And so we are halfway under the window!
+
+We can fix this player by just reseting the `y` position to `window.height` but since the position is based on the top left of the cube we have to offset upwards a little by the rectangels height, so `y = window.height - 20`, since the rectangles height is 20.
+
+(change your code to the following)
+
 
 (edit your code to the following)
 ```py
