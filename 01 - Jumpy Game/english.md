@@ -323,7 +323,8 @@ You can make this more obvious by increasing the `y_velocity` at a faster rate.
 
 ![pygame falling gravity faster](/Assets/pygame_falling_gravity_faster.gif)
 
-Now, the player will keep falling past the bottom of the window, because even though we stop growing the "y_velocity" number, we are still *moving* our position based on whatver `y_velocity` was left at...
+# Collision
+The player will keep falling past the bottom of the window, because even though we stop growing the "y_velocity" number, we are still *moving* our position based on whatver `y_velocity` was left at...
 
 ```py
 	y = y + y_velocity
