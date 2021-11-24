@@ -296,7 +296,7 @@ while Stop == False:
 
 ```
 
-(1) We make a y_velocity variable for our "ever increasing falling amount physics number". In physics terms this is "velocity".
+(1) We make a `y_velocity` variable.
 
 (2) If the `y` position is inside of the window, then "increase" the falling velocity.
 
