@@ -323,23 +323,26 @@ You can make this more obvious by increasing the `y_velocity` at a faster rate.
 
 ![pygame falling gravity faster](/Assets/pygame_falling_gravity_faster.gif)
 
-Now, the player will keep falling past the bottom of the window, because even though we stop "increasing the y_velocity" if we the `y` position leaves the window...
+Now, the player will keep falling past the bottom of the window, because even though we stop growing the "y_velocity" number, we are still *moving* our position based on whatver `y_velocity` was left at...
+
+```py
+	y = y + y_velocity
+```
+
+...and we never reset `y_velocity` when we touch the bottom of the window!
 
 ```py
 	if y < window.get_height():
 		y_velocity = y_velocity + 10
 ```
 
-... we still keep increasing the `y` position by the `y_velocity`...
 
+So we need to add an `else y_velocity = 0` if we have hit the bottom of the window!...
+
+(edit the code to the following)
 ```py
-	y = y + y_velocity
-```
+# ... irrelevant code
 
-So we need to add an `else y_velocity = 0` if we have hit the bottom of the window (to stop the y position from increasing thanks to a big y_velocity number)...
-
-(edit your code to the following)
-```py
 	# if above bottom of window
 	if y < window.get_height() - 20:
 		# increase movement amount 
@@ -350,6 +353,7 @@ So we need to add an `else y_velocity = 0` if we have hit the bottom of the wind
 	
 	# (2) move y based on y_velocity every loop
 	y = y + y_velocity
+# ... irrelevant code
 ```
 
 (1) If we ARE outside of the window, then we reset the y_velocity.
