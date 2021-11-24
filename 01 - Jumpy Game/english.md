@@ -257,7 +257,7 @@ Every second we are moving 10 pixels down (at least we should be).
 
 Here's why:
 
-We have 0.1 seconds each loop, and move 1 pixel per loop... So `0.1 seconds = 1 pixel (of movement)` If we multiply both sides of the equal sign `=` then nothing will break (mathematically). So multiply both sides by 10, and you get `1 second = 10 pixels`.
+We have 0.1 seconds each loop, and move 1 pixel per loop... So `0.1 seconds = 1 pixel (of movement)`. If we multiply both sides of the equal sign `=` then nothing will break (mathematically). So multiply both sides by 10, and you get `1 second = 10 pixels`.
 
 Now, every second we want to *increase* the number of pixel's we move by to fall faster as time passes (AKA "accelerate" from the force of gravity pulling us down).
 
@@ -296,11 +296,11 @@ while Stop == False:
 
 ```
 
-(1) We make a y_velocity variable for our ever increasing falling amount physcis number (in ohysics terms this is "velocity")
+(1) We make a y_velocity variable for our "ever increasing falling amount physics number". In physics terms this is "velocity".
 
 (2) If the `y` position is inside of the window, then "increase" the falling velocity.
 
-(3) Increase the `y` position based on whatever the `y_velocity` currently is.
+(3) Increase the `y` *position* based on the `y_velocity` number.
 
 Now you should have simple gravity working! And the cube should speed up as it falls, giving the illusion of gravity physics!!
 
