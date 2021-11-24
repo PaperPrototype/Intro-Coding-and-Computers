@@ -18,8 +18,7 @@ To download Discord -> https://discord.com/download
 
 # Navigation
 1. Open the folder called "00 - Python" (On mobile you have to click "view code").
-2. In that folder you will find a folder called "Lecture" open that.
-3. Then you will see a file named "english.md" click that to read the lecture.
+2. In that folder you will find a file called "english.md" open that, click that to read the lecture.
 
 - Notes can be found in a folder called "Notes" under the section folder (eg. "00 - Python" is a section folder)
 - Tutorials can be found in a folder called "Tutorials" under the section folder (eg. "01 - Jumpy Game" is a section folder).
