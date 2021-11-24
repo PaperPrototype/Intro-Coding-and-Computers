@@ -1,4 +1,4 @@
-TODO LEFT OFF HERE
+Open up https://replit.com. Make a new repl using the plus button. Select the C programming language. Name the repl "input".
 
 # Getting Input from Main
 The "main" function actually gets special input parameters (function variables) from the shell! So far we haven't used this functionality!
@@ -40,7 +40,7 @@ If we visualize an array of addresses (the addresses each going to a separate st
 
 ![argv in c](/Assets/argv.png)
 
-The word `argv` stands for "argument vector" (honestly this name is just a tradition).
+The word `argv` stands for "argument vector" (this name is just traditional, we could have named it anything we wanted).
 
 Lets use `argv` for a simple a program that gets our name, then prints it out along with a "hello" message.
 
@@ -57,7 +57,14 @@ int main(int argc, const char * argv[])
 
 The above code gets the second string from the array of addresses (in `argv`).
 
-Compile this code using `make` and run it using `./input` along with an argument, like the following command.
+Compile this code using `make`.
+
+(command)
+```
+make input
+```
+
+and run it using `./input` along with an argument, like the following command.
 
 (command)
 ```
@@ -70,10 +77,10 @@ It runs the input program with an argument (the word "Mikey"). You should see th
 ```
 ~/arrays$ ./input Mikey
 Hello, Mikey!
-~/arrays$ 
+~/arrays$
 ```
 
-If you happen to run the "input" program without any "arguments" afterward you will see the word "null" get printed instead! 
+If you happen to run the "input" program without any "arguments" afterward you will see the word "null" get printed instead!
 
 Go ahead and try running input without any arguments.
 
@@ -86,16 +93,44 @@ We are trying to access memory from our `argv` array that has not been set to an
 
 In C "null" usually means we are accessing memory that has not been set to anything.
 
-You might ask "what is the string at `argv[0]`"? Well if you change your code to access the first string in `argv[0]` then you will get "./input", which was litterally the command for running the `input` program!
+You might ask "what is the string at `argv[0]`"? Well lets change the code to access the first string in `argv[0]`.
 
-# Out of bounds
+(answer)
+```c
+#include <stdio.h>
+
+int main(int argc, const char * argv[])
+{
+	printf("Hello, %s! \n", argv[0]);
+}
+```
+
+Now compile this using `make`.
+
+(command)
+```
+make input
+```
+
+And now run it using the shell.
+
+(command)
+```
+./input Mikey
+```
+
+This should print out "hello ./input", which was litterally the command for running the `input` program! So `argv[0]` stores the literal command we used for running a program, in this case the string "./input".
+
+## Out of bounds
 In C we have to manually check how long our array is so that we don't accidentally offset outside of the array. We call this the "bounds" of an array.
 
-Thankfully one of the parameters (inputs) from main is called `argc` which stands for "argument count", `argc` is an int, which tells us how many "arguemnts" the program got (includeing the command to run the program). Individual "arguements" are determined by a space separating each ("./hello how are you" would equal 4 arguments).
+Thankfully one of the parameters (inputs) from main is called `argc` which stands for "argument count", `argc` is an int, which tells us how many "arguments" are in `argv` (including the command for running the program).
 
-You can use `argc` to prevent yourself from offsetting outside of the `argv` arrays bounds.
+Individual "arguements" are determined by a space separating each (`./hello how are you` would equal 4 arguments).
 
-Change our program to detect if it was run with an argument by using `argc`'s number.
+You can use `argc` to prevent yourself from offsetting outside of the `argv` array bounds.
+
+Change our program to detect if it was run with any arguments (besides the first one for running it) by using `argc`'s number.
 
 (possible answer, DO NOT COPY PASTE)
 ```c
@@ -120,50 +155,42 @@ int main(int argc, const char * argv[])
 	// return no error (0 means no error)
 	return 0;
 
-	// anything after "return" will not get run
+	// anything after "return" will not get run!
 	printf("This code will never run!");
 }
 ```
 
-In the above code we print an error message and "return" an error code of 1, if no argument was given (the command to run the program "./input" counts as an argument, so we check `if argument_count less than 2`).
+In the above code we print an error message and "return" an error code of 1, if no argument was given. Since the command to run the program `./input` counts as an argument we have to check `if argument_count less than 2` and not `if argument_count less than 1`.
 
-Any code after a `return` keyword won't get run. So we use "return" inside of the `if (argc < 2)` to prevent us from running the code afterwards (the greating message "Hello, Mikey", since "Mikey" woudln't exist).
+Any code after a `return` keyword won't get run. So we use "return" inside of the `if (argc < 2)` to prevent us from running the code afterwards for printing out `argv[1]`.
 
-Compile the above code (or your variation), and see if it prints the error message when you don't put "Mikey".
+I also put an extra `printf` at the end just to illustrate that code after a `return` will not get run (that `printf` will never happen).
 
-TODO PASTED ABOVE FROM PREVIOUS LECTURES
+Compile the above code uisng make (or your variation).
 
-# Get Address
-A normal variable also has an address in memory. We can get the address of a non-pointer variable by using the ampersan symbol `&` in front.
-
-(example)
-```c
-int my_number = 12;
-
-void* my_address = &my_number;
+(command)
+```
+make input
 ```
 
-In the above code we make a normal variable called `my_number`. Then we make a pointer (aka address variable) called `my_address` and set it to the address of `my_number`.
+Now see if it prints the error message when you don't put "Mikey".
 
-Now we can use `my_address` to access the same number that `my_number` holds.
-
-In memory this would look something like this.
-
-![memory address from variable](/Assets/memory_address_from_variable.png)
+(command, without "Mikey")
+```
+./input
+```
 
 # Getting Input using Scanf
 We can get input much like Python's builtin `input` function by using C's `scanf` function.
-
-Make a new repl. Select the C programming language. Name the repl "input".
 
 Make a new C file using touch in the shell.
 
 (command)
 ```
-touch input.c
+touch scan.c
 ```
 
-Now open "input.c" file using the files window in Replit and write the following code.
+Now open the "scan.c" file using the files window in Replit and write the following code.
 
 ```c
 #include <stdio.h>
@@ -201,7 +228,7 @@ int main(void)
 }
 ```
 
-Compile this code with `make input`, then run it using `./input` , you should have the following.
+Compile this code with `make scan`, then run it using `./scan` , you should have the following.
 
 (shell example)
 ```
@@ -226,7 +253,7 @@ If the user (you) types just a word instead of a number, then `scanf` will proba
 Go ahead and try typing random things into your program to see what `scanf` will do!
 
 # Do while, Scope, and Return?
-There may be an instance where you want the user to type something specific, like a "yes" or "no", but they type gibberish instead. How can we solve that?
+There may be an instance where you want the user to type something specific, like a "yes" or "no", but they type gibberish instead. How can we make them have to say "yes" or "no" and get an answer?
 
 Make a new file using touch.
 
@@ -249,7 +276,7 @@ int main(void)
 }
 ```
 
-Then make a variable to hold the answer (from the user).
+Then use `scanf` to get the answer from the user (you in this case).
 
 (change your code to the following)
 ```c
@@ -264,13 +291,13 @@ int main(void)
 }
 ```
 
-We make an "answer" array, but we don't use the star symbol `*`. Instead we make the array of size 10, otherwise it woudl be an empty array! And `scanf` can't *put* data into an empty array!
+We make an "answer" array, but we don't use the star symbol `*`. Instead we make the array of size 10, otherwise it would be an empty array! And `scanf` can't *put* data into an empty array! We make this array of size 10, so at the max we can only hold up to 10 `char`'s.
 
-Since the `answer` variable is already an address (aka pointer), we don't have to put an ampersan `&` in front of it in `scanf` to get its address. 
+Since the `answer` variable is already a pointer (address to the first byte), we don't have to put an ampersan `&` in front to gets its address in `scanf`.
 
-Also, we use the string conversion specifier (`%s`) in `scanf`.
+We use the `string` conversion specifier (`%s`) in `scanf`.
 
-Now, how can we check if the person typed "yes" or "no" and not some gibberish? 
+Now, how can we tell if the person typed "yes" or "no", and not some gibberish?
 
 Well we could try to compare the two words!
 
@@ -293,9 +320,9 @@ int main(void)
 }
 ```
 
-But since a "string" is just an array of ASCII numbers (which map to characters) we can't compare two arrays! So instead we would have to go through every single ASCII character, and check if they match eachother!
+But can't compare two arrays (since `answer` is an array of ASCII characters and so is "yes")! So instead we would have to go through every single ASCII character, and check if they match eachother!
 
-There is actually a special function that does just that! It can compare if a string matches another string. It is called `strcmp`, standing for "string compare". To get access to `strcmp` we need to include "string.h".
+There is actually a special function that does just that (although we could easily make one ourselves). It is called `strcmp`, standing for "string compare". To get access to `strcmp` we need to include "string.h".
 
 (add `#include <string.h>` to your code)
 ```c
@@ -311,7 +338,7 @@ int main(void)
 }
 ```
 
-Now we can use `strcmp` to check "if strcmp(answer is "yes")".
+Now we can use `strcmp` to check `if strcmp(answer vs "yes")`.
 
 (change your code to the following)
 ```c
@@ -328,20 +355,23 @@ int main(void)
 	// (1)
 	if (strcmp(answer, "yes") == 0)
 	{
-		printf("yes!");
+		printf("Yay!");
+	}
+	else {
+		printf("Why not?");
 	}
 }
 ```
 
-(1) `strcmp` takes in two strings, compares them and returns (gives back) a number. If the words were equal it gives back `0`, so in the if statement we check if the result is `0` (meaning that the strings matched).
+(1) `strcmp` takes in two strings, compares them and returns (gives back) a number. If the words were equal it gives back `0`, so in the `if` statement we check if `strcmp` gave back `0` (meaning that the strings matched).
 
 Compile this code using `make do_while`, then run it using `./do_while`
 
-If you typed "yes" then the response will have been "yes!"
+When the program asks you to type "yes" or "no", if you typed "yes" then the response will have been "Yay!". Otherwise it will have been "Why not?".
 
-Now what we want is to prompt the user and ask them to give us "yes", but if the user doesn't give us "yes" then the code should repeat (and ask the user again).
+What we want is to prompt the user and ask them to give us "yes" (or "no"), but if the user doesn't give us "yes" (or "no") then the code should repeat, and ask the user again.
 
-Delete the code for "if strcmp(answer is "yes")"
+Delete the code for `if strcmp(answer is "yes")`
 
 (change your code to the following)
 ```c
@@ -376,9 +406,29 @@ int main(void)
 }
 ```
 
-Make sure to use the tab key to put space in front of the code in the "do" block, so that it is inside of the "do" block (AKA, make sure your code looks pretty).
+Make sure to use the tab key to put space in front of the code in the `do` block. Why? Because it would be hard to read if my code looked like this...
 
-Now at the end of the do block, add a "while" condition.
+
+(terrible code)
+```c
+#include <stdio.h>
+#include <string.h>
+
+int main(void)
+{
+do
+{
+printf("Type 'yes' or 'no': ");
+
+char answer[10];
+scanf("%s", answer);
+}
+}
+```
+
+...really hard to read.
+
+Now at the end of the `do` block, add a "while" condition.
 
 (change your code to the following)
 ```c
@@ -408,9 +458,70 @@ do
 while answer is NOT 'yes'
 ```
 
-And the `do` code runs once before the `while` condition.
+The `do` code will run at least one time, before we check the `while` condition. That is what makes this different than a regular old `while` loop.
 
-Although if we try to run this code we will get an error. Simply that the `answer` variable does not exist in the `while` check.
+(example, regular old while loop)
+```c
+#include <stdio.h>
+#include <string.h>
+
+int main(void)
+{
+	while (strcmp(answer, "yes") != 0);
+	{
+		printf("Type 'yes' or 'no': ");
+
+		char answer[10];
+		scanf("%s", answer);
+	} 
+}
+```
+
+The above code wouldn't even work! WE would have to change it to...
+
+(example, terrible code)
+```c
+#include <stdio.h>
+#include <string.h>
+
+int main(void)
+{
+	printf("Type 'yes' or 'no': ");
+
+	// ask once
+	char answer[10];
+	scanf("%s", answer);
+
+	// ask again if incorrect
+	while (strcmp(answer, "yes") != 0);
+	{	
+		printf("Type 'yes' or 'no': ");
+		scanf("%s", answer);
+	} 
+}
+```
+
+Where were we? Oh right, the `do { do this code } while(condition to check)`...
+
+(original code)
+```c
+#include <stdio.h>
+#include <string.h>
+
+int main(void)
+{
+	do
+	{
+		printf("Type 'yes' or 'no': ");
+
+		char answer[10];
+		scanf("%s", answer);
+	} 
+	while (strcmp(answer, "yes") != 0);
+}
+```
+
+If we try to run this code we will get an error. Simply that the `answer` variable does not exist in the `while` check... which is odd.
 
 The problem becomes more obvious if you realize that a `do while` loop is just a regular `while` loop...
 
@@ -425,7 +536,7 @@ The problem becomes more obvious if you realize that a `do while` loop is just a
 	} 
 ```
 
-...with the only difference being that we *`do`* the code inside of the curly brackets at least once, *before* we do the check.
+...with the only difference being that we *`do`* the code inside of the curly brackets at least once, *before* we check the condition.
 
 So now you can see we are trying to use the `answer` variable before it even exists!
 
@@ -451,9 +562,9 @@ int main(void)
 
 "Scope" is a concept that makes sure we don't use a variable before it exists.
 
-And now the answer variable exists inside of `main`, which (thanks to "scope") also makes it valid inside of the `while` check.
+And now the answer variable exists inside of `main` as well as inside of the `while` check.
 
-Before we run this program lets also make the `while` condition check `while compare(answer, "no") != 0 and compare(answer, "yes") != 0`, basically loop again if the input is not "yes" or "no".
+Before we run this program lets also make the `while` condition also check if the input is NOT "yes" *or* "no".
 
 (change your code to the following)
 ```c
@@ -469,9 +580,21 @@ int main(void)
 
 		scanf("%s", answer);
 	} 
-	while (strcmp(answer, "yes") != 0 && strcmp(answer, "no") != 0);
+	while (strcmp(answer, "yes") != 0 
+			&& strcmp(answer, "no") != 0);
 }
 ```
+
+"and" in C is represented by 2 ampersan symbols `&&`. I also put the `&& strcmp(answer, "no") != 0);` on a newline, but you can put it all on the same line if you want.
+
+(example, all in one line)
+```c
+// ... snip
+while (strcmp(answer, "yes") != 0 && strcmp(answer, "no") != 0);
+// ... snip
+```
+
+both ways are valid C code.
 
 One last thing is to print out something depending on the answer.
 
@@ -491,6 +614,7 @@ int main(void)
 	} 
 	while (strcmp(answer, "yes") != 0 && strcmp(answer, "no") != 0);
 
+	// print out the answer
 	printf("%s", answer);
 }
 ```
@@ -505,7 +629,6 @@ Lets turn the "main" function into a function called "yes", then re-make the "ma
 (change your code to the following)
 ```c
 #include <stdio.h>
-#include <stdbool.h>
 #include <string.h>
 
 int main(void)
@@ -526,13 +649,36 @@ bool yes()
 }
 ```
 
-We also delete the `printf` at the end of the "yes" function.
+We delete the `printf("%s", answer);` at the end of the "yes" function.
 
 The `yes` function returns (aka gives back) a `bool` type ("true" or "false"), so we put `bool` in front of the functions name.
 
-Since we are using the "boolean" types `true` and `false` we add `#include <stdbool.h>` at the top, to get access to them.
+Since we are using the "boolean" types `true` and `false` we need to add `#include <stdbool.h>` at the top, to get access to them.
 
-The `yes` function needs to return (give back) `true` if the user put "yes" and return `false` if the user typed "no".
+(add `#include <stdbool.h>` at the top of the code)
+```c
+#include <stdio.h>
+#include <string.h>
+#include <stdbool.h> // include
+
+// ... snip (main)...
+
+bool yes()
+{
+	char answer[10];
+	do
+	{
+		printf("Type 'yes' or 'no': ");
+
+		scanf("%s", answer);
+	} 
+	while (strcmp(answer, "yes") != 0 && strcmp(answer, "no") != 0);
+}
+```
+
+(I put the comment `// ... snip ...`, to show that I am focusing on the `yes` function and the `#include <stdbool.h>` that does NOT mean you should delete the "main" function!)
+
+Now, the `yes` function needs to return (give back) `true` if the user put "yes" and return `false` if the user typed "no".
 
 At the end of the `yes` function (after the user cooperates and puts "yes" or "no") we can return `true` or `false` based on the the answer variable.
 
@@ -551,7 +697,7 @@ bool yes()
 	} 
 	while (strcmp(answer, "yes") != 0 && strcmp(answer, "no") != 0);
 	
-	// answer is yes
+	// if answer is yes
 	if (strcmp(answer, "yes") == 0)
 	{
 		return true;
@@ -563,9 +709,9 @@ bool yes()
 }
 ```
 
-I put the comment `// ... snip ...`, to show that I am focusing on the `yes` function, that does NOT mean you should delete the "main" function! Instead you should just edit what is already inside of the `yes` function!
+(I put the comment `// ... snip ...`, to show that I am focusing on the `yes` function, that does NOT mean you should delete the "main" function! Instead just edit what is already inside of the `yes` function!)
 
-Now we can use the `yes` function whenever we want, and ask the user for a `yes` or `no`!
+Now we can use the `yes` function whenever we want to force a user for a `yes` or `no` answer!
 
 Lets use `yes` to ask the user a question! (inside of `main`)
 
@@ -579,7 +725,7 @@ int main(void)
 {
 	printf("Do you want nose hair? \n");
 
-	if (yes())
+	if (yes() == true)
 	{
 		printf("Thank goodness! XD")
 	}
@@ -592,9 +738,11 @@ int main(void)
 // ... snip ...
 ```
 
-Again you'll see I used `// ... snip ...` to show that I am focusing on the `main` function, I did NOT delete `yes()`! I am simply focusing on the relevant parts of the code, without having to show you everything (plus you already know what the `yes` function looks like/does, so there is no need to repeat myself!)
+(Again you'll see I used `// ... snip ...` to show that I am focusing on the `main` function, I did NOT delete `yes()`! I am simply focusing on the relevant parts of the code, without having to show you everything (plus you already know what the `yes` function looks like/does, so there is no need to repeat myself!))
 
-This is often called "abstraction", which is where we write some code to do something for us once, and then don't have to worry about how it works, but just use it later.
+We run/use the `yes` function inside of `if (yes() == true)`. This will make the code inside of `yes` run, and then give us backa `true` or `false`. I think you can figure out what the rest of the code is doing.
+
+This is often called "abstraction", which is where we (or someone else) writes some code to do a common task, and then after that we can just use it without having to worry about how `yes` works (I am just teaching you the terminology here since someone you talk to will inevitably use it).
 
 You'll notice that I forgot to add a function hint above main! Go ahead and add a function hint for `yes` above main.
 

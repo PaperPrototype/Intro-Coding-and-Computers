@@ -4,7 +4,7 @@ Arrays are different than Python lists because once we set their size, we can't 
 
 Make a new repl. Select the C programming language. Call the project "arrays".
 
-In the shell make a new file called `array.c` using `touch`.
+In the shell make a new file called "array.c" using `touch`.
 
 (command)
 ```

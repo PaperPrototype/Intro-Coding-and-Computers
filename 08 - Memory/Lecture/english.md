@@ -249,6 +249,7 @@ int main(void)
 ```
 
 There is even a function called "memcpy" (which stands for memory copy)!
+
 (example)
 ```c
 // get access to `memcpy`
@@ -290,7 +291,7 @@ int main(void)
 }
 ```
 
-Everything on the stack is always a copy, but what if we want a piece of memory that isn't a copy? What if we want something that can be accessed by its address `char*`, using stack based "address variables" (called "pointers"), but can remain on its own, separate from the stack.
+Everything on the stack is always a copy, but what if we want a piece of memory that isn't a copy? What if we want something that can be accessed by its address `char*`, using stack based pointers, but that can remain on their own, separate from the stack? That takes us to a new area of memeory we haven't even touched yet...
 
 # The heap
 Heap memory lives in the same space as the stack (at least in C), but grows from the opposite side.
@@ -304,6 +305,8 @@ There exists many "allocators" that have different algorithms and methods of "bo
 We are going to use `malloc` which is a standard allocator that all Operating System's have (Windows, MacOS, iOS, Android, and Linux are operating systems).
 
 You can even make your own allocator! But we are NOT gonna do that.
+
+TODO
 
 # Globals
 
@@ -323,7 +326,7 @@ Stack vs Heap
 	- calling a function inside of itself
 
 Variables that are an address
-	- Pointers (already covered in week 2)
+	- Pointers (already covered in week 5)
 
 - structures + addresses
 - heap allocate, dynamic memory allocation

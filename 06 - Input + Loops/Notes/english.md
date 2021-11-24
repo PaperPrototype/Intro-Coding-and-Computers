@@ -1,4 +1,7 @@
 
+`return`
+Gives back something. Also prevents any code after it from running.
+
 `break`
 exits and stops a loop.
 
