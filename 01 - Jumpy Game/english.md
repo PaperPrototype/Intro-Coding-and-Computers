@@ -323,6 +323,9 @@ You can make this more obvious by increasing the `y_velocity` at a faster rate.
 
 ![pygame falling gravity faster](/Assets/pygame_falling_gravity_faster.gif)
 
+# Accuracy and Offsetting
+Offset `if y < window.get_height():` by cube height (20) since y position is at top left.
+
 # Collision
 The player will keep falling past the bottom of the window, because even though we stop growing the "y_velocity" number, we are still *moving* our position based on whatver `y_velocity` was left at...
 
@@ -333,7 +336,7 @@ The player will keep falling past the bottom of the window, because even though 
 ...and we never reset `y_velocity` when we touch the bottom of the window!
 
 ```py
-	if y < window.get_height():
+	if y < window.get_height() - 20:
 		y_velocity = y_velocity + 10
 ```
 
@@ -363,10 +366,10 @@ So we need to add an `else y_velocity = 0` if we have hit the bottom of the wind
 
 Now run this code using the play button!
 
-# Accuracy
+# Physics Limitations and Accuracy
 You might notice that the player gets stuck halfway at the bottom of the window.
 
-![](/Assets/)
+![](/Assets/pygame_rect_stuck_bottom.png)
 
 This is because when we do the check...
 
@@ -390,24 +393,80 @@ The players `y` position might just barely be above the bottom of the window. So
 
 To still move the `y` positon! And so we are halfway under the window!
 
-We can fix this player by just reseting the `y` position to `window.height` but since the position is based on the top left of the cube we have to offset upwards a little by the rectangels height, so `y = window.height - 20`, since the rectangles height is 20.
+We can fix this player by just reseting the `y` position to `window.height` but since the position is based on the top left of the cube we have to offset upwards a little by the rectangles/cubes height, so `y = window.height - 20` (since the rect height is 20).
 
 (change your code to the following)
-
-
-(edit your code to the following)
 ```py
 # ... irrelevant code
 
-	# if above bottom of window
+	# if y is above bottom of window
 	if y < window.get_height() - 20:
+		# increase movement amount 
+		y_velocity = y_velocity + 2
+	else:
+		# reset the y_velocity
+		y_velocity = 0
+
+		# (1) reset y position
+		y = window.get_height() - 20
 
 # ... irrelevant code
 ```
 
-STILL WRITING THIS LECTURE...
+(1) We reset the y position if we are at the bottom of the window.
 
-Here is the final code for the game.
+
+# Bounce
+This is super easy, we can just change one line of code!
+
+Rather than reseting the `y_velocity` to `0` when we hit the bottom of the screen...
+
+(code for resetting `y_velocity`)
+```py
+	else:
+		# reset the y_velocity
+		y_velocity = 0
+		 
+		# ... irrelelvant code
+```
+
+...we can reverse the `y_velocity`...
+
+(change the code to the following)
+```py
+	else:
+		# invert y_velocity
+		y_velocity = -y_velocity
+		 
+		# ... irrelelvant code
+```
+
+...and set it to its itself but negative! 
+
+If you hit play you will see a "perfect" bounce!
+
+![pygame perfect bounce](/Assets/pygame_perfect_bounce.gif)
+
+Although rather than prefeclty inverting the `y_velocity` we will only invert by 40%.
+
+(change the code to the following)
+```py
+	else:
+		# invert by 40%
+		y_velocity = -(y_velocity * 0.4)
+		 
+		# ... irrelelvant code
+```
+
+If you have ever done any math with precentages before you'll know that multiplying by `0.4` gives us 40% of the number we multiplied.
+
+If you run this code, we get a more realistic bounce, that gradually stops.
+
+![pygame realistic bounce](/Assets/pygame_realistic_bounce.gif)
+
+Here is the final code!
+
+(final code)
 ```py
 import pygame
 
@@ -419,50 +478,39 @@ white = [255, 255, 255]
 black = [20, 20, 40]
 window.fill(black)
 
-x = 100
-y = 100
-
+x = 10
+y = 10
 y_velocity = 0
 
 # Endless loop
 Stop = False
 while Stop == False:
-	# Delay
+
+	# delay
 	pygame.time.delay(100)
 
-	# Clear the screen to black
 	window.fill(black)
 
-	# Draw rectangle
 	pygame.draw.rect(window, white, [x, y, 20, 20])
 
-	# Get "mapping" of the keys
-	keys = pygame.key.get_pressed()
-
-	# if right arrow
-	if keys[pygame.K_RIGHT]:
-		x += 10
-
-	if keys[pygame.K_LEFT]:
-		x -= 10
-
-	if keys[pygame.K_SPACE]:
-		# Set y velocity to -5 (makes us jump)
-		y_velocity = -5
-	elif y + 20 > 200:
-		y_velocity = 0
-		y = 200 - 20
-	else:	
-		# Increase y velocity (falling)
-		y_velocity += 1
-
-	# Move y according to y_velocity
-	y += y_velocity
+	# if y is above bottom of window
+	if y < window.get_height() - 20:
+		# increase movement amount 
+		y_velocity = y_velocity + 2
+	else:
+		# reset the y_velocity
+		y_velocity = - (y_velocity *0.4)
+		# reset y position
+		y = window.get_height() - 20
+	
+	# move y based on y_velocity every loop
+	y = y + y_velocity
 
 	for myEvent in pygame.event.get():
 		if myEvent.type == pygame.QUIT:
 			Stop = True
 
-	# Update the display
 	pygame.display.update()
 ```
+
+And that is all for this lecture!... but if you want to add more features to the game (like clicking the arrow keys to move the player, or colliding with the side walls) then check out the tutorials of this section!
