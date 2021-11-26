@@ -117,7 +117,7 @@ char name[] = "Billy";
 char* name = "Billy";
 ```
 
-The size of an array that will be on the stack, must be known when we compile! And when we do...
+The size of an array (that will be on the stack) must be known at compile time (when we compile the code)! So if you wrote...
 
 ```c
 char name[] = "Billy";
@@ -304,7 +304,7 @@ There exists many "allocators" that have different algorithms and methods of "bo
 
 We are going to use `malloc` which is a standard allocator that all Operating System's have (Windows, MacOS, iOS, Android, and Linux are operating systems).
 
-You can even make your own allocator! But we are NOT gonna do that.
+You can even make your own allocator! But we are NOT gonna do that. If your interested though you can read about how an allocator works here https://github.com/mtrebi/memory-allocators#whats-wrong-with-malloc
 
 TODO
 

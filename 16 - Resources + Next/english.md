@@ -39,4 +39,4 @@ I own all the above recommended courses. Although I have only finished part of t
 
 Since you already have strong foundation in C, a simple intruduction to Unity is all you need to make some games. C# is considerably easier than C, and Unity is not that difficult to learn. Although the above Unity courses will teach you "how to use Unity", they won't teach you *how Unity works*, which is what I strugled with the most, and I found frustrating because once I understood how Unity worked it became really easy to know how to use it to make the game what I wanted.
 
-On a side note, Unreal Engine is definitely harder to learn since you have to use C++ for programming, but you know C and C++ is basically C with a butt ton more features.
+Unreal Engine is definitely harder to learn since you use C++ for scripting, but C++ is basically C with a butt ton more features so it shouldn't be too hard.
