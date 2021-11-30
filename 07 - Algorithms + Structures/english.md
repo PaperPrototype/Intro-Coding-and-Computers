@@ -232,7 +232,7 @@ int main(void) {
 }
 ```
 
-The part `struct contact` is the *type*. 
+The part `struct contact` is the "*type*". 
 
 The word `contact` doesn't count as a type by default (at least in C) so we have to put `struct contact` rather than just `contact` in front of the variable `myPerson`.
 
@@ -272,36 +272,17 @@ int main(void) {
 }
 ```
 
-Ahh, much cleaner to read. Although there is a shortcut for using typedef...
+Ahh, much cleaner to read. Although it its pretty anoying to have to do the whole darn `typedef struct contact contact_t;`, instead we can just do this.
 
 (example)
 ```c
-typedef struct contact contact_t;
-```
-...where we can just put the whole darn struct...
-
-(example)
-```c
-struct contact { char* name; char* phone; }
-```
-
-...in the `typedef`...
-
-(example)
-```c
-typedef struct contact { char* name; char* phone; } contact_t;
-```
-
-...which looks like this if we move the curly brackets around...
-
-(example)
-```c
-typedef struct contact { 
-	char* name; 
-	char* phone; 
+typedef struct contact {
+	char* name;
+	char* phone;
 } contact_t;
 ```
-...and we can even remove the the `contact` word at the top...
+
+...and we can even remove the `contact` word at the top...
 
 (example)
 ```c
@@ -310,6 +291,7 @@ typedef struct {
 	char* phone; 
 } contact_t;
 ```
+
 ...which would mean we also don't need to put `_t` at the end to tell the "type" name apart form the struct name...
 
 (example)
@@ -320,9 +302,9 @@ typedef struct {
 } contact;
 ```
 
-Tada! Even better! This is how I recommend you make a `struct` in C, since now the word `contact` counts as a "type".
+Tada! Even better! Now the word `contact` counts as a "type".
 
-(edit your struct code to the following)
+(edit your code to the following)
 ```c
 // (1)
 typedef struct {
@@ -338,13 +320,16 @@ int main(void) {
 
 (1) Modern languages treat all `struct`'s as a type, rather than you having to go through all this nonsense.
 
-(2) The ` = {"Bob", "545-843-6454"};` is just setting the 2 strings in our variable `myPerson` (since the `contact` struct groups 2 strings).
+Where were we? Ah right, setting upi the stuff inside of the variable...
+
+(2) The ` = {"Bob", "545-843-6454"};` is just setting the 2 strings in our variable `myPerson` (since `contact` groups 2 strings).
 
 We can now access the name and phone number in a single variable!
 
-(edit your code to print out the name and phone number)
+(edit your code to print out the name and phone number in `myPerson`)
 ```c
-#include <stdio.h> // make sure to include stdio.h (standard input output)
+#include <stdio.h> 
+// make sure to include stdio.h (standard input output)
 
 typedef struct {
 	char* name;
@@ -359,12 +344,12 @@ int main(void) {
 }
 ```
 
-(1) Doing `.name` lets us access the `name` variable in the `myPerson` variable! The same is true for `.phone`.
+(1) Doing `.name` lets us access the `name` part of `contact`. The same is true for `.phone`.
 
 Now run your edited code, to see what it will print!
 
 # Searching a Phonebook
-Now lets make an array of "contacts". Delete the code inside of the `main` function.
+Now lets make an array of "contacts". Delete the code inside of the `main` function and change it to the following.
 
 (edit your code to the following)
 ```c
@@ -384,9 +369,9 @@ int main(void) {
 
 (1) We make an array of 5 contacts.
 
-(2) We set the first person (by "going to" the first address with an offset of 0). Although C is so clueless it won't realize that `{"Bob", "999-999-9999"}` is in the format of the `contact` type!
+(2) We set the first person by "going to" the first address with an offset of 0. Although C is so clueless it won't realize that `{"Bob", "999-999-9999"}` is in the format of the `contact` type!
 
-So we have to "cast" (like this) and tell C "hey, idiot, this is a `contact` type".
+So we have to "cast" (AKA hint) and tell C "hey, idiot this is a `(contact)` type".
 
 (edit your code to help C understand)
 ```c
@@ -415,6 +400,7 @@ typedef struct {
 int main(void) {
 	contact myPeople[5];
 
+	// (1)
 	myPeople[0] = (contact){"Bob", "999-999-9999"};
 	myPeople[1] = (contact){"Dylan", "888-888-8888"};
 	myPeople[2] = (contact){"Smyth", "777-777-7777"};
@@ -423,16 +409,15 @@ int main(void) {
 }
 ```
 
-Make sure to increase the offset in the square brackets `[]` for each person in the `myPeople` array.
+(1) Make sure to increase the offset in the square brackets `[]` for each person in the `myPeople` array.
 
 Now, we can search through the contacts!
 
 (edit your code to the following)
 ```c
 #include <stdio.h>
-
-// (1) include string.h to get access to `strcmp`
 #include <string.h>
+// (1) include string.h to get access to `strcmp`
 
 typedef struct {
 	char* name;
@@ -451,7 +436,7 @@ int main(void) {
 	// (2) search through 5 contacts
 	for (int i = 0; i < 5; i++)
 	{
-		// (3) if name is "Bill"
+		// (3) if current name at `i` is "Bill"
 		if (strcmp(myPeople[i].name, "Bill") == 0)
 		{
 			// print out phone number
@@ -468,9 +453,9 @@ int main(void) {
 
 (1) We include `string.h` to get access to `strcmp`. 
 
-(2) We create a loop, with an offset number we can use to access each contact, in the contacts array.
+(2) We create a loop, with an offset number we can use to access each contact, in the contacts array. `i` is the name of our offset number variable that will get increased each loop.
 
-(3) We check if `strcmp` returns 0 (meaning the names matched), and then print out Bill's phone number if the names matched.
+(3) We check if `strcmp` returns 0 (meaning the current `.name` in `myPeople` array matched), and then print out Bill's phone number (if Bill is in the contacts of course).
 
 (4) The `break` keyword is new. The `break` keyword will "break out" of any loops it is in. This way if we find the name we want, we print out its corresponding phone number, and "break out" of the loop (rather than continuing to search since we've already found the phone number we wanted).
 
@@ -478,9 +463,9 @@ Obviously this algorithm has `O(N)` efficiency, but for such few contacts it wou
 
 In case if you forgot, `O` (the letter O) stands for "in the worst case scenario" and we put the number of steps for that worst case scenario inside of the parenthesis `()`. In this case we have 5 contacts so its `O(5)` efficiency.
 
-`N` stands for the number of contacts. All put together `O(N)` means "in the worst case scenario it will take 5 (the number of contacts) steps to find Bill".
+Rather than putting 5 inside of the parenthesis `N` stands for the number of contacts. That way if we change the number of contacts we can still just say `O(N)`.
 
-If we *don't* find the person we were looking for then, we will need to print out "not found".
+What If we *don't* find the person we were looking for? In that case we will need to print out "not found".
 
 (edit your code to the following)
 ```c
@@ -509,7 +494,7 @@ int main(void) {
 
 	for (int i = 0; i < 5; i++)
 	{
-		// if name is "Bill"
+		// if current name is "Bill"
 		if (strcmp(myPeople[i].name, "Bill") == 0)
 		{
 			printf("Found Bill, his number is: %s \n", myPeople[i].phone);
@@ -534,12 +519,12 @@ int main(void) {
 
 (3) If we happen to find the name we were looking for, then `found` is gets set to `true`...
 
-(4) After the loop, we check if `found` is still `false` then that means we didn't find what we were looking for (`found` stayed false) an we print "not found".
+(4) After the loop, we check if `found` is still `false` If it is then that means we didn't find what we were looking for (`found` stayed false) an we print "not found".
 
 # Dynamic Search
 This program is pretty stupid, we can only ever search for "Bill".
 
-Lets make it soe that you can type the name of a contact you want, and then have the program search for their phone number.
+Lets make it so that you can type the name of a contact you want, and then have the program search for their phone number.
 
 We could use `scanf` to get input.
 
