@@ -589,21 +589,29 @@ int main(int argc, char* argv[]) {
 
 Now compile this program using make
 
-(shell command)
+(command)
 ```
 make main
 ```
 
-and run the resulting program using
+and run the resulting program to search for "Bill".
 
-(shell command)
+(command)
 ```
 ./main Bill
 ```
 
+Now try searching for "Smyth".
+
+
+(ommand)
+```
+./main Smyth
+```
+
 Tada!
 
-Now try running the program without any arguments!
+If we try running the program without any arguments...
 
 (command)
 ```
@@ -616,7 +624,7 @@ We get an error!
 Not enough arguments! Exit status 1
 ```
 
-...in the shell! Its our our error message, and the error code we `return`ed...
+Its our our error message, and the error code we `return`ed!
 
 (error message code we made)
 ```c
@@ -628,5 +636,81 @@ if (argc < 2)
 ```
 
 Pretty cool!
+
+One other problem we could face is if we forgot to Uppercase the first letter in "Bill", like this "bill". That would result in use not finding "Bill"!
+
+This is because UPPERCASE and lowercase letters have different mappings in the ASCII encodings!
+
+(example ASCII encodings)
+```
+...
+	65	A	(Capital A )			
+	66	B	(Capital B )			
+	67	C	(Capital C )			
+	68	D	(Capital D )			
+	69	E	(Capital E )			
+	70	F	(Capital F )			
+	71	G	(Capital G )			
+	72	H	(Capital H )			
+	73	I	(Capital I )			
+	74	J	(Capital J )			
+	75	K	(Capital K )			
+	76	L	(Capital L )			
+	77	M	(Capital M )			
+	78	N	(Capital N )			
+	79	O	(Capital O )			
+	80	P	(Capital P )			
+	81	Q	(Capital Q )			
+	82	R	(Capital R )			
+	83	S	(Capital S )			
+	84	T	(Capital T )			
+	85	U	(Capital U )			
+	86	V	(Capital V )			
+	87	W	(Capital W )			
+	88	X	(Capital X )			
+	89	Y	(Capital Y )			
+	90	Z	(Capital Z )			
+...
+	97	a	(Lowercase  a )			
+	98	b	(Lowercase  b )			
+	99	c	(Lowercase  c )			
+	100	d	(Lowercase  d )			
+	101	e	(Lowercase  e )			
+	102	f	(Lowercase  f )			
+	103	g	(Lowercase  g )			
+	104	h	(Lowercase  h )			
+	105	i	(Lowercase  i )			
+	106	j	(Lowercase  j )			
+	107	k	(Lowercase  k )			
+	108	l	(Lowercase  l )			
+	109	m	(Lowercase  m )			
+	110	n	(Lowercase  n )			
+	111	o	(Lowercase  o )			
+	112	p	(Lowercase  p )			
+	113	q	(Lowercase  q )			
+	114	r	(Lowercase  r )			
+	115	s	(Lowercase  s )			
+	116	t	(Lowercase  t )			
+	117	u	(Lowercase  u )			
+	118	v	(Lowercase  v )			
+	119	w	(Lowercase  w )			
+	120	x	(Lowercase  x )			
+	121	y	(Lowercase  y )			
+	122	z	(Lowercase  z )			
+...
+```
+
+So when we do...
+
+(code for comparing names)
+```c
+if (strcmp(myPeople[i].name, argv[1]) == 0)
+```
+
+...the names in `myPeople[i].name` and `argv[1]` will NOT match if even 1 of the letters is not in the correct case (uppercase or lowercase).
+
+We can fix this pretty easily by simply lowercasing both words from `myPeople[i].name` and `argv[1]` and then comparing them.
+
+We won't do that, but if you did want to it would require using the `tolower` (as in "to lowercase") function for each letter/`char`acter in the names (or you could even more manually make your own lowercasing function that deals with the ASCII mappings directly).
 
 And thats it for today!
