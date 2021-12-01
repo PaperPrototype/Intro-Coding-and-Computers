@@ -91,7 +91,7 @@ main:
         ret
 ```
 
-When you call/use a function, it's variables and instructions get pushed to the stack, and once the function is done, it's instructions and variables get taken off of the stack!
+When you call/use a function, it's variables and instructions get "pushed" onto the stack, and once the function is done, it's instructions and variables get "popped" off of the stack!
 
 ```c
 int add(int a, int b) {
@@ -105,6 +105,8 @@ int main(void)
 	// pop `add` off the stack
 }
 ```
+
+This actually makes sense when you think about it. How else would all the variables and functions we've made get stored in memory?...
 
 # Stack variables + Array confusion
 The size of a variable on the stack must always be known, at compile time (when we compile the code into a program file of 0s and 1s) and before the program ever runs.
@@ -139,7 +141,15 @@ This would look something like this on the stack.
 
 TODO ![] name array on the stack
 
-# Recursion
+# Recursion TODO
+TODO
+- redo explanation to be more easily understood (more intuitive)
+- explain function that returns something
+- explain function that returns something calling another function that returns something and return what that function gives back.... recursion!
+- explain how to stop the infinite loop with if statement.
+
+TADA! recursion explained in the best way possible! (below explanation is not very good and will be re-written)
+
 Imagine the following code.
 
 (example)
