@@ -238,19 +238,44 @@ int main(void)
 
 The above code prints out each character (one by one) in the hello array.
 
-The `num` variable is the number that gets increased each loop. We loop a total of 5 times, and print each item in the `hello` array. Its very useful that a `for` loop starts counting at zero, since doing so will make the memory offsets start at the first item!
+The `num` variable is the number that gets increased each loop. We loop a total of 5 times, and use the `num` variable to offset into the `hello` array (and access each item)! You'll notice it is very convenient that out `for` loop starts counting at zero, atarting the first memory offset at 0 will get us the first itme (if we had started counting at 1 then we would have skipped the first item).
+
+Traditionally the `num` variable would have been called `index` (or just `i`). This is partly connected to the terminology. Most programmers would say that we are "indexing into the array", and that `num` is the "index".
+
+This is essentially yhe same thing as saying "offsettig into the array", and that `num` os the offset number we use each loop.
+
+For the sake of tradition (and that fact that many programmers are already using this terminology), lets change our code to reflect this traditional way of naming things.
+
+(change `num` to be called `index`)
+```c
+#include <stdio.h>
+
+int main(void) 
+{
+	char hello[] = "Hello";
+
+	// loop 5 times
+	for (int index = 0; index < 5; index++)
+	{
+		// print single item in hello array at offset
+		printf("%c", hello[index]);
+	}
+
+	printf("\n");
+}
+```
 
 Compile the above code using `make string`, and run it using `./string`.
 
 # Design
-Having to manually set the number of times to loop (which is currently 5) is kind of a bad design. Say we accidentally set the number to 10 instead of 5! At some point you might start getting "buffer overflow" errors. Basically we have "overflowed" and accessed memory outside of the "buffer"/chunk of memeory we are allowed to access.
+Having to manually set the number of times to loop (which is currently 5) is kind of a bad design. Say we accidentally set the number of times to loop to 10 (instead of 5)! At some point you might start having "buffer overflow" errors. "buffer overflow" Basically we have "overflowed" and accessed memory outside of the "buffer"/array of memory we are allowed to access.
 
-Instead of manually setting the loop to loop 5 times we can check "while the current character isn't `\0`" (since C automatically puts a null termintating character `\0` at the end).
+Instead of manually setting the loop to loop 5 times we can check "while the current character isn't `\0`" (since C automatically puts a null termintating character `\0` at the end of a string).
 
 (example)
 ```c
 // while current character isn't '\0'
-while hello[num] != '\0'
+while hello[index] != '\0'
 ```
 
 Which will stop the loop once it finds the null character `\0`.
@@ -263,20 +288,20 @@ int main(void)
 {
 	char hello[] = "Hello";
 
-	int num = 0;
-	while (hello[num] != '\0')
+	int index = 0;
+	while (hello[index] != '\0')
 	{
-		printf("%c", hello[num]);
+		printf("%c", hello[index]);
 
-		// increase number
-		num++;
+		// increase index
+		index++;
 	}
 
 	printf("\n");
 }
 ```
 
-Challenge time! Try to change the above `while` loop to a `for` loop! The answer is below if you get stuck, but try and do it without looking at the answer!
+Challenge time! Try to change the above `while` loop to a `for` loop! The answer is below if you get stuck, but try and do it without looking at the answer below!
 
 (answer)
 ```c
@@ -286,9 +311,9 @@ int main(void)
 {
 	char hello[] = "Hello";
 
-	for (int num = 0; hello[num] != '\0'; num++)
+	for (int index = 0; hello[index] != '\0'; index++)
 	{
-		printf("%c", hello[num]);
+		printf("%c", hello[index]);
 	}
 
 	printf("\n");
@@ -312,16 +337,16 @@ int main(void)
 {
 	char hello[] = "Hello";
 
-	for (int num = 0; hello[num] != '\0'; num++)
+	for (int index = 0; hello[index] != '\0'; index++)
 	{
-		printf("%c", hello[num]);
+		printf("%c", hello[index]);
 	}
 
 	printf("\n");
 }
 ```
 
-Now we can replace the condition (aka check for true or false) in the loop with `while num < strlen(hello)`.
+Now we can replace the condition (aka check for true or false) in the loop with `while index < strlen(hello)`.
 
 (change your code to the following)
 ```c
@@ -333,20 +358,23 @@ int main(void)
 	char hello[] = "Hello";
 
 	// loop "strlen" times
-	for (int num = 0; num < strlen(hello); num++)
+	for (int index = 0; index < strlen(hello); index++)
 	{
-		printf("%c", hello[num]);
+		printf("%c", hello[index]);
 	}
 
 	printf("\n");
 }
 ```
 
-Which says "loop string length amount of times".
+Which says "loop "string length" amount of times".
 
-Every time we loop we use the `strlen` function to check "if num is less than length of the string"...but, the strlen function has to count all the stuff inside of the `hello` variable, every single loop, just to do that check! This is not efficient!
+Every time we loop we use the `strlen` function to check "if current index is less than length of hello".
 
-We can quickly fix the terrible design of this by making a variable that will hold onto the "length" number from `strlen`, then use that variable in the check each loop.
+# Design 3
+You might realize at some point that he strlen function has to count all the stuff inside of the `hello` variable, every single loop, just to check `while index is less than strlen of hello`! This is not efficient!
+
+We can quickly fix the terrible design of this by making a variable that will hold the "length" number from `strlen`, then use that variable in the check each loop (instead of recalculating `strlen` every loop, we run it once, and then use the resulting number as many times as we want).
 
 (change your code to the following)
 ```c
@@ -360,16 +388,18 @@ int main(void)
 	// create length variable
 	int length = strlen(hello);
 
-	for (int num = 0; num < length; num++)
+	for (int index = 0; index < length; index++)
 	{
-		printf("%c", hello[num]);
+		printf("%c", hello[index]);
 	}
 
 	printf("\n");
 }
 ```
 
-Tada! Now go ahead an change the word inside of the `hello` array! And the loop will automatically loop the correct number of times!
+Tada! 
+
+Now go ahead an change the word inside of the `hello` array! And the loop will automatically loop the correct number of times and print out each character!
 
 (change your code to the following (or write a sentence of your own in the `hello` array))
 ```c
@@ -378,14 +408,14 @@ Tada! Now go ahead an change the word inside of the `hello` array! And the loop 
 
 int main(void) 
 {
-	char hello[] = "Helloooo everyyybody! I ammmm soooo smart, running with these massive golden scissors in my hands!";
+	char hello[] = "Helloooo everyyybody! I really shoudln't be running with these massive golden scissors in my hands! -- Cloudy with a Chance of Meatballs";
 
 	// create length variable
 	int length = strlen(hello);
 
-	for (int num = 0; num < length; num++)
+	for (int index = 0; index < length; index++)
 	{
-		printf("%c", hello[num]);
+		printf("%c", hello[index]);
 	}
 
 	printf("\n");
@@ -394,6 +424,17 @@ int main(void)
 
 Compile and run this code using the shell!
 
+(command)
+```
+make string
+```
+
+(command)
+```
+./string
+```
+
+# Constants
 We can make sure other programmers don't accidentally change the `length` variable (once we "set" it) by making it a "constant".
 
 (change your code to the following)
@@ -419,7 +460,7 @@ int main(void)
 
 We put the `const` keyword in front of the length variable. If someone makes some code to try to change `length`, then C won't even let the code compile! It will through an error message saying "hey, you can't change that, the other programmer made it a constant."
 
-Also it is a tradition to uppercase a `const` variable to help programmers know it is a `const` (without having to go and look at the code that "made" the variable).
+Also it is a tradition to uppercase a `const` variable to help programmers *know* it is a `const` (without having to go and look at the code that "made" the variable).
 
 (change your code to be more traditional)
 ```c
@@ -442,12 +483,33 @@ int main(void)
 }
 ```
 
-Compile this code usign `make string` and run it using `./string` using the shell.
+It might feel a bit odd that we UPPERCASE the entire word... you should've seen BASIC (BASIC was an old programming language).
 
-Now stare at this marvelous beautiful... pointless, program.
+(simple BASIC program)
+```basic
+ARRAY c
+c[1] = "red"
+c[2] = "blue"
+c[3] = "yellow"
+c[4] = "cyan"
+c[5] = "blue"
+c[6] = "magenta"
+REM start draw loop
+a = rand(50) - 1
+b = rand(50) - 1
+PLOT a, b, c[rand(6)]
+PAUSE 10
+GOTO 9
+```
+
+Anyhow...
+
+Compile our code usign `make string` and run it using `./string` in the shell.
+
+Now stare at this marvelous beautiful, fantastic yet... pointless, program.
 
 # Addresses
-Array variables are an address to the first byte of memory in an array. But what if we only want an address to a single item? In that case we can use a star symbol `*` after the type.
+An array "variable" is technically an address to the first byte of memory in the array (if you've forgotten, go back to section 05). But what if we only want an address to a single item? In that case we can use a star symbol `*` after the type.
 
 (example)
 ```c
@@ -458,272 +520,11 @@ int main(void) {
 }
 ```
 
-In this case we have made a variable of the type `int*` that holds an *address* to 12.
+Here we have made a variable of the type `int*` that is an *address to* 12.
 
-# Swap
-Make a new file using touch called "swap.c".
-
-(command)
-```
-touch swap.c
-```
-
-Open it using the files window.
-
-Lets say we have to variables `a` and `b`. We want to swap the numbers they hold.
-
-(change your code to the following)
-```c
-#include <stdio.h>
-
-int main(void) {
-	int a = 100;
-	int b = 3;
-
-	printf("a is: %i, b is: %i \n", a, b);
-}
-```
-
-Ok, so we have 2 variables, and we print them out. Lets imagine each variable is a cup holding its contents.
-
-![swap cups](/Assets/swap_cups.png)
-
-To be able to swap the "water" (stuff inside `a` and `b`) we need a second cup called "c".
-
-![swap cups need c](/Assets/swap_cups_need_c.png)
-
-Then we can put the stuff from `a` into `c`.
-
-![swap cups a into c](/Assets/swap_cups_a_into_c.png)
-
-Then we can pour `b` into `a`.
-
-![swap cups b into a](/Assets/swap_cups_b_into_a.png)
-
-And finally we can put `c` into `b`.
-
-![swap cups final](/Assets/swap_cups_c_into_b.png)
-
-Yay! We hav e now successfully swapped the contents of `a` and `b`.
-
-Lets turn this into real code.
-
-(make a `void` function under main called "swap" (`void` means it doesn't give anything back))
-```c
-#include <stdio.h>
-
-int main(void) {
-	int a = 100;
-	int b = 3;
-
-	printf("a is: %i, b is: %i \n", a, b);
-}
-
-// swap function
-void swap(int* swap1, int* swap2) {
-	// code for swapping
-}
-```
-
-`swap` takes in 2 addresses (of the type `int`) code named `swap1` and `swap2`. We haven't filled in the code for `swap` just yet. But lets pretend to use it in the "main" function.
-
-(change your code to the following)
-```c
-#include <stdio.h>
-
-int main(void) {
-	int a = 100;
-	int b = 3;
-
-	printf("a is: %i, b is: %i \n", a, b);
-
-	// use swap
-	swap(a, b);
-
-	// print out "a" and "b" after swap
-	printf("a is: %i, b is: %i \n", a, b);
-}
-
-void swap(int* swap1, int* swap2) {
-	// code for swapping
-}
-```
-
-We use `swap` in main, and give it our two variables `a` and `b`, then print out `a` and `b` after calling (using) the `swap` function... except there is a problem. `a` and `b` are *NOT* address variables (the type `int*` is an address to an integer), and the `swap` function is expecting 2 `int*`.
-
-To get an address out of a normal variable we have to put the ampersan symbol `&` in front of it. This changes our code to the following.
-
-(edit your code to the following)
-```c
-#include <stdio.h>
-
-int main(void) {
-	int a = 100;
-	int b = 3;
-
-	printf("a is: %i, b is: %i \n", a, b);
-
-	// get addresses of "a" and "b"
-	swap(&a, &b);
-
-	printf("a is: %i, b is: %i \n", a, b);
-}
-
-// ... snip ...
-```
-
-(I put the comment `// ... snip ...` this does NOT mean you should delete the `swap` function, I am just showing the relevant parts of the code that actually need to change)
-
-Now we are giving `swap` what it is expecting, 2 addresses to 2 numbers.
-
-One last thing is that we need to put a function hint for `swap` above `main`.
-
-(add a function hint above main)
-```c
-#include <stdio.h>
-
-void swap(int* swap1, int* swap2);
-
-int main(void) {
-	int a = 100;
-	int b = 3;
-
-	printf("a is: %i, b is: %i \n", a, b);
-
-	// get addresses of "a" and "b"
-	swap(&a, &b);
-
-	printf("a is: %i, b is: %i \n", a, b);
-}
-
-// ... snip ...
-```
-
-Now lets focus on the `swap` function.
-
-(the currently empty swap function)
-```c
-// ... snip ...
-
-void swap(int* swap1, int* swap2) {
-	// code for swapping
-}
-```
-
-`swap` has 2 address variables to 2 numbers. You can visualize the addresses like this.
-
-![swap function](/Assets/swap_function.png)
-
-You'll notice how the adea of an address is like an arrow "pointing" to something in memory. In C we call a "address variables" "pointers". 
-
-I have neglected using the correct terminology so far to make it easier on you, but if you start talking to a C developer and say "I have this address variable..." he might laugh at you (or worse have no idea what you are talking about). From now on we're going to use the word "pointer" instead of "address variable".
-
-(remember an address is really just a number representing a memory offset to the first byte (8 bits) of something)
-
-Now we need a 3rd variable that can act as the 3rd cup. We will call it "c" (you see where I'm going with this?).
-
-(edit the code inside of swap)
-```c
-// ... snip ...
-
-void swap(int* swap1, int* swap2) {
-	int c;
-}
-```
-
-You can visualize this as the following.
-
-![swap function need c](/Assets/swap_function_need_c.png)
-
-Currently the variable `c` is not set to anything so it is `null` (null means the 0s and 1s are probably some random 0s and 1s "garbage value").
-
-From the cups example we need to set `c` to a copy of what is at the `swap1` variable (which is the `a` variables *value*).
-
-![swap function c copy a](/Assets/swap_function_c_copy_a.png)
-
-To "go to" the address of `swap1` (a "pointer") we put a star symbol `*` in front of it.
-
-(edit swap to the following)
-```c
-// ... snip ...
-
-void swap(int* swap1, int* swap2) {
-	int c = *swap1;
-}
-```
-
-This puts a copy of `a` into `c` (much like the cups example).
-
-"Going to" the address of a pointer is called "de-referencing" because a pointer gives us a "reference" to something, rather than a copy (a normal variable always gets a copy of it and NOT a reference).
-
-From the cups example the next step is to set `a` (which is at `swap1`) to a copy of what is at the `swap2` variable (which is the `b` variables *value*).
-
-![](/Assets/swap_function_a_copy_b.png)
-
-(edit swap to the following)
-```c
-// ... snip ...
-
-void swap(int* swap1, int* swap2) {
-	int c = *swap1;
-	*swap1 = *swap2;
-}
-```
-
-And now we can set `b` to a copy of `c`.
-
-![swap function b copy c](/Assets/swap_function_b_copy_c.png)
-
-And we have successfully swapped `a` and `b` in the `main` function!
-
-```c
-// .. snip ..
-
-int main(void) {
-	int a = 100;
-	int b = 3;
-	
-	printf("a is: %i, b is: %i \n", a, b);
-
-	swap(&a, &b);
-	
-	printf("a is: %i, b is: %i \n", a, b);
-}
-
-// .. snip ..
-```
-
-Here is the final code.
-
-```c
-#include <stdio.h>
-
-// function hint (prototype)
-void swap(int* swap1, int* swap2);
-
-int main(void) {
-	int a = 100;
-	int b = 3;
-	
-	printf("a is: %i, b is: %i \n", a, b);
-
-	swap(&a, &b);
-	
-	printf("a is: %i, b is: %i \n", a, b);
-}
-
-// swap 2 numbers
-void swap(int* swap1, int* swap2) {
-	int c = *swap1;
-	*swap1 = *swap2;
-	*swap2 = c;
-}
-```
-
-Run this code using `make swap`, and run it using `./swap`.
 
 # Void
-Since a pointer simply points to the first byte of memory we don't have to tell C the type! We can just make a plain old address to the first byte of the value!
+Since a pointer (address variable) simply points to the first byte of memory we don't have to tell C the type! We can just make a plain old address to the first byte of the value!
 
 Make a new file using touch called "pointer.c".
 
