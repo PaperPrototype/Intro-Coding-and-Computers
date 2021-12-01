@@ -509,7 +509,7 @@ Compile our code usign `make string` and run it using `./string` in the shell.
 Now stare at this marvelous beautiful, fantastic yet... pointless, program.
 
 # Addresses
-An array "variable" is technically an address to the first byte of memory in the array (if you've forgotten, go back to section 05). But what if we only want an address to a single item? In that case we can use a star symbol `*` after the type.
+An array "variable" is technically an address to the first byte of memory in the array (if you've forgotten, go back to section 05). What if we only want an address to a single item? In that case we can use a star symbol `*` after the type.
 
 (example)
 ```c
@@ -522,9 +522,23 @@ int main(void) {
 
 Here we have made a variable of the type `int*` that is an *address to* 12.
 
+If we want to print out `12` then we need to "go to" the address. To "go to" an address type we put (again) the star symbol in front of the address variable `*my_address`. This is the same as going to a specific item in an array `my_array[0]`.
+
+(example)
+```c
+#include <stdio.h>
+
+int main(void) {
+	int* my_address = 12;
+
+	printf("%i", *my_address);
+}
+```
+
+The above would print out the number 12.
 
 # Void
-Since a pointer (address variable) simply points to the first byte of memory we don't have to tell C the type! We can just make a plain old address to the first byte of the value!
+Since an address variable simply "points" to the first byte of memory of something we don't have to tell C the type! We can just make a plain old address to the first byte!
 
 Make a new file using touch called "pointer.c".
 
@@ -541,7 +555,7 @@ Open pointer.c using the files window.
 
 int main(void) 
 {
-	// "void" pointer
+	// "void" address
 	void* hello = "Hello";
 
 	//             convert to a char array using "char*"
@@ -549,14 +563,14 @@ int main(void)
 }
 ```
 
-This code makes a plain old pointer (address) without needing to know the type! You will also notice that making an array variable using two brackets `myArray[] = "Hello"` is (in some ways) no different than just using a pointer `void* myArray = "Hello"` since internally both are just pointers (address variables) to the first byte of the array.
+This code makes a plain address without needing to know the type! You will also notice that making an array variable using two brackets `myArray[] = "Hello"` is (in some ways) no different than just using an address `void* myArray = "Hello"` since internally both are just addresses to the first byte of the array. In fact you could do just that if you wanted and it would work just as well.
 
-If your thinking just doing `* myAddress = "Hello"` to make a pointer (address variable) then your intuition is right. Even if that makes sense it wouldn't be valid C code, since C's "grammer" requires that we put `void` to represent "no type".
+If your thinking just doing `* myAddress = "Hello"` to make an address variable then your intuition is right. Although that code makes sense it wouldn't be valid C code, since C's "grammer" requires that we put `void` to represent "no type".
 
-C has to know how to treat the 0s and 1s of something at an address to "use" the value. In the code above we tell C the "type" at the address by *casting* (hinting / converting) the pointer to a `char*` pointer, hence `(char*)`.
+C has to know how to treat the 0s and 1s of something at an address to "use" the value. In the code above we tell C the "type" at the address by *casting* (treating the 0s and 1s) at the address, to a `char*` address, hence `(char*)`.
 
-If we skipped *casting* pointer to a `char*` then C would offset by 1 byte (by default) when we use the square brackets `[]` (by default C offsets by 1 byte (8 bits) since that is the smallest individual piece of memory we can access. In this case a `char` uses 1 byte anyways, so it would still work fine).
+If we skipped *casting* the address to a `char*` then C would offset by 1 byte (by default) when we use the square brackets `[]` (by default C offsets by 1 byte (8 bits) since that is the smallest individual piece of memory we can access. In this case a `char` uses 1 byte anyways, so it would still work fine).
 
 Types also tell us how many bytes *after the first byte* are part of the value. This is necessary since an address just points to the first byte, and we don't want to access bytes outside of the type.
 
-Types also help later when compiling to Assembly, since there are special `add` instructions for int's and float's (not to mention SIMD (Single Instruction Multiple Data) which can add up to 8 numbers (of a particular type) in one single instruction, giving us up to 8x speed ups!).
+Types also help later when compiling to Assembly, since there are special `add` instructions for float's (SIMD (Single Instruction Multiple Data) is one example, which can add up to 8 numbers in a single instruction, giving us up to 8x speed ups!).

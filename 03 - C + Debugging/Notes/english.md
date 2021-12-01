@@ -191,3 +191,9 @@ An alias for the number 0
 - booleans use 1 byte = 8 bits
 - `true` is an alias for 1
 - `false` is an alias for 0
+
+
+# Random
+IEEE Standard 754 Floating Point Numbers http://steve.hollasch.net/cgindex/coding/ieeefloat.html
+
+clang explained in detail https://www.joshwieder.net/2014/11/compiling-c-using-clang.html <- clang will be taught in section 4

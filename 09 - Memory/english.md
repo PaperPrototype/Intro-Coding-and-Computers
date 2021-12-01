@@ -179,7 +179,7 @@ void swap(int* swap1, int* swap2) {
 
 ![swap function](/Assets/swap_function.png)
 
-You'll notice how the adea of an address is like an arrow "pointing" to something in memory. In C we call a "address variables" "pointers". 
+You'll notice how the adea of an address is like an arrow "pointing" to something in memory. This is why we call a "address variables" "pointers". 
 
 I have neglected using the correct terminology so far to make it easier on you, but if you start talking to a C developer and say "I have this address variable..." he might laugh at you (or worse have no idea what you are talking about). From now on we're going to use the word "pointer" instead of "address variable".
 
