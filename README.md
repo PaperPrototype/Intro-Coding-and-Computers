@@ -1,8 +1,6 @@
 # Intro to Coding and Computers
 THIS COURSE IS STILL A WORK IN PROGRESS. I will remove this message once it is finished. Feel free to contribute to the tutorials sections.
 
----
-
 Every other wednesday I am teaching it (in person) to a group of 4 students, to find typos, and improve explanations from their feedback.
 
 This course is expected to be finished by May/June 2022.
