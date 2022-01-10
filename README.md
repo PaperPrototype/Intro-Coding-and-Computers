@@ -1,11 +1,9 @@
 # Intro to Coding and Computers
-THIS COURSE IS STILL A WORK IN PROGRESS. I will remove this message once it is finished. Feel free to contribute to the tutorials sections.
+UPDATE: this course is no longer under development. It will be replaced by the follwoing 2 courses
+- https://github.com/PaperPrototype/Intro-to-Scripting-Games-Java
+- https://github.com/PaperPrototype/Intro-to-Software-Fundamentals
 
-Every other wednesday I am teaching it (in person) to a group of 4 students, to find typos, and improve explanations from their feedback.
-
-This course is expected to be finished by May/June 2022.
-
-A temprorary prototype website for our courses can be foound here https://thawing-brook-50577.herokuapp.com/course/2
+REASON: after teaching this course for 6 months to a group of students, I realized it was fundamentally too fast-paced for beginners. It also jumped into advanced topics really quickly. The Intro-to-Software-Fundamentals course will be the most similar to this course, but shorter, since its pre-requisite will be Intro-to-Scripting-Games-Java which will teach the basics of scripting (with Java) using Processing.js (see https://processing.org)
 
 # Who is this course for?
 For beginners and intermediate programmers seeking a deeper understanding of how computers work as well as how to code, AKA Computer Science!
