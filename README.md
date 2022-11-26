@@ -15,8 +15,5 @@ If you are an intermediate programmer (got past hello world), and you want to be
 1. Open the folder called "00 - Python" (On mobile you have to click "view code").
 2. In that folder you will find a file called "english.md" open that, click that to read the lecture.
 
-- Notes can be found in a folder called "Notes" under the section folder (eg. "00 - Python" is a section folder)
-- Tutorials can be found in a folder called "Tutorials" under the section folder (eg. "01 - Jumpy Game" is a section folder).
-    - Tutorials show you how to use the knowledge you learned in a cool project of your choice.
-
-This process is the same for every week.
+- Notes can be found in a folder called "Notes"
+- Tutorials can be found in a folder called "Tutorials"
