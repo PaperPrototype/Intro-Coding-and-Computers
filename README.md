@@ -7,17 +7,9 @@ REASON: I spent 6 months teaching this course to a group of 4 teenagers. After t
 
 If you are an intermediate programmer (got past hello world), and you want to be as good as a software developer, then I strongly (very strongly) recommend Harvards (free) Introduction to Computer Science course https://www.edx.org/cs50, which I based this course on. It will teach you what I attempted to teach, but do a much better job than me.
 
+>
 > It was also an exhausting endeaver
-
-# LEGACY
-## Who is this course for?
-For beginners and intermediate programmers seeking a deeper understanding of how computers work as well as how to code, AKA Computer Science!
-
-If you have ANY issues or something doesn't make sense we would LOVE IT if you told us here -> https://github.com/PaperPrototype/Intro-to-Coding/issues/new
-
-Link to Discord (chat) for getting help -> https://discord.gg/QhqTE4t2tR
-
-To download Discord -> https://discord.com/download
+>
 
 ## Navigation
 1. Open the folder called "00 - Python" (On mobile you have to click "view code").
