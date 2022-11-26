@@ -1,5 +1,5 @@
 # Intro to Coding and Computers
-UPDATE: this course is no longer under development. If you are a complete beginner (never made aything except hellow world) I strongly recommend Khan academy's 
+UPDATE: this course is no longer under development. If you are a complete beginner (never made aything except hellow world) I strongly recommend [Khan academy's Scripting course (it's really fun)](https://www.khanacademy.org/computing/hour-of-code/hour-of-code-lessons/hour-of-drawing-code/v/welcome-hour-of-code)
 
 Only sections 0 to 8 are complete. Since I only had 1 week to write each lecture there is a lot of bad spelling, since some sections are over 500 lines of text + many marked up diagrams + [notes](https://github.com/PaperPrototype/Intro-Coding-and-Computers/blob/main/03%20-%20C%20%2B%20Debugging/Notes/english.md) on new grammer and concepts explained in each section, as well as quite a few [tutorials to practice what was learned in each section](https://github.com/PaperPrototype/Intro-Coding-and-Computers/tree/main/03%20-%20C%20%2B%20Debugging/Tutorials), and, even [re-writing](https://github.com/PaperPrototype/Intro-Coding-and-Computers/tree/main/02%20-%20Fundamentals/Archive) sections [up to 2 times](https://github.com/PaperPrototype/Intro-Coding-and-Computers/tree/main/00%20-%20Python/Archive)
 
