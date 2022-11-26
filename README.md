@@ -1,5 +1,5 @@
 # Intro to Coding and Computers
-UPDATE: this course is no longer under development. I strongly recommend Harvards [(free) Introduction to Computer Science course https://www.edx.org/cs50](https://www.edx.org/cs50)
+UPDATE: this course is no longer under development. I strongly recommend Harvards [(free) Introduction to Computer Science course](https://www.edx.org/cs50)
 
 REASON: after teaching this course for 6 months to a group of students, I realized it was fundamentally too fast-paced for beginners. It also jumped into advanced topics really quickly. The Intro-to-Software-Fundamentals course will be the most similar to this course, but shorter, since its pre-requisite will be Intro-to-Scripting-Games-Java which will teach the basics of scripting (with Java) using Processing.js (see https://processing.org)
 
