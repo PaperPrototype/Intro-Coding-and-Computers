@@ -7,7 +7,7 @@ REASON: I spent 6 months teaching this course to a group of 4 teenagers. After t
 
 SOLUTION: I should have showed them the fun side of programming before nailing them down with concepts like [pointers and arrays](https://github.com/PaperPrototype/Intro-Coding-and-Computers/blob/main/05%20-%20Arrays%20%2B%20Addresses/english.md), [heap vs stack memory](https://github.com/PaperPrototype/Intro-Coding-and-Computers/blob/main/08%20-%20Stack%20%2B%20Heap/Lecture/english.md), [binary number representation](https://github.com/PaperPrototype/Intro-Coding-and-Computers/blob/main/02%20-%20Fundamentals/english.md), and [using the shell to compile C code]().
 
-If you are an intermediate programmer (gotten past what functions are), and you want to be a good software developer, then I strongly (very strongly) recommend Harvards (free) Introduction to Computer Science course https://www.edx.org/cs50, which I based this course on. It will teach you what I attempted to teach, but do a much better job than this.
+If you are an intermediate programmer (gotten past what functions are), and you want to be a good software developer, then I strongly (very strongly) recommend Harvards (free) Introduction to Computer Science course https://www.edx.org/cs50, which I based this course on. It will teach you what I attempted to teach, but do a much better job I did.
 
 >
 > It was also an exhausting endeaver
